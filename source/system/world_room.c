@@ -48,7 +48,29 @@ void offer_interactions() {
 
 string short() { return room_name; }
 string query_area() { return area_name; }
+string query_environment() { return terrain; }
 int query_world_index() { return room_index; }
+
+mapping query_gmcp_exits() {
+  mapping exits;
+
+  exits = ([ ]);
+  if (y > 0) { exits["north"] = 66 + room_index - 253; }
+  if (x < 252) { exits["east"] = 66 + room_index + 1; }
+  if (y < 394 && room_index != 0) { exits["south"] = 66 + room_index + 253; }
+  if (x > 0) { exits["west"] = 66 + room_index - 1; }
+  if (room_index == 0) {
+    exits["south"] = jvmud_invoke_lpc_object(
+        "system/gmcp", "room_id", "place/ashenwatch/crown_lantern");
+  }
+  if ((in_gloamhold() || in_deep_concord()) && y % 20 == 4) {
+    exits["down"] = 66 + room_index + 11 * 253;
+  }
+  if ((in_gloamhold() || in_deep_concord()) && y % 20 == 15) {
+    exits["up"] = 66 + room_index - 11 * 253;
+  }
+  return exits;
+}
 
 string query_brief_exits() {
   string exits;

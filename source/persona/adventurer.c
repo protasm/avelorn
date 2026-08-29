@@ -244,6 +244,77 @@ void enter_avelorn(int returning) {
     write("Welcome to Avelorn, " + character_name + ".\n\n");
   }
   look(0);
+  send_gmcp_character();
+}
+
+void client_protocol_changed(string protocol, int enabled) {
+  if (enabled && jvmud_lowercase_text(protocol) == "gmcp" && account_created) {
+    send_gmcp_character();
+    jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
+  }
+}
+
+void receive_gmcp(string package_name, mixed payload) {
+  string normalized;
+
+  normalized = jvmud_lowercase_text(package_name);
+  if (normalized == "core.ping") {
+    jvmud_send_gmcp("Core.Ping");
+    return;
+  }
+  if (account_created && (normalized == "core.supports.set"
+      || normalized == "core.supports.add")) {
+    send_gmcp_character();
+    jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
+  }
+}
+
+void send_gmcp_character() {
+  mapping vitals;
+
+  if (!account_created || !jvmud_gmcp_enabled()) {
+    return;
+  }
+  jvmud_send_gmcp("Char.Name", ([
+    "name": character_name,
+    "fullname": character_name
+  ]));
+  jvmud_send_gmcp("Char.Base", ([
+    "name": character_name,
+    "class": character_class,
+    "race": "human"
+  ]));
+  vitals = ([
+    "hp": health,
+    "maxhp": max_health,
+    "health": health,
+    "maxHealth": max_health,
+    "mana": resource,
+    "maxmana": max_resource,
+    "moves": resource,
+    "maxmoves": max_resource,
+    "resource": resource,
+    "maxresource": max_resource
+  ]);
+  jvmud_send_gmcp("Char.Vitals", vitals);
+  jvmud_send_gmcp("Char.Maxstats", ([
+    "maxhp": max_health,
+    "maxmana": max_resource,
+    "maxmoves": max_resource
+  ]));
+  jvmud_send_gmcp("Char.StatusVars", ([
+    "level": "Level",
+    "class": "Class",
+    "experience": "Experience",
+    "resource": resource_name()
+  ]));
+  jvmud_send_gmcp("Char.Status", ([
+    "level": level,
+    "class": character_class,
+    "experience": experience,
+    "tnl": level < 10 ? experience_for_next_level() - experience : 0,
+    "resource": resource
+  ]));
 }
 
 void end_session() {
@@ -348,6 +419,7 @@ int look(mixed target) {
     return 1;
   }
   jvmud_invoke_lpc_object(place, "describe", jvmud_current_lpc_object());
+  jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
   return 1;
 }
 
@@ -357,6 +429,7 @@ int world_map(mixed ignored) {
 }
 
 int travel_to(string direction, string destination) {
+  object old_place;
   object new_place;
 
   if (combat_target) {
@@ -367,6 +440,8 @@ int travel_to(string direction, string destination) {
       jvmud_current_lpc_object(),
       character_name + " leaves " + direction + ".\n",
       jvmud_current_lpc_object());
+  old_place = jvmud_entity_location(jvmud_current_lpc_object());
+  jvmud_invoke_lpc_object("system/gmcp", "record_travel", old_place, direction, destination);
   jvmud_move_entity(jvmud_current_lpc_object(), destination);
   new_place = jvmud_entity_location(jvmud_current_lpc_object());
   avelorn_emit_except(
@@ -378,6 +453,7 @@ int travel_to(string direction, string destination) {
   } else {
     jvmud_invoke_lpc_object(new_place, "describe", jvmud_current_lpc_object());
   }
+  jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
   return 1;
 }
 
@@ -487,6 +563,7 @@ int score(mixed ignored) {
   write("  Charisma " + charisma + "\n");
   write("Unspent attribute points: " + attribute_points + "\n");
   write("Coin: " + money_text() + "\n");
+  send_gmcp_character();
   return 1;
 }
 
@@ -667,6 +744,7 @@ int use_item(mixed target) {
   write(" and recover " + amount + " health.\n");
   jvmud_destroy_lpc_object(item);
   save_character();
+  send_gmcp_character();
   return 1;
 }
 
@@ -818,6 +896,7 @@ int class_ability(mixed target) {
   resource -= cost;
   combat_target = opponent;
   write("You unleash " + technique + ".\n");
+  send_gmcp_character();
   return jvmud_invoke_lpc_object(
       opponent,
       "receive_attack",
@@ -835,6 +914,7 @@ int receive_damage(int amount, string attacker_name) {
   write(attacker_name + " strikes you for " + amount + " damage.\n");
   if (health > 0) {
     write("You have " + health + "/" + max_health + " health remaining.\n");
+    send_gmcp_character();
     return health;
   }
 
@@ -855,6 +935,7 @@ int receive_damage(int amount, string attacker_name) {
   }
   save_character();
   look(0);
+  send_gmcp_character();
   return 0;
 }
 
@@ -1146,6 +1227,7 @@ int improve(mixed target) {
   recalculate_resources(0);
   write("Your " + stat + " improves to " + stat_value(stat) + ".\n");
   save_character();
+  send_gmcp_character();
   return 1;
 }
 
@@ -1166,6 +1248,7 @@ int rest_at_shrine() {
   write("You rest beneath the Seven Lamps and recover your health and "
       + jvmud_lowercase_text(resource_name()) + ".\n");
   save_character();
+  send_gmcp_character();
   return 1;
 }
 
@@ -1621,6 +1704,7 @@ void gain_experience(int amount) {
           "You earn an attribute point. Use improve <attribute>.\n");
     }
   }
+  send_gmcp_character();
 }
 
 int experience_for_next_level() {

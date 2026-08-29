@@ -1,8 +1,7 @@
 # Avelorn: The Lantern Crown
 
-Avelorn is JVMud's native exemplar game: a persistent, multiplayer,
-medieval swords-and-sorcery kingdom authored directly against JVMud's native
-engine-mudlib boundary.
+Avelorn is a persistent, multiplayer, medieval swords-and-sorcery kingdom
+authored for the JVMud engine.
 
 The initial campaign begins in Brindleford and follows a newly licensed member
 of the Company of the Lantern through ten levels of service to a prosperous,
@@ -90,8 +89,21 @@ by stable object id while players remain connected. The reload operation is a
 host API, not an unauthenticated player command; the acceptance suite verifies
 that a connected journal immediately observes a reloaded quest definition.
 
-Run the game from the repository root with:
+## Development
+
+Avelorn and JVMud are independent sibling projects. Clone JVMud beside this
+repository, or set `JVMUD_ROOT` to its checkout. Install the current JVMud
+snapshot before running Avelorn's acceptance suite:
 
 ```text
-scripts/jvmud-start mudlibs/avelorn/jvmud/avelorn.config
+cd ../jvmud
+mvn install
+cd ../avelorn
+mvn test
+```
+
+Run the game from the Avelorn repository root with:
+
+```text
+scripts/avelorn-start
 ```

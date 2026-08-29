@@ -2,3 +2,5 @@
 !/accounts/.gitkeep
 /log/*
 !/log/.gitkeep
+/target/
+.DS_Store
