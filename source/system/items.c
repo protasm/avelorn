@@ -4,14 +4,20 @@ void initialize(mixed first_load) {
 object create(string blueprint_id) {
   object item;
 
-  item = jvmud_clone_lpc_object("item/item");
+  /* Preserve non-quest equipment in existing character snapshots under neutral ids. */
   if (blueprint_id == "weapon/crown-arming-sword") {
+    blueprint_id = "weapon/arming-sword";
+  } else if (blueprint_id == "weapon/temple-mace") {
+    blueprint_id = "weapon/steel-mace";
+  }
+  item = jvmud_clone_lpc_object("item/item");
+  if (blueprint_id == "weapon/arming-sword") {
     configure_item(
         item,
         blueprint_id,
-        "Crown arming sword",
+        "arming sword",
         "sword",
-        "A practical double-edged sword stamped with the Crown's assay mark.",
+        "A practical double-edged steel sword.",
         "weapon",
         6,
         160,
@@ -25,7 +31,7 @@ object create(string blueprint_id) {
         blueprint_id,
         "ashwood shortbow",
         "bow",
-        "A compact roadwarden's bow made from layered ash and horn.",
+        "A compact bow made from layered ash and horn.",
         "weapon",
         4,
         145,
@@ -39,7 +45,7 @@ object create(string blueprint_id) {
         blueprint_id,
         "oak focus staff",
         "staff",
-        "Silver wire winds around a Collegium-cut crystal at the staff's head.",
+        "Silver wire winds around a cut crystal at the staff's head.",
         "weapon",
         5,
         150,
@@ -47,13 +53,13 @@ object create(string blueprint_id) {
         "intelligence",
         11,
         0);
-  } else if (blueprint_id == "weapon/temple-mace") {
+  } else if (blueprint_id == "weapon/steel-mace") {
     configure_item(
         item,
         blueprint_id,
-        "temple mace",
+        "steel mace",
         "mace",
-        "Seven small lamps are engraved around this sturdy steel mace.",
+        "A sturdy steel mace with a leather-wrapped grip.",
         "weapon",
         6,
         150,
@@ -67,7 +73,7 @@ object create(string blueprint_id) {
         blueprint_id,
         "blue wool travel cloak",
         "cloak",
-        "A warm Company cloak with a small brass lantern clasp.",
+        "A warm blue wool cloak with a plain brass clasp.",
         "body",
         3,
         80,
@@ -81,7 +87,7 @@ object create(string blueprint_id) {
         blueprint_id,
         "minor healing draught",
         "draught",
-        "A stoppered clay vial of Sister Elara's sharp-scented red cordial.",
+        "A stoppered clay vial of sharp-scented red cordial.",
         "none",
         1,
         35,
@@ -95,7 +101,7 @@ object create(string blueprint_id) {
         blueprint_id,
         "loaf of field bread",
         "bread",
-        "A dense oat-and-honey loaf baked to travel well on the royal roads.",
+        "A dense oat-and-honey loaf baked to travel well.",
         "none",
         1,
         12,
@@ -103,20 +109,6 @@ object create(string blueprint_id) {
         "none",
         0,
         5);
-  } else if (blueprint_id == "trinket/lantern-crown-medal") {
-    configure_item(
-        item,
-        blueprint_id,
-        "Medal of the Western Lantern",
-        "medal",
-        "A blue-enamel Crown medal awarded for restoring the western Lantern beneath Ashenwatch.",
-        "charm",
-        1,
-        0,
-        10,
-        "charisma",
-        14,
-        0);
   } else {
     jvmud_destroy_lpc_object(item);
     return 0;

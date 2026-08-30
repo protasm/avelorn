@@ -1,0 +1,26 @@
+{
+  "schema": 2,
+  "status": "working canonical coordinate contract; physical edition not frozen",
+  "description": "Affine transform from Earth-referenced NZTM2000 true-metre coordinates into fictional world-grid coordinates",
+  "source_horizontal_crs": {
+    "name": "NZGD2000 / New Zealand Transverse Mercator 2000",
+    "epsg": 2193,
+    "unit": "metre"
+  },
+  "rotation_counterclockwise_degrees": 75.0,
+  "pivot": {
+    "x_metres": 1591785.1391347009,
+    "y_metres": 5508150.260509122
+  },
+  "world_axis_semantics": {
+    "positive_x": "fictional east",
+    "positive_y": "fictional north",
+    "screen_up_at_qgis_rotation_zero": "fictional north"
+  },
+  "qgis_storage_envelope": "EPSG:3857 identifier used only for fictional Cartesian metre storage",
+  "earth_georeferencing_valid_after_transform": false,
+  "distance_and_area_semantics": "true metres and square metres inherited from EPSG:2193 before rigid rotation",
+  "raster_reorientation_method": "rotate affine geotransform without resampling pixel values",
+  "source_dataset": "unnamed_archipelago.gpkg",
+  "working_project": "metric_candidate/unnamed_world_metric_candidate.qgz"
+}

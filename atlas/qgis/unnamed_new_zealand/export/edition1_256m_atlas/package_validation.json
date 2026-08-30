@@ -1,0 +1,143 @@
+{
+  "checks": [
+    {
+      "detail": 1226,
+      "name": "package exposes a bounded-readable top-level /regions array",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "every gzip region exposes a bounded-readable /squares array",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "all region files have gzip signatures and matching checksums",
+      "pass": true
+    },
+    {
+      "detail": {
+        "regions": 1226,
+        "unique_coordinates": 1226,
+        "unique_indices": 1226
+      },
+      "name": "region indices and coordinates are unique and ordered",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "every /squares array is sparse, sorted, and locally unique",
+      "pass": true
+    },
+    {
+      "detail": {
+        "invalid_entries": 0,
+        "value_mismatches": 0
+      },
+      "name": "every JSON square round-trips to the exact elevation and terrain raster values",
+      "pass": true
+    },
+    {
+      "detail": {
+        "duplicates": 0,
+        "json_squares": 4051581,
+        "land_squares": 4051581,
+        "missing": 0
+      },
+      "name": "every land square appears exactly once",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "no ocean square is stored",
+      "pass": true
+    },
+    {
+      "detail": {
+        "dictionary_total": 4051581,
+        "json_total": 4051581
+      },
+      "name": "JSON terrain totals reproduce the terrain dictionary",
+      "pass": true
+    },
+    {
+      "detail": {
+        "cell_edge_metres": 256,
+        "cells_per_region_axis": 64,
+        "coordinate_semantics": {
+          "origin": "southwest corner of frozen world square",
+          "positive_x": "fictional east",
+          "positive_y": "fictional north",
+          "qgis_screen_up_at_rotation_zero": "fictional north"
+        },
+        "edition": "edition1",
+        "local_index_formula": "local_y * 64 + local_x",
+        "ocean_squares_stored": false,
+        "region_edge_metres": 16384,
+        "regions_per_axis": 80,
+        "schema": 1,
+        "square_physical_fields": [
+          "elevation_m",
+          "terrain_code"
+        ],
+        "world_side_metres": 1310720
+      },
+      "name": "world geometry is exactly 80 regions by 64 cells by 256 m",
+      "pass": true
+    },
+    {
+      "detail": {
+        "entry": [
+          "local_index",
+          "elevation_m",
+          "terrain_code"
+        ],
+        "physical_fields": [
+          "elevation_m",
+          "terrain_code"
+        ]
+      },
+      "name": "square payload stores only location plus elevation and terrain",
+      "pass": true
+    },
+    {
+      "detail": {
+        "int64": false,
+        "null_false": false
+      },
+      "name": "plain JSON contract needs neither 64-bit integers nor null/false distinction",
+      "pass": true
+    },
+    {
+      "detail": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+      "name": "package is bound to frozen QGIS Edition 1",
+      "pass": true
+    },
+    {
+      "detail": false,
+      "name": "package and build reports introduce no proper names",
+      "pass": true
+    },
+    {
+      "detail": [
+        "export/edition1_256m_atlas/package.json",
+        "export/edition1_256m_atlas/package.schema.json",
+        "export/edition1_256m_atlas/region.schema.json",
+        "export/edition1_256m_atlas/terrain_types.json",
+        "export/edition1_256m_atlas/world.json"
+      ],
+      "name": "build report outputs retain their checksums",
+      "pass": true
+    }
+  ],
+  "checks_passed": 15,
+  "checks_total": 15,
+  "compressed_region_json_bytes": 17090222,
+  "created_utc": "2026-08-30T20:53:03.130035+00:00",
+  "land_square_count": 4051581,
+  "package": "export/edition1_256m_atlas/package.json",
+  "package_sha256": "a74d203c55160ffb9f2b59f0630bb83cab877ea8896d4c9a9bea3d937e2c7856",
+  "region_file_count": 1226,
+  "schema": 1,
+  "status": "pass"
+}

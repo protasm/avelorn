@@ -1,0 +1,218 @@
+{
+  "checks": [
+    {
+      "detail": [
+        5120,
+        5120
+      ],
+      "name": "terrain raster retains the exact 256 m physical grid",
+      "pass": true
+    },
+    {
+      "detail": {
+        "missing_land": 0,
+        "ocean_nonzero": 0
+      },
+      "name": "hard coast is exact and ocean has no terrain entry",
+      "pass": true
+    },
+    {
+      "detail": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        30,
+        31,
+        32,
+        34,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "name": "all land codes are within 1 through 62",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "all lake cells retain inland-water terrain",
+      "pass": true
+    },
+    {
+      "detail": 0,
+      "name": "all represented river cells retain contiguous water terrain",
+      "pass": true
+    },
+    {
+      "detail": {
+        "components": 24,
+        "small_components": []
+      },
+      "name": "all 24 island components remain and no lily-pad fragments appear",
+      "pass": true
+    },
+    {
+      "detail": {
+        "codes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "entry_count": 64
+      },
+      "name": "terrain dictionary defines exactly codes 0 through 63",
+      "pass": true
+    },
+    {
+      "detail": {
+        "code_0": "reserved",
+        "code_63": "reserved",
+        "code_63_land": 0
+      },
+      "name": "codes 0 and 63 are reserved and absent from land",
+      "pass": true
+    },
+    {
+      "detail": false,
+      "name": "terrain dictionary introduces no proper geographic names",
+      "pass": true
+    },
+    {
+      "detail": [
+        {
+          "matches": true,
+          "path": "export/edition1_256m_atlas/rasters/terrain_code.tif"
+        },
+        {
+          "matches": true,
+          "path": "export/edition1_256m_atlas/terrain_types.json"
+        }
+      ],
+      "name": "build outputs match declared digests",
+      "pass": true
+    },
+    {
+      "detail": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+      "name": "classifier is bound to the frozen QGIS project",
+      "pass": true
+    },
+    {
+      "detail": false,
+      "name": "old provisional export was not used as input",
+      "pass": true
+    },
+    {
+      "detail": 51,
+      "name": "at least forty distinct physical terrains are represented",
+      "pass": true
+    }
+  ],
+  "checks_passed": 13,
+  "checks_total": 13,
+  "created_utc": "2026-08-30T20:52:38.186987+00:00",
+  "land_cell_count": 4051581,
+  "represented_terrain_type_count": 51,
+  "schema": 1,
+  "status": "pass"
+}

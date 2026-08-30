@@ -52,7 +52,7 @@ class AvelornTelnetTest {
                 writeLine(socket, "mage");
 
                 String firstLook = readUntilQuietAfterContains(socket, ruler);
-                assertTrue(firstLook.contains("Brindleford Village Green"), printable(firstLook));
+                assertTrue(firstLook.contains("Login Room"), printable(firstLook));
                 assertTelnetText(firstLook);
 
                 writeLine(socket, "quit");
@@ -75,7 +75,7 @@ class AvelornTelnetTest {
                 writeLine(socket, "Avelorn1!");
                 String returningLook = readUntilQuietAfterContains(socket, ruler);
                 assertTrue(returningLook.contains("Welcome back, Mira valewood."), printable(returningLook));
-                assertTrue(returningLook.contains("Brindleford Village Green"), printable(returningLook));
+                assertTrue(returningLook.contains("Login Room"), printable(returningLook));
                 assertTelnetText(returningLook);
 
                 writeLine(socket, "quit");

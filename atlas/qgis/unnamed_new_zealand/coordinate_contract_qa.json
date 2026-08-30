@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "metric_candidate/unnamed_world_metric_candidate.qgz": "0a4e52509b2f1ad24f1fbec862883a69567b0b6827531b6e1710f387c6887b1e",
+    "scope/world_region_grid_summary.json": "68146e04469b99d2bc6b1bfd1d316eeebb342715d90cd9a7d42b6364a1eb35ca",
+    "scope/world_scope.json": "2bee0b2bfad912a1044c6cb391fde1491a9637902419d277e308b0a1d0b02398",
+    "world_transform_metric.json": "45b6ceed698303dbfd70116eaad188571af66fc47d49a66d0b489ad2ccf607ae"
+  },
+  "checks": {
+    "boundary_extents_match_side": true,
+    "earth_georeferencing_disabled_after_transform": true,
+    "fictional_axes_declared": true,
+    "grid_axes_are_fictional_east_north": true,
+    "grid_origin_is_scope_southwest": true,
+    "pivot_matches_scope": true,
+    "qgis_storage_is_fictional_envelope": true,
+    "region_is_exact_64_cell_square": true,
+    "retained_coastline_checksum_matches": true,
+    "rotation_is_75_degrees_counterclockwise": true,
+    "rotation_matrix_is_orthonormal": true,
+    "rotation_matrix_preserves_handedness": true,
+    "saved_project_crs_is_storage_envelope": true,
+    "saved_project_variables_match_contract": true,
+    "saved_project_view_rotation_is_zero": true,
+    "scope_checksum_matches_grid_record": true,
+    "source_crs_is_nztm2000": true,
+    "world_boundary_checksum_matches": true,
+    "world_grid_checksum_matches": true,
+    "world_is_exact_5120_cell_square": true,
+    "world_is_exact_80_region_square": true
+  },
+  "contract": "WORLD_COORDINATE_CONTRACT.md",
+  "failed_checks": [],
+  "rotation_matrix": {
+    "cos": 0.25881904510252074,
+    "determinant": 1.0,
+    "negative_sin": -0.9659258262890683,
+    "sin": 0.9659258262890683
+  },
+  "schema": 1,
+  "semantics": {
+    "earth_coordinates_public_after_transform": false,
+    "earth_to_world_rotation_counterclockwise_degrees": 75.0,
+    "fictional_east": "positive x",
+    "fictional_north": "positive y and screen up at QGIS rotation zero",
+    "public_grid_origin": "southwest corner of wb.0",
+    "public_indices": "zero-based; increase east and north; maximum bounds excluded"
+  },
+  "status": "pass",
+  "validated_utc": "2026-08-30T18:21:29.910259+00:00"
+}

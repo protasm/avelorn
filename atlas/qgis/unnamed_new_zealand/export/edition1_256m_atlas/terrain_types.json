@@ -1,0 +1,394 @@
+{
+  "code_range": [
+    0,
+    63
+  ],
+  "proper_geographic_names_introduced": false,
+  "schema": 1,
+  "terrain_types": [
+    {
+      "code": 0,
+      "id": "non-occupiable-ocean-or-outside",
+      "land_cell_count": 0,
+      "state": "reserved"
+    },
+    {
+      "code": 1,
+      "id": "open-inland-water",
+      "land_cell_count": 31029,
+      "state": "available"
+    },
+    {
+      "code": 2,
+      "id": "shallow-lake-margin",
+      "land_cell_count": 7507,
+      "state": "available"
+    },
+    {
+      "code": 3,
+      "id": "river-channel",
+      "land_cell_count": 17741,
+      "state": "available"
+    },
+    {
+      "code": 4,
+      "id": "river-wetland",
+      "land_cell_count": 9703,
+      "state": "available"
+    },
+    {
+      "code": 5,
+      "id": "coastal-wetland",
+      "land_cell_count": 57,
+      "state": "available"
+    },
+    {
+      "code": 6,
+      "id": "basin-wetland",
+      "land_cell_count": 30341,
+      "state": "available"
+    },
+    {
+      "code": 7,
+      "id": "peat-wetland",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 8,
+      "id": "sandy-coast",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 9,
+      "id": "rocky-coast",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 10,
+      "id": "warm-lowland-closed-forest",
+      "land_cell_count": 314592,
+      "state": "available"
+    },
+    {
+      "code": 11,
+      "id": "temperate-lowland-closed-forest",
+      "land_cell_count": 365722,
+      "state": "available"
+    },
+    {
+      "code": 12,
+      "id": "wet-lowland-closed-forest",
+      "land_cell_count": 108898,
+      "state": "available"
+    },
+    {
+      "code": 13,
+      "id": "dry-lowland-open-woodland",
+      "land_cell_count": 13255,
+      "state": "available"
+    },
+    {
+      "code": 14,
+      "id": "lowland-scrub",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 15,
+      "id": "lowland-grassland",
+      "land_cell_count": 7252,
+      "state": "available"
+    },
+    {
+      "code": 16,
+      "id": "rolling-humid-forest",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 17,
+      "id": "rolling-dry-woodland",
+      "land_cell_count": 201640,
+      "state": "available"
+    },
+    {
+      "code": 18,
+      "id": "rolling-grassland",
+      "land_cell_count": 9806,
+      "state": "available"
+    },
+    {
+      "code": 19,
+      "id": "forested-valley",
+      "land_cell_count": 87956,
+      "state": "available"
+    },
+    {
+      "code": 20,
+      "id": "open-valley",
+      "land_cell_count": 8963,
+      "state": "available"
+    },
+    {
+      "code": 21,
+      "id": "forested-alluvial-plain",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 22,
+      "id": "open-alluvial-plain",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 23,
+      "id": "forested-foothill",
+      "land_cell_count": 1080909,
+      "state": "available"
+    },
+    {
+      "code": 24,
+      "id": "wooded-foothill",
+      "land_cell_count": 199083,
+      "state": "available"
+    },
+    {
+      "code": 25,
+      "id": "scrub-foothill",
+      "land_cell_count": 11421,
+      "state": "available"
+    },
+    {
+      "code": 26,
+      "id": "grassy-foothill",
+      "land_cell_count": 15094,
+      "state": "available"
+    },
+    {
+      "code": 27,
+      "id": "cool-montane-forest",
+      "land_cell_count": 137103,
+      "state": "available"
+    },
+    {
+      "code": 28,
+      "id": "wet-montane-forest",
+      "land_cell_count": 66767,
+      "state": "available"
+    },
+    {
+      "code": 29,
+      "id": "dry-montane-forest",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 30,
+      "id": "montane-scrub",
+      "land_cell_count": 12850,
+      "state": "available"
+    },
+    {
+      "code": 31,
+      "id": "montane-grassland",
+      "land_cell_count": 2381,
+      "state": "available"
+    },
+    {
+      "code": 32,
+      "id": "subalpine-scrub",
+      "land_cell_count": 192732,
+      "state": "available"
+    },
+    {
+      "code": 33,
+      "id": "subalpine-grassland",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 34,
+      "id": "alpine-grass-herbfield",
+      "land_cell_count": 99753,
+      "state": "available"
+    },
+    {
+      "code": 35,
+      "id": "alpine-scree",
+      "land_cell_count": 60370,
+      "state": "available"
+    },
+    {
+      "code": 36,
+      "id": "bare-alpine-rock",
+      "land_cell_count": 13849,
+      "state": "available"
+    },
+    {
+      "code": 37,
+      "id": "volcanic-plateau",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 38,
+      "id": "forested-volcanic-slope",
+      "land_cell_count": 117286,
+      "state": "available"
+    },
+    {
+      "code": 39,
+      "id": "open-volcanic-slope",
+      "land_cell_count": 6825,
+      "state": "available"
+    },
+    {
+      "code": 40,
+      "id": "forested-rocky-ridge",
+      "land_cell_count": 124399,
+      "state": "available"
+    },
+    {
+      "code": 41,
+      "id": "open-rocky-ridge",
+      "land_cell_count": 9713,
+      "state": "available"
+    },
+    {
+      "code": 42,
+      "id": "steep-forested-slope",
+      "land_cell_count": 59926,
+      "state": "available"
+    },
+    {
+      "code": 43,
+      "id": "steep-open-slope",
+      "land_cell_count": 1130,
+      "state": "available"
+    },
+    {
+      "code": 44,
+      "id": "cliff-or-precipice",
+      "land_cell_count": 5161,
+      "state": "available"
+    },
+    {
+      "code": 45,
+      "id": "dry-basin-grassland",
+      "land_cell_count": 2541,
+      "state": "available"
+    },
+    {
+      "code": 46,
+      "id": "basin-shrubland",
+      "land_cell_count": 1256,
+      "state": "available"
+    },
+    {
+      "code": 47,
+      "id": "forested-basin",
+      "land_cell_count": 45288,
+      "state": "available"
+    },
+    {
+      "code": 48,
+      "id": "high-plateau-scrub",
+      "land_cell_count": 10399,
+      "state": "available"
+    },
+    {
+      "code": 49,
+      "id": "high-plateau-grassland",
+      "land_cell_count": 17774,
+      "state": "available"
+    },
+    {
+      "code": 50,
+      "id": "persistent-snow-or-ice",
+      "land_cell_count": 1057,
+      "state": "available"
+    },
+    {
+      "code": 51,
+      "id": "talus-or-blockfield",
+      "land_cell_count": 8363,
+      "state": "available"
+    },
+    {
+      "code": 52,
+      "id": "river-gorge",
+      "land_cell_count": 116,
+      "state": "available"
+    },
+    {
+      "code": 53,
+      "id": "lake-basin-margin",
+      "land_cell_count": 1484,
+      "state": "available"
+    },
+    {
+      "code": 54,
+      "id": "estuarine-wetland",
+      "land_cell_count": 85,
+      "state": "available"
+    },
+    {
+      "code": 55,
+      "id": "coastal-forest",
+      "land_cell_count": 49360,
+      "state": "available"
+    },
+    {
+      "code": 56,
+      "id": "coastal-scrub",
+      "land_cell_count": 0,
+      "state": "available"
+    },
+    {
+      "code": 57,
+      "id": "dune-grassland",
+      "land_cell_count": 66140,
+      "state": "available"
+    },
+    {
+      "code": 58,
+      "id": "ultramafic-sparse-ground",
+      "land_cell_count": 4423,
+      "state": "available"
+    },
+    {
+      "code": 59,
+      "id": "crystalline-highland",
+      "land_cell_count": 107795,
+      "state": "available"
+    },
+    {
+      "code": 60,
+      "id": "metamorphic-highland",
+      "land_cell_count": 288063,
+      "state": "available"
+    },
+    {
+      "code": 61,
+      "id": "young-alluvial-plain",
+      "land_cell_count": 7970,
+      "state": "available"
+    },
+    {
+      "code": 62,
+      "id": "organic-wetland",
+      "land_cell_count": 8253,
+      "state": "available"
+    },
+    {
+      "code": 63,
+      "id": "reserved-complex-terrain",
+      "land_cell_count": 0,
+      "state": "reserved"
+    }
+  ]
+}

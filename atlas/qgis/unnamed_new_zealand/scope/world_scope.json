@@ -1,0 +1,41 @@
+{
+  "major_island_count": 2,
+  "ocean_boundary_metres": 16000.0,
+  "proper_geographic_names_introduced": false,
+  "region_edge_metres": 16384.0,
+  "retained_boundary_crossing_island_count": 0,
+  "retained_coastline": "scope/retained_physical_extent.gpkg:coastline",
+  "retained_coastline_sha256": "2bcc1eeeb4c7f324ca4a0f7f163d6ef84571034f6074d73b242a72b31e54e12e",
+  "retained_feature_count": 6,
+  "retained_land_area_square_kilometres": 265541.83058213064,
+  "retained_polygon_part_count": 24,
+  "rotation_counterclockwise_degrees": 75.0,
+  "rotation_pivot_nztm_metres": {
+    "x": 1591785.1391347009,
+    "y": 5508150.260509122
+  },
+  "rule": "80 by 80 binary-region fictional-north square containing the two largest islands with an approximately 16 km or larger ocean boundary; retain every other island wholly inside and none outside",
+  "schema": 1,
+  "source_horizontal_crs": "EPSG:2193",
+  "source_polygon_part_count": 24,
+  "status": "working canonical world scope",
+  "wilderness_square_edge_metres": 256.0,
+  "world_boundary": {
+    "id": "wb.0",
+    "maximum_x_metres": 2208095.304088624,
+    "maximum_y_metres": 6123277.855211445,
+    "minimum_unaligned_side_metres": 1285158.372750029,
+    "minimum_x_metres": 897375.3040886242,
+    "minimum_y_metres": 4812557.855211445,
+    "region_alignment_expansion_metres": 25561.627249971032,
+    "region_alignment_expansion_per_edge_metres": 12780.813624985516,
+    "region_count_per_edge": 80,
+    "side_metres": 1310720.0,
+    "total_addressable_wilderness_square_count": 26214400,
+    "total_region_count": 6400,
+    "wilderness_square_count_per_edge": 5120
+  },
+  "world_boundary_layer": "scope/world_boundary.gpkg:world_boundary",
+  "world_boundary_sha256": "4b4ef866fd2e1a2de2fe8170d07b60d1882bf905a5e537ea50f4d0f619610b3f",
+  "world_storage_envelope": "EPSG:3857 used only as fictional Cartesian metre storage"
+}

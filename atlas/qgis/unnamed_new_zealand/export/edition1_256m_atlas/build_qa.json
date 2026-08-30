@@ -1,0 +1,43 @@
+{
+  "compressed_region_json_bytes": 17090222,
+  "compression_ratio": 0.30945205679372795,
+  "created_utc": "2026-08-30T20:52:54.303764+00:00",
+  "exact_64_bit_integers_required": false,
+  "inputs": {
+    "EDITION1_FREEZE_MANIFEST.json": "29a6c2aa85e74e9b08860a3e00ef712c81642e336f2fc5114ea5a7d864348249",
+    "export/ATLAS_JSON_CONTRACT.md": "07bd64a1c56ce78f54428a7071986ce030d7cea5e1b24b23b339d13dfc87f774",
+    "export/edition1_256m_atlas/rasters/terrain_code.tif": "ffdf0c98060c8d86a8dc29650619e98c7b963521f79ce38b2143f18925bc8ce6",
+    "export/edition1_256m_atlas/terrain_classification_validation.json": "3c5d6d8be8be614757946a6e925d5835645201665a6a5e2d0c4921b80a96f281",
+    "export/edition1_256m_atlas/terrain_types.json": "1dfcd35281a2f20b5b425a24a0ebf3699ccdcc5032001cad72ad2747cbcbe3de",
+    "metric_candidate/avelorn_physical_edition1.qgz": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+    "terrain/analysis_256m_edition1/elevation_m.tif": "e79389ecca3844d683b969a47991c1ac59990a14611b22654638db9b85b34bea",
+    "terrain/analysis_256m_edition1/land_mask.tif": "bb98cc884c81a9271f08f12f2170e897984bc2ad82617bb052fd17b2a8abb79f"
+  },
+  "land_square_count": 4051581,
+  "large_array_paths": {
+    "package": "/regions",
+    "region_file": "/squares"
+  },
+  "maximum_region_square_count": 4096,
+  "null_false_distinction_required": false,
+  "ocean_regions_or_squares_stored": false,
+  "ocean_square_count_stored": 0,
+  "outputs": {
+    "export/edition1_256m_atlas/package.json": "a74d203c55160ffb9f2b59f0630bb83cab877ea8896d4c9a9bea3d937e2c7856",
+    "export/edition1_256m_atlas/package.schema.json": "fb954e5da798f84410aef60f8f0ccfbcec15eb260a67bb83bb01d903f09d8a7a",
+    "export/edition1_256m_atlas/region.schema.json": "01496e04578509763b173d857fea26e5b13fdf28386e4563b630583f8817e2b0",
+    "export/edition1_256m_atlas/terrain_types.json": "1dfcd35281a2f20b5b425a24a0ebf3699ccdcc5032001cad72ad2747cbcbe3de",
+    "export/edition1_256m_atlas/world.json": "604007052aadbc39e6e8ce0256fa2eac40f0d079f6fc53d807cb7b40e2544d03"
+  },
+  "proper_geographic_names_introduced": false,
+  "region_file_count": 1226,
+  "schema": 1,
+  "square_entry_shape": [
+    "local_index",
+    "elevation_m",
+    "terrain_code"
+  ],
+  "state": "complete downstream Edition 1 land-only JSON package; pending independent round-trip validation",
+  "status": "pass",
+  "uncompressed_region_json_bytes": 55227366
+}

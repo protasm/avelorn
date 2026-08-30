@@ -6,7 +6,7 @@ string *identities;
 
 void initialize(mixed first_load) {
   if (!display_name) {
-    display_name = "Company petitioner";
+    display_name = "quest giver";
   }
   if (!gender) {
     gender = "non-binary";
@@ -93,6 +93,6 @@ void describe(object viewer) {
   have_word = jvmud_invoke_lpc_object("system/pronouns", "have_present", gender);
   write(display_name + " is the " + office + ". ");
   write(jvmud_capitalize_text(subject_word) + " " + have_word);
-  write(" posted a measured request for Company assistance.\n");
+  write(" posted a request for assistance.\n");
   write("Type work to accept the assignment or report when it is complete.\n");
 }

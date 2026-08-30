@@ -1,0 +1,921 @@
+{
+  "canonical_project": "metric_candidate/avelorn_physical_edition1.qgz",
+  "canonical_project_sha256": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+  "checks": [
+    {
+      "detail": {
+        "edition": "edition1",
+        "state": "frozen canonical physical source of truth"
+      },
+      "name": "freeze manifest identifies canonical Edition 1",
+      "pass": true
+    },
+    {
+      "detail": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+      "name": "frozen QGIS project matches its manifest checksum",
+      "pass": true
+    },
+    {
+      "detail": "terrain/edition1_freeze_audit.json",
+      "name": "pre-freeze audit remains checksum-bound",
+      "pass": true
+    },
+    {
+      "detail": "PHYSICAL_LAYER_REGISTER.md",
+      "name": "physical-layer register remains checksum-bound",
+      "pass": true
+    },
+    {
+      "detail": {
+        "path": "metric_candidate/unnamed_world_physical_edition1_preview.png",
+        "size": [
+          1600,
+          1600
+        ]
+      },
+      "name": "frozen visual preview remains checksum-bound and 1600 square pixels",
+      "pass": true
+    },
+    {
+      "detail": [
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/metric_candidate/glo30_250m_world_metric_candidate.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/metric_candidate/world_physical_metric_candidate.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/scope/world_boundary.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/scope/world_region_grid.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/elevation_m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/elevation_source_class.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/elevation_uncertainty_class.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/lake_mask.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/land_mask.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/land_topology_adjustment.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/analysis_256m_edition1/river_mask.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/climate_provisional/annual_mean_temperature_c_world_1km.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/climate_provisional/annual_precipitation_mm_world_1km.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_candidate/geology_physical_world_candidate.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_candidate/substrate_class_complete_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_candidate/substrate_class_observed_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_candidate/substrate_evidence_class_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_candidate/substrate_fill_distance_m_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_edition1_v2/substrate_class_complete_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_edition1_v2/substrate_class_observed_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_edition1_v2/substrate_evidence_class_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/geology_edition1_v2/substrate_fill_distance_m_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_candidate/world/fill_depth_provisional_world.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_candidate/world/lake_protection_candidates_world.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/conditioned_flow_direction.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/conditioned_routing_surface.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/flow_accumulation_cells.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/routing_method.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/routing_modification_m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/water_connector_mask.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_candidate/watershed_basins.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/base_flow_direction_repaired.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/base_routing_surface.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/base_watershed_basins_repaired.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/conditioned_flow_direction.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/conditioned_routing_surface.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/flow_accumulation_cells.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/routing_method.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/routing_modification_m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/water_connector_mask.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/hydrology_edition1_v2/watershed_basins.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_edition1_v2/landform_class.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_edition1_v2/local_relief_1280m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_edition1_v2/slope_degrees.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_edition1_v2/terrain_position_2304m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_provisional/landform_class.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_provisional/local_relief_1250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_provisional/slope_degrees.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/landforms_provisional/terrain_position_2250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/natural_regions_edition1_candidate/natural_region_id_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/natural_regions_edition1_candidate/natural_region_method_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/natural_regions_edition1_candidate/natural_region_signature_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_edition1_candidate/seafloor_depth_m_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_edition1_candidate/seafloor_depth_zone_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_edition1_candidate/seafloor_slope_degrees_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_edition1_candidate/seafloor_uncertainty_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_edition1_candidate/shoreline_source_conflict_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/bounded_depth_topography_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/seafloor_depth_m_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/seafloor_depth_zone_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/seafloor_slope_degrees_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/seafloor_uncertainty_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/seafloor_provisional/shoreline_source_conflict_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/shoreline_edition1_candidate/prehuman_land_center_mask_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/shoreline_edition1_candidate/prehuman_land_world.gpkg"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/shoreline_edition1_candidate/shoreline_change_method_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/shoreline_edition1_candidate/shoreline_uncertainty_world_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/soils_edition1_v2/soil_regime_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/soils_edition1_v2/soil_uncertainty_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/soils_provisional/soil_regime_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/soils_provisional/soil_uncertainty_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_edition1_v2/distance_inland_from_coast_m_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_edition1_v2/potential_vegetation_structure_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_edition1_v2/potential_vegetation_uncertainty_256m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_provisional/distance_inland_from_coast_m_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_provisional/potential_vegetation_structure_250m.tif"
+        },
+        {
+          "exists": true,
+          "matches": true,
+          "path": "/Users/jonathan/Projects/avelorn/atlas/qgis/unnamed_new_zealand/terrain/vegetation_provisional/potential_vegetation_uncertainty_250m.tif"
+        }
+      ],
+      "name": "all source-bound physical artifacts retain their freeze checksums",
+      "pass": true
+    },
+    {
+      "detail": "metric_candidate/avelorn_physical_edition1.qgz",
+      "name": "frozen QGIS project opens",
+      "pass": true
+    },
+    {
+      "detail": [
+        {
+          "name": "Annual mean temperature \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Annual precipitation \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Anonymous landform class \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Anonymous natural-region identifier \u2014 Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Anonymous substrate units \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Atlas regions (80 \u00d7 80)",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Base repaired flow direction \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Base repaired watershed basins \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Base routing surface \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Bounded depth-topography source \u2014 Edition 1 lineage",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Bounded depth-topography source \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Complete substrate class \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Conditioned flow direction \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Conditioned flow direction \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Conditioned routing surface \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Conditioned routing surface \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Distance inland from pre-human coast \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Distance inward from working coast \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Elevation evidence (250 m provisional)",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Elevation source class \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Elevation uncertainty class \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Flow accumulation \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Flow accumulation \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Lake protection candidates",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Lakes (source evidence)",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Land mask \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Land topology adjustment \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Local relief 1.25 km \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Local relief \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Minimal water connectors \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Minimal water connectors \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Natural-region derivation method \u2014 Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Natural-region physical signature \u2014 Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Observed elevation \u2014 Edition 1 display",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Observed elevation \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Observed substrate class \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Potential vegetation structure \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Potential vegetation structure \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Potential vegetation uncertainty \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Potential vegetation uncertainty \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Pre-human detailed land \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Pre-human land \u2014 Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Pre-human land-center mask \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Rejected blanket-fill depth",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Rivers (source evidence)",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Routing method \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Routing method \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Routing modification magnitude \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Routing modification magnitude \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor depth \u2014 Edition 1 reconciled",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor depth \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor depth zone \u2014 Edition 1 reconciled",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor depth zone \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor slope \u2014 Edition 1 reconciled",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor slope \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor uncertainty \u2014 Edition 1 reconciled",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Seafloor uncertainty \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Shoreline change method \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Shoreline source conflict \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Shoreline-source relationship \u2014 Edition 1 reconciled",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Shoreline uncertainty \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Slope \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Slope degrees \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Soil regime \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Soil regime \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Soil uncertainty \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Soil uncertainty \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Source lakes \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Source rivers \u2014 fresh Edition 1 analysis",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate class \u2014 complete provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate class \u2014 observed only",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate evidence class",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate evidence class \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate inference distance \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Substrate inference distance m",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Terrain position 2.25 km \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Terrain position \u2014 fresh Edition 1",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Topographic landform class \u2014 provisional",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Watershed basins \u2014 Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Watershed basins \u2014 fresh Edition 1 candidate",
+          "source_exists": true,
+          "valid": true
+        },
+        {
+          "name": "Whole-world boundary",
+          "source_exists": true,
+          "valid": true
+        }
+      ],
+      "name": "every frozen QGIS layer is valid and source-bound",
+      "pass": true
+    },
+    {
+      "detail": {
+        "physical_canonical": "true",
+        "physical_climate_canonical": "true",
+        "physical_conditioned_hydrology_canonical": "true",
+        "physical_frozen": "true",
+        "physical_natural_regions_canonical": "true",
+        "physical_prehuman_shoreline_canonical": "true",
+        "physical_seafloor_edition1_canonical": "true",
+        "physical_surfaces_edition1_canonical": "true"
+      },
+      "name": "all canonical flags are true",
+      "pass": true
+    },
+    {
+      "detail": {
+        "candidate_version": "frozen-edition1",
+        "edition_id": "edition1",
+        "edition_version": "1",
+        "state": "frozen canonical physical source of truth",
+        "title": "Avelorn \u2014 physical world \u2014 frozen Edition 1",
+        "world_name": "Avelorn"
+      },
+      "name": "frozen edition identity and title are explicit",
+      "pass": true
+    },
+    {
+      "detail": [],
+      "name": "downstream previews remain outside the frozen QGIS source of truth",
+      "pass": true
+    },
+    {
+      "detail": {
+        "analysis_cell_edge_metres": 256,
+        "earth_to_world_rotation_counterclockwise_degrees": 75.0,
+        "fictional_north": "positive y and screen up at QGIS rotation zero",
+        "region_edge_metres": 16384,
+        "region_grid": [
+          80,
+          80
+        ],
+        "world_side_metres": 1310720
+      },
+      "name": "manifest preserves the 80 by 80, 256 m contract",
+      "pass": true
+    },
+    {
+      "detail": {
+        "mudlib_json_must_be_regenerated_from_this_edition": true,
+        "mudlib_land_cell_fields": [
+          "elevation_m",
+          "terrain_code"
+        ],
+        "mudlib_ocean_cells_omitted": true,
+        "old_provisional_export_is_input": false
+      },
+      "name": "manifest preserves the downstream mudlib boundary",
+      "pass": true
+    },
+    {
+      "detail": {
+        "civilization": false,
+        "proper_names": false
+      },
+      "name": "frozen edition introduces no proper names or civilization",
+      "pass": true
+    }
+  ],
+  "checks_passed": 14,
+  "checks_total": 14,
+  "created_utc": "2026-08-30T20:52:17.067964+00:00",
+  "manifest": "EDITION1_FREEZE_MANIFEST.json",
+  "manifest_sha256": "29a6c2aa85e74e9b08860a3e00ef712c81642e336f2fc5114ea5a7d864348249",
+  "schema": 1,
+  "status": "pass"
+}

@@ -4,3 +4,9 @@
 !/log/.gitkeep
 /target/
 .DS_Store
+
+# The frozen QGIS source of truth and raw GIS evidence remain local. The
+# derived Edition 1 JSON atlas under export/edition1_256m_atlas is tracked.
+/atlas/qgis/unnamed_new_zealand/metric_candidate/
+/atlas/qgis/unnamed_new_zealand/scope/*.gpkg
+/atlas/qgis/unnamed_new_zealand/terrain/

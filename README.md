@@ -1,93 +1,38 @@
-# Avelorn: The Lantern Crown
+# Avelorn
 
-Avelorn is a persistent, multiplayer, medieval swords-and-sorcery kingdom
-authored for the JVMud engine.
+Avelorn is a persistent multiplayer game authored for the JVMud engine.
 
-The initial campaign begins in Brindleford and follows a newly licensed member
-of the Company of the Lantern through ten levels of service to a prosperous,
-well-ordered kingdom. The launch story culminates in rekindling the western
-Lantern beneath Ashenwatch Keep.
+The geographical world and its story have been intentionally reset. All former
+regions, rooms, routes, maps, placed inhabitants, shops, quests, and generated
+world logic are gone. `source/place/login_room.c` is a temporary login room
+required by JVMud so accounts can still connect while a new world is designed;
+it is not part of the future setting.
+
+## Preserved game systems
+
+- account creation, authentication, and character persistence;
+- Fighters, Rangers, Mages, and Clerics, including attributes and techniques;
+- health, combat, recovery, experience, levels, training, and advancement;
+- inventory, equipment, item blueprints, carrying capacity, and consumables;
+- currency and economy functions;
+- room speech, private tells, online presence, pronouns, and 100 social emotes;
+- brief/full presentation and GMCP character and room support;
+- reusable citizen, hostile, and quest-giver NPC templates; and
+- an empty quest-catalog boundary ready for future story content.
+
+The previous world-specific acceptance coverage was replaced with a focused
+system-preservation suite against the login room.
 
 ## Native shape
 
 - `jvmud/avelorn.config` declares the JVMud boundary and lifecycle vocabulary.
 - `source/persona/` owns character policy and player-facing interaction.
-- `source/place/` contains linked Places in the kingdom.
-- `source/system/` contains non-present mudlib services such as pronoun grammar.
+- `source/place/login_room.c` is the temporary, non-world login Place.
+- `source/system/` contains reusable mudlib services.
+- `source/npc/` contains reusable NPC templates.
+- `source/item/` contains the reusable item entity implementation.
 - `accounts/` contains ignored runtime character snapshots.
-- `docs/FOUNDATION.md` fixes the initial identifiers and persistence contract.
-
-## Current world
-
-The world provides exactly 100,000 connected, traversable Places. The original
-sixty-five authored Places span Brindleford, the maintained Lantern Road,
-Greyhaven, Merewatch, Blackstone, and Ashenwatch. Rekindling the Western Crown
-Lantern opens the greater realm: 99,935 deterministic Places arranged into 220
-regions, generated lazily from stable object ids rather than compiled at boot.
-Major destinations include the many wards, streets, canals, sewers, courts,
-and castle levels of Crownspire; the cities of Irongate and Saltmere; the
-Elderwild and Dawn Coast; the twelve-part abandoned Gloamhold complex; and the
-six physical and political depths of the Deep Concord. See
-`docs/WORLD.md` for geography and content rules.
-
-Every generated room has a unique name within its region, stable exits,
-examinable terrain, a point of interest, route detail, and weather detail.
-Use `look <thing>`, `examine <thing>`, or `exa <thing>`. Portable objects and
-occupants are materialized entities rather than prose scenery. Character
-location now persists with the rest of the account snapshot. Type `atlas` for
-the in-game world overview.
-
-Characters can train, trade, rest, explore, evaluate hostile combatants, and
-fight cooperatively.
-Player-facing prose is assembled and wrapped by Avelorn's mudlib presentation
-service at 80 columns. Every room view places the kingdom's supplied ruler
-between its title and description.
-The `brief` command toggles compact movement views that retain the room title
-and list occupants, items, and abbreviated exits while leaving explicit
-`look` commands fully descriptive.
-Fighters, Rangers, Mages, and Clerics each have a distinct resource-powered
-combat technique in addition to ordinary weapon attacks.
-Every contributor still present at a victory receives credit. Equipment and
-enemy recommendations are warnings and effectiveness adjustments rather than
-hard locks.
-
-The first complete assignment, *Miller's Unwelcome Guests*, can be accepted
-from Miller Enid in the mill yard. Its three credited cellar clearances use a
-timed hostile respawn, persist in the Company journal, and grant their turn-in
-reward only once.
-
-The second assignment, *Light for the Road*, sends a level-two Companion to
-service three distinct ward lanterns between Brindleford and Greyhaven. Each
-objective is credited once, demonstrating non-combat quest objectives and
-soft-gated travel progression.
-
-The third assignment, *The Silent Patrol Bell*, begins with Greyhaven's Crown
-watch and confronts a level-four bell wraith at an intact but magically
-silenced road post. It demonstrates a higher-risk soft gate, class techniques,
-recoverable combat, and a timed enemy reset.
-
-The fourth assignment, *Beneath Blackstone*, combines two distinct guardian
-victories with restoration of an ancient wardstone. Unique objective tags
-prevent repeated reset kills from substituting for the other required work.
-
-The fifth assignment, *Rekindle the Western Lantern*, is a five-part capstone
-across Ashenwatch Keep. Three escalating ward combatants and two restoration
-objectives deliver the campaign's level-ten XP budget. Completion restores the
-Lantern Crown and grants a persistent, softly gated Crown medal.
-
-Character identity, progression, coin, inventory, and equipment persist as
-host-filesystem snapshots beneath `accounts/`. Avelorn declares no database
-capability and uses no database service.
-
-Type `emotes` to see the initial collection of 100 social commands. Common
-socials such as `smile`, `grin`, `bow`, `wave`, and `laugh` work on their own;
-many may also name another character or NPC. Type `quit` to save and disconnect
-without using JVMud's transport-control prefix.
-
-JVMud host administration can reload a shared Avelorn service or content object
-by stable object id while players remain connected. The reload operation is a
-host API, not an unauthenticated player command; the acceptance suite verifies
-that a connected journal immediately observes a reloaded quest definition.
+- `docs/FOUNDATION.md` records the preserved technical contract.
 
 ## Development
 

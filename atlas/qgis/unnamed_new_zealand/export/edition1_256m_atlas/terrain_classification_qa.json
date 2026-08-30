@@ -1,0 +1,359 @@
+{
+  "all_lake_cells_are_water_terrain": true,
+  "all_river_cells_are_contiguous_water_terrain": true,
+  "cell_edge_metres": 256,
+  "classified_land_cell_count": 4051581,
+  "created_utc": "2026-08-30T20:52:30.525710+00:00",
+  "freeze_manifest": "EDITION1_FREEZE_MANIFEST.json",
+  "freeze_manifest_sha256": "29a6c2aa85e74e9b08860a3e00ef712c81642e336f2fc5114ea5a7d864348249",
+  "frozen_qgis_project": "metric_candidate/avelorn_physical_edition1.qgz",
+  "frozen_qgis_project_sha256": "56dbbc6906de97d06c4739f4b314f1f463e8c8381f99b0a68c35af287808d4ac",
+  "hard_coast_preserved": true,
+  "inputs": {
+    "terrain/analysis_256m_edition1/elevation_m.tif": "e79389ecca3844d683b969a47991c1ac59990a14611b22654638db9b85b34bea",
+    "terrain/analysis_256m_edition1/lake_mask.tif": "8561652be85d2955857b131d8f145c086b91f984a5d63474207bf048a2886ac4",
+    "terrain/analysis_256m_edition1/land_mask.tif": "bb98cc884c81a9271f08f12f2170e897984bc2ad82617bb052fd17b2a8abb79f",
+    "terrain/analysis_256m_edition1/river_mask.tif": "e457ce83de68ef217aeee33e6b85b77a37c5f7e48d802ddd69176abb62ae31ef",
+    "terrain/hydrology_edition1_v2/flow_accumulation_cells.tif": "df1cfafe1b9c33c00906726fcd31827c0a4af8a52e14d89a0659b8273d2f7a12",
+    "terrain/landforms_edition1_v2/landform_class.tif": "3e351edc05a219d12875f3ad304802142acd7c5ddff1c4968393119fecca4dd5",
+    "terrain/landforms_edition1_v2/slope_degrees.tif": "7577541716f01c329c3477ee0385281e0a8492089beca9fa85b0d6a8d72f9c9a",
+    "terrain/soils_edition1_v2/soil_regime_256m.tif": "c809bf3138d72b82343f125cc8879cc3cc9fe51ca885338fac4300939df2f126",
+    "terrain/vegetation_edition1_v2/distance_inland_from_coast_m_256m.tif": "15f8f11c1990c41e2c9737088f6e2f59fa3d3d464bb40c72cb5583e1d06b1279",
+    "terrain/vegetation_edition1_v2/potential_vegetation_structure_256m.tif": "1ad35b5a57f04de6746eb8258b6e9ed177bc9386848b0a78d7813b57d43a5ba2"
+  },
+  "land_cell_count": 4051581,
+  "ocean_nonzero_cell_count": 0,
+  "outputs": {
+    "export/edition1_256m_atlas/rasters/terrain_code.tif": "ffdf0c98060c8d86a8dc29650619e98c7b963521f79ce38b2143f18925bc8ce6",
+    "export/edition1_256m_atlas/terrain_types.json": "1dfcd35281a2f20b5b425a24a0ebf3699ccdcc5032001cad72ad2747cbcbe3de"
+  },
+  "proper_geographic_names_introduced": false,
+  "provisional_export_used_as_input": false,
+  "represented_terrain_type_count": 51,
+  "reserved_code_63_land_cell_count": 0,
+  "schema": 1,
+  "state": "downstream terrain classifier derived from frozen QGIS Edition 1",
+  "status": "pass",
+  "terrain_counts": [
+    {
+      "cell_count": 22162819,
+      "code": 0,
+      "id": "non-occupiable-ocean-or-outside"
+    },
+    {
+      "cell_count": 31029,
+      "code": 1,
+      "id": "open-inland-water"
+    },
+    {
+      "cell_count": 7507,
+      "code": 2,
+      "id": "shallow-lake-margin"
+    },
+    {
+      "cell_count": 17741,
+      "code": 3,
+      "id": "river-channel"
+    },
+    {
+      "cell_count": 9703,
+      "code": 4,
+      "id": "river-wetland"
+    },
+    {
+      "cell_count": 57,
+      "code": 5,
+      "id": "coastal-wetland"
+    },
+    {
+      "cell_count": 30341,
+      "code": 6,
+      "id": "basin-wetland"
+    },
+    {
+      "cell_count": 0,
+      "code": 7,
+      "id": "peat-wetland"
+    },
+    {
+      "cell_count": 0,
+      "code": 8,
+      "id": "sandy-coast"
+    },
+    {
+      "cell_count": 0,
+      "code": 9,
+      "id": "rocky-coast"
+    },
+    {
+      "cell_count": 314592,
+      "code": 10,
+      "id": "warm-lowland-closed-forest"
+    },
+    {
+      "cell_count": 365722,
+      "code": 11,
+      "id": "temperate-lowland-closed-forest"
+    },
+    {
+      "cell_count": 108898,
+      "code": 12,
+      "id": "wet-lowland-closed-forest"
+    },
+    {
+      "cell_count": 13255,
+      "code": 13,
+      "id": "dry-lowland-open-woodland"
+    },
+    {
+      "cell_count": 0,
+      "code": 14,
+      "id": "lowland-scrub"
+    },
+    {
+      "cell_count": 7252,
+      "code": 15,
+      "id": "lowland-grassland"
+    },
+    {
+      "cell_count": 0,
+      "code": 16,
+      "id": "rolling-humid-forest"
+    },
+    {
+      "cell_count": 201640,
+      "code": 17,
+      "id": "rolling-dry-woodland"
+    },
+    {
+      "cell_count": 9806,
+      "code": 18,
+      "id": "rolling-grassland"
+    },
+    {
+      "cell_count": 87956,
+      "code": 19,
+      "id": "forested-valley"
+    },
+    {
+      "cell_count": 8963,
+      "code": 20,
+      "id": "open-valley"
+    },
+    {
+      "cell_count": 0,
+      "code": 21,
+      "id": "forested-alluvial-plain"
+    },
+    {
+      "cell_count": 0,
+      "code": 22,
+      "id": "open-alluvial-plain"
+    },
+    {
+      "cell_count": 1080909,
+      "code": 23,
+      "id": "forested-foothill"
+    },
+    {
+      "cell_count": 199083,
+      "code": 24,
+      "id": "wooded-foothill"
+    },
+    {
+      "cell_count": 11421,
+      "code": 25,
+      "id": "scrub-foothill"
+    },
+    {
+      "cell_count": 15094,
+      "code": 26,
+      "id": "grassy-foothill"
+    },
+    {
+      "cell_count": 137103,
+      "code": 27,
+      "id": "cool-montane-forest"
+    },
+    {
+      "cell_count": 66767,
+      "code": 28,
+      "id": "wet-montane-forest"
+    },
+    {
+      "cell_count": 0,
+      "code": 29,
+      "id": "dry-montane-forest"
+    },
+    {
+      "cell_count": 12850,
+      "code": 30,
+      "id": "montane-scrub"
+    },
+    {
+      "cell_count": 2381,
+      "code": 31,
+      "id": "montane-grassland"
+    },
+    {
+      "cell_count": 192732,
+      "code": 32,
+      "id": "subalpine-scrub"
+    },
+    {
+      "cell_count": 0,
+      "code": 33,
+      "id": "subalpine-grassland"
+    },
+    {
+      "cell_count": 99753,
+      "code": 34,
+      "id": "alpine-grass-herbfield"
+    },
+    {
+      "cell_count": 60370,
+      "code": 35,
+      "id": "alpine-scree"
+    },
+    {
+      "cell_count": 13849,
+      "code": 36,
+      "id": "bare-alpine-rock"
+    },
+    {
+      "cell_count": 0,
+      "code": 37,
+      "id": "volcanic-plateau"
+    },
+    {
+      "cell_count": 117286,
+      "code": 38,
+      "id": "forested-volcanic-slope"
+    },
+    {
+      "cell_count": 6825,
+      "code": 39,
+      "id": "open-volcanic-slope"
+    },
+    {
+      "cell_count": 124399,
+      "code": 40,
+      "id": "forested-rocky-ridge"
+    },
+    {
+      "cell_count": 9713,
+      "code": 41,
+      "id": "open-rocky-ridge"
+    },
+    {
+      "cell_count": 59926,
+      "code": 42,
+      "id": "steep-forested-slope"
+    },
+    {
+      "cell_count": 1130,
+      "code": 43,
+      "id": "steep-open-slope"
+    },
+    {
+      "cell_count": 5161,
+      "code": 44,
+      "id": "cliff-or-precipice"
+    },
+    {
+      "cell_count": 2541,
+      "code": 45,
+      "id": "dry-basin-grassland"
+    },
+    {
+      "cell_count": 1256,
+      "code": 46,
+      "id": "basin-shrubland"
+    },
+    {
+      "cell_count": 45288,
+      "code": 47,
+      "id": "forested-basin"
+    },
+    {
+      "cell_count": 10399,
+      "code": 48,
+      "id": "high-plateau-scrub"
+    },
+    {
+      "cell_count": 17774,
+      "code": 49,
+      "id": "high-plateau-grassland"
+    },
+    {
+      "cell_count": 1057,
+      "code": 50,
+      "id": "persistent-snow-or-ice"
+    },
+    {
+      "cell_count": 8363,
+      "code": 51,
+      "id": "talus-or-blockfield"
+    },
+    {
+      "cell_count": 116,
+      "code": 52,
+      "id": "river-gorge"
+    },
+    {
+      "cell_count": 1484,
+      "code": 53,
+      "id": "lake-basin-margin"
+    },
+    {
+      "cell_count": 85,
+      "code": 54,
+      "id": "estuarine-wetland"
+    },
+    {
+      "cell_count": 49360,
+      "code": 55,
+      "id": "coastal-forest"
+    },
+    {
+      "cell_count": 0,
+      "code": 56,
+      "id": "coastal-scrub"
+    },
+    {
+      "cell_count": 66140,
+      "code": 57,
+      "id": "dune-grassland"
+    },
+    {
+      "cell_count": 4423,
+      "code": 58,
+      "id": "ultramafic-sparse-ground"
+    },
+    {
+      "cell_count": 107795,
+      "code": 59,
+      "id": "crystalline-highland"
+    },
+    {
+      "cell_count": 288063,
+      "code": 60,
+      "id": "metamorphic-highland"
+    },
+    {
+      "cell_count": 7970,
+      "code": 61,
+      "id": "young-alluvial-plain"
+    },
+    {
+      "cell_count": 8253,
+      "code": 62,
+      "id": "organic-wetland"
+    },
+    {
+      "cell_count": 0,
+      "code": 63,
+      "id": "reserved-complex-terrain"
+    }
+  ]
+}

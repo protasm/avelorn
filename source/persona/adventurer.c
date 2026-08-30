@@ -43,7 +43,7 @@ void initialize(mixed first_load) {
     pending_password = "";
   }
   if (!character_name) {
-    character_name = "unformed companion";
+    character_name = "unformed adventurer";
   }
   if (!gender) {
     gender = "non-binary";
@@ -73,7 +73,7 @@ void initialize(mixed first_load) {
 }
 
 void begin_session() {
-  write("\nThe western chapter of the Company of the Lantern welcomes you.\n");
+  write("\nWelcome to Avelorn.\n");
   avelorn_prompt("Account ID: ");
   jvmud_capture_session_input("receive_account_id", 0);
 }
@@ -94,7 +94,12 @@ void receive_account_id(mixed value) {
     account_id = requested;
     pending_password = "";
     inventory_materialized = 0;
-    quests_materialized = 0;
+    quest_state = "";
+    quests_materialized = 1;
+    quest_stages = ([ ]);
+    quest_counts = ([ ]);
+    quest_flags = ([ ]);
+    saved_place = "place/login_room";
     avelorn_prompt("Password: ");
     jvmud_capture_session_input("receive_login_password", 1);
     return;
@@ -233,14 +238,13 @@ void enter_avelorn(int returning) {
       "living",
       jvmud_lowercase_text(character_name));
 
-  if (returning && jvmud_size(saved_place) > 0) {
-    jvmud_move_entity(jvmud_current_lpc_object(), saved_place);
+  if (returning) {
+    jvmud_move_entity(jvmud_current_lpc_object(), "place/login_room");
   }
 
   if (returning) {
     write("\nWelcome back, " + character_name + ".\n\n");
   } else {
-    write("\nYour name is entered upon the roll of the Company of the Lantern.\n");
     write("Welcome to Avelorn, " + character_name + ".\n\n");
   }
   look(0);
@@ -351,8 +355,6 @@ void offer_interactions() {
   jvmud_add_action("look", "l");
   jvmud_add_action("look", "examine");
   jvmud_add_action("look", "exa");
-  jvmud_add_action("world_map", "atlas");
-  jvmud_add_action("world_map", "worldmap");
   jvmud_add_action("brief", "brief");
   jvmud_add_action("score", "score");
   jvmud_add_action("inventory", "inventory");
@@ -409,9 +411,6 @@ int look(mixed target) {
           && jvmud_invoke_lpc_object(place, "examine_detail", normalized_target)) {
         return 1;
       }
-      if (jvmud_invoke_lpc_object("system/scenery", "describe", place, normalized_target)) {
-        return 1;
-      }
       write("You do not see that here.\n");
       return 1;
     }
@@ -420,11 +419,6 @@ int look(mixed target) {
   }
   jvmud_invoke_lpc_object(place, "describe", jvmud_current_lpc_object());
   jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
-  return 1;
-}
-
-int world_map(mixed ignored) {
-  jvmud_invoke_lpc_object("system/atlas", "show", 0);
   return 1;
 }
 
@@ -884,13 +878,13 @@ int class_ability(mixed target) {
     cost = 10;
     damage = attack_damage() + level + intelligence / 2;
   } else {
-    technique = "a radiant Lantern smite";
+    technique = "a radiant smite";
     cost = 10;
     damage = attack_damage() + level + wisdom / 2;
   }
   if (resource < cost) {
     write("You need " + cost + " " + jvmud_lowercase_text(resource_name()));
-    write(" for that technique. Rest at a shrine to recover.\n");
+    write(" for that technique. Rest to recover.\n");
     return 1;
   }
   resource -= cost;
@@ -920,14 +914,14 @@ int receive_damage(int amount, string attacker_name) {
 
   avelorn_emit_except(
       jvmud_current_lpc_object(),
-      character_name + " is overcome and carried to Sister Elara's care.\n",
+      character_name + " is overcome and carried to safety.\n",
       jvmud_current_lpc_object());
   combat_target = 0;
   lost_copper = copper / 10;
   copper -= lost_copper;
   recalculate_resources(1);
-  jvmud_move_entity(jvmud_current_lpc_object(), "place/brindleford/shrine");
-  write("You are overcome. Crown wardens bring you safely to the village shrine.\n");
+  jvmud_move_entity(jvmud_current_lpc_object(), "place/login_room");
+  write("You are overcome and returned safely to the login room.\n");
   if (lost_copper > 0) {
     write("You lost "
         + jvmud_invoke_lpc_object("system/economy", "format_money", lost_copper)
@@ -975,7 +969,7 @@ int offer_quest(string quest_id) {
   write(quest_title(quest_id) + " (recommended level " + recommended_level + ")\n");
   write(jvmud_invoke_lpc_object("system/quests", "description", quest_id) + "\n");
   if (level < recommended_level) {
-    write("This is beyond your current training, but the Company will not forbid the attempt.\n");
+    write("This is beyond your current training, but the attempt is not prohibited.\n");
   }
   quest_stages[quest_id] = 1;
   quest_counts[quest_id] = 0;
@@ -1036,7 +1030,7 @@ int record_quest_action(string action_tag) {
   materialize_quests();
   quest_id = jvmud_invoke_lpc_object("system/quests", "quest_for_action_tag", action_tag);
   if (!quest_id || quest_stage(quest_id) == 0 || quest_stage(quest_id) == 3) {
-    write("You make a careful inspection, but no current Company assignment concerns it.\n");
+    write("You make a careful inspection, but no current assignment concerns it.\n");
     return 1;
   }
   if (jvmud_member(quest_flags, quest_id)) {
@@ -1092,7 +1086,7 @@ int turn_in_quest(string quest_id) {
   coins = jvmud_invoke_lpc_object("system/quests", "copper_reward", quest_id);
   copper += coins;
   write("You complete " + quest_title(quest_id) + ".\n");
-  write("The Company awards "
+  write("You receive "
       + jvmud_invoke_lpc_object("system/economy", "format_money", coins) + ".\n");
   gain_experience(xp);
   if (jvmud_size(jvmud_invoke_lpc_object("system/quests", "item_reward", quest_id)) > 0) {
@@ -1104,10 +1098,6 @@ int turn_in_quest(string quest_id) {
       jvmud_move_entity(reward_item, jvmud_current_lpc_object());
       write("You receive " + jvmud_invoke_lpc_object(reward_item, "short") + ".\n");
     }
-  }
-  if (quest_id == "rekindle-western-lantern") {
-    write("Blue fire runs from Ashenwatch through every western wardstone. ");
-    write("The Lantern Crown shines whole above a safe and grateful kingdom.\n");
   }
   save_character();
   return 1;
@@ -1122,10 +1112,10 @@ int quests(mixed ignored) {
   materialize_quests();
   ids = jvmud_mapping_keys(quest_stages);
   if (jvmud_size(ids) == 0) {
-    write("Your Company journal contains no assignments.\n");
+    write("Your journal contains no assignments.\n");
     return 1;
   }
-  write("Company assignments:\n");
+  write("Assignments:\n");
   index = 0;
   while (index < jvmud_size(ids)) {
     quest_id = ids[index];
@@ -1154,7 +1144,7 @@ int purchase_blueprint(string blueprint) {
   price = jvmud_invoke_lpc_object(item, "query_value");
   item_weight = jvmud_invoke_lpc_object(item, "query_weight");
   if (copper < price) {
-    write("You do not have enough Crown coin.\n");
+    write("You do not have enough coin.\n");
     jvmud_destroy_lpc_object(item);
     return 1;
   }
@@ -1233,11 +1223,11 @@ int improve(mixed target) {
 
 int complete_introductory_drill() {
   if (introductory_drill_completed) {
-    write("You have already completed the introductory Company drill.\n");
+    write("You have already completed the introductory drill.\n");
     return 1;
   }
   introductory_drill_completed = 1;
-  write("You complete the Company's measured course of footwork, signals, and field discipline.\n");
+  write("You complete a measured course of footwork, signals, and field discipline.\n");
   gain_experience(100);
   save_character();
   return 1;
@@ -1245,7 +1235,7 @@ int complete_introductory_drill() {
 
 int rest_at_shrine() {
   recalculate_resources(1);
-  write("You rest beneath the Seven Lamps and recover your health and "
+  write("You rest and recover your health and "
       + jvmud_lowercase_text(resource_name()) + ".\n");
   save_character();
   send_gmcp_character();
@@ -1262,8 +1252,8 @@ int pronouns_command(mixed ignored) {
   have_word = pronoun("have_present");
   write(character_name + " uses " + subject_word + "/" + pronoun("object_form") + " pronouns.\n");
   write(jvmud_capitalize_text(subject_word) + " " + be_word);
-  write(" a sworn novice, and " + subject_word + " " + have_word);
-  write(" begun " + pronoun("possessive_adjective") + " service to the Crown.\n");
+  write(" an adventurer, and " + subject_word + " " + have_word);
+  write(" begun " + pronoun("possessive_adjective") + " adventuring career.\n");
   return 1;
 }
 
@@ -1283,7 +1273,7 @@ int who(mixed ignored) {
     index += 1;
   }
 
-  write("Adventurers of the Lantern (" + online + " online):\n");
+  write("Adventurers (" + online + " online):\n");
   index = 0;
   while (index < jvmud_size(connected)) {
     persona = connected[index];
@@ -1396,7 +1386,7 @@ int is_online_adventurer(object persona) {
 
 int help(mixed ignored) {
   write("Avelorn commands:\n");
-  write("  look/examine, north/east/south/west, brief, atlas, score, pronouns, who\n");
+  write("  look/examine, north/east/south/west, brief, score, pronouns, who\n");
   write("  say <message>, tell <character> <message>\n");
   write("  inventory, equipment, get, drop, equip, unequip, use\n");
   write("  attack <target> begins timed combat; ability uses a technique\n");
@@ -1408,7 +1398,7 @@ int help(mixed ignored) {
 int quit(mixed ignored) {
   combat_target = 0;
   save_character();
-  write("You leave the road in the Company's keeping. Farewell.\n");
+  write("Farewell.\n");
   clear_materialized_inventory();
   jvmud_destroy_lpc_object(jvmud_current_lpc_object());
   return 1;
@@ -1445,13 +1435,13 @@ void grant_starter_kit() {
   string weapon;
 
   if (character_class == "fighter") {
-    weapon = "weapon/crown-arming-sword";
+    weapon = "weapon/arming-sword";
   } else if (character_class == "ranger") {
     weapon = "weapon/ashwood-shortbow";
   } else if (character_class == "mage") {
     weapon = "weapon/oak-focus-staff";
   } else {
-    weapon = "weapon/temple-mace";
+    weapon = "weapon/steel-mace";
   }
   item = jvmud_invoke_lpc_object("system/items", "create", weapon);
   jvmud_invoke_lpc_object(item, "set_equipped", 1);
