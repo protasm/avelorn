@@ -52,8 +52,16 @@ class AvelornTelnetTest {
                 writeLine(socket, "mage");
 
                 String firstLook = readUntilQuietAfterContains(socket, ruler);
-                assertTrue(firstLook.contains("Login Room"), printable(firstLook));
+                assertTrue(firstLook.contains("The Wilderness"), printable(firstLook));
+                assertTrue(firstLook.contains("Terrain: Forested Foothill"), printable(firstLook));
                 assertTelnetText(firstLook);
+
+                writeLine(socket, "north");
+                String north = readUntilQuietAfterContains(socket, ruler);
+                assertTrue(north.contains("The Wilderness"), printable(north));
+                assertTrue(north.contains("Terrain: Forested Foothill"), printable(north));
+                assertTrue(north.contains("Elevation: 296 m"), printable(north));
+                assertTelnetText(north);
 
                 writeLine(socket, "quit");
                 String farewell = readUntilSocketClosed(socket);
@@ -75,7 +83,7 @@ class AvelornTelnetTest {
                 writeLine(socket, "Avelorn1!");
                 String returningLook = readUntilQuietAfterContains(socket, ruler);
                 assertTrue(returningLook.contains("Welcome back, Mira valewood."), printable(returningLook));
-                assertTrue(returningLook.contains("Login Room"), printable(returningLook));
+                assertTrue(returningLook.contains("The Wilderness"), printable(returningLook));
                 assertTelnetText(returningLook);
 
                 writeLine(socket, "quit");

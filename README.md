@@ -4,9 +4,9 @@ Avelorn is a persistent multiplayer game authored for the JVMud engine.
 
 The geographical world and its story have been intentionally reset. All former
 regions, rooms, routes, maps, placed inhabitants, shops, quests, and generated
-world logic are gone. `source/place/login_room.c` is a temporary login room
-required by JVMud so accounts can still connect while a new world is designed;
-it is not part of the future setting.
+world logic are gone. Players now enter the anonymous Edition 1 physical atlas.
+Wilderness rooms are materialized on demand from its compressed JSON region
+files and expose only terrain, elevation, and derived exits.
 
 ## Preserved game systems
 
@@ -20,14 +20,15 @@ it is not part of the future setting.
 - reusable citizen, hostile, and quest-giver NPC templates; and
 - an empty quest-catalog boundary ready for future story content.
 
-The previous world-specific acceptance coverage was replaced with a focused
-system-preservation suite against the login room.
+The previous world-specific acceptance coverage was replaced with focused
+system-preservation and Edition 1 wilderness-movement coverage.
 
 ## Native shape
 
 - `jvmud/avelorn.config` declares the JVMud boundary and lifecycle vocabulary.
 - `source/persona/` owns character policy and player-facing interaction.
-- `source/place/login_room.c` is the temporary, non-world login Place.
+- `source/system/atlas.c` reads and caches Edition 1 physical atlas regions.
+- `source/system/atlas_room.c` is the generic on-demand wilderness Place.
 - `source/system/` contains reusable mudlib services.
 - `source/npc/` contains reusable NPC templates.
 - `source/item/` contains the reusable item entity implementation.

@@ -27,9 +27,8 @@ current and maximum class resources; currency; stable item blueprint ids and
 equipment assignments; and a saved Place id.
 
 The previous quest state is discarded when an existing account next logs in.
-All other character state remains intact. During the reset, all characters enter
-the temporary `place/login_room` because former saved Place ids no longer
-exist.
+All other character state remains intact. Former Place ids migrate to the fixed
+Edition 1 atlas starting square because those former locations no longer exist.
 
 ## Combat and advancement
 
@@ -37,8 +36,21 @@ Combatants publish level and health so players can evaluate risk. Level and
 equipment recommendations remain soft gates that alter warnings and
 effectiveness without prohibiting an attempt. Every contributor still present
 when an opponent falls receives victory credit. Defeat is recoverable: the
-character returns to the login room, resources recover, and the existing
-small coin loss remains in effect.
+character returns to the fixed atlas starting square, resources recover, and
+the existing small coin loss remains in effect.
+
+## Edition 1 wilderness movement
+
+Wilderness Places are shared virtual objects materialized on demand from the
+Edition 1 compressed JSON atlas. A room path encodes one stable global square
+coordinate. The room itself stores no authored geography or lore and reports
+only its physical terrain classification, elevation, and exits.
+
+Walking considers only the four cardinal neighbors. An edge is passable when
+the adjacent square exists, neither endpoint is open water, shallow lake margin,
+river channel, cliff, or precipice, and the absolute elevation difference is no
+more than 128 metres. The same rule applies in both directions. Runtime room and
+region loading never instantiates the complete atlas at server startup.
 
 Each class retains its resource-powered technique. Experience, levels,
 attribute improvement, starter equipment, inventory, equipment, consumables,

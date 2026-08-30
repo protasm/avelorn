@@ -21,7 +21,7 @@ class AvelornMudlibTest {
     Path tempDir;
 
     @Test
-    void bootsIntoTheOnlyLoginRoom() throws Exception {
+    void bootsIntoTheEditionOneAtlasAndWalksCardinally() throws Exception {
         Path mudlib = copyAvelornFixture();
         MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
         StringWriter output = new StringWriter();
@@ -29,20 +29,64 @@ class AvelornMudlibTest {
         InstancePersona persona = mud.attachPersona(writer, "127.0.0.1");
 
         assertEquals("avelorn", mud.gameId());
-        assertEquals("place/login_room", mud.startingPlacePath());
+        assertEquals("place/atlas/x2080/y3872", mud.startingPlacePath());
 
-        createCharacter(mud, persona, writer, "empty_world", "Arden Vale", "non-binary", "ranger");
-        commands(mud, persona, writer, "look", "quests", "inventory", "equipment", "money", "help");
+        createCharacter(mud, persona, writer, "atlas_walker", "Arden Vale", "non-binary", "ranger");
+        commands(mud, persona, writer, "north", "south", "east", "west",
+                "quests", "inventory", "equipment", "money", "help");
 
         String transcript = output.toString();
-        assertTrue(transcript.contains("Login Room"), transcript);
-        assertTrue(transcript.contains("The world beyond it has not been built"), transcript);
-        assertTrue(transcript.contains("There are no exits."), transcript);
+        assertTrue(transcript.contains("The Wilderness"), transcript);
+        assertTrue(transcript.contains("Terrain: Forested Foothill"), transcript);
+        assertTrue(transcript.contains("Elevation: 309 m"), transcript);
+        assertTrue(transcript.contains("Elevation: 296 m"), transcript);
+        assertTrue(transcript.contains(
+                "Forested Foothill terrain stretches through this part of the wilderness."), transcript);
+        assertTrue(transcript.contains("Occupants: none"), transcript);
+        assertTrue(transcript.contains("Items: none"), transcript);
+        assertTrue(transcript.contains("Exits: n e s w"), transcript);
         assertTrue(transcript.contains("Your journal contains no assignments."), transcript);
         assertTrue(transcript.contains("ashwood shortbow (equipped)"), transcript);
         assertTrue(transcript.contains("body: blue wool travel cloak (equipped)"), transcript);
         assertTrue(transcript.contains("You carry 1 gold, 2 silver."), transcript);
-        assertFalse(transcript.contains("atlas"), transcript);
+    }
+
+    @Test
+    void wildernessDescriptionsSeparateProseOccupantsAndItemsByMode() throws Exception {
+        Path mudlib = copyAvelornFixture();
+        MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
+
+        StringWriter firstOutput = new StringWriter();
+        PrintWriter firstWriter = new PrintWriter(firstOutput, true);
+        InstancePersona first = mud.attachPersona(firstWriter, "127.0.0.1");
+        createCharacter(mud, first, firstWriter, "room_first", "Arden Vale", "non-binary", "ranger");
+
+        StringWriter secondOutput = new StringWriter();
+        PrintWriter secondWriter = new PrintWriter(secondOutput, true);
+        InstancePersona second = mud.attachPersona(secondWriter, "127.0.0.2");
+        createCharacter(mud, second, secondWriter, "room_second", "Mira Venn", "female", "mage");
+        commands(mud, second, secondWriter, "drop draught");
+        secondOutput.getBuffer().setLength(0);
+
+        commands(mud, second, secondWriter, "look");
+        String verbose = secondOutput.toString();
+        assertTrue(verbose.contains("Terrain: Forested Foothill"), verbose);
+        assertTrue(verbose.contains("Elevation: 309 m"), verbose);
+        assertTrue(verbose.contains(
+                "Forested Foothill terrain stretches through this part of the wilderness."), verbose);
+        assertTrue(verbose.contains("Occupants: Arden vale"), verbose);
+        assertTrue(verbose.contains("Items: minor healing draught"), verbose);
+        assertTrue(verbose.contains("Exits: n e s w"), verbose);
+
+        secondOutput.getBuffer().setLength(0);
+        commands(mud, second, secondWriter, "brief", "north", "south");
+        String brief = secondOutput.toString();
+        assertTrue(brief.contains("Terrain: Forested Foothill"), brief);
+        assertTrue(brief.contains("Elevation: 309 m"), brief);
+        assertFalse(brief.contains("terrain stretches through this part of the wilderness."), brief);
+        assertTrue(brief.contains("Occupants: Arden vale"), brief);
+        assertTrue(brief.contains("Items: minor healing draught"), brief);
+        assertTrue(brief.contains("Exits: n e s w"), brief);
     }
 
     @Test
@@ -63,9 +107,12 @@ class AvelornMudlibTest {
         assertTrue(messages.stream().anyMatch(message -> message.startsWith("GMCP:Char.Vitals ")
                 && message.contains("\"hp\":") && message.contains("\"maxhp\":")), messages.toString());
         assertTrue(messages.stream().anyMatch(message -> message.startsWith("GMCP:Room.Info ")
-                && message.contains("\"num\":1")
-                && message.contains("\"name\":\"Login Room\"")
-                && message.contains("\"exits\":{}")), messages.toString());
+                && message.contains("\"num\":19826721")
+                && message.contains("\"name\":\"The Wilderness\"")
+                && message.contains("\"north\":")
+                && message.contains("\"east\":")
+                && message.contains("\"south\":")
+                && message.contains("\"west\":")), messages.toString());
     }
 
     @Test
@@ -77,13 +124,13 @@ class AvelornMudlibTest {
         InstancePersona first = mud.attachPersona(firstWriter, "127.0.0.1");
 
         createCharacter(mud, first, firstWriter, "persistence", "Arden Vale", "non-binary", "ranger");
-        commands(mud, first, firstWriter, "save", "quit");
+        commands(mud, first, firstWriter, "north", "save", "quit");
 
         Path snapshotPath = mudlib.resolve("accounts/persistence.o");
         assertTrue(Files.isRegularFile(snapshotPath));
         String snapshot = Files.readString(snapshotPath);
         assertTrue(snapshot.contains("inventory_state"), snapshot);
-        assertTrue(snapshot.contains("place/login_room"), snapshot);
+        assertTrue(snapshot.contains("place/atlas/x2080/y3873"), snapshot);
         assertFalse(snapshot.contains("Avelorn1!"), snapshot);
 
         StringWriter secondOutput = new StringWriter();
@@ -93,10 +140,23 @@ class AvelornMudlibTest {
 
         String restored = secondOutput.toString();
         assertTrue(restored.contains("Welcome back, Arden vale."), restored);
-        assertTrue(restored.contains("Login Room"), restored);
+        assertTrue(restored.contains("The Wilderness"), restored);
         assertTrue(restored.contains("level 1 ranger"), restored);
         assertTrue(restored.contains("ashwood shortbow (equipped)"), restored);
         assertTrue(restored.contains("Your journal contains no assignments."), restored);
+    }
+
+    @Test
+    void derivesWaterCliffAndElevationWalkingConstraintsFromAtlasData() throws Exception {
+        Path mudlib = copyAvelornFixture();
+        MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
+        var atlas = mud.reloadMudlibObject("system/atlas");
+
+        assertEquals(0, atlas.invoke("walking_result", 2080, 3872, 2081, 3872));
+        assertEquals(2, atlas.invoke("walking_result", 766, 3688, 767, 3688));
+        assertEquals(3, atlas.invoke("walking_result", 2844, 2557, 2845, 2557));
+        assertEquals(4, atlas.invoke("walking_result", 505, 3427, 506, 3427));
+        assertEquals(1, atlas.invoke("walking_result", 2080, 3872, 2082, 3872));
     }
 
     @Test

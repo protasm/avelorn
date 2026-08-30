@@ -99,7 +99,9 @@ void receive_account_id(mixed value) {
     quest_stages = ([ ]);
     quest_counts = ([ ]);
     quest_flags = ([ ]);
-    saved_place = "place/login_room";
+    if (!jvmud_invoke_lpc_object("system/atlas", "square_for_path", saved_place)) {
+      saved_place = atlas_start_path();
+    }
     avelorn_prompt("Password: ");
     jvmud_capture_session_input("receive_login_password", 1);
     return;
@@ -239,7 +241,10 @@ void enter_avelorn(int returning) {
       jvmud_lowercase_text(character_name));
 
   if (returning) {
-    jvmud_move_entity(jvmud_current_lpc_object(), "place/login_room");
+    if (!jvmud_invoke_lpc_object("system/atlas", "square_for_path", saved_place)) {
+      saved_place = atlas_start_path();
+    }
+    jvmud_move_entity(jvmud_current_lpc_object(), saved_place);
   }
 
   if (returning) {
@@ -443,7 +448,11 @@ int travel_to(string direction, string destination) {
       character_name + " arrives.\n",
       jvmud_current_lpc_object());
   if (brief_mode) {
-    describe_briefly(new_place);
+    if (jvmud_method_exists("describe_brief", new_place)) {
+      jvmud_invoke_lpc_object(new_place, "describe_brief", jvmud_current_lpc_object());
+    } else {
+      describe_briefly(new_place);
+    }
   } else {
     jvmud_invoke_lpc_object(new_place, "describe", jvmud_current_lpc_object());
   }
@@ -920,8 +929,9 @@ int receive_damage(int amount, string attacker_name) {
   lost_copper = copper / 10;
   copper -= lost_copper;
   recalculate_resources(1);
-  jvmud_move_entity(jvmud_current_lpc_object(), "place/login_room");
-  write("You are overcome and returned safely to the login room.\n");
+  saved_place = atlas_start_path();
+  jvmud_move_entity(jvmud_current_lpc_object(), saved_place);
+  write("You are overcome and returned safely to your starting wilderness square.\n");
   if (lost_copper > 0) {
     write("You lost "
         + jvmud_invoke_lpc_object("system/economy", "format_money", lost_copper)
@@ -931,6 +941,10 @@ int receive_damage(int amount, string attacker_name) {
   look(0);
   send_gmcp_character();
   return 0;
+}
+
+string atlas_start_path() {
+  return "place/atlas/x2080/y3872";
 }
 
 void award_victory(int xp, int coins, string opponent_name, object opponent) {
