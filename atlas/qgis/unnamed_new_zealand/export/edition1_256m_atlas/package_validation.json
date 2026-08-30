@@ -34,7 +34,7 @@
         "invalid_entries": 0,
         "value_mismatches": 0
       },
-      "name": "every JSON square round-trips to the exact elevation and terrain raster values",
+      "name": "every JSON square round-trips to exact elevation, terrain, and catchment values",
       "pass": true
     },
     {
@@ -75,10 +75,11 @@
         "ocean_squares_stored": false,
         "region_edge_metres": 16384,
         "regions_per_axis": 80,
-        "schema": 1,
+        "schema": 2,
         "square_physical_fields": [
           "elevation_m",
-          "terrain_code"
+          "terrain_code",
+          "upstream_catchment_ha"
         ],
         "world_side_metres": 1310720
       },
@@ -90,14 +91,16 @@
         "entry": [
           "local_index",
           "elevation_m",
-          "terrain_code"
+          "terrain_code",
+          "upstream_catchment_ha"
         ],
         "physical_fields": [
           "elevation_m",
-          "terrain_code"
+          "terrain_code",
+          "upstream_catchment_ha"
         ]
       },
-      "name": "square payload stores only location plus elevation and terrain",
+      "name": "square payload stores location plus elevation, terrain, and upstream catchment",
       "pass": true
     },
     {
@@ -132,12 +135,12 @@
   ],
   "checks_passed": 15,
   "checks_total": 15,
-  "compressed_region_json_bytes": 17090222,
-  "created_utc": "2026-08-30T20:53:03.130035+00:00",
+  "compressed_region_json_bytes": 21379507,
+  "created_utc": "2026-08-30T22:13:30.233471+00:00",
   "land_square_count": 4051581,
   "package": "export/edition1_256m_atlas/package.json",
-  "package_sha256": "a74d203c55160ffb9f2b59f0630bb83cab877ea8896d4c9a9bea3d937e2c7856",
+  "package_sha256": "0bf79fa75c33dcb16961a59ff504e8524ea6ff77122f14955ac49c1553c3ae5b",
   "region_file_count": 1226,
-  "schema": 1,
+  "schema": 2,
   "status": "pass"
 }

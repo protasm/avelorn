@@ -24,14 +24,19 @@ read that array structurally with:
 
 `jvmud_read_mudlib_json_array(path, "/squares", offset, count)`
 
-Every square entry is a three-integer array:
+Every square entry is a four-integer array:
 
-`[local_index, elevation_m, terrain_code]`
+`[local_index, elevation_m, terrain_code, upstream_catchment_ha]`
 
 `local_index` is location, not an additional physical property. It is
 `local_y * 64 + local_x`, with both local axes increasing east/north from the
-region's southwest corner. The only stored physical properties are the agreed
-integer elevation and terrain code.
+region's southwest corner. The stored physical properties are integer
+elevation, terrain code, and upstream catchment area in hectares.
+
+`upstream_catchment_ha` is the frozen conditioned-hydrology flow-accumulation
+cell count multiplied by 65,536 square metres and rounded to the nearest
+hectare. It includes the square itself and is at least 7 for every stored land
+square.
 
 ## JSON type limits
 

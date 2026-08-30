@@ -16,8 +16,8 @@ part of Edition 1.
   is a derived physical-analysis tier, not a replacement for detailed vectors
   or native-resolution source rasters.
 - Ocean and shallow-seafloor evidence remain in QGIS. The eventual mudlib JSON
-  omits ocean cells and stores only elevation and terrain code for occupiable
-  land cells.
+  omits ocean cells and stores elevation, terrain code, and upstream catchment
+  area for occupiable land cells.
 
 ## Admission states
 
@@ -82,4 +82,5 @@ indefinitely.
 The old `export/provisional_256m_atlas_v001/` package is retained only as a
 historical playable prototype. It is not an input to any fresh Edition 1
 physical layer. A final mudlib package must be generated anew from the frozen
-QGIS edition and may store only the agreed land-cell elevation and terrain code.
+QGIS edition and may store only the agreed land-cell elevation, terrain code,
+and upstream catchment area.

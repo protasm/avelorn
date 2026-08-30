@@ -6,7 +6,7 @@ The geographical world and its story have been intentionally reset. All former
 regions, rooms, routes, maps, placed inhabitants, shops, quests, and generated
 world logic are gone. Players now enter the anonymous Edition 1 physical atlas.
 Wilderness rooms are materialized on demand from its compressed JSON region
-files and expose only terrain, elevation, and derived exits.
+files and expose terrain, elevation, upstream catchment area, and derived exits.
 
 ## Preserved game systems
 

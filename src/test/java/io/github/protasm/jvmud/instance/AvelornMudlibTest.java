@@ -36,10 +36,9 @@ class AvelornMudlibTest {
                 "quests", "inventory", "equipment", "money", "help");
 
         String transcript = output.toString();
-        assertTrue(transcript.contains("The Wilderness"), transcript);
-        assertTrue(transcript.contains("Terrain: Forested Foothill"), transcript);
-        assertTrue(transcript.contains("Elevation: 309 m"), transcript);
-        assertTrue(transcript.contains("Elevation: 296 m"), transcript);
+        assertTrue(transcript.contains("The Wild"), transcript);
+        assertFalse(transcript.contains("Terrain:"), transcript);
+        assertFalse(transcript.contains("Elevation:"), transcript);
         assertTrue(transcript.contains(
                 "Forested Foothill terrain stretches through this part of the wilderness."), transcript);
         assertTrue(transcript.contains("Occupants: none"), transcript);
@@ -70,8 +69,10 @@ class AvelornMudlibTest {
 
         commands(mud, second, secondWriter, "look");
         String verbose = secondOutput.toString();
-        assertTrue(verbose.contains("Terrain: Forested Foothill"), verbose);
-        assertTrue(verbose.contains("Elevation: 309 m"), verbose);
+        assertTrue(verbose.contains("The Wild\n"), verbose);
+        assertFalse(verbose.contains("The Wild ("), verbose);
+        assertFalse(verbose.contains("Terrain:"), verbose);
+        assertFalse(verbose.contains("Elevation:"), verbose);
         assertTrue(verbose.contains(
                 "Forested Foothill terrain stretches through this part of the wilderness."), verbose);
         assertTrue(verbose.contains("Occupants: Arden vale"), verbose);
@@ -81,6 +82,8 @@ class AvelornMudlibTest {
         secondOutput.getBuffer().setLength(0);
         commands(mud, second, secondWriter, "brief", "north", "south");
         String brief = secondOutput.toString();
+        assertTrue(brief.contains("The Wild (2080, 3873)"), brief);
+        assertTrue(brief.contains("The Wild (2080, 3872)"), brief);
         assertTrue(brief.contains("Terrain: Forested Foothill"), brief);
         assertTrue(brief.contains("Elevation: 309 m"), brief);
         assertFalse(brief.contains("terrain stretches through this part of the wilderness."), brief);
@@ -108,7 +111,7 @@ class AvelornMudlibTest {
                 && message.contains("\"hp\":") && message.contains("\"maxhp\":")), messages.toString());
         assertTrue(messages.stream().anyMatch(message -> message.startsWith("GMCP:Room.Info ")
                 && message.contains("\"num\":19826721")
-                && message.contains("\"name\":\"The Wilderness\"")
+                && message.contains("\"name\":\"The Wild\"")
                 && message.contains("\"north\":")
                 && message.contains("\"east\":")
                 && message.contains("\"south\":")
@@ -140,7 +143,7 @@ class AvelornMudlibTest {
 
         String restored = secondOutput.toString();
         assertTrue(restored.contains("Welcome back, Arden vale."), restored);
-        assertTrue(restored.contains("The Wilderness"), restored);
+        assertTrue(restored.contains("The Wild"), restored);
         assertTrue(restored.contains("level 1 ranger"), restored);
         assertTrue(restored.contains("ashwood shortbow (equipped)"), restored);
         assertTrue(restored.contains("Your journal contains no assignments."), restored);
@@ -157,6 +160,57 @@ class AvelornMudlibTest {
         assertEquals(3, atlas.invoke("walking_result", 2844, 2557, 2845, 2557));
         assertEquals(4, atlas.invoke("walking_result", 505, 3427, 506, 3427));
         assertEquals(1, atlas.invoke("walking_result", 2080, 3872, 2082, 3872));
+    }
+
+    @Test
+    void carriesFrozenCatchmentDataIntoRiverScaleDescriptions() throws Exception {
+        Path mudlib = copyAvelornFixture();
+        MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
+        var atlas = mud.reloadMudlibObject("system/atlas");
+        var room = mud.reloadMudlibObject("system/atlas_room");
+
+        assertEquals(7, atlas.invoke("upstream_catchment_ha", 2080, 3872));
+        assertEquals(691857, atlas.invoke("upstream_catchment_ha", 4710, 562));
+
+        room.invoke("configure", 4710, 561, 78, 3, 7);
+        assertEquals(7, room.invoke("query_upstream_catchment_ha"));
+        assertEquals("A headwater stream drains the nearby slopes.",
+                room.invoke("catchment_description"));
+
+        room.invoke("configure", 4698, 569, 85, 3, 1094);
+        assertEquals("A stream gathers the local drainage.",
+                room.invoke("catchment_description"));
+
+        room.invoke("configure", 4523, 691, 452, 4, 11973);
+        assertEquals("A river drains the surrounding country.",
+                room.invoke("catchment_description"));
+
+        room.invoke("configure", 4710, 562, 92, 3, 691857);
+        assertEquals("A major river drains a vast watershed.",
+                room.invoke("catchment_description"));
+    }
+
+    @Test
+    void addsOneNotableAdjacentFeatureOnlyToVerboseRoomProse() throws Exception {
+        Path mudlib = copyAvelornFixture();
+        MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
+        var room = mud.reloadMudlibObject("system/atlas_room");
+
+        room.invoke("configure", 2080, 3872, 309, 23, 7);
+        assertEquals("", room.invoke("adjacent_description"));
+
+        room.invoke("configure", 767, 3689, 89, 10, 7);
+        assertEquals("A river lies to the south.", room.invoke("adjacent_description"));
+
+        room.invoke("configure", 2844, 2557, 1076, 32, 20);
+        assertEquals("A precipice looms to the east.", room.invoke("adjacent_description"));
+
+        room.invoke("configure", 505, 3427, 430, 40, 7);
+        assertEquals("The land falls sharply to the east.", room.invoke("adjacent_description"));
+
+        room.invoke("configure", 2057, 4904, 3, 55, 13);
+        assertEquals("Dune Grassland begins to the north.",
+                room.invoke("adjacent_description"));
     }
 
     @Test

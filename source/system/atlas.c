@@ -61,7 +61,7 @@ mapping load_region(int region_x, int region_y) {
   if (jvmud_is_array(entries)) {
     for (index = 0; index < jvmud_size(entries); index++) {
       entry = entries[index];
-      if (jvmud_is_array(entry) && jvmud_size(entry) == 3) {
+      if (jvmud_is_array(entry) && jvmud_size(entry) == 4) {
         region[jvmud_to_string(entry[0])] = entry;
       }
     }
@@ -78,6 +78,16 @@ string terrain_name(int terrain_code) {
     return "terrain-code-" + terrain_code;
   }
   return name;
+}
+
+int upstream_catchment_ha(int x, int y) {
+  mixed record;
+
+  record = square(x, y);
+  if (!record) {
+    return 0;
+  }
+  return record[3];
 }
 
 int walking_result(int from_x, int from_y, int to_x, int to_y) {
@@ -141,5 +151,5 @@ mixed square_for_path(string path) {
   if (!record) {
     return 0;
   }
-  return ({ x, y, record[1], record[2] });
+  return ({ x, y, record[1], record[2], record[3] });
 }

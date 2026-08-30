@@ -121,5 +121,9 @@ int is_room_heading(string line) {
   if (!place || !jvmud_method_exists("short", place)) {
     return 0;
   }
-  return line == jvmud_invoke_lpc_object(place, "short");
+  if (line == jvmud_invoke_lpc_object(place, "short")) {
+    return 1;
+  }
+  return jvmud_method_exists("query_brief_short", place)
+      && line == jvmud_invoke_lpc_object(place, "query_brief_short");
 }

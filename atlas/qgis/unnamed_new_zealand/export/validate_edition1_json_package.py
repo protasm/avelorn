@@ -22,12 +22,15 @@ BUILD_QA = PACKAGE_DIR / "build_qa.json"
 LAND = ROOT / "terrain/analysis_256m_edition1/land_mask.tif"
 ELEVATION = ROOT / "terrain/analysis_256m_edition1/elevation_m.tif"
 TERRAIN = PACKAGE_DIR / "rasters/terrain_code.tif"
+FLOW_ACCUMULATION = ROOT / "terrain/hydrology_edition1_v2/flow_accumulation_cells.tif"
 FREEZE_MANIFEST = ROOT / "EDITION1_FREEZE_MANIFEST.json"
 FROZEN_PROJECT = ROOT / "metric_candidate/avelorn_physical_edition1.qgz"
 OUTPUT = PACKAGE_DIR / "package_validation.json"
 WORLD_AXIS = 5120
 REGION_AXIS = 80
 LOCAL_AXIS = 64
+CELL_EDGE_METRES = 256
+SQUARE_METRES_PER_HECTARE = 10000
 
 
 def sha256(path: Path) -> str:
@@ -69,6 +72,11 @@ def main() -> None:
     land = template.GetRasterBand(1).ReadAsArray() == 1
     elevation = read_exact(ELEVATION, template)
     terrain = read_exact(TERRAIN, template).astype(np.uint8, copy=False)
+    flow_accumulation = read_exact(FLOW_ACCUMULATION, template).astype(np.uint32, copy=False)
+    upstream_catchment_ha = np.rint(
+        flow_accumulation.astype(np.float64) * CELL_EDGE_METRES * CELL_EDGE_METRES
+        / SQUARE_METRES_PER_HECTARE
+    ).astype(np.int32)
     seen = np.zeros(land.shape, dtype=bool)
     terrain_counts = np.zeros(64, dtype=np.int64)
     region_details = []
@@ -85,7 +93,7 @@ def main() -> None:
             document = json.load(stream)
         squares = document.get("squares")
         header_matches = (
-            document.get("schema") == 1
+            document.get("schema") == 2
             and document.get("region_index") == entry.get("region_index")
             and document.get("region_x") == entry.get("region_x")
             and document.get("region_y") == entry.get("region_y")
@@ -93,12 +101,13 @@ def main() -> None:
             and len(squares) == entry.get("square_count")
         )
         values = np.asarray(squares, dtype=np.int32)
-        if values.ndim != 2 or values.shape[1] != 3:
+        if values.ndim != 2 or values.shape[1] != 4:
             invalid_entry_count += len(squares) if isinstance(squares, list) else 1
             continue
         local_indices = values[:, 0]
         elevation_values = values[:, 1]
         terrain_values = values[:, 2]
+        catchment_values = values[:, 3]
         sorted_unique = bool(
             np.all((local_indices >= 0) & (local_indices < 4096))
             and np.all(np.diff(local_indices) > 0)
@@ -116,6 +125,7 @@ def main() -> None:
             land[raster_rows, raster_columns]
             & (elevation[raster_rows, raster_columns].astype(np.int32) == elevation_values)
             & (terrain[raster_rows, raster_columns].astype(np.int32) == terrain_values)
+            & (upstream_catchment_ha[raster_rows, raster_columns] == catchment_values)
             & (terrain_values >= 1)
             & (terrain_values <= 62)
         )
@@ -143,12 +153,12 @@ def main() -> None:
         check("all region files have gzip signatures and matching checksums", all(item["gzip_signature"] and item["digest_matches"] for item in region_details), int(np.count_nonzero([not (item["gzip_signature"] and item["digest_matches"]) for item in region_details]))),
         check("region indices and coordinates are unique and ordered", region_indices == sorted(region_indices) and len(region_indices) == len(set(region_indices)) == len(set(region_coordinates)), {"regions": len(region_indices), "unique_indices": len(set(region_indices)), "unique_coordinates": len(set(region_coordinates))}),
         check("every /squares array is sparse, sorted, and locally unique", all(item["local_indices_sorted_unique"] for item in region_details), int(np.count_nonzero([not item["local_indices_sorted_unique"] for item in region_details]))),
-        check("every JSON square round-trips to the exact elevation and terrain raster values", value_mismatch_count == 0 and invalid_entry_count == 0, {"value_mismatches": value_mismatch_count, "invalid_entries": invalid_entry_count}),
+        check("every JSON square round-trips to exact elevation, terrain, and catchment values", value_mismatch_count == 0 and invalid_entry_count == 0, {"value_mismatches": value_mismatch_count, "invalid_entries": invalid_entry_count}),
         check("every land square appears exactly once", duplicate_count == 0 and total_squares == int(np.count_nonzero(land)) and np.array_equal(seen, land), {"duplicates": duplicate_count, "json_squares": total_squares, "land_squares": int(np.count_nonzero(land)), "missing": int(np.count_nonzero(land & ~seen))}),
         check("no ocean square is stored", not np.any(seen & ~land) and build.get("ocean_square_count_stored") == 0, int(np.count_nonzero(seen & ~land))),
         check("JSON terrain totals reproduce the terrain dictionary", len(dictionary_counts) == 64 and np.array_equal(dictionary_counts, terrain_counts), {"dictionary_total": int(np.sum(dictionary_counts)) if len(dictionary_counts) == 64 else None, "json_total": int(np.sum(terrain_counts))}),
         check("world geometry is exactly 80 regions by 64 cells by 256 m", world.get("regions_per_axis") == 80 and world.get("cells_per_region_axis") == 64 and world.get("cell_edge_metres") == 256 and world.get("world_side_metres") == 1310720, world),
-        check("square payload stores only location plus elevation and terrain", build.get("square_entry_shape") == ["local_index", "elevation_m", "terrain_code"] and world.get("square_physical_fields") == ["elevation_m", "terrain_code"], {"entry": build.get("square_entry_shape"), "physical_fields": world.get("square_physical_fields")}),
+        check("square payload stores location plus elevation, terrain, and upstream catchment", build.get("square_entry_shape") == ["local_index", "elevation_m", "terrain_code", "upstream_catchment_ha"] and world.get("square_physical_fields") == ["elevation_m", "terrain_code", "upstream_catchment_ha"], {"entry": build.get("square_entry_shape"), "physical_fields": world.get("square_physical_fields")}),
         check("plain JSON contract needs neither 64-bit integers nor null/false distinction", build.get("exact_64_bit_integers_required") is False and build.get("null_false_distinction_required") is False, {"int64": build.get("exact_64_bit_integers_required"), "null_false": build.get("null_false_distinction_required")}),
         check("package is bound to frozen QGIS Edition 1", sha256(FROZEN_PROJECT) == freeze.get("qgis_project_sha256") == package.get("frozen_qgis_project_sha256"), package.get("frozen_qgis_project_sha256")),
         check("package and build reports introduce no proper names", terrain_types.get("proper_geographic_names_introduced") is False and build.get("proper_geographic_names_introduced") is False, False),
@@ -156,7 +166,7 @@ def main() -> None:
     ]
     passed = sum(item["pass"] for item in results)
     report = {
-        "schema": 1,
+        "schema": 2,
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "status": "pass" if passed == len(results) else "fail",
         "checks_passed": passed,

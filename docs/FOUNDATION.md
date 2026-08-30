@@ -44,7 +44,11 @@ the existing small coin loss remains in effect.
 Wilderness Places are shared virtual objects materialized on demand from the
 Edition 1 compressed JSON atlas. A room path encodes one stable global square
 coordinate. The room itself stores no authored geography or lore and reports
-only its physical terrain classification, elevation, and exits.
+its physical terrain classification, elevation, and exits. In verbose mode,
+river descriptions distinguish headwaters, streams, rivers, and major rivers
+from the frozen contributing area. One additional verbose sentence may call out
+the most notable cardinal neighbor: water, a precipice, sharp relief, or a
+terrain transition, in that order. Brief mode displays neither flavor sentence.
 
 Walking considers only the four cardinal neighbors. An edge is passable when
 the adjacent square exists, neither endpoint is open water, shallow lake margin,

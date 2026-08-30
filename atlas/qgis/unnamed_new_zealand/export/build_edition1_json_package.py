@@ -21,6 +21,7 @@ TEMP_REGIONS = OUTPUT / "regions.tmp"
 LAND = ROOT / "terrain/analysis_256m_edition1/land_mask.tif"
 ELEVATION = ROOT / "terrain/analysis_256m_edition1/elevation_m.tif"
 TERRAIN = OUTPUT / "rasters/terrain_code.tif"
+FLOW_ACCUMULATION = ROOT / "terrain/hydrology_edition1_v2/flow_accumulation_cells.tif"
 TERRAIN_TYPES = OUTPUT / "terrain_types.json"
 TERRAIN_VALIDATION = OUTPUT / "terrain_classification_validation.json"
 FREEZE_MANIFEST = ROOT / "EDITION1_FREEZE_MANIFEST.json"
@@ -37,6 +38,7 @@ CELLS_PER_REGION_AXIS = 64
 CELLS_PER_WORLD_AXIS = 5120
 CELL_EDGE_METRES = 256
 REGION_EDGE_METRES = 16384
+SQUARE_METRES_PER_HECTARE = 10000
 
 
 def sha256(path: Path) -> str:
@@ -95,8 +97,15 @@ def main() -> None:
     land = template.GetRasterBand(1).ReadAsArray() == 1
     elevation = read_exact(ELEVATION, template)
     terrain = read_exact(TERRAIN, template).astype(np.uint8, copy=False)
+    flow_accumulation = read_exact(FLOW_ACCUMULATION, template).astype(np.uint32, copy=False)
     if not np.array_equal(terrain > 0, land):
         raise RuntimeError("terrain raster and hard coast disagree")
+    if np.any(flow_accumulation[land] < 1) or np.any(flow_accumulation[~land] != 0):
+        raise RuntimeError("flow accumulation must cover every land square and no ocean square")
+    upstream_catchment_ha = np.rint(
+        flow_accumulation.astype(np.float64) * CELL_EDGE_METRES * CELL_EDGE_METRES
+        / SQUARE_METRES_PER_HECTARE
+    ).astype(np.int32)
 
     if TEMP_REGIONS.exists():
         shutil.rmtree(TEMP_REGIONS)
@@ -117,15 +126,23 @@ def main() -> None:
                 continue
             elevation_block = elevation[raster_row_start:raster_row_end, column_start:column_end][::-1, :].ravel(order="C")
             terrain_block = terrain[raster_row_start:raster_row_end, column_start:column_end][::-1, :].ravel(order="C")
+            catchment_block = upstream_catchment_ha[
+                raster_row_start:raster_row_end, column_start:column_end
+            ][::-1, :].ravel(order="C")
             squares = [
-                [int(local_index), int(elevation_block[local_index]), int(terrain_block[local_index])]
+                [
+                    int(local_index),
+                    int(elevation_block[local_index]),
+                    int(terrain_block[local_index]),
+                    int(catchment_block[local_index]),
+                ]
                 for local_index in local_indices
             ]
             region_index = region_y * REGIONS_PER_AXIS + region_x
             relative = Path("regions") / f"x{region_x:02d}" / f"r{region_x:02d}_{region_y:02d}.json.gz"
             temporary = TEMP_REGIONS / f"x{region_x:02d}" / f"r{region_x:02d}_{region_y:02d}.json.gz"
             document = {
-                "schema": 1,
+                "schema": 2,
                 "region_index": region_index,
                 "region_x": region_x,
                 "region_y": region_y,
@@ -150,7 +167,7 @@ def main() -> None:
     TEMP_REGIONS.replace(REGIONS)
 
     world = {
-        "schema": 1,
+        "schema": 2,
         "edition": "edition1",
         "coordinate_semantics": {
             "origin": "southwest corner of frozen world square",
@@ -165,11 +182,11 @@ def main() -> None:
         "cell_edge_metres": CELL_EDGE_METRES,
         "local_index_formula": "local_y * 64 + local_x",
         "ocean_squares_stored": False,
-        "square_physical_fields": ["elevation_m", "terrain_code"],
+        "square_physical_fields": ["elevation_m", "terrain_code", "upstream_catchment_ha"],
     }
     write_json(WORLD, world)
     package = {
-        "schema": 1,
+        "schema": 2,
         "edition": "edition1",
         "state": "derived from frozen canonical QGIS Edition 1",
         "frozen_qgis_project": str(FROZEN_PROJECT.relative_to(ROOT)),
@@ -187,18 +204,23 @@ def main() -> None:
         "type": "object",
         "required": ["schema", "region_index", "region_x", "region_y", "squares"],
         "properties": {
-            "schema": {"const": 1},
+            "schema": {"const": 2},
             "region_index": {"type": "integer", "minimum": 0, "maximum": 6399},
             "region_x": {"type": "integer", "minimum": 0, "maximum": 79},
             "region_y": {"type": "integer", "minimum": 0, "maximum": 79},
             "squares": {
                 "type": "array",
                 "items": {
-                    "type": "array", "minItems": 3, "maxItems": 3,
+                    "type": "array", "minItems": 4, "maxItems": 4,
                     "prefixItems": [
                         {"type": "integer", "minimum": 0, "maximum": 4095},
                         {"type": "integer"},
                         {"type": "integer", "minimum": 1, "maximum": 62},
+                        {
+                            "type": "integer",
+                            "minimum": int(np.min(upstream_catchment_ha[land])),
+                            "maximum": int(np.max(upstream_catchment_ha[land])),
+                        },
                     ],
                 },
             },
@@ -210,7 +232,7 @@ def main() -> None:
         "type": "object",
         "required": ["schema", "edition", "state", "frozen_qgis_project", "frozen_qgis_project_sha256", "freeze_manifest", "freeze_manifest_sha256", "world", "terrain_types", "region_schema", "regions"],
         "properties": {
-            "schema": {"const": 1},
+            "schema": {"const": 2},
             "edition": {"const": "edition1"},
             "state": {"type": "string"},
             "frozen_qgis_project": {"type": "string"},
@@ -229,7 +251,7 @@ def main() -> None:
 
     gzip_bytes = sum((OUTPUT / entry["path"]).stat().st_size for entry in region_entries)
     qa = {
-        "schema": 1,
+        "schema": 2,
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "status": "pass",
         "state": "complete downstream Edition 1 land-only JSON package; pending independent round-trip validation",
@@ -241,13 +263,13 @@ def main() -> None:
         "compressed_region_json_bytes": gzip_bytes,
         "compression_ratio": gzip_bytes / total_plain_bytes,
         "large_array_paths": {"package": "/regions", "region_file": "/squares"},
-        "square_entry_shape": ["local_index", "elevation_m", "terrain_code"],
+        "square_entry_shape": ["local_index", "elevation_m", "terrain_code", "upstream_catchment_ha"],
         "exact_64_bit_integers_required": False,
         "null_false_distinction_required": False,
         "ocean_regions_or_squares_stored": False,
         "inputs": {
             str(path.relative_to(ROOT)): sha256(path)
-            for path in [FROZEN_PROJECT, FREEZE_MANIFEST, LAND, ELEVATION, TERRAIN, TERRAIN_TYPES, TERRAIN_VALIDATION, CONTRACT]
+            for path in [FROZEN_PROJECT, FREEZE_MANIFEST, LAND, ELEVATION, TERRAIN, FLOW_ACCUMULATION, TERRAIN_TYPES, TERRAIN_VALIDATION, CONTRACT]
         },
         "outputs": {
             str(path.relative_to(ROOT)): sha256(path)

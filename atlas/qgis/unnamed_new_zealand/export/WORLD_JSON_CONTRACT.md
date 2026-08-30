@@ -86,23 +86,27 @@ equivalent logically expanded world for tools that require a monolith.
   degrees; aspects are degrees clockwise from fictional north.
 - Coordinates use fictional east and fictional north. Earth longitude and
   latitude are prohibited in mudlib-facing spatial records.
-- Each occupiable square has exactly two physical values:
-  `elevation_m` and `terrain_code`.
+- Each occupiable square has exactly three physical values:
+  `elevation_m`, `terrain_code`, and `upstream_catchment_ha`.
 - `elevation_m` is the area-weighted mean canonical land elevation within the
   exact 256 m footprint, rounded to the nearest metre. For inland water it is
   the modeled water-surface elevation.
 - `terrain_code` is the terrain class covering the greatest land area inside
   the exact footprint. Ties resolve by the dictionary's fixed priority and then
   by the lower numeric code.
+- `upstream_catchment_ha` is the conditioned-hydrology contributing area that
+  drains through the square, including the square itself, converted from the
+  exact 256 m flow-accumulation grid and rounded to the nearest hectare.
 - The terrain dictionary contains no more than 64 anonymous physical classes,
   represented by codes 1 through 64. Unused codes may remain explicitly
   reserved in a frozen edition; code assignments never shift within an edition.
   Code zero is reserved and never denotes an occupiable square.
 - Visibility, movement cost, adjacency, weather effects, and descriptions are
   runtime derivations and are not stored in the physical square record.
-- Fine elevation statistics, hydrology, geology, soils, vegetation evidence,
-  uncertainty, and provenance remain in the canonical QGIS edition and build
-  reports rather than being duplicated per mudlib square.
+- Fine elevation statistics, flow direction, basin identifiers, geology,
+  soils, vegetation evidence, uncertainty, and provenance remain in the
+  canonical QGIS edition and build reports rather than being duplicated per
+  mudlib square.
 
 ## Versioning and determinism
 
