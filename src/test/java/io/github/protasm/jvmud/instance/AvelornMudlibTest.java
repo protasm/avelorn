@@ -40,7 +40,7 @@ class AvelornMudlibTest {
         assertFalse(transcript.contains("Terrain:"), transcript);
         assertFalse(transcript.contains("Elevation:"), transcript);
         assertTrue(transcript.contains(
-                "Forested Foothill terrain stretches through this part of the wilderness."), transcript);
+                "Wooded foothills roll through the lower uplands."), transcript);
         assertTrue(transcript.contains("Occupants: none"), transcript);
         assertTrue(transcript.contains("Items: none"), transcript);
         assertTrue(transcript.contains("Exits: n e s w"), transcript);
@@ -74,7 +74,7 @@ class AvelornMudlibTest {
         assertFalse(verbose.contains("Terrain:"), verbose);
         assertFalse(verbose.contains("Elevation:"), verbose);
         assertTrue(verbose.contains(
-                "Forested Foothill terrain stretches through this part of the wilderness."), verbose);
+                "Wooded foothills roll through the lower uplands."), verbose);
         assertTrue(verbose.contains("Occupants: Arden vale"), verbose);
         assertTrue(verbose.contains("Items: minor healing draught"), verbose);
         assertTrue(verbose.contains("Exits: n e s w"), verbose);
@@ -174,20 +174,61 @@ class AvelornMudlibTest {
 
         room.invoke("configure", 4710, 561, 78, 3, 7);
         assertEquals(7, room.invoke("query_upstream_catchment_ha"));
-        assertEquals("A headwater stream drains the nearby slopes.",
+        assertEquals("A narrow headwater stream threads through the low country.",
                 room.invoke("catchment_description"));
 
         room.invoke("configure", 4698, 569, 85, 3, 1094);
-        assertEquals("A stream gathers the local drainage.",
+        assertEquals("A gathering stream gathers its flow through the low country.",
                 room.invoke("catchment_description"));
 
         room.invoke("configure", 4523, 691, 452, 4, 11973);
-        assertEquals("A river drains the surrounding country.",
+        assertEquals("A broad river spreads through waterlogged ground.",
                 room.invoke("catchment_description"));
 
         room.invoke("configure", 4710, 562, 92, 3, 691857);
-        assertEquals("A major river drains a vast watershed.",
+        assertEquals("A great river carries distant waters through the low country.",
                 room.invoke("catchment_description"));
+    }
+
+    @Test
+    void authorsEveryAvailableTerrainAndUsesOnlyVisibleCatchment() throws Exception {
+        Path mudlib = copyAvelornFixture();
+        MudInstance mud = MudInstance.boot(mudlib, "jvmud/avelorn.config");
+        var room = mud.reloadMudlibObject("system/atlas_room");
+
+        for (int terrain = 1; terrain <= 62; terrain++) {
+            room.invoke("configure", 1000 + terrain, 2000, 450, terrain, 12000);
+            String description = (String) room.invoke("wilderness_description");
+            assertFalse(description.isBlank(), "terrain " + terrain);
+            assertTrue(description.endsWith("."), description);
+            assertFalse(description.contains(" terrain "), description);
+            assertFalse(description.contains("terrain-code-"), description);
+        }
+
+        room.invoke("configure", 2080, 3872, 309, 23, 7);
+        String dryCatchment = (String) room.invoke("wilderness_description");
+        room.invoke("configure", 2080, 3872, 309, 23, 691857);
+        assertEquals(dryCatchment, room.invoke("wilderness_description"));
+
+        room.invoke("configure", 2080, 3872, 30, 23, 7);
+        String low = (String) room.invoke("wilderness_description");
+        room.invoke("configure", 2080, 3872, 900, 23, 7);
+        String high = (String) room.invoke("wilderness_description");
+        assertEquals("Wooded foothills roll through the low-lying country.", low);
+        assertEquals("Wooded foothills roll through the high country.", high);
+
+        room.invoke("configure", 2080, 3872, 30, 15, 7);
+        low = (String) room.invoke("wilderness_description");
+        room.invoke("configure", 2080, 3872, 900, 15, 7);
+        high = (String) room.invoke("wilderness_description");
+        assertTrue(low.contains("low-lying country"), low);
+        assertTrue(high.contains("high country"), high);
+
+        room.invoke("configure", 2080, 3872, 309, 15, 7);
+        String firstVariant = (String) room.invoke("wilderness_description");
+        assertEquals(firstVariant, room.invoke("wilderness_description"));
+        room.invoke("configure", 2081, 3872, 309, 15, 7);
+        assertFalse(firstVariant.equals(room.invoke("wilderness_description")));
     }
 
     @Test

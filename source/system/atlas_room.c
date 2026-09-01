@@ -63,14 +63,9 @@ string query_brief_short() {
 
 void describe(object viewer) {
   string adjacent;
-  string hydrology;
 
   write(short() + "\n");
-  write(terrain_display + " terrain stretches through this part of the wilderness.\n");
-  hydrology = catchment_description();
-  if (jvmud_size(hydrology) > 0) {
-    write(hydrology + "\n");
-  }
+  write(wilderness_description() + "\n");
   adjacent = adjacent_description();
   if (jvmud_size(adjacent) > 0) {
     write(adjacent + "\n");
@@ -97,19 +92,244 @@ int is_river_terrain() {
 }
 
 string catchment_description() {
+  return river_description();
+}
+
+string wilderness_description() {
+  string subject;
+
+  if (is_river_terrain()) {
+    return river_description();
+  }
+  if (terrain_code == 1) {
+    return varied_landscape(
+        "open water reaches", "open water extends", "still water spreads", "across a broad inland lake");
+  }
+  if (terrain_code == 2) {
+    return varied_landscape(
+        "shallows fringe", "reed-fringed water borders", "a shallow lake margin follows", "the edge of an inland lake");
+  }
+  if (terrain_code == 5 || terrain_code == 6 || terrain_code == 7 || terrain_code == 62) {
+    return wetland_description();
+  }
+  if (terrain_code == 8 || terrain_code == 9 || terrain_code == 55
+      || terrain_code == 56 || terrain_code == 57) {
+    return coast_description();
+  }
+  if (terrain_code == 19 || terrain_code == 20) {
+    if (terrain_code == 19) { subject = "a forested valley"; }
+    if (terrain_code == 20) { subject = "an open valley"; }
+    return varied_landscape(
+        subject + " lies", subject + " runs", subject + " opens", "between long enclosing slopes");
+  }
+  if (terrain_code == 21 || terrain_code == 22 || terrain_code == 61) {
+    if (terrain_code == 21) { subject = "forested alluvial flats"; }
+    if (terrain_code == 22) { subject = "open alluvial flats"; }
+    if (terrain_code == 61) { subject = "young alluvial ground"; }
+    return cover_description(subject, "along a broad floodplain");
+  }
+  if (terrain_code >= 23 && terrain_code <= 26) {
+    if (terrain_code == 23) { subject = "wooded foothills"; }
+    if (terrain_code == 24) { subject = "open woodland foothills"; }
+    if (terrain_code == 25) { subject = "scrub-covered foothills"; }
+    if (terrain_code == 26) { subject = "grassy foothills"; }
+    return varied_landscape(
+        subject + " rise", subject + " roll", subject + " continue", "through " + elevation_setting());
+  }
+  if (terrain_code >= 37 && terrain_code <= 39) {
+    if (terrain_code == 37) {
+      return varied_landscape(
+          "a volcanic plateau stretches", "old volcanic tableland extends",
+          "broad volcanic ground lies", "across " + elevation_setting());
+    }
+    if (terrain_code == 38) { subject = "forest"; }
+    if (terrain_code == 39) { subject = "open vegetation"; }
+    return varied_landscape(
+        subject + " covers", subject + " follows", subject + " clings to", "an old volcanic slope");
+  }
+  if (terrain_code == 40 || terrain_code == 41) {
+    if (terrain_code == 40) { subject = "a forested rocky ridge"; }
+    if (terrain_code == 41) { subject = "an open rocky ridge"; }
+    return varied_landscape(
+        subject + " rises", subject + " runs", subject + " stands", "above the surrounding country");
+  }
+  if (terrain_code == 42 || terrain_code == 43) {
+    if (terrain_code == 42) { subject = "forest"; }
+    if (terrain_code == 43) { subject = "sparse open growth"; }
+    return varied_landscape(
+        subject + " covers", subject + " follows", subject + " clings to", "a steep mountainside");
+  }
+  if (terrain_code == 44) {
+    return varied_landscape(
+        "a sheer precipice falls", "a broken cliff drops", "a wall of rock descends", "from " + elevation_setting());
+  }
+  if (terrain_code >= 45 && terrain_code <= 47) {
+    if (terrain_code == 45) { subject = "dry grassland"; }
+    if (terrain_code == 46) { subject = "dense shrubland"; }
+    if (terrain_code == 47) { subject = "forest"; }
+    return cover_description(subject, "within an enclosed basin");
+  }
+  if (terrain_code == 48 || terrain_code == 49) {
+    if (terrain_code == 48) { subject = "low scrub"; }
+    if (terrain_code == 49) { subject = "windswept grassland"; }
+    return cover_description(subject, "across a high plateau");
+  }
+  if (terrain_code == 50) {
+    return varied_landscape(
+        "persistent snowfields cover", "old snow and ice mantle",
+        "unbroken snow lies across", elevation_setting());
+  }
+  if (terrain_code == 51) {
+    return varied_landscape(
+        "loose talus covers", "angular blocks mantle", "a field of fallen stone crosses", elevation_setting());
+  }
+  if (terrain_code == 53) {
+    return varied_landscape(
+        "low ground follows", "a shelving shore borders", "damp basin ground fringes", "the margin of an inland lake");
+  }
+  if (terrain_code == 58) {
+    return varied_landscape(
+        "sparse growth struggles", "thin vegetation clings", "bare mineral ground shows", "across exposed ultramafic earth");
+  }
+  if (terrain_code == 59 || terrain_code == 60) {
+    if (terrain_code == 59) { subject = "pale crystalline highlands"; }
+    if (terrain_code == 60) { subject = "dark metamorphic highlands"; }
+    return varied_landscape(
+        subject + " rise", subject + " extend", subject + " dominate", elevation_setting());
+  }
+  subject = vegetation_subject();
+  if (jvmud_size(subject) > 0) {
+    return cover_description(subject, "across " + elevation_setting());
+  }
+  return terrain_display + " shapes " + elevation_setting() + ".";
+}
+
+string river_description() {
+  string water;
+
   if (!is_river_terrain()) {
     return "";
   }
   if (upstream_catchment_ha < 1000) {
-    return "A headwater stream drains the nearby slopes.";
+    water = "a narrow headwater stream";
+  } else if (upstream_catchment_ha < 10000) {
+    water = "a gathering stream";
+  } else if (upstream_catchment_ha < 100000) {
+    water = "a broad river";
+  } else {
+    water = "a great river";
+  }
+  if (terrain_code == 4) {
+    return varied_landscape(
+        water + " winds", water + " branches", water + " spreads", "through waterlogged ground");
+  }
+  if (terrain_code == 52) {
+    return varied_landscape(
+        water + " runs", water + " cuts", water + " thunders", "at the bottom of a steep-sided gorge");
+  }
+  if (terrain_code == 54) {
+    return varied_landscape(
+        "the tidal reaches of " + water + " spread", "salt water meets " + water,
+        water + " broadens", "among mudflats and tidal wetlands");
+  }
+  if (upstream_catchment_ha < 1000) {
+    return varied_landscape(
+        water + " threads", water + " trickles", water + " descends", "through " + elevation_setting());
   }
   if (upstream_catchment_ha < 10000) {
-    return "A stream gathers the local drainage.";
+    return varied_landscape(
+        water + " winds", water + " gathers its flow", water + " passes", "through " + elevation_setting());
   }
   if (upstream_catchment_ha < 100000) {
-    return "A river drains the surrounding country.";
+    return varied_landscape(
+        water + " crosses", water + " winds through", water + " drains", elevation_setting());
   }
-  return "A major river drains a vast watershed.";
+  return varied_landscape(
+      water + " commands", water + " crosses", water + " carries distant waters through", elevation_setting());
+}
+
+string wetland_description() {
+  string subject;
+
+  if (terrain_code == 5) { subject = "salt-touched marshes"; }
+  if (terrain_code == 6) { subject = "waterlogged basin marshes"; }
+  if (terrain_code == 7) { subject = "dark peat wetlands"; }
+  if (terrain_code == 62) { subject = "deep organic wetlands"; }
+  return varied_landscape(
+      subject + " spread", subject + " extend", subject + " lie", "across " + elevation_setting());
+}
+
+string coast_description() {
+  if (terrain_code == 8) {
+    return varied_landscape(
+        "a sandy shore runs", "wind-shaped sand stretches", "a pale beach follows", "along the water's edge");
+  }
+  if (terrain_code == 9) {
+    return varied_landscape(
+        "a rocky shore runs", "broken stone meets the water", "wave-worn rock extends", "along the coast");
+  }
+  if (terrain_code == 55) {
+    return varied_landscape(
+        "wind-shaped forest crowds", "dense coastal forest follows", "salt-weathered trees cover", "the low coastal ground");
+  }
+  if (terrain_code == 56) {
+    return varied_landscape(
+        "coastal scrub covers", "salt-bent shrubs crowd", "low, wind-shaped growth follows", "the ground behind the shore");
+  }
+  return varied_landscape(
+      "dune grassland rolls", "marram-covered dunes extend", "wind-rippled dunes rise", "behind the sandy shore");
+}
+
+string vegetation_subject() {
+  if (terrain_code == 10) { return "dense warm lowland forest"; }
+  if (terrain_code == 11) { return "temperate lowland forest"; }
+  if (terrain_code == 12) { return "wet lowland forest"; }
+  if (terrain_code == 13) { return "dry open woodland"; }
+  if (terrain_code == 14) { return "lowland scrub"; }
+  if (terrain_code == 15) { return "lowland grassland"; }
+  if (terrain_code == 16) { return "humid forest"; }
+  if (terrain_code == 17) { return "dry rolling woodland"; }
+  if (terrain_code == 18) { return "rolling grassland"; }
+  if (terrain_code == 27) { return "cool montane forest"; }
+  if (terrain_code == 28) { return "rain-darkened montane forest"; }
+  if (terrain_code == 29) { return "dry montane forest"; }
+  if (terrain_code == 30) { return "montane scrub"; }
+  if (terrain_code == 31) { return "montane grassland"; }
+  if (terrain_code == 32) { return "subalpine scrub"; }
+  if (terrain_code == 33) { return "subalpine grassland"; }
+  if (terrain_code == 34) { return "alpine grass and herbfield"; }
+  if (terrain_code == 35) { return "alpine scree"; }
+  if (terrain_code == 36) { return "bare alpine rock"; }
+  return "";
+}
+
+string cover_description(string subject, string place) {
+  return varied_landscape(
+      subject + " spreads", subject + " extends", subject + " blankets", place);
+}
+
+string varied_landscape(string first, string second, string third, string place) {
+  int variant;
+  string phrase;
+
+  variant = description_variant();
+  if (variant == 0) { phrase = first; }
+  if (variant == 1) { phrase = second; }
+  if (variant == 2) { phrase = third; }
+  return jvmud_capitalize_text(phrase) + " " + place + ".";
+}
+
+int description_variant() {
+  return (atlas_x * 31 + atlas_y * 17 + terrain_code) % 3;
+}
+
+string elevation_setting() {
+  if (elevation_m < 50) { return "the low-lying country"; }
+  if (elevation_m < 200) { return "the low country"; }
+  if (elevation_m < 700) { return "the lower uplands"; }
+  if (elevation_m < 1200) { return "the high country"; }
+  if (elevation_m < 2000) { return "the alpine heights"; }
+  return "the highest reaches";
 }
 
 string adjacent_description() {
