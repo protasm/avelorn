@@ -55,7 +55,7 @@ class AvelornTelnetTest {
                 String firstLook = readUntilQuietAfterContains(socket, ruler);
                 assertTrue(firstLook.contains("The Wild"), printable(firstLook));
                 assertTrue(firstLook.contains(
-                        "Wooded foothills roll through the lower uplands."),
+                        "Forest covers an old volcanic slope."),
                         printable(firstLook));
                 assertFalse(firstLook.contains("Terrain:"), printable(firstLook));
                 assertFalse(firstLook.contains("Elevation:"), printable(firstLook));

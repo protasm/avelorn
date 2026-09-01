@@ -1,0 +1,1681 @@
+{
+  "columns": 8,
+  "image": "edition1-terrain.png",
+  "imageheight": 128,
+  "imagewidth": 128,
+  "margin": 0,
+  "name": "Edition 1 Terrain",
+  "spacing": 0,
+  "tilecount": 64,
+  "tiledversion": "1.12.2",
+  "tileheight": 16,
+  "tiles": [
+    {
+      "id": 0,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "non-occupiable-ocean-or-outside"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "reserved"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "open-inland-water"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 31029
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "shallow-lake-margin"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 7507
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 3
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "river-channel"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 17741
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "river-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 9703
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 5
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "coastal-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 57
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 6
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "basin-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 30341
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 7
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "peat-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 8
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "sandy-coast"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 9
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "rocky-coast"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 10
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "warm-lowland-closed-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 314592
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 11
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "temperate-lowland-closed-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 365722
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 12
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "wet-lowland-closed-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 108898
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 13
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "dry-lowland-open-woodland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 13255
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 14
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "lowland-scrub"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 15
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "lowland-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 7252
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 16
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "rolling-humid-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 17
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "rolling-dry-woodland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 201640
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 18
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "rolling-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 9806
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 19
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-valley"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 87956
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 20
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "open-valley"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 8963
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 21
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-alluvial-plain"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 22
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "open-alluvial-plain"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 23
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-foothill"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 1080909
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 24
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "wooded-foothill"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 199083
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 25
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "scrub-foothill"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 11421
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 26
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "grassy-foothill"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 15094
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 27
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "cool-montane-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 137103
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 28
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "wet-montane-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 66767
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 29
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "dry-montane-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 30
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "montane-scrub"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 12850
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 31
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "montane-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 2381
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 32
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "subalpine-scrub"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 192732
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 33
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "subalpine-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 34
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "alpine-grass-herbfield"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 99753
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 35
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "alpine-scree"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 60370
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 36
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "bare-alpine-rock"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 13849
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 37
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "volcanic-plateau"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 38
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-volcanic-slope"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 117286
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 39
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "open-volcanic-slope"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 6825
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 40
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-rocky-ridge"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 124399
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 41
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "open-rocky-ridge"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 9713
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 42
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "steep-forested-slope"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 59926
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 43
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "steep-open-slope"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 1130
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 44
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "cliff-or-precipice"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 5161
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 45
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "dry-basin-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 2541
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 46
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "basin-shrubland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 1256
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 47
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "forested-basin"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 45288
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 48
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "high-plateau-scrub"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 10399
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 49
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "high-plateau-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 17774
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 50
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "persistent-snow-or-ice"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 1057
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 51
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "talus-or-blockfield"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 8363
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 52
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "river-gorge"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 116
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 53
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "lake-basin-margin"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 1484
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 54
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "estuarine-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 85
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 55
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "coastal-forest"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 49360
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 56
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "coastal-scrub"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 57
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "dune-grassland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 66140
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 58
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "ultramafic-sparse-ground"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 4423
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 59
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "crystalline-highland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 107795
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 60
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "metamorphic-highland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 288063
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 61
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "young-alluvial-plain"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 7970
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 62
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "organic-wetland"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "available"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 8253
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "class": "AvelornTerrain",
+      "properties": [
+        {
+          "name": "terrain_code",
+          "type": "int",
+          "value": 63
+        },
+        {
+          "name": "terrain_id",
+          "type": "string",
+          "value": "reserved-complex-terrain"
+        },
+        {
+          "name": "edition1_state",
+          "type": "string",
+          "value": "reserved"
+        },
+        {
+          "name": "edition1_land_cell_count",
+          "type": "int",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "tilewidth": 16,
+  "type": "tileset",
+  "version": "1.10"
+}

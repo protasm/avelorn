@@ -29,7 +29,7 @@ class AvelornMudlibTest {
         InstancePersona persona = mud.attachPersona(writer, "127.0.0.1");
 
         assertEquals("avelorn", mud.gameId());
-        assertEquals("place/atlas/x2080/y3872", mud.startingPlacePath());
+        assertEquals("place/atlas/x2080/y3936", mud.startingPlacePath());
 
         createCharacter(mud, persona, writer, "atlas_walker", "Arden Vale", "non-binary", "ranger");
         commands(mud, persona, writer, "north", "south", "east", "west",
@@ -40,7 +40,7 @@ class AvelornMudlibTest {
         assertFalse(transcript.contains("Terrain:"), transcript);
         assertFalse(transcript.contains("Elevation:"), transcript);
         assertTrue(transcript.contains(
-                "Wooded foothills roll through the lower uplands."), transcript);
+                "Forest covers an old volcanic slope."), transcript);
         assertTrue(transcript.contains("Occupants: none"), transcript);
         assertTrue(transcript.contains("Items: none"), transcript);
         assertTrue(transcript.contains("Exits: n e s w"), transcript);
@@ -74,7 +74,7 @@ class AvelornMudlibTest {
         assertFalse(verbose.contains("Terrain:"), verbose);
         assertFalse(verbose.contains("Elevation:"), verbose);
         assertTrue(verbose.contains(
-                "Wooded foothills roll through the lower uplands."), verbose);
+                "Forest covers an old volcanic slope."), verbose);
         assertTrue(verbose.contains("Occupants: Arden vale"), verbose);
         assertTrue(verbose.contains("Items: minor healing draught"), verbose);
         assertTrue(verbose.contains("Exits: n e s w"), verbose);
@@ -82,10 +82,10 @@ class AvelornMudlibTest {
         secondOutput.getBuffer().setLength(0);
         commands(mud, second, secondWriter, "brief", "north", "south");
         String brief = secondOutput.toString();
-        assertTrue(brief.contains("The Wild (2080, 3873)"), brief);
-        assertTrue(brief.contains("The Wild (2080, 3872)"), brief);
-        assertTrue(brief.contains("Terrain: Forested Foothill"), brief);
-        assertTrue(brief.contains("Elevation: 309 m"), brief);
+        assertTrue(brief.contains("The Wild (2080, 3937)"), brief);
+        assertTrue(brief.contains("The Wild (2080, 3936)"), brief);
+        assertTrue(brief.contains("Terrain: Forested Volcanic Slope"), brief);
+        assertTrue(brief.contains("Elevation: 470 m"), brief);
         assertFalse(brief.contains("terrain stretches through this part of the wilderness."), brief);
         assertTrue(brief.contains("Occupants: Arden vale"), brief);
         assertTrue(brief.contains("Items: minor healing draught"), brief);
@@ -110,7 +110,7 @@ class AvelornMudlibTest {
         assertTrue(messages.stream().anyMatch(message -> message.startsWith("GMCP:Char.Vitals ")
                 && message.contains("\"hp\":") && message.contains("\"maxhp\":")), messages.toString());
         assertTrue(messages.stream().anyMatch(message -> message.startsWith("GMCP:Room.Info ")
-                && message.contains("\"num\":19826721")
+                && message.contains("\"num\":20154401")
                 && message.contains("\"name\":\"The Wild\"")
                 && message.contains("\"north\":")
                 && message.contains("\"east\":")
@@ -133,7 +133,7 @@ class AvelornMudlibTest {
         assertTrue(Files.isRegularFile(snapshotPath));
         String snapshot = Files.readString(snapshotPath);
         assertTrue(snapshot.contains("inventory_state"), snapshot);
-        assertTrue(snapshot.contains("place/atlas/x2080/y3873"), snapshot);
+        assertTrue(snapshot.contains("place/atlas/x2080/y3937"), snapshot);
         assertFalse(snapshot.contains("Avelorn1!"), snapshot);
 
         StringWriter secondOutput = new StringWriter();

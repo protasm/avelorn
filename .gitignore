@@ -10,3 +10,6 @@
 /atlas/qgis/unnamed_new_zealand/metric_candidate/
 /atlas/qgis/unnamed_new_zealand/scope/*.gpkg
 /atlas/qgis/unnamed_new_zealand/terrain/
+
+# Tiled's per-user editor session is regenerated locally.
+/atlas/tiled/*.tiled-session
