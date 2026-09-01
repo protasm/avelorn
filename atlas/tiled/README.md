@@ -6,8 +6,14 @@ files and is locked in Tiled. Exact elevation and upstream-catchment values rema
 in the source JSON rather than being duplicated as millions of Tiled objects.
 
 `avelorn.world` arranges separate 64 by 64 region maps into a continuous world.
-The represented regions currently form the shortest straight corridor from the
-starting region to the northwestern ocean:
+It contains all 542 atlas regions intersecting the connected North Island
+landmass that contains the starting square at `x=2080`, `y=3936`. This covers
+1,740,269 connected North Island squares. The generated region files contain
+1,740,951 populated squares in total because boundary maps retain small offshore
+islands that share those regions.
+
+The earlier shortest corridor from the starting region to the northwestern
+ocean remains useful as a reference route through the complete World:
 
 ```text
 32,61 -> 31,61 -> 31,62 -> 30,62 -> 30,63 -> 29,63 -> 29,64 -> 28,64
@@ -45,6 +51,14 @@ mountain area continuously connected.
 ## Rebuild or add a region
 
 From the repository root:
+
+```sh
+python3 atlas/tiled/tools/build_tiled_region.py --north-island
+```
+
+This finds the complete connected landmass containing the starting square and
+rebuilds every region it intersects. To rebuild or add just one populated
+region instead:
 
 ```sh
 python3 atlas/tiled/tools/build_tiled_region.py 32 61

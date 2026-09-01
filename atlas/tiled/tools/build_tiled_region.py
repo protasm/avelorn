@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from array import array
 import gzip
 import hashlib
 import json
@@ -21,6 +22,7 @@ CELLS_PER_REGION_AXIS = 64
 TILE_SIZE = 16
 TILESET_COLUMNS = 8
 TERRAIN_CODE_COUNT = 64
+NORTH_ISLAND_SEED = (2080, 3936)
 
 TILED_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -190,6 +192,59 @@ def read_region(path: Path) -> dict[str, object]:
         return json.load(stream)
 
 
+def populated_region_sources() -> list[Path]:
+    return sorted(ATLAS_ROOT.glob("regions/x??/r??_??.json.gz"))
+
+
+def discover_north_island_regions() -> list[tuple[int, int]]:
+    """Return regions intersecting the landmass containing the start square."""
+    world_axis = REGIONS_PER_AXIS * CELLS_PER_REGION_AXIS
+    occupied = bytearray(world_axis * world_axis)
+    for source in populated_region_sources():
+        document = read_region(source)
+        region_x = int(document["region_x"])
+        region_y = int(document["region_y"])
+        for entry in document["squares"]:
+            local_index = int(entry[0])
+            local_y, local_x = divmod(local_index, CELLS_PER_REGION_AXIS)
+            world_x = region_x * CELLS_PER_REGION_AXIS + local_x
+            world_y = region_y * CELLS_PER_REGION_AXIS + local_y
+            occupied[world_y * world_axis + world_x] = 1
+
+    seed_x, seed_y = NORTH_ISLAND_SEED
+    seed = seed_y * world_axis + seed_x
+    if occupied[seed] != 1:
+        raise ValueError("North Island seed is not a populated Edition 1 square")
+
+    queue = array("I", [seed])
+    occupied[seed] = 2
+    regions: set[tuple[int, int]] = set()
+    cursor = 0
+    while cursor < len(queue):
+        cell = queue[cursor]
+        cursor += 1
+        world_y, world_x = divmod(cell, world_axis)
+        regions.add((
+            world_x // CELLS_PER_REGION_AXIS,
+            world_y // CELLS_PER_REGION_AXIS,
+        ))
+        neighbours = []
+        if world_x > 0:
+            neighbours.append(cell - 1)
+        if world_x + 1 < world_axis:
+            neighbours.append(cell + 1)
+        if world_y > 0:
+            neighbours.append(cell - world_axis)
+        if world_y + 1 < world_axis:
+            neighbours.append(cell + world_axis)
+        for neighbour in neighbours:
+            if occupied[neighbour] == 1:
+                occupied[neighbour] = 2
+                queue.append(neighbour)
+
+    return sorted(regions)
+
+
 def build_region_map(
     document: dict[str, object], source: Path, source_digest: str
 ) -> dict[str, object]:
@@ -323,17 +378,27 @@ def validate_outputs(region_map: dict[str, object], world: dict[str, object]) ->
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("region_x", type=int)
-    parser.add_argument("region_y", type=int)
+    parser.add_argument("region_x", type=int, nargs="?")
+    parser.add_argument("region_y", type=int, nargs="?")
+    parser.add_argument(
+        "--north-island",
+        action="store_true",
+        help="build every region intersecting the start square's landmass",
+    )
     args = parser.parse_args()
-    if not 0 <= args.region_x < REGIONS_PER_AXIS:
-        parser.error("region_x must be between 0 and 79")
-    if not 0 <= args.region_y < REGIONS_PER_AXIS:
-        parser.error("region_y must be between 0 and 79")
+    if args.north_island:
+        if args.region_x is not None or args.region_y is not None:
+            parser.error("--north-island does not accept region coordinates")
+        regions = discover_north_island_regions()
+    else:
+        if args.region_x is None or args.region_y is None:
+            parser.error("provide region_x and region_y, or use --north-island")
+        if not 0 <= args.region_x < REGIONS_PER_AXIS:
+            parser.error("region_x must be between 0 and 79")
+        if not 0 <= args.region_y < REGIONS_PER_AXIS:
+            parser.error("region_y must be between 0 and 79")
+        regions = [(args.region_x, args.region_y)]
 
-    source = region_source(args.region_x, args.region_y)
-    if not source.is_file():
-        raise FileNotFoundError(f"Edition 1 contains no populated region at {source}")
     terrain_document = json.loads(TERRAIN_TYPES.read_text(encoding="utf-8"))
     terrain_types = terrain_document["terrain_types"]
     if [int(item["code"]) for item in terrain_types] != list(range(64)):
@@ -352,23 +417,35 @@ def main() -> None:
         "propertyTypes": [],
     })
 
-    region_document = read_region(source)
-    if (
-        int(region_document["region_x"]) != args.region_x
-        or int(region_document["region_y"]) != args.region_y
-    ):
-        raise ValueError("region coordinates do not match its package path")
-    region_map = build_region_map(region_document, source, sha256(source))
-    map_path = MAPS_ROOT / f"r{args.region_x:02d}_{args.region_y:02d}.tmj"
-    write_json(map_path, region_map)
+    imported_squares = 0
+    for region_x, region_y in regions:
+        source = region_source(region_x, region_y)
+        if not source.is_file():
+            raise FileNotFoundError(
+                f"Edition 1 contains no populated region at {source}"
+            )
+        region_document = read_region(source)
+        if (
+            int(region_document["region_x"]) != region_x
+            or int(region_document["region_y"]) != region_y
+        ):
+            raise ValueError("region coordinates do not match its package path")
+        region_map = build_region_map(region_document, source, sha256(source))
+        map_path = MAPS_ROOT / f"r{region_x:02d}_{region_y:02d}.tmj"
+        write_json(map_path, region_map)
+        imported_squares += len(region_document["squares"])
+
     world = build_world()
     write_json(WORLD, world)
     validate_outputs(region_map, world)
 
     print(f"Wrote Tiled project: {PROJECT}")
     print(f"Wrote Tiled world:   {WORLD}")
-    print(f"Wrote region map:    {map_path}")
-    print(f"Imported squares:    {len(region_document['squares'])}")
+    if len(regions) == 1:
+        print(f"Wrote region map:    {map_path}")
+    else:
+        print(f"Wrote region maps:   {len(regions)}")
+    print(f"Imported squares:    {imported_squares}")
 
 
 if __name__ == "__main__":
