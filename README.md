@@ -23,6 +23,20 @@ files and expose terrain, elevation, upstream catchment area, and derived exits.
 The previous world-specific acceptance coverage was replaced with focused
 system-preservation and Edition 1 wilderness-movement coverage.
 
+## Worldbuilding references
+
+- [Lore foundation](docs/LORE.md) records the five nations, the Conquest, and the
+  emerging resistance.
+- [Working pre-Conquest borders](atlas/political/pre-conquest/working-borders.json)
+  is the authoritative descriptor for the adopted cell-level territory data.
+- [Political atlas documentation](atlas/political/README.md) describes its
+  coordinates, file format, and versioning.
+- [Reference maps](output/maps/README.md) contains the island grid and border
+  views used during design.
+
+Political ownership is stored separately from the physical atlas and is not yet
+connected to live gameplay.
+
 ## Native shape
 
 - `jvmud/avelorn.config` declares the JVMud boundary and lifecycle vocabulary.

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "id": "north-island-pre-conquest-borders",
+  "status": "working",
+  "version": 1,
+  "adopted_on": "2026-09-06",
+  "era": "pre-conquest",
+  "scope": "connected North Island landmass, including inland water; separate offshore islands excluded",
+  "path_base": "directory containing this descriptor",
+  "package": {
+    "path": "versions/001/package.json",
+    "sha256": "9ca27c7b8e269cabf32f80d6ac60ae741ef0fb98d3fac2cec1579508c9dfe820"
+  },
+  "validation": {
+    "path": "versions/001/validation.json",
+    "sha256": "7997981e72e50156ce6c69fd0e151588cf4f3e1a3b3d920aea6306f0f05e93cf"
+  },
+  "authority": "The referenced package's per-square ownership records define the working historical borders. Border segments are derived from those records.",
+  "revision_policy": "Preserve adopted version directories. Review subsequent changes as a new version, then explicitly update this descriptor and its hashes.",
+  "runtime_integration": "not yet connected to live gameplay"
+}

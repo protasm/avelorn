@@ -1,0 +1,569 @@
+{
+  "coverage_squares": 1740269,
+  "countries": {
+    "Western coast": {
+      "code": 1,
+      "squares": 355362,
+      "area_km2": 23289.004,
+      "outside_first_component": 0
+    },
+    "Northern coast": {
+      "code": 2,
+      "squares": 463133,
+      "area_km2": 30351.884,
+      "outside_first_component": 0
+    },
+    "Eastern coast": {
+      "code": 3,
+      "squares": 426339,
+      "area_km2": 27940.553,
+      "outside_first_component": 0
+    },
+    "Southern coast": {
+      "code": 4,
+      "squares": 251465,
+      "area_km2": 16480.01,
+      "outside_first_component": 0
+    },
+    "Central highlands": {
+      "code": 5,
+      "squares": 243970,
+      "area_km2": 15988.818,
+      "outside_first_component": 0
+    }
+  },
+  "fixed_region_assignments_preserved": true,
+  "candidate_constraints_respected": true,
+  "central_landlocked": true,
+  "great_lake_entirely_central": true,
+  "volcanic_summit_central": true,
+  "boundary_regions": [
+    {
+      "region_x": 41,
+      "region_y": 54,
+      "nation_squares": {
+        "3": 361,
+        "4": 2821
+      }
+    },
+    {
+      "region_x": 35,
+      "region_y": 55,
+      "nation_squares": {
+        "4": 3323,
+        "5": 773
+      }
+    },
+    {
+      "region_x": 36,
+      "region_y": 55,
+      "nation_squares": {
+        "4": 667,
+        "5": 3429
+      }
+    },
+    {
+      "region_x": 37,
+      "region_y": 55,
+      "nation_squares": {
+        "4": 957,
+        "5": 3139
+      }
+    },
+    {
+      "region_x": 38,
+      "region_y": 55,
+      "nation_squares": {
+        "4": 767,
+        "5": 3329
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 55,
+      "nation_squares": {
+        "4": 2783,
+        "5": 1313
+      }
+    },
+    {
+      "region_x": 40,
+      "region_y": 55,
+      "nation_squares": {
+        "3": 494,
+        "4": 3602
+      }
+    },
+    {
+      "region_x": 41,
+      "region_y": 55,
+      "nation_squares": {
+        "3": 2371,
+        "4": 1725
+      }
+    },
+    {
+      "region_x": 32,
+      "region_y": 56,
+      "nation_squares": {
+        "4": 746,
+        "5": 3350
+      }
+    },
+    {
+      "region_x": 33,
+      "region_y": 56,
+      "nation_squares": {
+        "4": 230,
+        "5": 3866
+      }
+    },
+    {
+      "region_x": 34,
+      "region_y": 56,
+      "nation_squares": {
+        "4": 389,
+        "5": 3707
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 56,
+      "nation_squares": {
+        "3": 971,
+        "4": 171,
+        "5": 2954
+      }
+    },
+    {
+      "region_x": 40,
+      "region_y": 56,
+      "nation_squares": {
+        "3": 3835,
+        "4": 261
+      }
+    },
+    {
+      "region_x": 26,
+      "region_y": 57,
+      "nation_squares": {
+        "1": 1930
+      }
+    },
+    {
+      "region_x": 31,
+      "region_y": 57,
+      "nation_squares": {
+        "4": 1981,
+        "5": 2115
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 57,
+      "nation_squares": {
+        "3": 3035,
+        "5": 1061
+      }
+    },
+    {
+      "region_x": 26,
+      "region_y": 58,
+      "nation_squares": {
+        "1": 3231,
+        "4": 766
+      }
+    },
+    {
+      "region_x": 31,
+      "region_y": 58,
+      "nation_squares": {
+        "4": 3745,
+        "5": 351
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 58,
+      "nation_squares": {
+        "3": 2978,
+        "5": 1118
+      }
+    },
+    {
+      "region_x": 40,
+      "region_y": 58,
+      "nation_squares": {
+        "3": 4096
+      }
+    },
+    {
+      "region_x": 26,
+      "region_y": 59,
+      "nation_squares": {
+        "1": 3564,
+        "4": 532
+      }
+    },
+    {
+      "region_x": 27,
+      "region_y": 59,
+      "nation_squares": {
+        "1": 1303,
+        "4": 2793
+      }
+    },
+    {
+      "region_x": 31,
+      "region_y": 59,
+      "nation_squares": {
+        "4": 3646,
+        "5": 450
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 59,
+      "nation_squares": {
+        "3": 1765,
+        "5": 2331
+      }
+    },
+    {
+      "region_x": 40,
+      "region_y": 59,
+      "nation_squares": {
+        "3": 4096
+      }
+    },
+    {
+      "region_x": 27,
+      "region_y": 60,
+      "nation_squares": {
+        "1": 3280,
+        "2": 359,
+        "4": 457
+      }
+    },
+    {
+      "region_x": 28,
+      "region_y": 60,
+      "nation_squares": {
+        "2": 760,
+        "4": 3336
+      }
+    },
+    {
+      "region_x": 29,
+      "region_y": 60,
+      "nation_squares": {
+        "2": 55,
+        "4": 4041
+      }
+    },
+    {
+      "region_x": 30,
+      "region_y": 60,
+      "nation_squares": {
+        "2": 687,
+        "4": 3409
+      }
+    },
+    {
+      "region_x": 31,
+      "region_y": 60,
+      "nation_squares": {
+        "2": 810,
+        "4": 1628,
+        "5": 1658
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 60,
+      "nation_squares": {
+        "3": 1431,
+        "5": 2665
+      }
+    },
+    {
+      "region_x": 26,
+      "region_y": 61,
+      "nation_squares": {
+        "1": 1864,
+        "2": 2232
+      }
+    },
+    {
+      "region_x": 27,
+      "region_y": 61,
+      "nation_squares": {
+        "1": 482,
+        "2": 3614
+      }
+    },
+    {
+      "region_x": 29,
+      "region_y": 61,
+      "nation_squares": {
+        "2": 3619,
+        "4": 477
+      }
+    },
+    {
+      "region_x": 32,
+      "region_y": 61,
+      "nation_squares": {
+        "2": 2544,
+        "5": 1552
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 61,
+      "nation_squares": {
+        "3": 2681,
+        "5": 1415
+      }
+    },
+    {
+      "region_x": 25,
+      "region_y": 62,
+      "nation_squares": {
+        "1": 1794,
+        "2": 2302
+      }
+    },
+    {
+      "region_x": 26,
+      "region_y": 62,
+      "nation_squares": {
+        "1": 495,
+        "2": 3601
+      }
+    },
+    {
+      "region_x": 32,
+      "region_y": 62,
+      "nation_squares": {
+        "2": 3129,
+        "5": 967
+      }
+    },
+    {
+      "region_x": 38,
+      "region_y": 62,
+      "nation_squares": {
+        "2": 23,
+        "3": 1814,
+        "5": 2259
+      }
+    },
+    {
+      "region_x": 25,
+      "region_y": 63,
+      "nation_squares": {
+        "1": 1061,
+        "2": 2945
+      }
+    },
+    {
+      "region_x": 32,
+      "region_y": 63,
+      "nation_squares": {
+        "2": 3652,
+        "5": 444
+      }
+    },
+    {
+      "region_x": 37,
+      "region_y": 63,
+      "nation_squares": {
+        "2": 2469,
+        "5": 1627
+      }
+    },
+    {
+      "region_x": 38,
+      "region_y": 63,
+      "nation_squares": {
+        "2": 3259,
+        "3": 837
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 63,
+      "nation_squares": {
+        "2": 278,
+        "3": 3818
+      }
+    },
+    {
+      "region_x": 32,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 4088,
+        "5": 8
+      }
+    },
+    {
+      "region_x": 33,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 3652,
+        "5": 444
+      }
+    },
+    {
+      "region_x": 34,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 1616,
+        "5": 2480
+      }
+    },
+    {
+      "region_x": 35,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 2349,
+        "5": 1747
+      }
+    },
+    {
+      "region_x": 36,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 3356,
+        "5": 740
+      }
+    },
+    {
+      "region_x": 39,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 2849,
+        "3": 1247
+      }
+    },
+    {
+      "region_x": 40,
+      "region_y": 64,
+      "nation_squares": {
+        "2": 1220,
+        "3": 2066
+      }
+    },
+    {
+      "region_x": 34,
+      "region_y": 65,
+      "nation_squares": {
+        "2": 3930,
+        "5": 166
+      }
+    }
+  ],
+  "route_refinement": [
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "status": "terrain-routed",
+      "old_edges": 338,
+      "new_edges": 316,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        2,
+        5
+      ],
+      "status": "terrain-routed",
+      "old_edges": 1110,
+      "new_edges": 1006,
+      "waypoints_atlas_corners": [
+        [
+          2206,
+          4187
+        ]
+      ]
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "status": "terrain-routed",
+      "old_edges": 453,
+      "new_edges": 517,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "status": "terrain-routed",
+      "old_edges": 335,
+      "new_edges": 339,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        3,
+        5
+      ],
+      "status": "terrain-routed",
+      "old_edges": 789,
+      "new_edges": 709,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        4,
+        5
+      ],
+      "status": "terrain-routed",
+      "old_edges": 1349,
+      "new_edges": 1213,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "status": "terrain-routed",
+      "old_edges": 313,
+      "new_edges": 305,
+      "waypoints_atlas_corners": []
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "status": "terrain-routed",
+      "old_edges": 288,
+      "new_edges": 272,
+      "waypoints_atlas_corners": []
+    }
+  ],
+  "candidate_adjustments": [
+    {
+      "region_x": 31,
+      "region_y": 60,
+      "display_region": "EE17",
+      "added_nation": 2,
+      "reason": "three-country river junction; boundary region only"
+    }
+  ],
+  "shared_border_edges": 4677,
+  "shared_border_length_km": 1197.312,
+  "split_regions": 50,
+  "uniform_regions": 492,
+  "serialized_roundtrip_exact": true,
+  "region_files": 542
+}

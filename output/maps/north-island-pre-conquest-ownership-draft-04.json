@@ -1,0 +1,4591 @@
+{
+  "status": "provisional visual planning only; not gameplay ownership",
+  "source": "frozen Edition 1 JSON",
+  "nation_codes": {
+    "1": "Western coast",
+    "2": "Northern coast",
+    "3": "Eastern coast",
+    "4": "Southern coast",
+    "5": "Central highlands",
+    "0": "Boundary / unresolved"
+  },
+  "boundary_code": 0,
+  "method": "nearest coastal seed, overridden by central polygon; mixed land-square ownership shown pink; explicit region overrides take precedence over seed/polygon construction; Draft 04 adds HH65 to the boundary regions; exact square borders remain unresolved",
+  "seed_region_coordinates": [
+    [
+      15,
+      57
+    ],
+    [
+      34,
+      72
+    ],
+    [
+      47,
+      58
+    ],
+    [
+      36,
+      51
+    ]
+  ],
+  "central_polygon_region_coordinates": [
+    [
+      31,
+      58
+    ],
+    [
+      32,
+      62
+    ],
+    [
+      33,
+      65
+    ],
+    [
+      36,
+      65
+    ],
+    [
+      39,
+      62
+    ],
+    [
+      40,
+      59
+    ],
+    [
+      39,
+      56
+    ],
+    [
+      35,
+      56
+    ],
+    [
+      32,
+      57
+    ]
+  ],
+  "regions": [
+    {
+      "region_x": 35,
+      "region_y": 48,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 49,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 49,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 49,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 49,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 49,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 50,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 50,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 50,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 50,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 50,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 50,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 50,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 50,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 2,
+      "region_y": 51,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 51,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 52,
+      "region_y": 51,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 1,
+      "region_y": 52,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 2,
+      "region_y": 52,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 3,
+      "region_y": 52,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 4,
+      "region_y": 52,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 52,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 52,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 52,
+      "region_y": 52,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 2,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 3,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 4,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 5,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 6,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 53,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 53,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 52,
+      "region_y": 53,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 2,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 4,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 5,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 6,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 54,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 54,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 54,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 54,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 5,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 6,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 14,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 15,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 55,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 55,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 55,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 55,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 6,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 14,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 15,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 17,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 18,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 56,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 56,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 56,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 56,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 56,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 56,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 56,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 56,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 56,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 56,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 56,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 56,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 56,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 56,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 56,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 51,
+      "region_y": 56,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 7,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 14,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 15,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 17,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 18,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 57,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 57,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        4
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 57,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 57,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 57,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 57,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 57,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 57,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 57,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 50,
+      "region_y": 57,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 8,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 14,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 15,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 17,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 18,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 58,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 58,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        4
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 58,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 58,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 58,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 58,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 58,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 58,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 58,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 58,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 49,
+      "region_y": 58,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 9,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 10,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 11,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 13,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 14,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 15,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 17,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 18,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 59,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 59,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        4
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 59,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        4
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 59,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 59,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 59,
+      "display_code": 4,
+      "candidate_nations": [
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 59,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 59,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 59,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 59,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 48,
+      "region_y": 59,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 12,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 16,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 17,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 60,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        4,
+        5
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 60,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 60,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 61,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 61,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 61,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 61,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 61,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 61,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 61,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 61,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 46,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 47,
+      "region_y": 61,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 62,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 62,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 62,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 62,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 62,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 62,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 62,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 62,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 62,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 62,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 62,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 62,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 62,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 62,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 62,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 62,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 19,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 20,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 63,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 63,
+      "display_code": 0,
+      "candidate_nations": [
+        1,
+        2
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 63,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 63,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 63,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 63,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 63,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 63,
+      "display_code": 5,
+      "candidate_nations": [
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 63,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 63,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        3
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 63,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        3
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 44,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 45,
+      "region_y": 63,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 21,
+      "region_y": 64,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 22,
+      "region_y": 64,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 23,
+      "region_y": 64,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 24,
+      "region_y": 64,
+      "display_code": 1,
+      "candidate_nations": [
+        1
+      ]
+    },
+    {
+      "region_x": 25,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 26,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 27,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 64,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        3
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        3
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 64,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 64,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 43,
+      "region_y": 64,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 28,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 65,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 65,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 42,
+      "region_y": 65,
+      "display_code": 3,
+      "candidate_nations": [
+        3
+      ]
+    },
+    {
+      "region_x": 29,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 66,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 67,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 68,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 69,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 39,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 40,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 41,
+      "region_y": 70,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 38,
+      "region_y": 71,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 72,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 37,
+      "region_y": 73,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 36,
+      "region_y": 74,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 75,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 75,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 75,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 75,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 76,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 76,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    }
+  ],
+  "region_overrides": [
+    {
+      "region_x": 30,
+      "region_y": 61,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 30,
+      "region_y": 60,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        4
+      ]
+    },
+    {
+      "region_x": 31,
+      "region_y": 61,
+      "display_code": 2,
+      "candidate_nations": [
+        2
+      ]
+    },
+    {
+      "region_x": 32,
+      "region_y": 61,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 33,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 35,
+      "region_y": 64,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    },
+    {
+      "region_x": 34,
+      "region_y": 65,
+      "display_code": 0,
+      "candidate_nations": [
+        2,
+        5
+      ]
+    }
+  ],
+  "display_columns": {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "D": 4,
+    "E": 5,
+    "F": 6,
+    "G": 7,
+    "H": 8,
+    "I": 9,
+    "J": 10,
+    "K": 11,
+    "L": 12,
+    "M": 13,
+    "N": 14,
+    "O": 15,
+    "P": 16,
+    "Q": 17,
+    "R": 18,
+    "S": 19,
+    "T": 20,
+    "U": 21,
+    "V": 22,
+    "W": 23,
+    "X": 24,
+    "Y": 25,
+    "Z": 26,
+    "AA": 27,
+    "BB": 28,
+    "CC": 29,
+    "DD": 30,
+    "EE": 31,
+    "FF": 32,
+    "GG": 33,
+    "HH": 34,
+    "II": 35,
+    "JJ": 36,
+    "KK": 37,
+    "LL": 38,
+    "MM": 39,
+    "NN": 40,
+    "OO": 41,
+    "PP": 42,
+    "QQ": 43,
+    "RR": 44,
+    "SS": 45,
+    "TT": 46,
+    "UU": 47,
+    "VV": 48,
+    "WW": 49,
+    "XX": 50,
+    "YY": 51,
+    "ZZ": 52
+  }
+}

@@ -1,0 +1,5009 @@
+{
+  "schema": 1,
+  "era": "pre-conquest",
+  "status": "cell-border-draft-01; for review",
+  "physical_package_sha256": "0bf79fa75c33dcb16961a59ff504e8524ea6ff77122f14955ac49c1553c3ae5b",
+  "builder_sha256": "84e0bd9bd0c7496322c4ae67e8f7db4cb5a10974e6aba58f4567df22f7e24f1e",
+  "regional_draft": "output/maps/north-island-pre-conquest-ownership-draft-05.json",
+  "regional_draft_sha256": "cf6be048e5014a310305d16aef6b740bb5f5ab86633e55eacdd443903b7ce489",
+  "square_size_m": 256,
+  "region_axis_squares": 64,
+  "coordinates": "zero-based atlas x east, y north; local_index = local_y * 64 + local_x",
+  "display_columns": {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "D": 4,
+    "E": 5,
+    "F": 6,
+    "G": 7,
+    "H": 8,
+    "I": 9,
+    "J": 10,
+    "K": 11,
+    "L": 12,
+    "M": 13,
+    "N": 14,
+    "O": 15,
+    "P": 16,
+    "Q": 17,
+    "R": 18,
+    "S": 19,
+    "T": 20,
+    "U": 21,
+    "V": 22,
+    "W": 23,
+    "X": 24,
+    "Y": 25,
+    "Z": 26,
+    "AA": 27,
+    "BB": 28,
+    "CC": 29,
+    "DD": 30,
+    "EE": 31,
+    "FF": 32,
+    "GG": 33,
+    "HH": 34,
+    "II": 35,
+    "JJ": 36,
+    "KK": 37,
+    "LL": 38,
+    "MM": 39,
+    "NN": 40,
+    "OO": 41,
+    "PP": 42,
+    "QQ": 43,
+    "RR": 44,
+    "SS": 45,
+    "TT": 46,
+    "UU": 47,
+    "VV": 48,
+    "WW": 49,
+    "XX": 50,
+    "YY": 51,
+    "ZZ": 52
+  },
+  "display_rows": {
+    "1": 76,
+    "2": 75,
+    "3": 74,
+    "4": 73,
+    "5": 72,
+    "6": 71,
+    "7": 70,
+    "8": 69,
+    "9": 68,
+    "10": 67,
+    "11": 66,
+    "12": 65,
+    "13": 64,
+    "14": 63,
+    "15": 62,
+    "16": 61,
+    "17": 60,
+    "18": 59,
+    "19": 58,
+    "20": 57,
+    "21": 56,
+    "22": 55,
+    "23": 54,
+    "24": 53,
+    "25": 52,
+    "26": 51,
+    "27": 50,
+    "28": 49,
+    "29": 48
+  },
+  "nations": [
+    {
+      "code": 1,
+      "id": "western-coast",
+      "name": "Western coast"
+    },
+    {
+      "code": 2,
+      "id": "northern-coast",
+      "name": "Northern coast"
+    },
+    {
+      "code": 3,
+      "id": "eastern-coast",
+      "name": "Eastern coast"
+    },
+    {
+      "code": 4,
+      "id": "southern-coast",
+      "name": "Southern coast"
+    },
+    {
+      "code": 5,
+      "id": "central-highlands",
+      "name": "Central highlands"
+    }
+  ],
+  "regions": [
+    {
+      "region_x": 35,
+      "region_y": 48,
+      "path": "regions/x35/r35_48.json.gz",
+      "sha256": "c8008f80d0de7c3e0f042feaa8aee4109af6cdbef493260e04260adceef1bb1e",
+      "square_count": 23,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 49,
+      "path": "regions/x34/r34_49.json.gz",
+      "sha256": "28b8ec06ebe905a3af0a9dd70cf7d26ad1ab9bbda1765922fe6cb8c6ee658adc",
+      "square_count": 2001,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 49,
+      "path": "regions/x35/r35_49.json.gz",
+      "sha256": "82f0fe7d6264cd1e5022289bf0e2c6b7eea92d31a70638cef442bb8994a7f725",
+      "square_count": 4010,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 49,
+      "path": "regions/x36/r36_49.json.gz",
+      "sha256": "a987526d10ab2654f77423a44194cf1540afdfcdc9b0261948f65f581f3c0f5d",
+      "square_count": 2860,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 49,
+      "path": "regions/x37/r37_49.json.gz",
+      "sha256": "2068564a098de236d9db243473753567a00c2069014e44f903f477ce4c5bdf5c",
+      "square_count": 219,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 49,
+      "path": "regions/x49/r49_49.json.gz",
+      "sha256": "fb6c2fb5f2db25c6df99a5f7c0ee7975afc27f8a29cfde33fc4f747c4f3b1891",
+      "square_count": 980,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 50,
+      "path": "regions/x33/r33_50.json.gz",
+      "sha256": "7b186de7238d03ebcc3c88689dd49d8df44cf1cad6b8dacbc809872617a9ca50",
+      "square_count": 1,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 50,
+      "path": "regions/x34/r34_50.json.gz",
+      "sha256": "6be85b78a4d08e241eadda52c2d55fe097df4500dab007a96746a22b333cd26a",
+      "square_count": 3583,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 50,
+      "path": "regions/x35/r35_50.json.gz",
+      "sha256": "1c0bd833e76ae0d905f88d7adbbf4c214d7a70540638f5e2a48f3dcf7960be14",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 50,
+      "path": "regions/x36/r36_50.json.gz",
+      "sha256": "cf8d3a8b482af90e99ce7b29ec99a324e57871325c930f2d2aeb46ccffbc2b0c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 50,
+      "path": "regions/x37/r37_50.json.gz",
+      "sha256": "f5070440cc72c598ad4448ae0a263a10666b8710a00b05c0aa002a6187e72108",
+      "square_count": 2112,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 50,
+      "path": "regions/x48/r48_50.json.gz",
+      "sha256": "ab07536350d1f4a946cc21c0f84cb0dfd19c4b874d9cac06413d6419fc4ba64c",
+      "square_count": 1065,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 50,
+      "path": "regions/x49/r49_50.json.gz",
+      "sha256": "a430f65404aebcad92eac5d34014246dc276b03a522201fabc5d0835c8278203",
+      "square_count": 2722,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 50,
+      "path": "regions/x50/r50_50.json.gz",
+      "sha256": "5313bfc4443b53bb04f31621f0d73447ac31ba2ffcb4849e2a4753820cfa740a",
+      "square_count": 911,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 2,
+      "region_y": 51,
+      "path": "regions/x02/r02_51.json.gz",
+      "sha256": "c62d43c582cd8411393811630d2aa8645c93a5a5d0590b1856375b1ef2482cb6",
+      "square_count": 67,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 51,
+      "path": "regions/x33/r33_51.json.gz",
+      "sha256": "d8c9cf9d88103064d1c7b8f478ccc49d4354ca6b4bca97e2465405516788c0f3",
+      "square_count": 642,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 51,
+      "path": "regions/x34/r34_51.json.gz",
+      "sha256": "2bb496b044f58c897a9123e88aced7bbc7a5e59fc4aaa1914457d2c3508ff28d",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 51,
+      "path": "regions/x35/r35_51.json.gz",
+      "sha256": "2d0884bf5079e4c3ac141f922a324e0650ae4034d24183e433fd64da4a35709a",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 51,
+      "path": "regions/x36/r36_51.json.gz",
+      "sha256": "d84049ea9931826ecccd679146cb07b66a172005ae80bf68839280d3942fee45",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 51,
+      "path": "regions/x37/r37_51.json.gz",
+      "sha256": "f4bcd82bf98a86b83f3da97a502b135e775a5a4ade70d90e414c585512ddfb38",
+      "square_count": 3978,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 51,
+      "path": "regions/x38/r38_51.json.gz",
+      "sha256": "588ed5cbeb324d5f2367f1b05a55eed9574f62dec767278fe8440b6177cddb53",
+      "square_count": 2142,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 51,
+      "path": "regions/x39/r39_51.json.gz",
+      "sha256": "8a28d07018f4708da6cd67492ac2e9689ce08d56a51b469c8782d5f2eb50a037",
+      "square_count": 426,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 51,
+      "path": "regions/x47/r47_51.json.gz",
+      "sha256": "4c564fd92a90936eb7531a11ae3e8500b25ca726a45e2ec0bd79e58ffb946747",
+      "square_count": 355,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 51,
+      "path": "regions/x48/r48_51.json.gz",
+      "sha256": "c7f180668c6b619a3c11962d2624ac379c584964790bb0394632955e13a07c4d",
+      "square_count": 3562,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 51,
+      "path": "regions/x49/r49_51.json.gz",
+      "sha256": "a46029c92afeb482e2c27ff3e2acc407160445c667a1ab93054f89f1496a6acc",
+      "square_count": 3927,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 51,
+      "path": "regions/x50/r50_51.json.gz",
+      "sha256": "891e0009888cd3fe320a12b8b247d2f3b516325aa5dfcc16195e087b220c1108",
+      "square_count": 2775,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 51,
+      "path": "regions/x51/r51_51.json.gz",
+      "sha256": "ab497c2d46fc308a59fa479bcd55dcd3b1f0dca2bb3a8363e8990e6018dd444b",
+      "square_count": 11,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 52,
+      "region_y": 51,
+      "path": "regions/x52/r52_51.json.gz",
+      "sha256": "f094e37976d8c54d43782cd1750931a12d5b3b2b9bfc34baf16c805c8375a2d3",
+      "square_count": 13,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 1,
+      "region_y": 52,
+      "path": "regions/x01/r01_52.json.gz",
+      "sha256": "5bf6a02381f0b545848a93b2ab9518bd14764a6d9a1d35be8d6ac9fa44b33f6a",
+      "square_count": 179,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 2,
+      "region_y": 52,
+      "path": "regions/x02/r02_52.json.gz",
+      "sha256": "e04cae02c779e996f953ffc0f5e30f38ece2bdd6ed0146ce35679a73c586ba69",
+      "square_count": 3082,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 3,
+      "region_y": 52,
+      "path": "regions/x03/r03_52.json.gz",
+      "sha256": "1dbb8b38fec31e3b0a9391833dfeb15d779158ea6a897a478408b808ca31b38e",
+      "square_count": 1230,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 4,
+      "region_y": 52,
+      "path": "regions/x04/r04_52.json.gz",
+      "sha256": "cdefb8af7e8ee4214408c04702d24dc2a0fea1a23003957179f68ef32c542658",
+      "square_count": 46,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 52,
+      "path": "regions/x07/r07_52.json.gz",
+      "sha256": "2b028f468c95ac0cc5957c6c1c6a6e3dcdf339d88a7d27cd8060ef6abf494b68",
+      "square_count": 189,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 52,
+      "path": "regions/x33/r33_52.json.gz",
+      "sha256": "9cb3945f2c97adec27e7b9988d01151c516e52c3f977dd6b0003e933b4123591",
+      "square_count": 566,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 52,
+      "path": "regions/x34/r34_52.json.gz",
+      "sha256": "17bdffe4849457c287bcf2d0ee031323a46f174a0e7df959d9dffa8763124e30",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 52,
+      "path": "regions/x35/r35_52.json.gz",
+      "sha256": "7ed1161ca8e27050305175de6e1dcaa9cf838d79c3e797349f18864bc3b6b534",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 52,
+      "path": "regions/x36/r36_52.json.gz",
+      "sha256": "f837f0f1aa4c0aed195aff15d94dffaf7e0649872953f569a2cca81ad5b07e1c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 52,
+      "path": "regions/x37/r37_52.json.gz",
+      "sha256": "8b3acc73688fb9d48ca852468856ac7fdcc4441c270f649a9d726bb8a2a8207f",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 52,
+      "path": "regions/x38/r38_52.json.gz",
+      "sha256": "c61bde3a31df6f64517a9814504ea21f30ac5c67cb14c745f69c313955518f63",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 52,
+      "path": "regions/x39/r39_52.json.gz",
+      "sha256": "c2d7327922fca9ed0a7214194078453b24c5b92a2ed8938bf5cd3367549f297a",
+      "square_count": 3725,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 52,
+      "path": "regions/x40/r40_52.json.gz",
+      "sha256": "325d6aab87bb5728dba0c74c1ffe57cbbf1677387a86618a8c643a7c7eff77d8",
+      "square_count": 243,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 52,
+      "path": "regions/x46/r46_52.json.gz",
+      "sha256": "59f474665fd310aa7dd64b880396726b2d5ca2e2536a2c9dbb35ad0f90759785",
+      "square_count": 342,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 52,
+      "path": "regions/x47/r47_52.json.gz",
+      "sha256": "e9cf66f0d589773337bbfe6fc0de19a34bc2021e88773911316b465cfd48b0ad",
+      "square_count": 3643,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 52,
+      "path": "regions/x48/r48_52.json.gz",
+      "sha256": "174fd4c6744493813b4dada4495b92ecf18582fe09bccf376d949c1181537d7f",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 52,
+      "path": "regions/x49/r49_52.json.gz",
+      "sha256": "8cd7cd4bad9682f4b6ce0a88fb41bb5cd523a3a0aba6819978598950c6aa4a4d",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 52,
+      "path": "regions/x50/r50_52.json.gz",
+      "sha256": "93820e2e1c10a305fa5d2f0cd5932fdc58acaa4fc7ea4ad241c9503b759be827",
+      "square_count": 4065,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 52,
+      "path": "regions/x51/r51_52.json.gz",
+      "sha256": "1c90b87f313e28a12d948e7fec0914bc7d453d86fc57b550451449699ebfdfc7",
+      "square_count": 3743,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 52,
+      "region_y": 52,
+      "path": "regions/x52/r52_52.json.gz",
+      "sha256": "2099042446df60d143203bff4b4b3ae8831ba217075ca0260bdbdcb3ad380217",
+      "square_count": 1712,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 2,
+      "region_y": 53,
+      "path": "regions/x02/r02_53.json.gz",
+      "sha256": "e3a516e672e6a97ca776a9a270e96e16931f0ca3d25b3a0e5718e3666390ee21",
+      "square_count": 2424,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 3,
+      "region_y": 53,
+      "path": "regions/x03/r03_53.json.gz",
+      "sha256": "397ef77547c32748eb2567f3dc478d92ec7e1216b869ae331a4ebea5cc4f2b0d",
+      "square_count": 2115,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 4,
+      "region_y": 53,
+      "path": "regions/x04/r04_53.json.gz",
+      "sha256": "981ec984bb5e423c19c569785911c1fac7d74cd9c0c8c2972c038bb234c13aa4",
+      "square_count": 2661,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 5,
+      "region_y": 53,
+      "path": "regions/x05/r05_53.json.gz",
+      "sha256": "e4bce0b5070728438eefc2ccb650a60325d3e93f5a78bc8e432d59679ee8b087",
+      "square_count": 1965,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 6,
+      "region_y": 53,
+      "path": "regions/x06/r06_53.json.gz",
+      "sha256": "f3398a714153541a8c2075a00dc18684e97fc215c7e1a708fbf052a5da80b465",
+      "square_count": 1286,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 53,
+      "path": "regions/x07/r07_53.json.gz",
+      "sha256": "86112ea3fa70c17e205e314422277d1ae5f53427a6132b0ea211271ad695397b",
+      "square_count": 3255,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 53,
+      "path": "regions/x08/r08_53.json.gz",
+      "sha256": "2ad32cbd3478016a66dc07c16d913a00f2b7f2ca162a43a5a91fc45a3f13d951",
+      "square_count": 2396,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 53,
+      "path": "regions/x09/r09_53.json.gz",
+      "sha256": "43ec2cafe82810d9ee8368b74f86f6629d1ed1752c3fde161c5f939aaf9c10d0",
+      "square_count": 1441,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 53,
+      "path": "regions/x10/r10_53.json.gz",
+      "sha256": "234be3363d6453088e41aac4a5a9f42156ac0ac0b487602f9345f27849b7d02e",
+      "square_count": 158,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 53,
+      "path": "regions/x33/r33_53.json.gz",
+      "sha256": "b9bb285a6daa1aac8c4f83f7d685bfed1ede9b3d3c122d10aea05e7520636055",
+      "square_count": 1274,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 53,
+      "path": "regions/x34/r34_53.json.gz",
+      "sha256": "6059192028665cb0ba226a36760a8583c3b31b9354b47106f76c56bd9b45bb8c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 53,
+      "path": "regions/x35/r35_53.json.gz",
+      "sha256": "34cd1962f17fbda1505e864234356cb05591dffc182f0bfea8dd0de5895659aa",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 53,
+      "path": "regions/x36/r36_53.json.gz",
+      "sha256": "28f7d8bf1466a599375a700e44301076d33eeb7d7766251802230daee39b58da",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 53,
+      "path": "regions/x37/r37_53.json.gz",
+      "sha256": "96e7e826bb3308ef9c7499968fd902fd60294b6c768955523f83baf1b370c831",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 53,
+      "path": "regions/x38/r38_53.json.gz",
+      "sha256": "5501b7e15c04ece46d6cc2bdfa0baca914295a7078bcbe7e8564278a0b1f6167",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 53,
+      "path": "regions/x39/r39_53.json.gz",
+      "sha256": "864432e9e45ca510e0b401c739e0716a16a51244f3ca3b5ed87a5b160e242190",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 53,
+      "path": "regions/x40/r40_53.json.gz",
+      "sha256": "58ecab2290085b359881835ddf562a2115352d2f32498f545ac5fcc4f8e98a99",
+      "square_count": 2133,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 53,
+      "path": "regions/x45/r45_53.json.gz",
+      "sha256": "b88403175500c35d0921385dfe78cb71c3c5568e32ded1540f89e6835ab84b97",
+      "square_count": 826,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 53,
+      "path": "regions/x46/r46_53.json.gz",
+      "sha256": "ab5399503d2bc757765c1a5fd39f3572025935ef6784fd0bb7022cab313ce7e3",
+      "square_count": 3453,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 53,
+      "path": "regions/x47/r47_53.json.gz",
+      "sha256": "9300bbad221e5fba689193d8b64047c11a53d5ed674e3e5b7b5dbf1da98321b2",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 53,
+      "path": "regions/x48/r48_53.json.gz",
+      "sha256": "071c619500457b5fc11edd097f1956fe2feb54f8dc25fb3606ce1d618b0765af",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 53,
+      "path": "regions/x49/r49_53.json.gz",
+      "sha256": "a59975981ac39ae86ee38ca51e9a4b7c2859ea681bb882a2e8db8954aca4413e",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 53,
+      "path": "regions/x50/r50_53.json.gz",
+      "sha256": "dbb4bee3fc6a7298d9d476a92ccf60484736ec453a638e1244fa5b235c61a3bb",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 53,
+      "path": "regions/x51/r51_53.json.gz",
+      "sha256": "0b1aa65447bb41cae2f89319a7aeacb25a4f4cae8fd7a086c4bbc9e15f942380",
+      "square_count": 4094,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 52,
+      "region_y": 53,
+      "path": "regions/x52/r52_53.json.gz",
+      "sha256": "cff5deee07ac48cecb720bc0fca4b851c3f2e4bc68cb0cb6919d76ab54004fa7",
+      "square_count": 702,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 2,
+      "region_y": 54,
+      "path": "regions/x02/r02_54.json.gz",
+      "sha256": "ca26fb94503755801db209bfcb9231e36d355d04c4e37727ca0180c35fd66db3",
+      "square_count": 84,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 4,
+      "region_y": 54,
+      "path": "regions/x04/r04_54.json.gz",
+      "sha256": "543750e69ec2e86384d336a619f3c403a6a8ca9027cb89dc4ec418fec9f1c492",
+      "square_count": 19,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 5,
+      "region_y": 54,
+      "path": "regions/x05/r05_54.json.gz",
+      "sha256": "f248b1ee99ea30abf08b52463656b7573d5712731c6059762754d2d422f4aa13",
+      "square_count": 974,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 6,
+      "region_y": 54,
+      "path": "regions/x06/r06_54.json.gz",
+      "sha256": "eddc918af6f003bd9f5d1984f570be5c24eeee58676c71623c990e7d08b1501c",
+      "square_count": 2930,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 54,
+      "path": "regions/x07/r07_54.json.gz",
+      "sha256": "4a184cb131ebaffe724d084ce022f6faaa93d5aba9a02119a7d40add61e28a27",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 54,
+      "path": "regions/x08/r08_54.json.gz",
+      "sha256": "1b39ed50ddee0193d1089c550564238af7f8d7cd5c13caa59ffd84d1212b1476",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 54,
+      "path": "regions/x09/r09_54.json.gz",
+      "sha256": "3522793522c81288856f5a61a9cb1b2c04678fc4a7217ad5570d6b553ef2f3d5",
+      "square_count": 2147,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 54,
+      "path": "regions/x10/r10_54.json.gz",
+      "sha256": "19cb8132071f513a971b2ad6dbcb585dda94eb43c19fdc2ad5fe5403edae5cb0",
+      "square_count": 3968,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 54,
+      "path": "regions/x11/r11_54.json.gz",
+      "sha256": "80023996d2672edaf59c66e0bcf033ec7110a9eaa56dfc484e762306f3046381",
+      "square_count": 2715,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 54,
+      "path": "regions/x12/r12_54.json.gz",
+      "sha256": "3d9ab6579935575cc429ee20659de4b6f4787b88f8cf54266733ec1b6f856050",
+      "square_count": 1118,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 54,
+      "path": "regions/x13/r13_54.json.gz",
+      "sha256": "815ad55f46c46f018980a27630756e8e56b3bc0a50e219fceb89059b28fcea2f",
+      "square_count": 34,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 54,
+      "path": "regions/x31/r31_54.json.gz",
+      "sha256": "d3ebc7c6fefbe62e715572db448abef021d7029b873531571f216957a2848a5b",
+      "square_count": 313,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 54,
+      "path": "regions/x32/r32_54.json.gz",
+      "sha256": "7accec80423c624ba56c00c1234b692f886f93dafb8211cbb08ef60b21c3d05a",
+      "square_count": 1826,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 54,
+      "path": "regions/x33/r33_54.json.gz",
+      "sha256": "82f4dcf34ccea659f491648b54967cbe03e5475025ecd39c26e1dafb4796ff74",
+      "square_count": 3798,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 54,
+      "path": "regions/x34/r34_54.json.gz",
+      "sha256": "a91b7c083d75dbc3b4b2efedae6ac2c29e61cef5f756fc93d3057366efd48ee9",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 54,
+      "path": "regions/x35/r35_54.json.gz",
+      "sha256": "f089b103b6727b61e9f1c1e0917a6d6ba01604a1194df3765163c0606b562570",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 54,
+      "path": "regions/x36/r36_54.json.gz",
+      "sha256": "2efe6d1c52e7c918e25bf68b09df33d70b239a4ae3c7c3f90fa47ca5c3632843",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 54,
+      "path": "regions/x37/r37_54.json.gz",
+      "sha256": "465ab61a7e8f9d4e47897033410dac15e9b1ed111e880d72a66df0c7ff7e02a1",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 54,
+      "path": "regions/x38/r38_54.json.gz",
+      "sha256": "ccb4f73a9c0a19afc77583c65d0384c144587ea3586a0b6051031e3533a9503c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 54,
+      "path": "regions/x39/r39_54.json.gz",
+      "sha256": "b395925f737a6546acbde115a0a02d4291bc715093088a1dc2a6d135e9c723fa",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 54,
+      "path": "regions/x40/r40_54.json.gz",
+      "sha256": "4b571584d9097a4d6e774c3783ee09e5af4a93fe3c6673933ac8c7aab544540f",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 54,
+      "path": "regions/x41/r41_54.json.gz",
+      "sha256": "d042c5ffa38ad138ce7063b79c51de5e8b766fdcfaa85bf8a74e5592c592c330",
+      "square_count": 3182,
+      "default_nation": 4,
+      "override_count": 361
+    },
+    {
+      "region_x": 42,
+      "region_y": 54,
+      "path": "regions/x42/r42_54.json.gz",
+      "sha256": "a6885e1214b131d0f74072f9c89601a550bc9869591f3ad3b662f4de023a578e",
+      "square_count": 1657,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 54,
+      "path": "regions/x43/r43_54.json.gz",
+      "sha256": "80d8e491cd849e7448dfec6e0ede08a7aeefcfc667f28e74f805f832f76fe0fb",
+      "square_count": 1618,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 54,
+      "path": "regions/x44/r44_54.json.gz",
+      "sha256": "2bc03e400394cef3d6d1c79451b2d84e70e4f4083210670a27a77afec0bd26e7",
+      "square_count": 2829,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 54,
+      "path": "regions/x45/r45_54.json.gz",
+      "sha256": "fb430790a7c3ec2cc4e2b388530a98eb483e9e5a47bcc06e74cd129468b8ea89",
+      "square_count": 4090,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 54,
+      "path": "regions/x46/r46_54.json.gz",
+      "sha256": "c20e3b195b25f9e326c1d7dae1718582ca14898d633277722021b93394d8fcfe",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 54,
+      "path": "regions/x47/r47_54.json.gz",
+      "sha256": "a2083d2b01c525d2a66ea288753c79a0491a5c3ce2197bd288855a490777b283",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 54,
+      "path": "regions/x48/r48_54.json.gz",
+      "sha256": "2cbb69f5ff6bd8d0ce106b0cee96e46a0ad90b9cc81d790926edcd54247b6ec9",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 54,
+      "path": "regions/x49/r49_54.json.gz",
+      "sha256": "04795dc8ac2dbaa0bae50b501fe9ed9dc1aef8f75c80e2524d476dda9e6418a0",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 54,
+      "path": "regions/x50/r50_54.json.gz",
+      "sha256": "f9d17459635574e3d092686423d95db7ce0423e4e860a0e150219a7cc44341f0",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 54,
+      "path": "regions/x51/r51_54.json.gz",
+      "sha256": "e328bffa2d911ae4287ec6354f112654fdb5097fe617dce46ca01ce13dfe72e6",
+      "square_count": 3296,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 5,
+      "region_y": 55,
+      "path": "regions/x05/r05_55.json.gz",
+      "sha256": "dccbe5e329d92e8f511c1544d925ab030ceaf6bec69df0adcaf3e0abbeefcbb2",
+      "square_count": 829,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 6,
+      "region_y": 55,
+      "path": "regions/x06/r06_55.json.gz",
+      "sha256": "8266cd8590197cae18cb6e15cada38785e8ab292b379cc6bef62cd39891358ee",
+      "square_count": 1573,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 55,
+      "path": "regions/x07/r07_55.json.gz",
+      "sha256": "465f526d5b140d668d9722bed575f4343618999dc2c62de83a115f0e9f2aac87",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 55,
+      "path": "regions/x08/r08_55.json.gz",
+      "sha256": "2ffbc03805bc3e1b8d9e6fe5d2917b416b05f8a0bf992b6a904e26cb0a653b0b",
+      "square_count": 3865,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 55,
+      "path": "regions/x09/r09_55.json.gz",
+      "sha256": "f4b7f08170827b1b6650c7ddd3a0c31891a5f5e7a562fd7a8a41087b972fe9b3",
+      "square_count": 3364,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 55,
+      "path": "regions/x10/r10_55.json.gz",
+      "sha256": "b1d7a23fb6df82d9aae0669d19559abd713372baf3ff6ad0f97a63eadb694cf8",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 55,
+      "path": "regions/x11/r11_55.json.gz",
+      "sha256": "e2d693d6b5e1374f198bd8e483ee7a31884c59ebcd946a9bec7ec4f05a2f8b6f",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 55,
+      "path": "regions/x12/r12_55.json.gz",
+      "sha256": "217ce9c0d39c2585743e9ad1372529f36fa97494c1ea65296a6376229e418242",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 55,
+      "path": "regions/x13/r13_55.json.gz",
+      "sha256": "13a5d70c0c458764ac765ddb223a1985daba3d161f384b8d6d1eb24d14267b08",
+      "square_count": 3219,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 14,
+      "region_y": 55,
+      "path": "regions/x14/r14_55.json.gz",
+      "sha256": "2a437d57a8d571fd39666efcf74e4f78519f3e52d633cb5b481df6461ef81c62",
+      "square_count": 2101,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 15,
+      "region_y": 55,
+      "path": "regions/x15/r15_55.json.gz",
+      "sha256": "94cb2ff59d917332f35933f18f5667b5270fef998f1d2168c464637e0b31c5c6",
+      "square_count": 874,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 55,
+      "path": "regions/x16/r16_55.json.gz",
+      "sha256": "fca3af69aae571e3df0b22a318c0853d5862fa2d556c05f5d7b396e258eea03d",
+      "square_count": 258,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 55,
+      "path": "regions/x29/r29_55.json.gz",
+      "sha256": "8ff20f3eaf19e151f19da0611e9a77c47999a800c14f9cf6b679ac35b4b24557",
+      "square_count": 393,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 55,
+      "path": "regions/x30/r30_55.json.gz",
+      "sha256": "af86fb08ea7c4d1683788e13f1f3bae583d626a92d078658a2972bff2e5ff833",
+      "square_count": 2392,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 55,
+      "path": "regions/x31/r31_55.json.gz",
+      "sha256": "396a8d047b047530d99057c20778591cd1c3423671b0bd1576e69e3e0762838f",
+      "square_count": 4046,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 55,
+      "path": "regions/x32/r32_55.json.gz",
+      "sha256": "bf22a45de1e5724baad1c8b35f6d3b03086ed6aa4d1f1b107d6f26b3cecc2111",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 55,
+      "path": "regions/x33/r33_55.json.gz",
+      "sha256": "75e06dd89e6d68afde48a007b8fb6394766371b18e04d8a5d19ce55b2eb66852",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 55,
+      "path": "regions/x34/r34_55.json.gz",
+      "sha256": "175714f7ea8882a34e5fff240b30556f2274f0f346879aedfa6e3df1ac25155f",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 55,
+      "path": "regions/x35/r35_55.json.gz",
+      "sha256": "c8d21f7677cc10f96ddf3a4982c942204350fd9e7d549133fd0ad0a307cc264c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 773
+    },
+    {
+      "region_x": 36,
+      "region_y": 55,
+      "path": "regions/x36/r36_55.json.gz",
+      "sha256": "9dfa1a23bdf7a0361146747329f0ac0fc0e44dbac8c8aaffa5cf771247ba585b",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 667
+    },
+    {
+      "region_x": 37,
+      "region_y": 55,
+      "path": "regions/x37/r37_55.json.gz",
+      "sha256": "e2d247e5707493d0c2b198a4e6513e146d154c6090bfa0da05f36b889d2f4e44",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 957
+    },
+    {
+      "region_x": 38,
+      "region_y": 55,
+      "path": "regions/x38/r38_55.json.gz",
+      "sha256": "80462939379369470e410d9d98354ded47d17bc93568919df09ec9f3cc162a07",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 767
+    },
+    {
+      "region_x": 39,
+      "region_y": 55,
+      "path": "regions/x39/r39_55.json.gz",
+      "sha256": "4fb614f7bd484ef429c85a22d8db5f15ade39b71effd1deb8b2c35b3da7ba5a4",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 1313
+    },
+    {
+      "region_x": 40,
+      "region_y": 55,
+      "path": "regions/x40/r40_55.json.gz",
+      "sha256": "3421b8641e72fad406686f1860e6a90ad64a8b6d46af385f24b8622e5f26ec7c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 494
+    },
+    {
+      "region_x": 41,
+      "region_y": 55,
+      "path": "regions/x41/r41_55.json.gz",
+      "sha256": "3a5fd96052a2bf26e374b081b9048bc46c077375cb655b0041d7c5127e1f0532",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 1725
+    },
+    {
+      "region_x": 42,
+      "region_y": 55,
+      "path": "regions/x42/r42_55.json.gz",
+      "sha256": "81c8087518b91788af0498e005e19dcf05590a5045a58efea7375006643e3f0a",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 55,
+      "path": "regions/x43/r43_55.json.gz",
+      "sha256": "27d0ddef78f747c1c237523b285317f2e8df405403af927791085003c6bf0767",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 55,
+      "path": "regions/x44/r44_55.json.gz",
+      "sha256": "cdd629a3075e6458481aa192059f27714340ab0fa19bba838d35e90604409a08",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 55,
+      "path": "regions/x45/r45_55.json.gz",
+      "sha256": "69988b7f23fecc2d910793dd683032cc8f5b66d1dcda0a57acc7fb0e30722839",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 55,
+      "path": "regions/x46/r46_55.json.gz",
+      "sha256": "db93fce2751c8951cb9ae1f25a3deb592f816c659f256aa1f6f67b43cbf5de7a",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 55,
+      "path": "regions/x47/r47_55.json.gz",
+      "sha256": "099d54877156215452c03ded2fc6ca85eb2008cc9efea557cc2341de86d5d3cf",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 55,
+      "path": "regions/x48/r48_55.json.gz",
+      "sha256": "7a19485dd9f53799cc7f6346855682702fe78917dfe893b5e0c4e2b17b92fc00",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 55,
+      "path": "regions/x49/r49_55.json.gz",
+      "sha256": "127e7710395b16ea755bcfafe5c79eb88f7fe0a962cc50c4f1e7a5bcc2bdca9f",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 55,
+      "path": "regions/x50/r50_55.json.gz",
+      "sha256": "43fbf6b5e8875d8b0fb836f2ea0e89d23d99855d295c42544f105d9be8d57556",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 55,
+      "path": "regions/x51/r51_55.json.gz",
+      "sha256": "0bced20c1fa256bef7d1cb41f2c4a454f5f7b3b4adaaf07962561cab79f00a45",
+      "square_count": 1797,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 6,
+      "region_y": 56,
+      "path": "regions/x06/r06_56.json.gz",
+      "sha256": "3cdef6fcfa007b0b2f5e1ded106351c0fc7e4c156bcf8bee49886564267e04ca",
+      "square_count": 818,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 56,
+      "path": "regions/x07/r07_56.json.gz",
+      "sha256": "29f5f01bd19f6e5a92cf4178a24805bf849ce5e7e70e02605b1ae6819ce6ac35",
+      "square_count": 3250,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 56,
+      "path": "regions/x08/r08_56.json.gz",
+      "sha256": "4280f51d436cea00f3b63138073cd1f08da0d63230be6c1dcdfdf56283435ff1",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 56,
+      "path": "regions/x09/r09_56.json.gz",
+      "sha256": "798cc38f545e9031a87157297fd5e1882fc355a9407e9016c52d05bafed86899",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 56,
+      "path": "regions/x10/r10_56.json.gz",
+      "sha256": "659bf315446e450e235e1fa8fe21330972278937b129534b4fcb4dd254ea1bef",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 56,
+      "path": "regions/x11/r11_56.json.gz",
+      "sha256": "af7c7586415813dc19f72af980e213a8a3bf465fdd5c0e172dd19af36857b9c8",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 56,
+      "path": "regions/x12/r12_56.json.gz",
+      "sha256": "21aedfae1c791bc931149c1b21254af9b1eea6a028c70f7c3f4999fabbe01018",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 56,
+      "path": "regions/x13/r13_56.json.gz",
+      "sha256": "ce900aed55598e6e5882f821297a86bce7baead29f6c88b879f1e9cf5f28a80f",
+      "square_count": 3896,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 14,
+      "region_y": 56,
+      "path": "regions/x14/r14_56.json.gz",
+      "sha256": "40b4c7f6a113e1c3c4327611b60aa8d21c8f11d10545754da320e413ccb0d15e",
+      "square_count": 3767,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 15,
+      "region_y": 56,
+      "path": "regions/x15/r15_56.json.gz",
+      "sha256": "20ad3140ffe3c3c3cd5e1121be1eb50b45ad98f9ed2d61d5250953acc64d7835",
+      "square_count": 2511,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 56,
+      "path": "regions/x16/r16_56.json.gz",
+      "sha256": "f08c618c4730bea11af541642c26f609daf189900a98dc888b8b8cec89e58229",
+      "square_count": 2066,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 17,
+      "region_y": 56,
+      "path": "regions/x17/r17_56.json.gz",
+      "sha256": "5812a01d84ddc919f7519837616550e13cbb0d466371d375fe1d439408eefbb6",
+      "square_count": 1488,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 18,
+      "region_y": 56,
+      "path": "regions/x18/r18_56.json.gz",
+      "sha256": "c71813e9f83b7cd0834bf86eae3003203f7ba4abbb25d01eb86ffe46e00f1213",
+      "square_count": 1328,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 56,
+      "path": "regions/x19/r19_56.json.gz",
+      "sha256": "969bf6ba1492234a0de48bb8452278d721e119ef85287b6e36af4a88d858103a",
+      "square_count": 115,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 56,
+      "path": "regions/x20/r20_56.json.gz",
+      "sha256": "eb7d82390598d8f9f58317351c37129910106c41cdfacbd1347af7cbd7246b96",
+      "square_count": 39,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 56,
+      "path": "regions/x21/r21_56.json.gz",
+      "sha256": "c60aeb651b5c862294bc3c7166383a7181f8cc04713d98594dd3934928f09e44",
+      "square_count": 27,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 27,
+      "region_y": 56,
+      "path": "regions/x27/r27_56.json.gz",
+      "sha256": "b2047d02f2bf58caa4ec169a4aac2e6bc6dd22647ca370609ad831185704b6ad",
+      "square_count": 400,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 56,
+      "path": "regions/x28/r28_56.json.gz",
+      "sha256": "764c5674eae91cd1859e4de913599387bbba973f58742a046171fae4e9bba23b",
+      "square_count": 921,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 56,
+      "path": "regions/x29/r29_56.json.gz",
+      "sha256": "00c8acf70256dfba6bb93f4b679aa6c66c7ed91ebb8df0401557f6ed9eef4c83",
+      "square_count": 3699,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 56,
+      "path": "regions/x30/r30_56.json.gz",
+      "sha256": "bc7b404cbb182cab7ba23a546880abcf453af93869f8099997e62bbd866f7bbe",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 56,
+      "path": "regions/x31/r31_56.json.gz",
+      "sha256": "9ea511d29742fbb3ee8ce01eac0ecd8976c6aaa75ed9b571266455d19133b6ad",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 56,
+      "path": "regions/x32/r32_56.json.gz",
+      "sha256": "2fd40854a3d90a85b4fb5bf1ee102e606bb36e6325959f14e6671e46bf59d322",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 746
+    },
+    {
+      "region_x": 33,
+      "region_y": 56,
+      "path": "regions/x33/r33_56.json.gz",
+      "sha256": "5e4043d2016cb8cc2128b70785a15cb99267f60619959ffb02aedad39ed443f7",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 230
+    },
+    {
+      "region_x": 34,
+      "region_y": 56,
+      "path": "regions/x34/r34_56.json.gz",
+      "sha256": "0bad7956e457f28712108ef00a3dab58f67c2b1922b700d9caf225d91173b1eb",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 389
+    },
+    {
+      "region_x": 35,
+      "region_y": 56,
+      "path": "regions/x35/r35_56.json.gz",
+      "sha256": "73e96d4fa19c233c75740e672262c9981f6ecc1a3f12ce937d8e552d75516415",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 56,
+      "path": "regions/x36/r36_56.json.gz",
+      "sha256": "9a2ad87b927c00493e8e05455083230bf6733f9f760898e5e59e7d86e72219a2",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 56,
+      "path": "regions/x37/r37_56.json.gz",
+      "sha256": "a7f07f6799894493f0b4479b53695758551d700e3fbffabfce0e92d4a3c77cc8",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 56,
+      "path": "regions/x38/r38_56.json.gz",
+      "sha256": "555543e6926462f1fe1354ad25561947774eaf2250fd27f48043aa670b502ccf",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 56,
+      "path": "regions/x39/r39_56.json.gz",
+      "sha256": "920f7f7a80e2c1a8ca53dc0234acbe8e828883c4ab293ab8316c101505f782ca",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1142
+    },
+    {
+      "region_x": 40,
+      "region_y": 56,
+      "path": "regions/x40/r40_56.json.gz",
+      "sha256": "f6bb34296202df935a8097bc6eefced5a421b205f1d1c34696f16aae9617f9b3",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 261
+    },
+    {
+      "region_x": 41,
+      "region_y": 56,
+      "path": "regions/x41/r41_56.json.gz",
+      "sha256": "f08cd04dddb44ea76ea402a48637402cee9aca870a6e7449e8389894a71c9136",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 56,
+      "path": "regions/x42/r42_56.json.gz",
+      "sha256": "536735253b4b28acd6a5d732a433c420b783fbadb5003cac6d029ed540b30678",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 56,
+      "path": "regions/x43/r43_56.json.gz",
+      "sha256": "6ef77c573f244f3839ac7dffcb87b1c796fcd28acfb36cba57f96ba8e3dcfb5b",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 56,
+      "path": "regions/x44/r44_56.json.gz",
+      "sha256": "d4503e6d701dbbc2dd30748de8301e5f2e0670759402310cfcdcc873ba49cae8",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 56,
+      "path": "regions/x45/r45_56.json.gz",
+      "sha256": "b2a5554ac0ef55914e1a71485f06a9ce1655d65cb1522e8c4d5f0b890c15dc8e",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 56,
+      "path": "regions/x46/r46_56.json.gz",
+      "sha256": "59af6649d47253b24c9901a8b5d547554968e9ad62f3751c922e79a031e82ab9",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 56,
+      "path": "regions/x47/r47_56.json.gz",
+      "sha256": "8d7a18ec462209f837670b1f2cd864b069eb48310c244a80123ad7576fbbb44c",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 56,
+      "path": "regions/x48/r48_56.json.gz",
+      "sha256": "15dbb7116de938ad30501b299591fcdd85c909ece1109dff728277e20b6d2b54",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 56,
+      "path": "regions/x49/r49_56.json.gz",
+      "sha256": "ab980fe45c5955850826621c1ddd6dfbcf5c530fa7e5c5b7469b9fcd98b3928d",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 56,
+      "path": "regions/x50/r50_56.json.gz",
+      "sha256": "2ee9a2a0577d7efbe1a21781cb1424ecc6eee8822c0b1091149a17b687b147b5",
+      "square_count": 3619,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 51,
+      "region_y": 56,
+      "path": "regions/x51/r51_56.json.gz",
+      "sha256": "343052897bd7b16e69ade04e3e18b134b186d4e16a101510801f049f5978fde8",
+      "square_count": 226,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 7,
+      "region_y": 57,
+      "path": "regions/x07/r07_57.json.gz",
+      "sha256": "1ead48501d517a4f17143a4e4de75f5f2ec7c0ecfc4276563f576ba1c9ee685c",
+      "square_count": 1792,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 57,
+      "path": "regions/x08/r08_57.json.gz",
+      "sha256": "ec766134b8bd0749a6746582f8342032d8f0397c8f89be8f6efdce361fed36d5",
+      "square_count": 3687,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 57,
+      "path": "regions/x09/r09_57.json.gz",
+      "sha256": "ac235fe977630cc010649bead35b25ad695410621551b4b0fab6635d05b45f5c",
+      "square_count": 4080,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 57,
+      "path": "regions/x10/r10_57.json.gz",
+      "sha256": "af957b4502cf2990ad0b5d08c13d39d2eb6c6f754a49a80f73488cfbd7b577ce",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 57,
+      "path": "regions/x11/r11_57.json.gz",
+      "sha256": "249b2e880f8129538a4e9471424acb066415ab4ee9ea44ea53c5f9ded208e6ec",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 57,
+      "path": "regions/x12/r12_57.json.gz",
+      "sha256": "a79126badca5f33ab487f0dab5eb65ce8da79cf56133ac4625ecaab9ec4c5c72",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 57,
+      "path": "regions/x13/r13_57.json.gz",
+      "sha256": "1862135cebf93f50740f587773e98bd16bf977fec6e34d44f4cb670e133692fa",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 14,
+      "region_y": 57,
+      "path": "regions/x14/r14_57.json.gz",
+      "sha256": "b0ee8ec17000605dbd24ad0332451b1ba472dbada0edd3e9fee25eb9b8bc7521",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 15,
+      "region_y": 57,
+      "path": "regions/x15/r15_57.json.gz",
+      "sha256": "ffc7fae24c26861b299479ad5df6e644f477a347981fda1104144fc25de93704",
+      "square_count": 2785,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 57,
+      "path": "regions/x16/r16_57.json.gz",
+      "sha256": "e414645376e46a2b13d7e71e201031bcee8eaab3241e78fbe9a06dab389ffd4c",
+      "square_count": 2022,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 17,
+      "region_y": 57,
+      "path": "regions/x17/r17_57.json.gz",
+      "sha256": "5682620d50f5c6ddc8959f5540828594f1501ebe7e3c5982b83eb8bc2fe58692",
+      "square_count": 764,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 18,
+      "region_y": 57,
+      "path": "regions/x18/r18_57.json.gz",
+      "sha256": "6ea9564644dadc0aa782b6fb60a93d511084618c1e79d4eb7637fb841fb2af78",
+      "square_count": 2107,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 57,
+      "path": "regions/x19/r19_57.json.gz",
+      "sha256": "eb8d09befe60a96aa5a5dc9a07a0c8e89f85359712d24628e8a27b87103ebf4c",
+      "square_count": 4043,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 57,
+      "path": "regions/x20/r20_57.json.gz",
+      "sha256": "cc1001e94f6cecb4a43f73cfc8d778a44a76d14a46b065873bc0c3d064966055",
+      "square_count": 4077,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 57,
+      "path": "regions/x21/r21_57.json.gz",
+      "sha256": "1c2859272a63a8c7c83b31eedcd14b4a50c03d5d6bd466aac9020340b2b0d231",
+      "square_count": 2196,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 57,
+      "path": "regions/x22/r22_57.json.gz",
+      "sha256": "11c308cf53d52227c74adf39143dbd89f18822760b027277bc7d249a0f215002",
+      "square_count": 1816,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 57,
+      "path": "regions/x23/r23_57.json.gz",
+      "sha256": "4f03efd6d2be2d04b7a6de6f44e430931c2f032efd7be6d166bded8a794c51f6",
+      "square_count": 1936,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 57,
+      "path": "regions/x24/r24_57.json.gz",
+      "sha256": "680e1bb601f50d6d4e45940c3c94fd95e03e33b4c5b1a4a0038fd47377cadd1f",
+      "square_count": 2101,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 57,
+      "path": "regions/x25/r25_57.json.gz",
+      "sha256": "e48d44b20fe2ab3b28b0036e829652d18596262cdd6d4ccf10d618804d3fa194",
+      "square_count": 2142,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 57,
+      "path": "regions/x26/r26_57.json.gz",
+      "sha256": "6eab9dbca384e0c3c9b598cc1548f34629f93e820c903756ab405a3347f68353",
+      "square_count": 1930,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 27,
+      "region_y": 57,
+      "path": "regions/x27/r27_57.json.gz",
+      "sha256": "eb9d913d45e6179b97a6ae35b756907e8449a035718e637f6c7e0a5528b614ab",
+      "square_count": 3413,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 57,
+      "path": "regions/x28/r28_57.json.gz",
+      "sha256": "ee7249dddc08f8717d3f11780918cd36189e1f713aed17b98a8862a6aa64c79e",
+      "square_count": 3676,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 57,
+      "path": "regions/x29/r29_57.json.gz",
+      "sha256": "a4f0af94618c0f0b84bfa211ede2884664e36c01be8a0823a0ad08aa84ae7a14",
+      "square_count": 3955,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 57,
+      "path": "regions/x30/r30_57.json.gz",
+      "sha256": "3e089b6d404f6db185b5a7dae23fb44f5c6565ddfeb837ae999b1327619c2a2d",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 57,
+      "path": "regions/x31/r31_57.json.gz",
+      "sha256": "f73a4b47684d586fa36df8f5200797109658c129c647782a7053cc98bdc1941a",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1981
+    },
+    {
+      "region_x": 32,
+      "region_y": 57,
+      "path": "regions/x32/r32_57.json.gz",
+      "sha256": "b1b236df445abfa967cefb9e642220f5e03bc5b118647c6dbc8f8a269b20025c",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 57,
+      "path": "regions/x33/r33_57.json.gz",
+      "sha256": "ed52f95220ef223728ab82bc41c3f2d8817af0d3a7e8be704178d7d4ca054422",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 57,
+      "path": "regions/x34/r34_57.json.gz",
+      "sha256": "fe08d4d158c3ec5ef7e36d38aedcd4a3c5fc116f4f02e97b00c06d99814067b8",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 57,
+      "path": "regions/x35/r35_57.json.gz",
+      "sha256": "1f7e2ff1112e86692130e13a392cc53d2c4746d9b0e2aeb784e34ed878232695",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 57,
+      "path": "regions/x36/r36_57.json.gz",
+      "sha256": "5926d205674d425c9f0591768f66102136868d270ddd46d3ac7b4cda137dbf15",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 57,
+      "path": "regions/x37/r37_57.json.gz",
+      "sha256": "c87b25cc9c68d00408205d83407478d12f296c772217d082aaef15fbf03432f8",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 57,
+      "path": "regions/x38/r38_57.json.gz",
+      "sha256": "5b90406351109580117f4839075041bd1c933e76aadcae7ff846f5ad596aae0e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 57,
+      "path": "regions/x39/r39_57.json.gz",
+      "sha256": "4505e133be9cf195ff9b046719346a7b746251320c4fa41171346f8014acc4e7",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 1061
+    },
+    {
+      "region_x": 40,
+      "region_y": 57,
+      "path": "regions/x40/r40_57.json.gz",
+      "sha256": "b7212db9cb4614becec0e8b0b48b10f5812a8edb573ef2a111098ff8821e96c6",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 57,
+      "path": "regions/x41/r41_57.json.gz",
+      "sha256": "55e3002fb6b01639d41c481e91ce256a35087868455ea542977f14f5a391aab4",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 57,
+      "path": "regions/x42/r42_57.json.gz",
+      "sha256": "d8371b11577ea82611ba7b42168624d688dcb5fd459a62dd80a3bb149d1bffb6",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 57,
+      "path": "regions/x43/r43_57.json.gz",
+      "sha256": "ec25810b7cd62723073d6c8057575c3395865a2d5f67389b05263cda4659d4d9",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 57,
+      "path": "regions/x44/r44_57.json.gz",
+      "sha256": "40f81f6c3b94bab0b4de16ef570bdb242f6bd70f414e8b8cfc60ac6b77559c76",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 57,
+      "path": "regions/x45/r45_57.json.gz",
+      "sha256": "df5a17835e9af4fd522e545cf18194a03a4387d11ef7c8c886b2297b7459940b",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 57,
+      "path": "regions/x46/r46_57.json.gz",
+      "sha256": "93fbb12bbd6967ca4c86fc84ea918e0c116fb4130c494a964c11f610298578d8",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 57,
+      "path": "regions/x47/r47_57.json.gz",
+      "sha256": "5473ba8adce9d351bc70a7de8bebd7dee0da4df596d7eade04c6f4bfd7bc2f26",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 57,
+      "path": "regions/x48/r48_57.json.gz",
+      "sha256": "8948c44a1b3c8277e77e8f1e982fff5305bf6b061ade8412c9b23023d96e2f45",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 57,
+      "path": "regions/x49/r49_57.json.gz",
+      "sha256": "6a3450b37fa92a04cddc8c98b72611d7ac2107e7cde9634727bacb0a918d59b0",
+      "square_count": 3287,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 50,
+      "region_y": 57,
+      "path": "regions/x50/r50_57.json.gz",
+      "sha256": "d7581b47dac533f2df9bf6f4866c6e793baba64746b0f54645659c9768f2fd47",
+      "square_count": 581,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 8,
+      "region_y": 58,
+      "path": "regions/x08/r08_58.json.gz",
+      "sha256": "949b517338d8b43aa15aa2e58eac22c3542b7f22d255405f6204cbdfe87bdbaa",
+      "square_count": 836,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 58,
+      "path": "regions/x09/r09_58.json.gz",
+      "sha256": "de73d3fd90e96eff11078dd909a5edabdd709ec7be280ca38862175f895dc2ae",
+      "square_count": 1379,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 58,
+      "path": "regions/x10/r10_58.json.gz",
+      "sha256": "cc63db742fc103fa44b97c3932521cd8cd12386c7aad6574f119b2212ab8a06b",
+      "square_count": 4037,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 58,
+      "path": "regions/x11/r11_58.json.gz",
+      "sha256": "202d4f257543d3e3698d4c786dc76a200ce94b050d4ecacfc80e1c0856dc0cbb",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 58,
+      "path": "regions/x12/r12_58.json.gz",
+      "sha256": "3c85e990ae7220eb923e52c28fc5fabe8e233d48136e80e1292dc8b85bac963d",
+      "square_count": 3951,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 58,
+      "path": "regions/x13/r13_58.json.gz",
+      "sha256": "3eb307674a1e569f9675b2e76f15e1a623427f6a3e402d16635618c531b18ae7",
+      "square_count": 3296,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 14,
+      "region_y": 58,
+      "path": "regions/x14/r14_58.json.gz",
+      "sha256": "7f99cd483987ccd3a9252285c5540e06ee96e547cc5164fe0737e543d19d58ec",
+      "square_count": 4020,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 15,
+      "region_y": 58,
+      "path": "regions/x15/r15_58.json.gz",
+      "sha256": "5b8cc4e8835c518b2899c8da7d78cd82eb33c909f3f8a80f11f07ee0f27e942a",
+      "square_count": 3714,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 58,
+      "path": "regions/x16/r16_58.json.gz",
+      "sha256": "36b7b363dbdbe24e4486f23eb15950633048b99b80a1fa3868fe61ce60b58076",
+      "square_count": 3641,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 17,
+      "region_y": 58,
+      "path": "regions/x17/r17_58.json.gz",
+      "sha256": "10632b475dc46329c21c03dcf4da01fd7b9823ef5550560b5fb885fc491cf29a",
+      "square_count": 4082,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 18,
+      "region_y": 58,
+      "path": "regions/x18/r18_58.json.gz",
+      "sha256": "4dc12b024a6f30dc066453f4f21f5a437501c00b4a32229d502fb396aef0c105",
+      "square_count": 4095,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 58,
+      "path": "regions/x19/r19_58.json.gz",
+      "sha256": "40babf56e1ffd1956dcb2a0e8b66dd2b124a7394d2f1efe2d63a3878836214cb",
+      "square_count": 4077,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 58,
+      "path": "regions/x20/r20_58.json.gz",
+      "sha256": "e5034b18a0c7caa4a0a12244a0417da56f6c3be67e8c5089141d5784dd1b2820",
+      "square_count": 2394,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 58,
+      "path": "regions/x21/r21_58.json.gz",
+      "sha256": "2d9dde3901ccaa6d07164ffea1d6afe516b1ce98044b7907968e60944c80d4b0",
+      "square_count": 1703,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 58,
+      "path": "regions/x22/r22_58.json.gz",
+      "sha256": "a98c9ff7792610b02ded33c55a0ce3197aec49aeb1923dd7dbb3503cd8091eb2",
+      "square_count": 2256,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 58,
+      "path": "regions/x23/r23_58.json.gz",
+      "sha256": "3be1ce5b57611350c0c3c2a4e8bb308a764477ce18d7334d4529e7301e558ca7",
+      "square_count": 3962,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 58,
+      "path": "regions/x24/r24_58.json.gz",
+      "sha256": "32beaa3e80f80cfbdec2d7c01f144f78b0b883ed3cfdd980223e5b58545d4da0",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 58,
+      "path": "regions/x25/r25_58.json.gz",
+      "sha256": "c84ea5f64fcc0d1384ecfe2e32651b3e51758dc648ebd36b7b9212799132f073",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 58,
+      "path": "regions/x26/r26_58.json.gz",
+      "sha256": "4f70c250b2fa8e7b4afe2806faf21de2dc9c2f02831a0d56d4d342c1d5422b13",
+      "square_count": 3997,
+      "default_nation": 1,
+      "override_count": 766
+    },
+    {
+      "region_x": 27,
+      "region_y": 58,
+      "path": "regions/x27/r27_58.json.gz",
+      "sha256": "1c0a15a7693ae1a1b840329e3e200a6b3bac736b13d518b3b82c0f19e9486431",
+      "square_count": 4082,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 58,
+      "path": "regions/x28/r28_58.json.gz",
+      "sha256": "20507ee120b8e999e84f5b662cbc1ba050b94c847ed2ae9a84ad65b399f23fef",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 58,
+      "path": "regions/x29/r29_58.json.gz",
+      "sha256": "b5f021b2e06c53e6ab93654b4348f47d0315cb5b4d88189b3cc579c430c688f6",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 58,
+      "path": "regions/x30/r30_58.json.gz",
+      "sha256": "73db0b91a098d93eedc04e428d0abb237c1c2732c5739ab0a46a4d0d0fdfc961",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 58,
+      "path": "regions/x31/r31_58.json.gz",
+      "sha256": "0e5f0750e73a6fa07ee6d1f9de03af818ff9f8b11aaa0e3b95c9e5cbc0736fc3",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 351
+    },
+    {
+      "region_x": 32,
+      "region_y": 58,
+      "path": "regions/x32/r32_58.json.gz",
+      "sha256": "f65aebf988ed3153df0e4f6a24fe24642c57735934341f723b6abfa1a3addeca",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 58,
+      "path": "regions/x33/r33_58.json.gz",
+      "sha256": "e9526727320efe74f1a597cf18c3879999e449b0fb4216f733fbf1870169d743",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 58,
+      "path": "regions/x34/r34_58.json.gz",
+      "sha256": "bed5335786fea08347f4e0e09392f7f894f2389ed3526961342ec9d34fafd160",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 58,
+      "path": "regions/x35/r35_58.json.gz",
+      "sha256": "76b0a0f1fe6ecc9930c1b92d5a42882a84f163e545aabf1031f55d8d95e3b925",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 58,
+      "path": "regions/x36/r36_58.json.gz",
+      "sha256": "ab298a1dac5317a8e4f114a466e4362864ad2bc4f057e7d1233efe0c0051379d",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 58,
+      "path": "regions/x37/r37_58.json.gz",
+      "sha256": "96cc5f17a444d7d0d871371f86e7e3e595db3ba5f436a6f6ff98dc57f2af630d",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 58,
+      "path": "regions/x38/r38_58.json.gz",
+      "sha256": "7c597e74c817df5a233637272e4310ab158e16660e1af4dbfadd9e81644c618b",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 58,
+      "path": "regions/x39/r39_58.json.gz",
+      "sha256": "78e23c419c04ce0913d0abdbabdf3d2b2423cbc7d58714a1d139b9e07f70cac3",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 1118
+    },
+    {
+      "region_x": 40,
+      "region_y": 58,
+      "path": "regions/x40/r40_58.json.gz",
+      "sha256": "c8159aa13db8a60420f4357794729826831d80a1c2343030377387ac0085bd58",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 58,
+      "path": "regions/x41/r41_58.json.gz",
+      "sha256": "8437f7574eb1f071f9786ffeb15313d280190550805dd569e7bd48bdc291e541",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 58,
+      "path": "regions/x42/r42_58.json.gz",
+      "sha256": "b52e4838f45f20c43ef994f1eaddab968d26b09a4db7d3e6b22a2cba9b952c17",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 58,
+      "path": "regions/x43/r43_58.json.gz",
+      "sha256": "9dae5032bf018cd5635b02e3d21ab2c65a08d6b5f557fbf7d0ac3cbc90930f34",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 58,
+      "path": "regions/x44/r44_58.json.gz",
+      "sha256": "f39e5f1a64c0b4fd07849422c404486ddf196e67e3438ba9808982c9e2609712",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 58,
+      "path": "regions/x45/r45_58.json.gz",
+      "sha256": "e82e26b8993ba184df80dcfe8f0de1ff2d7aede05d28a8fa04478cf5e9f4ebc6",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 58,
+      "path": "regions/x46/r46_58.json.gz",
+      "sha256": "f4cbc87ed3ba074098d31e75da2fcf8cae4887eec37cea6021416645024c1702",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 58,
+      "path": "regions/x47/r47_58.json.gz",
+      "sha256": "03b5a76f0a7fcca800e24252b81775722d593405a8bd537c6c3c4fac59f656e6",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 58,
+      "path": "regions/x48/r48_58.json.gz",
+      "sha256": "729aa2ed9f86d2441e3fe28072ba0ad91b27bdf0bcf90777fb46b0fc5e6e8707",
+      "square_count": 3579,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 49,
+      "region_y": 58,
+      "path": "regions/x49/r49_58.json.gz",
+      "sha256": "ae8c5055960727208a598476b8cc668ee6a1641505c73523261c76bc8f8a1dce",
+      "square_count": 690,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 9,
+      "region_y": 59,
+      "path": "regions/x09/r09_59.json.gz",
+      "sha256": "c6c2a26d0fb61f5c50a3c5f53da4a956213e89663846197bb66ca06d19971375",
+      "square_count": 913,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 10,
+      "region_y": 59,
+      "path": "regions/x10/r10_59.json.gz",
+      "sha256": "c3c7584be4d045a4c35149ccb72ce3c9306bbbe291e91a86316375da887497c7",
+      "square_count": 1851,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 11,
+      "region_y": 59,
+      "path": "regions/x11/r11_59.json.gz",
+      "sha256": "837f3b47c5824c99f99685aad13cd7d7221253dba2df19d174873cc95b5e63f3",
+      "square_count": 3224,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 59,
+      "path": "regions/x12/r12_59.json.gz",
+      "sha256": "1a6f6bb70b19732a46d02e8d11e78ce9781eff36865aec060df58c1b9b23006d",
+      "square_count": 3313,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 13,
+      "region_y": 59,
+      "path": "regions/x13/r13_59.json.gz",
+      "sha256": "816d919336e04c6d99623946689db20dd9faeab8c9ef3813162f2f3ca08284ac",
+      "square_count": 1993,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 14,
+      "region_y": 59,
+      "path": "regions/x14/r14_59.json.gz",
+      "sha256": "c130bd541cc8c49c2ca4dcf0c37b0d1b8ec38850eb32f6cf5885a8f570616936",
+      "square_count": 95,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 15,
+      "region_y": 59,
+      "path": "regions/x15/r15_59.json.gz",
+      "sha256": "e0240be3890be07dd960a5e08e42bc6bfc26d1ba3d6aa7591064120903c11346",
+      "square_count": 1706,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 59,
+      "path": "regions/x16/r16_59.json.gz",
+      "sha256": "210328689602b473bc01c822ef65017082c85d81aabb86fc34326120ff6a936a",
+      "square_count": 3002,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 17,
+      "region_y": 59,
+      "path": "regions/x17/r17_59.json.gz",
+      "sha256": "97d4f21a36f700b9526bf029344a2b6cbb12e37b5d34834843c3db2ee5faf580",
+      "square_count": 3038,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 18,
+      "region_y": 59,
+      "path": "regions/x18/r18_59.json.gz",
+      "sha256": "e5a0bede7d9df3af10d1526d821f267484252b9f82aa7a2188554f46e98bfeef",
+      "square_count": 658,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 59,
+      "path": "regions/x19/r19_59.json.gz",
+      "sha256": "30b956e3ad71b00290cea076e5e16049eb1a966bf03529b869f86b4ea61797f9",
+      "square_count": 524,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 59,
+      "path": "regions/x20/r20_59.json.gz",
+      "sha256": "c571ed18b857e6384747595a0223ab8de3c1305eef3eabb0e9acbc4d3e7274a0",
+      "square_count": 403,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 59,
+      "path": "regions/x21/r21_59.json.gz",
+      "sha256": "5593f2c2c41fc87a9e64a05d2e8c9aaef48aa15b5d3e8f8398f579e63678ac8c",
+      "square_count": 3020,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 59,
+      "path": "regions/x22/r22_59.json.gz",
+      "sha256": "4bb9b209738410d6b4957b2190a8dde2a810389f174a31ed218aa24945c356a5",
+      "square_count": 3764,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 59,
+      "path": "regions/x23/r23_59.json.gz",
+      "sha256": "7a2bdd9bb2497934e83267c9e9b30dc4e295f11dd5cd6901d64c43d1dcc8b2de",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 59,
+      "path": "regions/x24/r24_59.json.gz",
+      "sha256": "2bf7576cda327655ab57cf84eab19e45cc548edc5079467880a53d3fcc3d32e3",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 59,
+      "path": "regions/x25/r25_59.json.gz",
+      "sha256": "e6ae47ac4c8e5016f57cc0ab06a1c9b34c041040c424f24ef6afada6ef3c6bf9",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 59,
+      "path": "regions/x26/r26_59.json.gz",
+      "sha256": "b217d2135c930af0381447e48ddc2b6b9f8fb10992f5fb6e15794d541c5792fc",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 532
+    },
+    {
+      "region_x": 27,
+      "region_y": 59,
+      "path": "regions/x27/r27_59.json.gz",
+      "sha256": "6042e9f27cdc47341c7c77c5248bb50ea9fe3170b191c17e4364b9db357ab23e",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 1303
+    },
+    {
+      "region_x": 28,
+      "region_y": 59,
+      "path": "regions/x28/r28_59.json.gz",
+      "sha256": "c8b6644b620879546343646af7be961b8c16413ae0cf14c4f9bbf6d48013b715",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 59,
+      "path": "regions/x29/r29_59.json.gz",
+      "sha256": "18b79f9276ba4cd1bea280feed3822a2a00ab6916cec4d1307a6eab1bdfba719",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 59,
+      "path": "regions/x30/r30_59.json.gz",
+      "sha256": "5308180632bb8a5f1582d2f9ee70c68e9f6db48e639608caea5a5e982418bc8f",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 59,
+      "path": "regions/x31/r31_59.json.gz",
+      "sha256": "075a324c25c8ebec2bbac503ca302623cdfc9c00574cac6549c249bfaa40c6f6",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 450
+    },
+    {
+      "region_x": 32,
+      "region_y": 59,
+      "path": "regions/x32/r32_59.json.gz",
+      "sha256": "5c6ac9c4f78fb143c6781cfd66b640382650e82eada26e24811eebdeaab28fa9",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 59,
+      "path": "regions/x33/r33_59.json.gz",
+      "sha256": "24d8a8b30bfd773fe1862ed3c565d793b37541dc3b9c7287b28437e4d050f234",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 59,
+      "path": "regions/x34/r34_59.json.gz",
+      "sha256": "e588f8374f8e92b33f8bcb7d3c0136d8d7851e4a5270bb6d2c09b88e7755ace7",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 59,
+      "path": "regions/x35/r35_59.json.gz",
+      "sha256": "2c4eebc3662c02af6a04dadcf50f2a6d846f02f7c3db6a562ff00f1d5f93f87e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 59,
+      "path": "regions/x36/r36_59.json.gz",
+      "sha256": "67ae4127e70afb2e073c2cb6ff7c81d65c6827d58050150b0ed9f06f5b5149f6",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 59,
+      "path": "regions/x37/r37_59.json.gz",
+      "sha256": "9b371582bf159c050e4252eaa8e54b5116098c6d313b5d76c167766f0f0a4e0f",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 59,
+      "path": "regions/x38/r38_59.json.gz",
+      "sha256": "b5dbb821c655989eeb61b43663e4486275e1f83dbb627db3363740c8d5b5326e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 59,
+      "path": "regions/x39/r39_59.json.gz",
+      "sha256": "663864a35065a65253e22b2d3eeaf397c6afd0dd4b95748204c6fc11b450ab0b",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1765
+    },
+    {
+      "region_x": 40,
+      "region_y": 59,
+      "path": "regions/x40/r40_59.json.gz",
+      "sha256": "7d807a850fad1a8e553e90f8433b9db1049392db8ed6b90e48ba31d9a2897a53",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 59,
+      "path": "regions/x41/r41_59.json.gz",
+      "sha256": "616300453899b8a942453df8126c579cb6a0db4eb7cfb647675638fa328f77e0",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 59,
+      "path": "regions/x42/r42_59.json.gz",
+      "sha256": "09ca7740dd5609b7f0dc3c3de345e63e29ad64ec71bdc7f99b6712d0b28a828e",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 59,
+      "path": "regions/x43/r43_59.json.gz",
+      "sha256": "b5c0f6cacdc7082063aba3092b2f9cdbd8f453104f74ba21a74ab3f1206cb7b4",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 59,
+      "path": "regions/x44/r44_59.json.gz",
+      "sha256": "5b7b2c8cfe3ef9b8a39e1cd411b58f2a0d36ac774fb23ebeee16c44f0619f889",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 59,
+      "path": "regions/x45/r45_59.json.gz",
+      "sha256": "3299a27ff49b79ca6c7670bc60427c3cc38f02647e72e236c20beb0ad4f1cce4",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 59,
+      "path": "regions/x46/r46_59.json.gz",
+      "sha256": "0a67b261443d6df86be2a24be5bcebf91169048a0a016e527570cfd92d9665d2",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 59,
+      "path": "regions/x47/r47_59.json.gz",
+      "sha256": "4bdf2388769aa0e67e53010b5b7285bc223e7c46f1eaaa67da415f300c21eae9",
+      "square_count": 3643,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 48,
+      "region_y": 59,
+      "path": "regions/x48/r48_59.json.gz",
+      "sha256": "afbe1d59c7f7503c48c52317736588d95e394db75a533fa35a9048fc0cf6cfe0",
+      "square_count": 401,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 12,
+      "region_y": 60,
+      "path": "regions/x12/r12_60.json.gz",
+      "sha256": "dd72d6d067e34ac9fca2f4b158ac993d342f89827ff2c099c5310980a710a114",
+      "square_count": 42,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 16,
+      "region_y": 60,
+      "path": "regions/x16/r16_60.json.gz",
+      "sha256": "e6a254af87057e764bd003a443ba977f8dcf0489ebea926f5a48c7d9c042cc10",
+      "square_count": 3,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 17,
+      "region_y": 60,
+      "path": "regions/x17/r17_60.json.gz",
+      "sha256": "55282edcf2ad4d520b6948082b6f869699104d1a41220600e4ab7812a5263bbc",
+      "square_count": 145,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 60,
+      "path": "regions/x21/r21_60.json.gz",
+      "sha256": "678acd8e4d11d0a34225a46c593b1d3878bb12d1b5e94cd0b47f1eb4a15587ba",
+      "square_count": 796,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 60,
+      "path": "regions/x22/r22_60.json.gz",
+      "sha256": "8b816e6d3bb608921c286f4801aaeb1bad2a8103b0970d5c93c895c85c3db360",
+      "square_count": 4082,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 60,
+      "path": "regions/x23/r23_60.json.gz",
+      "sha256": "73dad0527a5c292d70bc042f7f581fc04008defbdb6edb36dd5d8dd25d7f1670",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 60,
+      "path": "regions/x24/r24_60.json.gz",
+      "sha256": "c370f33c0634cc2a474a2125412b37298fcd13bf97c225b61a78d1fa2166c549",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 60,
+      "path": "regions/x25/r25_60.json.gz",
+      "sha256": "edc19fb10d5e3c8d7576d1b48ec1508153abaf3f1d0ca3e6318343f084e19ff8",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 60,
+      "path": "regions/x26/r26_60.json.gz",
+      "sha256": "014ed75b82490fb2bb60cb84fbff3dab4c7bd93a7932ea41f147ee3ca890cc41",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 27,
+      "region_y": 60,
+      "path": "regions/x27/r27_60.json.gz",
+      "sha256": "a001ac911673d840845264df98943120598258f3d5f978209b176a41acfa8b2b",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 816
+    },
+    {
+      "region_x": 28,
+      "region_y": 60,
+      "path": "regions/x28/r28_60.json.gz",
+      "sha256": "26537c8c46ef47fbc411e3f7986cd826484af071381e5022e8d4130892d5c969",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 760
+    },
+    {
+      "region_x": 29,
+      "region_y": 60,
+      "path": "regions/x29/r29_60.json.gz",
+      "sha256": "0f934ad5f0da5a887cfc9654bb33233e73a5a0e1d09e77c137201edae419e55b",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 55
+    },
+    {
+      "region_x": 30,
+      "region_y": 60,
+      "path": "regions/x30/r30_60.json.gz",
+      "sha256": "d98bd4e5843321abba0232b2e359493461b3ddb21a4683af3d7d3f361e8f738c",
+      "square_count": 4096,
+      "default_nation": 4,
+      "override_count": 687
+    },
+    {
+      "region_x": 31,
+      "region_y": 60,
+      "path": "regions/x31/r31_60.json.gz",
+      "sha256": "3f66ea8bb145ed4a17d530a75d42c5788a6c02bec986882a6d4610db328a6b2e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 2438
+    },
+    {
+      "region_x": 32,
+      "region_y": 60,
+      "path": "regions/x32/r32_60.json.gz",
+      "sha256": "ca7a15f2476ad29fd4a24075aae76fd58be2dad608c3dbcf86ee608158d9a4c9",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 60,
+      "path": "regions/x33/r33_60.json.gz",
+      "sha256": "d86cee26dc9d51ed02855bd62162a6505e379d6d657e65419f65c5cee0c5f4af",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 60,
+      "path": "regions/x34/r34_60.json.gz",
+      "sha256": "0a6b05c61a3d64790978104b0ea695e2bddddc1bbbc871e66312e36c83fb9b17",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 60,
+      "path": "regions/x35/r35_60.json.gz",
+      "sha256": "949309a31d3669c1cd8e98dbebbb2034b5a374cc4e0002fe2edca851162fe242",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 60,
+      "path": "regions/x36/r36_60.json.gz",
+      "sha256": "53de3e5f2892097e7e7ffe8e282b81aee20e5ded19c4f2b398aa8ea1da88ba60",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 60,
+      "path": "regions/x37/r37_60.json.gz",
+      "sha256": "6bf76b5425946bb8ee8379a7a8f28b9334ff8b831ba64e029e4b5ef8320df38e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 60,
+      "path": "regions/x38/r38_60.json.gz",
+      "sha256": "d3ccda697f5dfc97c06f84a67bb50ad2d37a0ed8f26073e70b41573ee80d059a",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 60,
+      "path": "regions/x39/r39_60.json.gz",
+      "sha256": "952408148480b07a1d8fc777221d14162c590c12b1fb7a462a9d66260c04edfc",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1431
+    },
+    {
+      "region_x": 40,
+      "region_y": 60,
+      "path": "regions/x40/r40_60.json.gz",
+      "sha256": "29cd9fe0e0c9a7999d667923f54ae25e50935b6e0b348c20e3b773c9b9a9d337",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 60,
+      "path": "regions/x41/r41_60.json.gz",
+      "sha256": "0fdffcb1fb4e8ec859fea45891692b5c81f0214d17e7e75c1999f74891aeba47",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 60,
+      "path": "regions/x42/r42_60.json.gz",
+      "sha256": "24284f04ea39968f8e40ec86768504346837eceb82538908243bd4b53b75072a",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 60,
+      "path": "regions/x43/r43_60.json.gz",
+      "sha256": "93c6c86efb75d60d0b67d90050f9e18b1682da00189596465d4a9f42d5997249",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 60,
+      "path": "regions/x44/r44_60.json.gz",
+      "sha256": "2fef9ded962840ce8c8eef3a19035b005bc233bebb755be1189050d2535bc7c3",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 60,
+      "path": "regions/x45/r45_60.json.gz",
+      "sha256": "35652ec9dfbae41e50217a5b5365beeefc0c5cc77e1ad3ff082ccd6f47661635",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 60,
+      "path": "regions/x46/r46_60.json.gz",
+      "sha256": "abf9ca39b9009336c1c7f8bcd9d34239edb261c8765ab7c122d9be92a8c85f21",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 60,
+      "path": "regions/x47/r47_60.json.gz",
+      "sha256": "6d9dc9cfae04b8e759cec1fba8b1c7d9342897b1d30929eda5270b3380c14976",
+      "square_count": 938,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 61,
+      "path": "regions/x22/r22_61.json.gz",
+      "sha256": "9bf8a7f8a1d397821736ae064eba7499877c8faa2ee6aa443daf215bf8bff001",
+      "square_count": 1085,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 61,
+      "path": "regions/x23/r23_61.json.gz",
+      "sha256": "472c734b5694465c759e8b115c89131b9b45ef9e6662589461b7d64574672e0a",
+      "square_count": 579,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 61,
+      "path": "regions/x24/r24_61.json.gz",
+      "sha256": "2adfb96f46f0cf0d79320f69c1a0f6fec9e97f00da431ae7563396013678dc53",
+      "square_count": 3636,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 61,
+      "path": "regions/x25/r25_61.json.gz",
+      "sha256": "6f77cb02b70b2c0dc3101830ea521929da95908a9e70a4205717c9722e833cbd",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 61,
+      "path": "regions/x26/r26_61.json.gz",
+      "sha256": "2aabb53da1358af066001dc362d8ed03faf5740604a8c53a891c023537767b4b",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1864
+    },
+    {
+      "region_x": 27,
+      "region_y": 61,
+      "path": "regions/x27/r27_61.json.gz",
+      "sha256": "e48288f2512b91ade4db0b44dbd41175e3c3b4056a570c6c5071662d948878c0",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 482
+    },
+    {
+      "region_x": 28,
+      "region_y": 61,
+      "path": "regions/x28/r28_61.json.gz",
+      "sha256": "7045db4a6f49620d9be5dec515632738d267a91e0035f25e0b423db88d105d8a",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 61,
+      "path": "regions/x29/r29_61.json.gz",
+      "sha256": "6e1fc2efcc59d8d328739dfce3122fc48446002a5c13385865a129c81733f536",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 477
+    },
+    {
+      "region_x": 30,
+      "region_y": 61,
+      "path": "regions/x30/r30_61.json.gz",
+      "sha256": "7470e4cfbcecccd95c780c455b13ecd012ddef7513b6f900eb8925b3d0019457",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 61,
+      "path": "regions/x31/r31_61.json.gz",
+      "sha256": "db9b62a2cc7ce7d5d8cbda33ffc09d7dfc282c6aace033a38fcf0fdc865bff24",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 61,
+      "path": "regions/x32/r32_61.json.gz",
+      "sha256": "7757589bba5ec2a6dd5354c2c2e8ede6ddfa5d180c298baba8e6e14a241e222d",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1552
+    },
+    {
+      "region_x": 33,
+      "region_y": 61,
+      "path": "regions/x33/r33_61.json.gz",
+      "sha256": "8efc25679df325c1fbd516d0635ca435a5a09e7b9a02dde4ad150b6fd9011c1e",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 61,
+      "path": "regions/x34/r34_61.json.gz",
+      "sha256": "2e9ee0fb037abea6241d3244ec9584d9e90397f20523b6185d5f808962d78256",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 61,
+      "path": "regions/x35/r35_61.json.gz",
+      "sha256": "a1f1ec5d165d0fa7da4b7a1ff458fcb78edecb74527d44e5fef5636e855c0893",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 61,
+      "path": "regions/x36/r36_61.json.gz",
+      "sha256": "c2fbf6796e23bebd32fd2f7670dbe740e279982a1cefd4f684ecbc0d80e02fa1",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 61,
+      "path": "regions/x37/r37_61.json.gz",
+      "sha256": "921c47189cb2762241a4c735909ce269daf01d2ffb10d3fe247de3ccf8f2cc17",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 61,
+      "path": "regions/x38/r38_61.json.gz",
+      "sha256": "5300a7fad891839e8f0188898738f254c596c7f7fec5d9dbf9cacb28290d828f",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 61,
+      "path": "regions/x39/r39_61.json.gz",
+      "sha256": "0354366c5de045a474bcd5bcf03d6b01b7b93ce662c7239913779ec6fc776d02",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 1415
+    },
+    {
+      "region_x": 40,
+      "region_y": 61,
+      "path": "regions/x40/r40_61.json.gz",
+      "sha256": "0cad231ed904e8871c98016803427c83944a4785342a15bf60c05edaedf73259",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 61,
+      "path": "regions/x41/r41_61.json.gz",
+      "sha256": "ccc0f18fd6c0a3ca3651927b91c2a88dc05d00be6f0b4e7f92b66a02c53d397b",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 61,
+      "path": "regions/x42/r42_61.json.gz",
+      "sha256": "413ce9ad91b33c5081d492b5a4e85f828a4a53cfa9f93a29e5d1d711802371c9",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 61,
+      "path": "regions/x43/r43_61.json.gz",
+      "sha256": "8e4042ea0685eab7b0a486a373d301a274ccbcfc0cb5bdf2b92c06ade7ef6b72",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 61,
+      "path": "regions/x44/r44_61.json.gz",
+      "sha256": "b6f070e2c3af6f489d06cae51cbc43eeb8b77bb73026a8e55f44b8887321a112",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 61,
+      "path": "regions/x45/r45_61.json.gz",
+      "sha256": "fbc696e5f393054400a5758ed87732b85ce382a45c0dc2e9c059c4428c4a9fb0",
+      "square_count": 3918,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 46,
+      "region_y": 61,
+      "path": "regions/x46/r46_61.json.gz",
+      "sha256": "f3720c4046970b5cc48802bcad6b6b7e4d7c8f8d150fcc55774adfe66dde12c8",
+      "square_count": 1933,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 47,
+      "region_y": 61,
+      "path": "regions/x47/r47_61.json.gz",
+      "sha256": "450f7cd8509ba7b04e673085127e815d5c5f07f4e726b97d642506428df5b125",
+      "square_count": 48,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 62,
+      "path": "regions/x19/r19_62.json.gz",
+      "sha256": "5c3f28ba02eeb6d9463f00e157de9ce0a35e423f120d2dc2946b147b9c13b3f9",
+      "square_count": 1553,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 62,
+      "path": "regions/x20/r20_62.json.gz",
+      "sha256": "b86a11918702190580ee870d4582e88ee11ddca4659aa1385c20d132b78ea013",
+      "square_count": 636,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 62,
+      "path": "regions/x21/r21_62.json.gz",
+      "sha256": "f8c9cefceda608fe796695f7f7723c0e66278d80f020a4707fa36314774702ca",
+      "square_count": 1487,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 62,
+      "path": "regions/x22/r22_62.json.gz",
+      "sha256": "36bdcccad8b03f273761f48a8f2d7dedfb458ef5b0dd20f8fed0889865ad9fa6",
+      "square_count": 2347,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 62,
+      "path": "regions/x23/r23_62.json.gz",
+      "sha256": "9daabbd7f63e6249ae1ddd209cbc685ca3cbeb4e744047fbe5fca004236970a7",
+      "square_count": 2286,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 62,
+      "path": "regions/x24/r24_62.json.gz",
+      "sha256": "532ec3e5b1eb1b1c1153fd849bd0d923b1e25b2626630c7001cee53e9e30876b",
+      "square_count": 3668,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 62,
+      "path": "regions/x25/r25_62.json.gz",
+      "sha256": "413b7fc788b30cd4a4f36354acbc3511a06e14875008402ab27b4c46ee865eaf",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1794
+    },
+    {
+      "region_x": 26,
+      "region_y": 62,
+      "path": "regions/x26/r26_62.json.gz",
+      "sha256": "1f05764ec4a06fe2e50cd0092299e99895e485cdf91a2d425c45834442921537",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 495
+    },
+    {
+      "region_x": 27,
+      "region_y": 62,
+      "path": "regions/x27/r27_62.json.gz",
+      "sha256": "cd780546c7625822f646a9cb16e62134c5ee1b83e5883eb8aa311cada078b4aa",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 62,
+      "path": "regions/x28/r28_62.json.gz",
+      "sha256": "f96f8d0e40b5dbbfc96b350eed83a5d5a88372aa44bca7b972064aa8d9544950",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 62,
+      "path": "regions/x29/r29_62.json.gz",
+      "sha256": "f7f90bc4ce051dc9a8917ad384ef7063149bb5be53e9f3f450e3f2d954de62e3",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 62,
+      "path": "regions/x30/r30_62.json.gz",
+      "sha256": "c94b33766ac7829fa202fe03f5ef90b7567a7be4af43784a0581a277cf956ef7",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 62,
+      "path": "regions/x31/r31_62.json.gz",
+      "sha256": "1db17cadd4e527e718e7044f844b3e2cab18cb21fc64d3c1b09de5bf2f6fdbde",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 62,
+      "path": "regions/x32/r32_62.json.gz",
+      "sha256": "34f4c5e44365d2b52219cb1f65031d89507e31dbc01b5975d751de00cdcf9786",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 967
+    },
+    {
+      "region_x": 33,
+      "region_y": 62,
+      "path": "regions/x33/r33_62.json.gz",
+      "sha256": "082b49dd8a8522b6c5dfa6c90195b758158d77b74b90a4d884f140e1af0f3ade",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 62,
+      "path": "regions/x34/r34_62.json.gz",
+      "sha256": "1acb06721f970af7cd6aee5a9dd40e7d271511dbd4960cbd768b01db40fa1a99",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 62,
+      "path": "regions/x35/r35_62.json.gz",
+      "sha256": "a6707b33b66443e9d546d207392d44a37abb09c6a68f69ef90216dd91e04f781",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 62,
+      "path": "regions/x36/r36_62.json.gz",
+      "sha256": "2326954cc329025189c10e6137b3a938dd8a9c0404740aaf5a7734826387bbd5",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 62,
+      "path": "regions/x37/r37_62.json.gz",
+      "sha256": "641529b55a5cffcd40406a37b4a8c8d0f94b11336d914fe6e61fc79d959434bc",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 62,
+      "path": "regions/x38/r38_62.json.gz",
+      "sha256": "916d58756590a25394dc94053f70cfc3b2fa49181b6cace46dc5af0bcdd53cbc",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1837
+    },
+    {
+      "region_x": 39,
+      "region_y": 62,
+      "path": "regions/x39/r39_62.json.gz",
+      "sha256": "6c6ad4a7b7e16b3f7d84069feaa5e14d2b0585b45a6dab2164640586f083fe91",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 62,
+      "path": "regions/x40/r40_62.json.gz",
+      "sha256": "60e82c7c4b2a12935374774af78172e449ff7563eab37b9b1798cbbab433996c",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 62,
+      "path": "regions/x41/r41_62.json.gz",
+      "sha256": "69895ab5eb4acf3a2cb6f6a99b4bb31c8a1a6762a9c28ad579662ad3c533750e",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 62,
+      "path": "regions/x42/r42_62.json.gz",
+      "sha256": "9a97168e7bc7e41ad8f979be2c495fc4c8e40921ce1dcd1dad47e5a7a4304b4d",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 62,
+      "path": "regions/x43/r43_62.json.gz",
+      "sha256": "5511cf8e39b4994686a509bd3d660b3aa862d4321ca8754566b4d43563adc748",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 62,
+      "path": "regions/x44/r44_62.json.gz",
+      "sha256": "e2892d444a55de2bae1d1e4a97518ee5f89f7dbe7bea70e70ed42df0ebd63710",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 62,
+      "path": "regions/x45/r45_62.json.gz",
+      "sha256": "526f8be159620b6c30a6687df343ad7ce0b202ee80e8d948111bc318787ab970",
+      "square_count": 2599,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 19,
+      "region_y": 63,
+      "path": "regions/x19/r19_63.json.gz",
+      "sha256": "9f5f6f6cc09e758e92fa4b4e66c4b4e278bbf6d413d1ecdf930f78194de107bc",
+      "square_count": 619,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 20,
+      "region_y": 63,
+      "path": "regions/x20/r20_63.json.gz",
+      "sha256": "fe7bf8b14f239ac479855fb8572df0e55c03f88e1f17b4f2567d32655a24019b",
+      "square_count": 1739,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 63,
+      "path": "regions/x21/r21_63.json.gz",
+      "sha256": "091a7ac92dd1a2ec1c6632ad24a177a69e2da842e1e9062635e11d806be38cc1",
+      "square_count": 3154,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 63,
+      "path": "regions/x22/r22_63.json.gz",
+      "sha256": "1a8cc10bad6f7041d67facbbbbecd884f4052d42547d28b8f5a1ec98f2b822f8",
+      "square_count": 3677,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 63,
+      "path": "regions/x23/r23_63.json.gz",
+      "sha256": "83f68a44a07ab6019243d920b2db4bf9c1520a6a8ef355bac8f39b4ad8e5ac80",
+      "square_count": 4096,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 63,
+      "path": "regions/x24/r24_63.json.gz",
+      "sha256": "66c68abf5bf287040688cf76f130e46069034eb0bcc21b70d20eb514389c041a",
+      "square_count": 3963,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 63,
+      "path": "regions/x25/r25_63.json.gz",
+      "sha256": "c6dbef8943605ddf97eae1c37b4dcf3671fc1e28a1c0323c924a2f3faa3732bb",
+      "square_count": 4006,
+      "default_nation": 2,
+      "override_count": 1061
+    },
+    {
+      "region_x": 26,
+      "region_y": 63,
+      "path": "regions/x26/r26_63.json.gz",
+      "sha256": "b2282acdfc5ea0f8db3e45bdbf67d65abca13392f329256cdb495c9342f3a54a",
+      "square_count": 3800,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 27,
+      "region_y": 63,
+      "path": "regions/x27/r27_63.json.gz",
+      "sha256": "87e46b11c2ca8fa08032d07b371045c1fd6f86dbe56658ffddde55e6bc6adfc6",
+      "square_count": 2953,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 63,
+      "path": "regions/x28/r28_63.json.gz",
+      "sha256": "4a10fa439d917b6070a44d05504b50089ce4242308abec90cae977465bf3e150",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 63,
+      "path": "regions/x29/r29_63.json.gz",
+      "sha256": "795947273dd4cd651c13d0b3840fc69a04640776cd35853af07a9d6d93e372b7",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 63,
+      "path": "regions/x30/r30_63.json.gz",
+      "sha256": "f63e1fd69ee86413fa2a1be365066add9a2ee80a55ef47084ad78f11e05fc556",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 63,
+      "path": "regions/x31/r31_63.json.gz",
+      "sha256": "6260318a6529ac2cc9233c5d7c5b942a333e33043b7814b471644b9e828ab881",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 63,
+      "path": "regions/x32/r32_63.json.gz",
+      "sha256": "2c2c938a966a320c32f3736ddae520134f34616869c329e6d3aca6b7318c3f1b",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 444
+    },
+    {
+      "region_x": 33,
+      "region_y": 63,
+      "path": "regions/x33/r33_63.json.gz",
+      "sha256": "4937a118930cbeab010445cee2ebcfc9421729ff895bed914b838b55fd1d9d8a",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 63,
+      "path": "regions/x34/r34_63.json.gz",
+      "sha256": "b2ea372accf05658c99922d969dd56c2f75bcc2075e206e51bb3e76ade51f9b6",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 63,
+      "path": "regions/x35/r35_63.json.gz",
+      "sha256": "49390b98406dfb8047aaf05a1a1aaf4a59889111e519e437da6fb1d82ff5c192",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 63,
+      "path": "regions/x36/r36_63.json.gz",
+      "sha256": "636604b412dd8848eca713f94944c07d99c8f3da1450e186b0157328d3d96873",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 63,
+      "path": "regions/x37/r37_63.json.gz",
+      "sha256": "51ef9ec15315058b6555520a34a10c571f26b3b714ceb4de68030d754eb9e5f0",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1627
+    },
+    {
+      "region_x": 38,
+      "region_y": 63,
+      "path": "regions/x38/r38_63.json.gz",
+      "sha256": "442d6e6baf261d2490f5fd2df00a8ea7e9da793d338f8583f05d3de6fb635c67",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 837
+    },
+    {
+      "region_x": 39,
+      "region_y": 63,
+      "path": "regions/x39/r39_63.json.gz",
+      "sha256": "679f41e222f538f20c7f322657f44870c1cdfcf3d888a5baa9cadc109edeb59a",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 278
+    },
+    {
+      "region_x": 40,
+      "region_y": 63,
+      "path": "regions/x40/r40_63.json.gz",
+      "sha256": "346de914adb2c4052cb270aff09eb8d66bc91304b007f84c7d7f4c79fda5e01c",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 63,
+      "path": "regions/x41/r41_63.json.gz",
+      "sha256": "496719a8217001ec1c5acd28b6d0048d2c9b3dbee181bf27cbdfcde72e5f0710",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 63,
+      "path": "regions/x42/r42_63.json.gz",
+      "sha256": "b64723a49d908f65eed2b5d3372eb3af793a7c9d8ee30ad6d4add18b7f9ff9bf",
+      "square_count": 4096,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 63,
+      "path": "regions/x43/r43_63.json.gz",
+      "sha256": "e71a6acfd24650079fcc5c745ff30e2b666c5f6ddcebe50c8be1b8244676677c",
+      "square_count": 4059,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 44,
+      "region_y": 63,
+      "path": "regions/x44/r44_63.json.gz",
+      "sha256": "caf1e3acf54118180f234aad0216128bdea4a6bd470fc8673e3c2d527b607a5e",
+      "square_count": 2182,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 45,
+      "region_y": 63,
+      "path": "regions/x45/r45_63.json.gz",
+      "sha256": "ee05c18232a4ccf602f6f66a91fa6cd29896e545a3be75c83c6b095e62979f4a",
+      "square_count": 108,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 21,
+      "region_y": 64,
+      "path": "regions/x21/r21_64.json.gz",
+      "sha256": "317996c0d7588c9d6f573ed5af2ae768ca643fe0ff4060a7391a3a2062579f55",
+      "square_count": 899,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 22,
+      "region_y": 64,
+      "path": "regions/x22/r22_64.json.gz",
+      "sha256": "330eac1eedfcc7240c416b5934060555e4ad4e79eb23447ce97508fa3943a284",
+      "square_count": 1360,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 23,
+      "region_y": 64,
+      "path": "regions/x23/r23_64.json.gz",
+      "sha256": "a60a1a39b046fb8598780ffee967be036c7392371cee15623df463a2ca7ea00a",
+      "square_count": 1216,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 24,
+      "region_y": 64,
+      "path": "regions/x24/r24_64.json.gz",
+      "sha256": "a31ea454842943c4aca2b9f5208a33f7c3d44a3a6a4fa2c62aeda14144b38129",
+      "square_count": 332,
+      "default_nation": 1,
+      "override_count": 0
+    },
+    {
+      "region_x": 25,
+      "region_y": 64,
+      "path": "regions/x25/r25_64.json.gz",
+      "sha256": "9f62f6463128e5a7a3f95b59402975f1eb6b5582e0516f58817314c45f919812",
+      "square_count": 43,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 26,
+      "region_y": 64,
+      "path": "regions/x26/r26_64.json.gz",
+      "sha256": "dc535ac424670452d054af344ad98e0f99f428cd285c227d177b0c43622e5d41",
+      "square_count": 227,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 27,
+      "region_y": 64,
+      "path": "regions/x27/r27_64.json.gz",
+      "sha256": "84a171650af66df5c05f5a22cd160f66a5c8e145e708aac489aa609781588e29",
+      "square_count": 759,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 64,
+      "path": "regions/x28/r28_64.json.gz",
+      "sha256": "4626403f18f1f012c57d9a35ce0fbac3b953bf748403bdbe4328235958c2e61f",
+      "square_count": 3053,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 64,
+      "path": "regions/x29/r29_64.json.gz",
+      "sha256": "8e755a84c92157a734f81a3fe0cb4f5605730c6aa3c1143870fe94e65762c98e",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 64,
+      "path": "regions/x30/r30_64.json.gz",
+      "sha256": "68a999c9b2454a916ce5f72526af9751b8964833636bb79bf11318ca3f4df894",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 64,
+      "path": "regions/x31/r31_64.json.gz",
+      "sha256": "f9ae6cfdd5dcec88fb90b6180e11d29fee3eb67a73cc7f89c0a21d7c705a1476",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 64,
+      "path": "regions/x32/r32_64.json.gz",
+      "sha256": "f65536f590759b64f7c898bb21e95217e4535a2304356b2ddb2bf92924327f00",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 8
+    },
+    {
+      "region_x": 33,
+      "region_y": 64,
+      "path": "regions/x33/r33_64.json.gz",
+      "sha256": "2e8b216e684695e9936a4f87cbcb96faa1ba2c6a894c46c3793b888ea14b9bbe",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 444
+    },
+    {
+      "region_x": 34,
+      "region_y": 64,
+      "path": "regions/x34/r34_64.json.gz",
+      "sha256": "a547ec3bfd7e6e32574e0cc66905fc9128c592208ad56b5cae813aff9795571a",
+      "square_count": 4096,
+      "default_nation": 5,
+      "override_count": 1616
+    },
+    {
+      "region_x": 35,
+      "region_y": 64,
+      "path": "regions/x35/r35_64.json.gz",
+      "sha256": "cac71a755e41eba3c862d94bb67eb0c2a2cc6e06c57d7afa9a4085f741849994",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1747
+    },
+    {
+      "region_x": 36,
+      "region_y": 64,
+      "path": "regions/x36/r36_64.json.gz",
+      "sha256": "9378fa7cace2715426d293d1766df3527ac754ce1ac793285cff747d517f9d48",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 740
+    },
+    {
+      "region_x": 37,
+      "region_y": 64,
+      "path": "regions/x37/r37_64.json.gz",
+      "sha256": "b813a38b861d7f3d6b1bc3b44f25dae916cd0a8b9b799cd765a48cdb8c63b58d",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 64,
+      "path": "regions/x38/r38_64.json.gz",
+      "sha256": "53adb938b1fc2129eef30b9fb0214c0af3e33d5f4d80624f7b6957393aebbcf2",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 64,
+      "path": "regions/x39/r39_64.json.gz",
+      "sha256": "4fc38f903a1a456a53abee55e83e925766e30b38055446f14454b7f90229c3d4",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 1247
+    },
+    {
+      "region_x": 40,
+      "region_y": 64,
+      "path": "regions/x40/r40_64.json.gz",
+      "sha256": "e75c6b8601ae063d15680042478faa26e595bb374cb927b490db61af6dab4592",
+      "square_count": 3286,
+      "default_nation": 3,
+      "override_count": 1220
+    },
+    {
+      "region_x": 41,
+      "region_y": 64,
+      "path": "regions/x41/r41_64.json.gz",
+      "sha256": "db60969b8caced23c3e9988c79acad72ec8332126fda82a179f6b0127ace0232",
+      "square_count": 2604,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 64,
+      "path": "regions/x42/r42_64.json.gz",
+      "sha256": "ffd2e2af6decc60e4f677f25a8439543d705c83eb5f14b8f1676c184a9214cd5",
+      "square_count": 3417,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 43,
+      "region_y": 64,
+      "path": "regions/x43/r43_64.json.gz",
+      "sha256": "55275b7a324057e25bb940ec319ae13fe93c5c86c00d3251115643acd52a8754",
+      "square_count": 1308,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 28,
+      "region_y": 65,
+      "path": "regions/x28/r28_65.json.gz",
+      "sha256": "2189175a362e36b70adaaf8d4890f8b6d8468fdf423ed0aefca104bc0795895a",
+      "square_count": 657,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 65,
+      "path": "regions/x29/r29_65.json.gz",
+      "sha256": "58441124817f7744f911943e5fe33a977222b8e62dab7821a2b3b0d6f8bb9b77",
+      "square_count": 3795,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 65,
+      "path": "regions/x30/r30_65.json.gz",
+      "sha256": "3091600683131de83c7498cc06f6971a3676ad4618529530b410f0d32e668bce",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 65,
+      "path": "regions/x31/r31_65.json.gz",
+      "sha256": "3ba8971425c42aa1cf4ed7c8a1053209d223d3fdd81ccc9701b5139152f52a0d",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 65,
+      "path": "regions/x32/r32_65.json.gz",
+      "sha256": "85fa2af53c04e4ab4e4ead3060d55cc3d95c6b4046ff0948bbc5633438900a59",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 65,
+      "path": "regions/x33/r33_65.json.gz",
+      "sha256": "0e8c21596bbf6a18c5d485f760ddb72bdf8ddfae31c32b4ff413dcdad7e69466",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 65,
+      "path": "regions/x34/r34_65.json.gz",
+      "sha256": "8771dd7513691dafdfe5c1b127b5a8149f4d67eb6edc0a91f74dea9678e96941",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 166
+    },
+    {
+      "region_x": 35,
+      "region_y": 65,
+      "path": "regions/x35/r35_65.json.gz",
+      "sha256": "6afec9a42ebe2cf55ca100d99511f88f2c440705d76c68e3d3abd4be3a8649c9",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 65,
+      "path": "regions/x36/r36_65.json.gz",
+      "sha256": "33648be88cb29e50860a7290ca87d601200e6f21998e6802c184abdb1a8b1a58",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 65,
+      "path": "regions/x37/r37_65.json.gz",
+      "sha256": "0c770ef38ce3e233e47f62c60d2032ad46b0764431bda313adf9b1ec690ce7ad",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 65,
+      "path": "regions/x38/r38_65.json.gz",
+      "sha256": "7ab79ba3610ce2ccad2797931c1c1e6436c588447ee9f14c042d374922951b2b",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 65,
+      "path": "regions/x39/r39_65.json.gz",
+      "sha256": "a6db43658361b89e7cd48ad470192c24749c46fc5ce341ee7443a43de28deb38",
+      "square_count": 3527,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 65,
+      "path": "regions/x40/r40_65.json.gz",
+      "sha256": "2bcd90bf495ef69f5d8b83d766b71c30956981c374e6a98a5f6d216068768f7d",
+      "square_count": 281,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 42,
+      "region_y": 65,
+      "path": "regions/x42/r42_65.json.gz",
+      "sha256": "79664f30642c0d820349ff311433114a948f3a48843ca201bf3002d4e86e6a47",
+      "square_count": 203,
+      "default_nation": 3,
+      "override_count": 0
+    },
+    {
+      "region_x": 29,
+      "region_y": 66,
+      "path": "regions/x29/r29_66.json.gz",
+      "sha256": "5ed5cd04ee059479fe3420c43fe19e45ea841f9e5362f607e715a194f400c088",
+      "square_count": 830,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 66,
+      "path": "regions/x30/r30_66.json.gz",
+      "sha256": "79135b3fc7ff4b6ef767ec62ca6c84fa37ac6f1fd3d42e80de508e60b55b33f3",
+      "square_count": 3564,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 66,
+      "path": "regions/x31/r31_66.json.gz",
+      "sha256": "1aedea741bfa140a905dd850e8516e155f526a3846610a4eee9b238b7f7cb963",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 66,
+      "path": "regions/x32/r32_66.json.gz",
+      "sha256": "7521ec92b85903842282c6c5d4e0ffe91f57c6b73496689bd072d1a48c178c69",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 66,
+      "path": "regions/x33/r33_66.json.gz",
+      "sha256": "ebfff3b9f245cb23885b947e10c3aaae236bad6a5ac9e4f1e6cfe90e8564f250",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 66,
+      "path": "regions/x34/r34_66.json.gz",
+      "sha256": "696a54881cd86ae757eb28c69f72cfd3d7d19e3e8116be9ebb1b4bd12b351061",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 66,
+      "path": "regions/x35/r35_66.json.gz",
+      "sha256": "8e15b881cda11f911e79bec2c34606ff45ae2995e038d1b85fded6d7ab3cd09c",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 66,
+      "path": "regions/x36/r36_66.json.gz",
+      "sha256": "ed07107634773c4c6e7b65f356935fae9bb42424f78c89a9b22ea189253fcc7a",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 66,
+      "path": "regions/x37/r37_66.json.gz",
+      "sha256": "421d33d61538b9e93e215f99aa8aaa1d4095a1038c373663c97c409e852fa7e2",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 66,
+      "path": "regions/x38/r38_66.json.gz",
+      "sha256": "5313dd2c25f39e5cf10917a246e3e405f6e9ba85eef6d9a76a75998fbe70cdb7",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 66,
+      "path": "regions/x39/r39_66.json.gz",
+      "sha256": "eae1a2b734bbdbebcab5fb6f9d1b3c52f2ae18edaf271d9939988c82d7dc885a",
+      "square_count": 1742,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 67,
+      "path": "regions/x30/r30_67.json.gz",
+      "sha256": "0022e502e8a54737a282984785be9b7f3d99779058a46b9f76ab72bfb401dfb2",
+      "square_count": 705,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 67,
+      "path": "regions/x31/r31_67.json.gz",
+      "sha256": "a14347feaa34d6c1cf1f9eeb59c4e5ecdf270af0a31ea981453a5055ac2977ea",
+      "square_count": 4024,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 67,
+      "path": "regions/x32/r32_67.json.gz",
+      "sha256": "056ea7a54e7106a840a7acb6533d7cfed1b26d965d5960d8517582fc68bb7f09",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 67,
+      "path": "regions/x33/r33_67.json.gz",
+      "sha256": "ba70c42bb2a51bcad1746f66dd3c3bb9975d725de5ac2fcc2008ab9beaa17dd0",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 67,
+      "path": "regions/x34/r34_67.json.gz",
+      "sha256": "9a084f0282d95fc95d115b67964e2cf51065b5645ff22ddb04fc148996db2308",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 67,
+      "path": "regions/x35/r35_67.json.gz",
+      "sha256": "41567494e84f446dff499ee7efe6fe6d85fdac9c5c9214dd6e11f09d2929a23f",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 67,
+      "path": "regions/x36/r36_67.json.gz",
+      "sha256": "89b7b8b93533f5f538cb0b2ebe19b6fbacea202eeedb0df144c4fd79a351fba6",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 67,
+      "path": "regions/x37/r37_67.json.gz",
+      "sha256": "576807f87f97117bb17c389e8d296842c34ee914c1c117bcd27f5de935efc267",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 67,
+      "path": "regions/x38/r38_67.json.gz",
+      "sha256": "21fd1b332e27c3b651999a39cf06dba80d872cc74105b11c1bfa858eb08f945d",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 67,
+      "path": "regions/x39/r39_67.json.gz",
+      "sha256": "db3028bb43a60391edbe07cda6f2b9fff5621f4262d3c5321de62629f32dd68f",
+      "square_count": 1122,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 68,
+      "path": "regions/x31/r31_68.json.gz",
+      "sha256": "1bcbbd305a892eac793aa9d6e540adf9a8d221c5cdcc59a6a2327cc520c650f7",
+      "square_count": 1538,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 68,
+      "path": "regions/x32/r32_68.json.gz",
+      "sha256": "cc27c59353cd63a8066d1e2e84f50d6cf95ddfe1eca73f2d46b3e5afdc40fbd9",
+      "square_count": 4084,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 68,
+      "path": "regions/x33/r33_68.json.gz",
+      "sha256": "f42f09c5299b86defc133ed5d32df7d6aad2af6b9855f8045d7ea5844d1e0070",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 68,
+      "path": "regions/x34/r34_68.json.gz",
+      "sha256": "95c8b82c8f3635b1b345d75345a99df735edb1afafc3a64efe7992f5b0e370bf",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 68,
+      "path": "regions/x35/r35_68.json.gz",
+      "sha256": "dbd97a7071c29dfe9a236f32276b92518c923cfaa5fed28e59595ef443d653ba",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 68,
+      "path": "regions/x36/r36_68.json.gz",
+      "sha256": "b532ea250058e424a1c8a99961e500701ddae36bcb130106a7e9c011c596b84b",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 68,
+      "path": "regions/x37/r37_68.json.gz",
+      "sha256": "bb8001d170f1d97af1adea1aa61b95c7c0ca282093de78f1f168b8cc1f900170",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 68,
+      "path": "regions/x38/r38_68.json.gz",
+      "sha256": "2bdc9d9197d11c63b136cfed47b6637826a2ec26ac47de7f36c0b28544705cfd",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 68,
+      "path": "regions/x39/r39_68.json.gz",
+      "sha256": "4884356f35e163a0208b1da070907a072d401b009787d7e596dfdf24810ac41f",
+      "square_count": 1756,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 69,
+      "path": "regions/x31/r31_69.json.gz",
+      "sha256": "dee89c7d59e28b502f5b74fa8aae4abc62fba5d0f5d4886ce14058dcccf849ad",
+      "square_count": 55,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 69,
+      "path": "regions/x32/r32_69.json.gz",
+      "sha256": "32f15a7a9c0c7a99caa4dd20eab5e1a90562fa7c4423d52a2f4a84116529c2ae",
+      "square_count": 3801,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 69,
+      "path": "regions/x33/r33_69.json.gz",
+      "sha256": "4bf0af190c2b5ebcb5808ee2ea32af4a2413bb7e07ac37371d5f1a0a9e970811",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 69,
+      "path": "regions/x34/r34_69.json.gz",
+      "sha256": "a05e682bc08926b6dceea443d446e957912c83a98a5a050f9b7293f3b8ae131c",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 69,
+      "path": "regions/x35/r35_69.json.gz",
+      "sha256": "0267e77d109cfcf9ae8c800e314f488e89c75be676e5b408859ca77aa358ff60",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 69,
+      "path": "regions/x36/r36_69.json.gz",
+      "sha256": "342acb3513804c08fd5b283abc51ac13ee9d26d5aaf7fb35add12f1562f1e532",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 69,
+      "path": "regions/x37/r37_69.json.gz",
+      "sha256": "d5c4f05bbe5220d0232515282de46b8c5ad9c15529b77cc55e3d1c5e365b5d75",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 69,
+      "path": "regions/x38/r38_69.json.gz",
+      "sha256": "5c060834f08dfbdd6d768479e01735cc3225e6c180ca9f9f98b63ea400824b41",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 69,
+      "path": "regions/x39/r39_69.json.gz",
+      "sha256": "23a15519314cf28dc51e061f544b8dfe1a908f2ac51d7182fa746369c6589b52",
+      "square_count": 3323,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 69,
+      "path": "regions/x40/r40_69.json.gz",
+      "sha256": "2f733f269547c51189ede452fb8998ac7feff7341669656f64dd9ef26d9cd6c0",
+      "square_count": 486,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 69,
+      "path": "regions/x41/r41_69.json.gz",
+      "sha256": "fd78c2b4c6b386cda85f0667f8bad99eed64643f3c4a5889c2479812f74dfc6a",
+      "square_count": 313,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 70,
+      "path": "regions/x32/r32_70.json.gz",
+      "sha256": "4411c7bff4ed5f990af7e2d9487fd860a1662bc0f2be8e2f8d3699e864849341",
+      "square_count": 3592,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 70,
+      "path": "regions/x33/r33_70.json.gz",
+      "sha256": "d906fbec42a5c9e454621074928e9793012cc48212a9eb56166bc5165abc3796",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 70,
+      "path": "regions/x34/r34_70.json.gz",
+      "sha256": "309ca9912880b44ad11f3040acb8493a948585ba7308ee8645d4df1d65556e6a",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 70,
+      "path": "regions/x35/r35_70.json.gz",
+      "sha256": "57a5bb11a99fcc779c9cfd00bec0878039e954d6da67fc0a9adf9e33affb4beb",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 70,
+      "path": "regions/x36/r36_70.json.gz",
+      "sha256": "41c416d38b1876321c4c00ad7e70023e26c70e7f0c44b8a5c5fe9f88046ba71a",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 70,
+      "path": "regions/x37/r37_70.json.gz",
+      "sha256": "ef7d71cc677df738ba489baa9ab8f80f56d34f27467e561265e315063edde812",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 70,
+      "path": "regions/x38/r38_70.json.gz",
+      "sha256": "f238bc279995fe45f8fada70f721f22f5752e8b4d9a1d1a4b29c3ef0503581fb",
+      "square_count": 4060,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 39,
+      "region_y": 70,
+      "path": "regions/x39/r39_70.json.gz",
+      "sha256": "8f7aef0ab26c5c63245616b60824f0ebcc183fdc571c09c7fc140fc51fc2f55a",
+      "square_count": 2619,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 40,
+      "region_y": 70,
+      "path": "regions/x40/r40_70.json.gz",
+      "sha256": "3531422374a734e04b7046b528f77a9c51b875b1d762138e0b668d4fccbb7ef5",
+      "square_count": 1992,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 41,
+      "region_y": 70,
+      "path": "regions/x41/r41_70.json.gz",
+      "sha256": "7b8071f917ff69d2c44ee3153f4f8902c759f0959e3ad21c44f2038febe2e22d",
+      "square_count": 142,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 71,
+      "path": "regions/x31/r31_71.json.gz",
+      "sha256": "8e951be981c368e426237eb54af66b107710679a4695dcf175ad745b550381c6",
+      "square_count": 1438,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 71,
+      "path": "regions/x32/r32_71.json.gz",
+      "sha256": "4e8e0a9b30b199f7bbe6a1bb33b875aebb26972fd06abb767630109effd6d8b2",
+      "square_count": 4095,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 71,
+      "path": "regions/x33/r33_71.json.gz",
+      "sha256": "0a73354a5188228dd233cf8c33445764cc300a3b5a40688be6966b94e087658f",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 71,
+      "path": "regions/x34/r34_71.json.gz",
+      "sha256": "03686830d469eec7355a308ecab1022541a5438772fe3a6e7876141103f1eaa1",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 71,
+      "path": "regions/x35/r35_71.json.gz",
+      "sha256": "5d59d0d1a229038be114f0ed6c733cfda37f3007670c3414246cb9e54a3fae61",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 71,
+      "path": "regions/x36/r36_71.json.gz",
+      "sha256": "c615f0a6b548221d1891318ed8b1de84088e06862ec5bc4aca625e4ae1bd5767",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 71,
+      "path": "regions/x37/r37_71.json.gz",
+      "sha256": "81d1dd65c89886700967355a37e5725a3d514798a8313716349dddcfc4db2ee1",
+      "square_count": 3405,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 38,
+      "region_y": 71,
+      "path": "regions/x38/r38_71.json.gz",
+      "sha256": "bed7cf388d7e2a1443a2930dbb7da6c117ae5e0e4d0a3f7e69626c2df5b77764",
+      "square_count": 609,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 72,
+      "path": "regions/x30/r30_72.json.gz",
+      "sha256": "05c12567c51acc12dac51bc62ec78af70dbe8d21a880904c36ca93e99a337b0a",
+      "square_count": 600,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 72,
+      "path": "regions/x31/r31_72.json.gz",
+      "sha256": "ed11b8d9a59855e87ec88270b370eaa015d65db330024a795a71f8d6930c3d30",
+      "square_count": 3959,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 72,
+      "path": "regions/x32/r32_72.json.gz",
+      "sha256": "cadd32279417192e850914dd7b831799797977822b5fcfac7774bb722bfda90a",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 72,
+      "path": "regions/x33/r33_72.json.gz",
+      "sha256": "8240ed4fdc3732579de5e1ed79086a498e89476039b3b673f6b93b9a3a8cd23f",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 72,
+      "path": "regions/x34/r34_72.json.gz",
+      "sha256": "d258bd29ac2887b66cdcbb8f1097f0a2ef94e3b402cb16366cb77e5313ec7123",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 72,
+      "path": "regions/x35/r35_72.json.gz",
+      "sha256": "cb5b9f5bb354148d6421fc12513309ecc63d3a4347d69706cb123506285ea363",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 72,
+      "path": "regions/x36/r36_72.json.gz",
+      "sha256": "9e22b532544d2d8504b4fd5c1a7982a4cfcff2aebaeeca418b0600ab00bdc2ef",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 72,
+      "path": "regions/x37/r37_72.json.gz",
+      "sha256": "e31af995f21085faae95d434ad2ee2abefbdeac43ab566f8fa5dcc5b12da361f",
+      "square_count": 3273,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 73,
+      "path": "regions/x30/r30_73.json.gz",
+      "sha256": "38fbbf397ffe049e6a48a884475cb860388554d870de2ba39570da60c1b808bd",
+      "square_count": 1265,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 73,
+      "path": "regions/x31/r31_73.json.gz",
+      "sha256": "5df62ac61e7dce90ee6ab93c2849082a6b25d2ec9d4680128915dfe602c2d780",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 73,
+      "path": "regions/x32/r32_73.json.gz",
+      "sha256": "754a5b3cec00262df38daffde0eba27c7edbad11907b5628b2fb8665882e89e7",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 73,
+      "path": "regions/x33/r33_73.json.gz",
+      "sha256": "262af7105de1de4e894df9dba5eafa8cf17d9397c763ff56342039b817d88dcd",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 73,
+      "path": "regions/x34/r34_73.json.gz",
+      "sha256": "b8889d76bc0ca4fb1d7419a13f27e803e1000a30c1e2c1a29243b577c7f93e93",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 73,
+      "path": "regions/x35/r35_73.json.gz",
+      "sha256": "cfa29c332dd8a07f0be1dc340cd90afb3a8f16bee8da97135731ac5dcc09ee2c",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 73,
+      "path": "regions/x36/r36_73.json.gz",
+      "sha256": "a6dec65b44d5a465be433a20bb9983953db086eda2d1c663ceaf767f28061340",
+      "square_count": 3719,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 37,
+      "region_y": 73,
+      "path": "regions/x37/r37_73.json.gz",
+      "sha256": "95796cea31b3dd6ab63ef87c9b53ae865af73a0124c4904a63e37369eb6f1119",
+      "square_count": 925,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 74,
+      "path": "regions/x30/r30_74.json.gz",
+      "sha256": "49c7c280de1396e9c162549ea9813fd73aab8040278fae7c9b1848d2647428b3",
+      "square_count": 1888,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 74,
+      "path": "regions/x31/r31_74.json.gz",
+      "sha256": "a1260c5a3b29129898dc7503f511e77cc9b24c8c86be919283c0a778a7576533",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 74,
+      "path": "regions/x32/r32_74.json.gz",
+      "sha256": "9693aee5f7d94da8330423fae1f7d7153e61d0720340d94d5b63daec3a4f5830",
+      "square_count": 4096,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 74,
+      "path": "regions/x33/r33_74.json.gz",
+      "sha256": "9a85212024b17f6702db05fb94965ec35cb945e45a77b9d4478a976eb6fb737d",
+      "square_count": 4053,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 34,
+      "region_y": 74,
+      "path": "regions/x34/r34_74.json.gz",
+      "sha256": "a9de5d1f4549df9f788c7d0c4897ae52bce739fc7307b29a9592551e8fc81c45",
+      "square_count": 3214,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 35,
+      "region_y": 74,
+      "path": "regions/x35/r35_74.json.gz",
+      "sha256": "a8bfcfacf2c718ebce7ca902db20ee1d1511786dfdd35274d6dfeb74bee1248e",
+      "square_count": 1472,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 36,
+      "region_y": 74,
+      "path": "regions/x36/r36_74.json.gz",
+      "sha256": "5bed5652aeb841d7d1baa64dfb1b40a1b22920387405840572c13ca19e98dd3a",
+      "square_count": 169,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 30,
+      "region_y": 75,
+      "path": "regions/x30/r30_75.json.gz",
+      "sha256": "4ac603e6fd3f96f36923d21596f7e5d254bc052af04011af2c1d8526dd154f7f",
+      "square_count": 430,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 75,
+      "path": "regions/x31/r31_75.json.gz",
+      "sha256": "913d9f818d32a719f1a569ce813994b117ed502aa7852708add3925ff4aa36c1",
+      "square_count": 3405,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 75,
+      "path": "regions/x32/r32_75.json.gz",
+      "sha256": "4c2e8ce601afd96f20c1e55797f11e8077511ea25001ebf95269efd1d50dc05f",
+      "square_count": 4093,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 33,
+      "region_y": 75,
+      "path": "regions/x33/r33_75.json.gz",
+      "sha256": "b641c4b38e4cca05183877ba3fd11f5496e594e918ef8d2ed217f120e43d316f",
+      "square_count": 1550,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 31,
+      "region_y": 76,
+      "path": "regions/x31/r31_76.json.gz",
+      "sha256": "4f4d82349e75c1b2b4bb4bec3a23cb55262fd23562dbed02e1ff835c76132bd9",
+      "square_count": 587,
+      "default_nation": 2,
+      "override_count": 0
+    },
+    {
+      "region_x": 32,
+      "region_y": 76,
+      "path": "regions/x32/r32_76.json.gz",
+      "sha256": "988449a153ca32807b25610e6f23bb7acd29634263f1a8b4aebb55ad94649951",
+      "square_count": 1735,
+      "default_nation": 2,
+      "override_count": 0
+    }
+  ],
+  "borders": {
+    "path": "borders.json",
+    "sha256": "a428f872f9721c0c2f7f1baa375e33a4711e23256d7c6162935ffea0d99c6a57",
+    "segment_count": 4677
+  }
+}
