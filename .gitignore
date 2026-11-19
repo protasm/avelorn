@@ -13,3 +13,6 @@
 
 # Tiled's per-user editor session is regenerated locally.
 /atlas/tiled/*.tiled-session
+
+# Minecraft worlds and intermediate exports are generated locally.
+/output/minecraft/
