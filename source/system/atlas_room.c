@@ -51,21 +51,32 @@ void offer_interactions() {
   jvmud_add_action("south", "s");
   jvmud_add_action("west", "west");
   jvmud_add_action("west", "w");
+  if (atlas_entrance()) {
+    jvmud_add_action("enter_site", "enter");
+  }
 }
 
 string short() {
-  return "The Wild";
+  mixed landmark;
+
+  landmark = jvmud_invoke_lpc_object("system/world", "landmark", atlas_path());
+  return landmark ? landmark["name"] : "The Wild";
 }
 
 string query_brief_short() {
-  return "The Wild (" + atlas_x + ", " + atlas_y + ")";
+  return short() + " (" + atlas_x + ", " + atlas_y + ")";
 }
 
 void describe(object viewer) {
   string adjacent;
+  mixed landmark;
 
   write(short() + "\n");
   write(wilderness_description() + "\n");
+  landmark = jvmud_invoke_lpc_object("system/world", "landmark", atlas_path());
+  if (landmark) {
+    write(landmark["description"] + "\n");
+  }
   adjacent = adjacent_description();
   if (jvmud_size(adjacent) > 0) {
     write(adjacent + "\n");
@@ -497,12 +508,17 @@ int query_gmcp_id() {
 
 mapping query_gmcp_exits() {
   mapping exits;
+  string entrance;
 
   exits = ([ ]);
   if (can_walk(atlas_x, atlas_y + 1)) { exits["north"] = room_id(atlas_x, atlas_y + 1); }
   if (can_walk(atlas_x + 1, atlas_y)) { exits["east"] = room_id(atlas_x + 1, atlas_y); }
   if (can_walk(atlas_x, atlas_y - 1)) { exits["south"] = room_id(atlas_x, atlas_y - 1); }
   if (can_walk(atlas_x - 1, atlas_y)) { exits["west"] = room_id(atlas_x - 1, atlas_y); }
+  entrance = atlas_entrance();
+  if (entrance) {
+    exits["enter"] = jvmud_invoke_lpc_object("system/world", "room_number", entrance);
+  }
   return exits;
 }
 
@@ -514,6 +530,7 @@ string query_brief_exits() {
   if (can_walk(atlas_x + 1, atlas_y)) { exits = append_exit(exits, "e"); }
   if (can_walk(atlas_x, atlas_y - 1)) { exits = append_exit(exits, "s"); }
   if (can_walk(atlas_x - 1, atlas_y)) { exits = append_exit(exits, "w"); }
+  if (atlas_entrance()) { exits = append_exit(exits, "enter"); }
   return exits;
 }
 
@@ -557,14 +574,53 @@ int can_walk(int x, int y) {
       "system/atlas", "walking_result", atlas_x, atlas_y, x, y) == 0;
 }
 
-int north(mixed ignored) { return walk("north", atlas_x, atlas_y + 1); }
-int east(mixed ignored) { return walk("east", atlas_x + 1, atlas_y); }
-int south(mixed ignored) { return walk("south", atlas_x, atlas_y - 1); }
-int west(mixed ignored) { return walk("west", atlas_x - 1, atlas_y); }
+int query_wilderness() { return 1; }
 
-int walk(string direction, int destination_x, int destination_y) {
+string atlas_path() {
+  return jvmud_invoke_lpc_object("system/atlas", "room_path", atlas_x, atlas_y);
+}
+
+string atlas_entrance() {
+  return jvmud_invoke_lpc_object("system/world", "atlas_entrance", atlas_path());
+}
+
+int north(mixed ignored) { return queue_exit("north"); }
+int east(mixed ignored) { return queue_exit("east"); }
+int south(mixed ignored) { return queue_exit("south"); }
+int west(mixed ignored) { return queue_exit("west"); }
+int enter_site(mixed ignored) { return queue_exit("enter"); }
+
+int queue_exit(string direction) {
+  jvmud_invoke_lpc_object("system/travel", "enqueue", jvmud_current_actor(), direction, 1);
+  return 1;
+}
+
+mixed query_travel_step(string direction) {
+  int destination_x;
+  int destination_y;
   int result;
+  int cost;
+  string destination;
+  mixed square;
 
+  if (direction == "enter") {
+    destination = atlas_entrance();
+    if (!destination) {
+      return "There is nothing to enter here.";
+    }
+    return ([
+      "destination": destination,
+      "cost": jvmud_invoke_lpc_object("system/world", "wilderness", destination) ? 2 : 0,
+      "wilderness": 1
+    ]);
+  }
+  destination_x = atlas_x;
+  destination_y = atlas_y;
+  if (direction == "north") { destination_y += 1; }
+  else if (direction == "east") { destination_x += 1; }
+  else if (direction == "south") { destination_y -= 1; }
+  else if (direction == "west") { destination_x -= 1; }
+  else { return "There is no exit that way."; }
   result = jvmud_invoke_lpc_object(
       "system/atlas",
       "walking_result",
@@ -573,24 +629,22 @@ int walk(string direction, int destination_x, int destination_y) {
       destination_x,
       destination_y);
   if (result == 1) {
-    write("There is no traversable wilderness square to the " + direction + ".\n");
-    return 1;
+    return "There is no traversable wilderness square to the " + direction + ".";
   }
   if (result == 2) {
-    write("Water prevents travel " + direction + ".\n");
-    return 1;
+    return "Water prevents travel " + direction + ".";
   }
   if (result == 3) {
-    write("A cliff or precipice prevents travel " + direction + ".\n");
-    return 1;
+    return "A cliff or precipice prevents travel " + direction + ".";
   }
   if (result == 4) {
-    write("The elevation change to the " + direction + " is too steep to walk.\n");
-    return 1;
+    return "The elevation change to the " + direction + " is too steep to walk.";
   }
-  return jvmud_invoke_lpc_object(
-      jvmud_current_actor(),
-      "travel_to",
-      direction,
-      jvmud_invoke_lpc_object("system/atlas", "room_path", destination_x, destination_y));
+  destination = jvmud_invoke_lpc_object("system/atlas", "room_path", destination_x, destination_y);
+  square = jvmud_invoke_lpc_object("system/atlas", "square", destination_x, destination_y);
+  cost = square[1] > elevation_m + 64 || square[1] < elevation_m - 64 ? 4 : 2;
+  if (jvmud_invoke_lpc_object("system/world", "landmark", destination)) {
+    cost = 1;
+  }
+  return ([ "destination": destination, "cost": cost, "wilderness": 1 ]);
 }

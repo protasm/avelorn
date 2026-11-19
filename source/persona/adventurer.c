@@ -1,11 +1,22 @@
 string account_id;
 string password_hash;
-string pending_password;
+nosave string pending_password;
+nosave int entered_world;
+nosave int travel_dirty;
+nosave int ticks_since_save;
+nosave int combat_acted;
+nosave int guard_power;
+nosave int guard_ticks;
+nosave int vitals_changed;
 string character_name;
 string gender;
+string character_race;
 string character_class;
+string guild_id;
+string combat_style;
 int account_created;
 int save_version;
+int snapshot_generation;
 int level;
 int experience;
 int strength;
@@ -22,15 +33,21 @@ int copper;
 int attribute_points;
 int introductory_drill_completed;
 string inventory_state;
-int inventory_materialized;
+nosave int inventory_materialized;
 string quest_state;
-mapping quest_stages;
-mapping quest_counts;
-mapping quest_flags;
-int quests_materialized;
-object combat_target;
+nosave mapping quest_stages;
+nosave mapping quest_counts;
+nosave mapping quest_flags;
+nosave int quests_materialized;
+nosave object combat_target;
 int brief_mode;
+int inspect_hints;
 string saved_place;
+string sanctuary;
+int travel_reserve = 100;
+string transit_id;
+string transit_destination;
+int transit_arrives_at;
 
 void initialize(mixed first_load) {
   if (!account_id) {
@@ -69,7 +86,6 @@ void initialize(mixed first_load) {
   if (!account_created && !copper) {
     copper = 120;
   }
-  jvmud_schedule_recurring_tick(1, 1);
 }
 
 void begin_session() {
@@ -80,6 +96,7 @@ void begin_session() {
 
 void receive_account_id(mixed value) {
   string requested;
+  int restored;
 
   requested = normalize_account_id(value);
   if (!valid_account_id(requested)) {
@@ -90,25 +107,73 @@ void receive_account_id(mixed value) {
   }
 
   account_id = requested;
-  if (jvmud_restore_lpc_object_state("accounts/" + requested)) {
-    account_id = requested;
-    pending_password = "";
-    inventory_materialized = 0;
-    quest_state = "";
-    quests_materialized = 1;
-    quest_stages = ([ ]);
-    quest_counts = ([ ]);
-    quest_flags = ([ ]);
-    if (!jvmud_invoke_lpc_object("system/atlas", "square_for_path", saved_place)) {
-      saved_place = atlas_start_path();
-    }
+  restored = restore_account(requested);
+  if (restored == 1) {
     avelorn_prompt("Password: ");
     jvmud_capture_session_input("receive_login_password", 1);
     return;
   }
 
+  if (restored < 0) {
+    write("This account could not be read. Please contact an operator.\n");
+    prompt_for_account();
+    return;
+  }
   avelorn_prompt("No account named " + requested + " exists. Create it? (yes/no) ");
   jvmud_capture_session_input("confirm_account_creation", 0);
+}
+
+void prompt_for_account() {
+  account_id = "";
+  pending_password = "";
+  avelorn_prompt("Account ID: ");
+  jvmud_capture_session_input("receive_account_id", 0);
+}
+
+int account_exists(string stem) {
+  return jvmud_invoke_lpc_object("system/accounts", "exists", stem)
+      || jvmud_invoke_lpc_object("system/accounts", "exists", stem + ".0")
+      || jvmud_invoke_lpc_object("system/accounts", "exists", stem + ".1");
+}
+
+int restore_account(string requested) {
+  string stem;
+  string candidate;
+  int even_generation;
+  int odd_generation;
+
+  stem = "accounts/" + requested;
+  even_generation = jvmud_invoke_lpc_object(
+      "system/accounts", "checkpoint_generation", stem + ".0", requested);
+  odd_generation = jvmud_invoke_lpc_object(
+      "system/accounts", "checkpoint_generation", stem + ".1", requested);
+  if (even_generation || odd_generation) {
+    candidate = even_generation > odd_generation ? stem + ".0" : stem + ".1";
+  } else {
+    candidate = stem;
+  }
+  account_created = 0;
+  password_hash = "";
+  character_race = jvmud_invoke_lpc_object("system/races", "default_race");
+  snapshot_generation = 0;
+  if (jvmud_restore_lpc_object_state(candidate) && account_created
+      && account_id == requested && jvmud_size(password_hash) && valid_class(character_class)) {
+    if (!jvmud_size(character_race)) {
+      character_race = jvmud_invoke_lpc_object("system/races", "default_race");
+    }
+    return jvmud_invoke_lpc_object("system/races", "known", character_race) ? 1 : -1;
+  }
+  return account_exists(stem) ? -1 : 0;
+}
+
+int claim_account() {
+  if (jvmud_invoke_lpc_object(
+      "system/accounts", "claim", account_id, jvmud_current_lpc_object())) {
+    return 1;
+  }
+  write("That account is already playing.\n");
+  prompt_for_account();
+  return 0;
 }
 
 void confirm_account_creation(mixed value) {
@@ -163,6 +228,8 @@ void confirm_new_password(mixed value) {
 }
 
 void receive_login_password(mixed value) {
+  string requested;
+
   if (!jvmud_verify_password(value, password_hash)) {
     write("That password did not match.\n");
     avelorn_prompt("Password: ");
@@ -170,7 +237,40 @@ void receive_login_password(mixed value) {
     return;
   }
 
+  requested = account_id;
+  if (!claim_account()) {
+    return;
+  }
+  // The prior session may have written a newer checkpoint after the password prompt.
+  if (restore_account(requested) != 1 || !jvmud_verify_password(value, password_hash)) {
+    jvmud_invoke_lpc_object("system/accounts", "release", requested, jvmud_current_lpc_object());
+    write("The account changed. Sign in again.\n");
+    prompt_for_account();
+    return;
+  }
   pending_password = "";
+  if (save_version < 2) {
+    quest_state = "";
+    save_version = 2;
+  }
+  if (!valid_gender(gender)) {
+    avelorn_prompt("Choose your character's gender (male/female): ");
+    jvmud_capture_session_input("receive_returning_gender", 0);
+    return;
+  }
+  enter_avelorn(1);
+}
+
+void receive_returning_gender(mixed value) {
+  string selected;
+
+  selected = jvmud_lowercase_text(value);
+  if (!valid_gender(selected)) {
+    avelorn_prompt("Please choose male or female: ");
+    jvmud_capture_session_input("receive_returning_gender", 0);
+    return;
+  }
+  gender = selected;
   enter_avelorn(1);
 }
 
@@ -183,22 +283,56 @@ void receive_character_name(mixed value) {
   }
 
   character_name = jvmud_capitalize_text(jvmud_lowercase_text(value));
-  avelorn_prompt("Gender (male/female/non-binary): ");
+  avelorn_prompt("Gender (male/female): ");
   jvmud_capture_session_input("receive_gender", 0);
 }
 
 void receive_gender(mixed value) {
+  mixed *races;
   string selected;
 
   selected = jvmud_lowercase_text(value);
   if (!valid_gender(selected)) {
-    avelorn_prompt("Please choose male, female, or non-binary: ");
+    avelorn_prompt("Please choose male or female: ");
     jvmud_capture_session_input("receive_gender", 0);
     return;
   }
 
   gender = selected;
-  avelorn_prompt("Class (fighter/ranger/mage/cleric): ");
+  races = jvmud_invoke_lpc_object("system/races", "ids");
+  if (jvmud_size(races) > 1) {
+    prompt_for_race();
+    return;
+  }
+  character_race = jvmud_invoke_lpc_object("system/races", "default_race");
+  prompt_for_class();
+}
+
+void prompt_for_race() {
+  mixed *races;
+
+  races = jvmud_invoke_lpc_object("system/races", "ids");
+  avelorn_prompt("Race (" + jvmud_invoke_lpc_object("system/world", "join_names", races, "/") + "): ");
+  jvmud_capture_session_input("receive_race", 0);
+}
+
+void receive_race(mixed value) {
+  string selected;
+
+  selected = jvmud_lowercase_text(value);
+  if (!jvmud_invoke_lpc_object("system/races", "known", selected)) {
+    prompt_for_race();
+    return;
+  }
+  character_race = selected;
+  prompt_for_class();
+}
+
+void prompt_for_class() {
+  mixed *classes;
+
+  classes = jvmud_invoke_lpc_object("system/combat_rules", "classes");
+  avelorn_prompt("Class (" + jvmud_invoke_lpc_object("system/world", "join_names", classes, "/") + "): ");
   jvmud_capture_session_input("receive_class", 0);
 }
 
@@ -207,14 +341,37 @@ void receive_class(mixed value) {
 
   selected = jvmud_lowercase_text(value);
   if (!valid_class(selected)) {
-    avelorn_prompt("Please choose fighter, ranger, mage, or cleric: ");
-    jvmud_capture_session_input("receive_class", 0);
+    prompt_for_class();
     return;
   }
 
+  if (account_exists("accounts/" + account_id)) {
+    write("That account has already been created. Sign in to play it.\n");
+    prompt_for_account();
+    return;
+  }
+  if (!claim_account()) {
+    return;
+  }
   character_class = selected;
+  guild_id = "";
+  combat_style = "";
+  level = 1;
+  experience = 0;
+  copper = 120;
+  attribute_points = 0;
+  introductory_drill_completed = 0;
+  brief_mode = 0;
+  inspect_hints = 0;
+  saved_place = "";
+  sanctuary = "";
+  travel_reserve = 100;
+  transit_id = "";
+  transit_destination = "";
+  transit_arrives_at = 0;
   configure_starting_attributes();
   account_created = 1;
+  save_version = 2;
   inventory_materialized = 1;
   quests_materialized = 1;
   quest_stages = ([ ]);
@@ -222,11 +379,11 @@ void receive_class(mixed value) {
   quest_flags = ([ ]);
   grant_starter_kit();
   recalculate_resources(1);
-  save_character();
   enter_avelorn(0);
 }
 
 void enter_avelorn(int returning) {
+  entered_world = 1;
   jvmud_enable_commands();
   materialize_inventory();
   materialize_quests();
@@ -240,13 +397,16 @@ void enter_avelorn(int returning) {
       "living",
       jvmud_lowercase_text(character_name));
 
-  if (returning) {
-    if (!jvmud_invoke_lpc_object("system/atlas", "square_for_path", saved_place)) {
-      saved_place = atlas_start_path();
-    }
-    jvmud_move_entity(jvmud_current_lpc_object(), saved_place);
+  if (!returning || !jvmud_invoke_lpc_object("system/world", "valid_place", saved_place)) {
+    saved_place = starting_place();
+  }
+  if (!jvmud_invoke_lpc_object("system/world", "relocate", jvmud_current_lpc_object(),
+      jvmud_size(transit_id) ? "place/in-transit" : saved_place)) {
+    jvmud_invoke_lpc_object("system/world", "relocate", jvmud_current_lpc_object(), starting_place());
   }
 
+  jvmud_schedule_deferred_callback("scheduled_update", 1);
+  save_character();
   if (returning) {
     write("\nWelcome back, " + character_name + ".\n\n");
   } else {
@@ -254,10 +414,14 @@ void enter_avelorn(int returning) {
   }
   look(0);
   send_gmcp_character();
+  if (!returning) {
+    write("Type work to ask for an assignment, or help for commands.\n");
+  }
+  jvmud_invoke_lpc_object("system/input", "begin", jvmud_current_lpc_object());
 }
 
 void client_protocol_changed(string protocol, int enabled) {
-  if (enabled && jvmud_lowercase_text(protocol) == "gmcp" && account_created) {
+  if (enabled && jvmud_lowercase_text(protocol) == "gmcp" && entered_world) {
     send_gmcp_character();
     jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
   }
@@ -271,7 +435,7 @@ void receive_gmcp(string package_name, mixed payload) {
     jvmud_send_gmcp("Core.Ping");
     return;
   }
-  if (account_created && (normalized == "core.supports.set"
+  if (entered_world && (normalized == "core.supports.set"
       || normalized == "core.supports.add")) {
     send_gmcp_character();
     jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
@@ -281,7 +445,7 @@ void receive_gmcp(string package_name, mixed payload) {
 void send_gmcp_character() {
   mapping vitals;
 
-  if (!account_created || !jvmud_gmcp_enabled()) {
+  if (!entered_world || !jvmud_gmcp_enabled()) {
     return;
   }
   jvmud_send_gmcp("Char.Name", ([
@@ -291,7 +455,7 @@ void send_gmcp_character() {
   jvmud_send_gmcp("Char.Base", ([
     "name": character_name,
     "class": character_class,
-    "race": "human"
+    "race": character_race
   ]));
   vitals = ([
     "hp": health,
@@ -321,26 +485,38 @@ void send_gmcp_character() {
     "level": level,
     "class": character_class,
     "experience": experience,
-    "tnl": level < 10 ? experience_for_next_level() - experience : 0,
+    "tnl": level < level_cap() ? experience_for_next_level() - experience : 0,
     "resource": resource
   ]));
 }
 
 void end_session() {
   combat_target = 0;
-  save_character();
-  clear_materialized_inventory();
+  jvmud_cancel_deferred_callback("scheduled_update");
+  jvmud_invoke_lpc_object("system/input", "end", jvmud_current_lpc_object());
+  jvmud_invoke_lpc_object("system/travel", "end", jvmud_current_lpc_object());
+  if (entered_world) {
+    save_character();
+    entered_world = 0;
+    jvmud_invoke_lpc_object("system/party", "detach", jvmud_current_lpc_object());
+    clear_materialized_inventory();
+  }
+  if (account_id) {
+    jvmud_invoke_lpc_object(
+        "system/accounts", "release", account_id, jvmud_current_lpc_object());
+  }
 }
 
-void save_character() {
-  int saved;
+int save_character() {
+  string stem;
   object place;
 
-  if (account_created && jvmud_size(account_id) > 0 && jvmud_size(password_hash) > 0) {
+  if (entered_world && account_created && jvmud_size(account_id) > 0
+      && jvmud_size(password_hash) > 0) {
     pending_password = "";
     place = jvmud_entity_location(jvmud_current_lpc_object());
     if (place) {
-      saved_place = jvmud_lpc_object_id(place);
+      saved_place = jvmud_invoke_lpc_object("system/world", "place_path", place);
     }
     if (inventory_materialized) {
       snapshot_inventory();
@@ -348,11 +524,18 @@ void save_character() {
     if (quests_materialized) {
       snapshot_quests();
     }
-    saved = jvmud_save_lpc_object_state("accounts/" + account_id);
-    if (!saved) {
+    snapshot_generation += 1;
+    stem = "accounts/" + account_id + "." + (snapshot_generation % 2);
+    if (!jvmud_save_lpc_object_state(stem)) {
+      snapshot_generation -= 1;
       write("Warning: Avelorn could not write your character snapshot to the host filesystem.\n");
+      return 0;
     }
+    travel_dirty = 0;
+    ticks_since_save = 0;
+    return 1;
   }
+  return 0;
 }
 
 void offer_interactions() {
@@ -361,6 +544,7 @@ void offer_interactions() {
   jvmud_add_action("look", "examine");
   jvmud_add_action("look", "exa");
   jvmud_add_action("brief", "brief");
+  jvmud_add_action("inspection_hints", "hints");
   jvmud_add_action("score", "score");
   jvmud_add_action("inventory", "inventory");
   jvmud_add_action("inventory", "i");
@@ -377,6 +561,9 @@ void offer_interactions() {
   jvmud_add_action("consider", "consider");
   jvmud_add_action("class_ability", "ability");
   jvmud_add_action("class_ability", "technique");
+  jvmud_add_action("list_techniques", "abilities");
+  jvmud_add_action("select_style", "style");
+  jvmud_add_action("brace", "brace");
   jvmud_add_action("quests", "quests");
   jvmud_add_action("quests", "journal");
   jvmud_add_action("money", "money");
@@ -388,6 +575,13 @@ void offer_interactions() {
   jvmud_add_action("help", "help");
   jvmud_add_action("save_command", "save");
   jvmud_add_action("quit", "quit");
+  jvmud_add_action("walk_route", "walk");
+  jvmud_add_action("flee", "flee");
+  jvmud_add_action("camp", "camp");
+  jvmud_add_action("queue_status", "queue");
+  jvmud_add_action("list_routes", "routes");
+  jvmud_add_action("board", "board");
+  jvmud_add_action("party_command", "party");
   jvmud_invoke_lpc_object("system/socials", "register", 0);
 }
 
@@ -427,22 +621,45 @@ int look(mixed target) {
   return 1;
 }
 
+int query_inspect_hints() { return inspect_hints; }
+
+int inspection_hints(mixed requested) {
+  string choice;
+
+  if (requested) {
+    choice = jvmud_lowercase_text(requested);
+    if (choice != "on" && choice != "off") {
+      write("Use hints on or hints off.\n");
+      return 1;
+    }
+    inspect_hints = choice == "on";
+    save_character();
+  }
+  write("Inspection hints are " + (inspect_hints ? "on" : "off") + ".\n");
+  write("Type details to list the scenery you can examine.\n");
+  return 1;
+}
+
 int travel_to(string direction, string destination) {
   object old_place;
   object new_place;
 
-  if (combat_target) {
-    write("You break away from combat and flee " + direction + ".\n");
-    combat_target = 0;
-  }
-  avelorn_emit_except(
-      jvmud_current_lpc_object(),
-      character_name + " leaves " + direction + ".\n",
-      jvmud_current_lpc_object());
   old_place = jvmud_entity_location(jvmud_current_lpc_object());
-  jvmud_invoke_lpc_object("system/gmcp", "record_travel", old_place, direction, destination);
-  jvmud_move_entity(jvmud_current_lpc_object(), destination);
+  if (!jvmud_invoke_lpc_object("system/world", "relocate", jvmud_current_lpc_object(), destination)) {
+    return 0;
+  }
   new_place = jvmud_entity_location(jvmud_current_lpc_object());
+  if (!new_place || new_place == old_place) {
+    return 0;
+  }
+  travel_dirty = 1;
+  if (jvmud_method_exists("query_safe", new_place)
+      && jvmud_invoke_lpc_object(new_place, "query_safe")) {
+    sanctuary = destination;
+  }
+  if (old_place) {
+    avelorn_emit_at(old_place, character_name + " leaves " + direction + ".\n");
+  }
   avelorn_emit_except(
       jvmud_current_lpc_object(),
       character_name + " arrives.\n",
@@ -457,6 +674,188 @@ int travel_to(string direction, string destination) {
     jvmud_invoke_lpc_object(new_place, "describe", jvmud_current_lpc_object());
   }
   jvmud_invoke_lpc_object("system/gmcp", "send_room", jvmud_current_lpc_object());
+  return 1;
+}
+
+int walk_route(mixed argument) {
+  object actor;
+  mixed *directions;
+  string direction;
+  int count;
+  int index;
+
+  actor = jvmud_current_lpc_object();
+  directions = argument ? jvmud_split_text(jvmud_lowercase_text(argument), " ") : ({ });
+  count = jvmud_size(directions);
+  if (!count || count > 8) {
+    write("Use walk followed by up to eight exits, such as walk north east enter.\n");
+    return 1;
+  }
+  if (count + jvmud_invoke_lpc_object("system/travel", "count", actor) > 8) {
+    write("There is not enough room in your movement queue for that route.\n");
+    return 1;
+  }
+  for (index = 0; index < count; index += 1) {
+    direction = jvmud_invoke_lpc_object("system/world", "direction_name", directions[index]);
+    if (!jvmud_invoke_lpc_object("system/travel", "enqueue", actor, direction, 1)) {
+      break;
+    }
+  }
+  return 1;
+}
+
+int flee(mixed argument) {
+  object actor;
+  object place;
+  string direction;
+  mixed edge;
+
+  actor = jvmud_current_lpc_object();
+  place = jvmud_entity_location(actor);
+  if (!argument || !combat_target || !place) {
+    write("Use flee <exit> to break away from combat.\n");
+    return 1;
+  }
+  direction = jvmud_invoke_lpc_object("system/world", "direction_name", jvmud_lowercase_text(argument));
+  edge = jvmud_invoke_lpc_object(place, "query_travel_step", direction);
+  if (!jvmud_is_mapping(edge)) {
+    write("You cannot flee that way.\n");
+    return 1;
+  }
+  combat_target = 0;
+  jvmud_invoke_lpc_object("system/input", "clear", actor);
+  jvmud_invoke_lpc_object("system/travel", "clear", actor);
+  jvmud_invoke_lpc_object("system/travel", "enqueue", actor, direction, 1);
+  write("You break away and turn to flee.\n");
+  return 1;
+}
+
+int camp(mixed ignored) {
+  jvmud_invoke_lpc_object("system/travel", "camp", jvmud_current_lpc_object());
+  return 1;
+}
+
+int queue_status(mixed ignored) {
+  object actor;
+
+  actor = jvmud_current_lpc_object();
+  write("Command queue: " + jvmud_invoke_lpc_object("system/input", "count", actor) + "/16.\n");
+  write(jvmud_invoke_lpc_object("system/travel", "status", actor) + "\n");
+  return 1;
+}
+
+int query_travel_reserve() { return travel_reserve; }
+int query_travel_blocked() { return !entered_world || combat_target != 0 || jvmud_size(transit_id) > 0; }
+
+int list_routes(mixed ignored) {
+  return jvmud_invoke_lpc_object("system/transit", "list_routes", jvmud_current_lpc_object());
+}
+
+int board(mixed destination) {
+  return jvmud_invoke_lpc_object("system/transit", "board", jvmud_current_lpc_object(), destination);
+}
+
+int party_command(mixed command) {
+  return jvmud_invoke_lpc_object("system/party", "command", jvmud_current_lpc_object(), command);
+}
+
+mixed query_transit() {
+  if (!jvmud_size(transit_id)) {
+    return 0;
+  }
+  return ([
+    "id": transit_id,
+    "destination": transit_destination,
+    "arrives_at": transit_arrives_at
+  ]);
+}
+
+int begin_transit(string id, string destination, int arrives_at, int fare) {
+  if (query_travel_blocked() || fare < 0) {
+    return 0;
+  }
+  if (copper < fare) {
+    write("You do not have enough coin for that passage.\n");
+    return 0;
+  }
+  transit_id = id;
+  transit_destination = destination;
+  transit_arrives_at = arrives_at;
+  copper -= fare;
+  if (!save_character()) {
+    copper += fare;
+    transit_id = "";
+    transit_destination = "";
+    transit_arrives_at = 0;
+    return 0;
+  }
+  jvmud_move_entity(jvmud_current_lpc_object(), "place/in-transit");
+  return 1;
+}
+
+int finish_transit(string id, string destination) {
+  object actor;
+  string old_destination;
+  int old_arrival;
+
+  if (id != transit_id || jvmud_time() < transit_arrives_at
+      || !jvmud_invoke_lpc_object("system/world", "valid_place", destination)) {
+    return 0;
+  }
+  actor = jvmud_current_lpc_object();
+  old_destination = transit_destination;
+  old_arrival = transit_arrives_at;
+  if (!jvmud_invoke_lpc_object("system/world", "relocate", actor, destination)) {
+    return 0;
+  }
+  transit_id = "";
+  transit_destination = "";
+  transit_arrives_at = 0;
+  if (save_character()) {
+    return 1;
+  }
+  transit_id = id;
+  transit_destination = old_destination;
+  transit_arrives_at = old_arrival;
+  jvmud_move_entity(actor, "place/in-transit");
+  return 0;
+}
+
+int adjust_travel_reserve(int delta) {
+  travel_reserve += delta;
+  if (travel_reserve > 100) { travel_reserve = 100; }
+  if (travel_reserve < 0) { travel_reserve = 0; }
+  travel_dirty = 1;
+  return travel_reserve;
+}
+
+object travel_ration() {
+  object item;
+
+  item = jvmud_first_entity_at(jvmud_current_lpc_object());
+  while (item) {
+    if (is_item(item) && jvmud_invoke_lpc_object(item, "query_blueprint") == "consumable/field-bread") {
+      return item;
+    }
+    item = jvmud_next_entity_at(item);
+  }
+  return 0;
+}
+
+int query_has_travel_ration() { return travel_ration() != 0; }
+
+int complete_travel_camp() {
+  object ration;
+
+  ration = travel_ration();
+  if (!ration) {
+    write("You have no ration left to finish your rest.\n");
+    return 0;
+  }
+  jvmud_destroy_lpc_object(ration);
+  adjust_travel_reserve(40);
+  save_character();
+  write("You eat your ration and recover. Travel reserve " + travel_reserve + "/100.\n");
   return 1;
 }
 
@@ -555,7 +954,7 @@ int score(mixed ignored) {
   write(character_name + ", level " + level + " " + character_class + "\n");
   write("Health " + health + "/" + max_health + "  ");
   write(resource_name() + " " + resource + "/" + max_resource + "\n");
-  if (level < 10) {
+  if (level < level_cap()) {
     write("Experience " + experience + "/" + experience_for_next_level() + "\n");
   } else {
     write("Experience: level cap reached\n");
@@ -632,6 +1031,7 @@ int get_item(mixed target) {
     return 1;
   }
   jvmud_move_entity(item, jvmud_current_lpc_object());
+  jvmud_invoke_lpc_object("system/atlas_places", "forget_drop", item);
   write("You take " + jvmud_invoke_lpc_object(item, "short") + ".\n");
   save_character();
   return 1;
@@ -656,7 +1056,11 @@ int drop_item(mixed target) {
   }
   place = jvmud_entity_location(jvmud_current_lpc_object());
   jvmud_move_entity(item, place);
+  jvmud_invoke_lpc_object("system/atlas_places", "note_drop", item, place);
   write("You drop " + jvmud_invoke_lpc_object(item, "short") + ".\n");
+  if (jvmud_method_exists("atlas_path", place)) {
+    write("Loose items weather away here after about two minutes.\n");
+  }
   save_character();
   return 1;
 }
@@ -722,30 +1126,26 @@ int unequip_item(mixed target) {
 }
 
 int use_item(mixed target) {
+  object actor;
   object item;
-  int amount;
+  int outcome;
 
   if (!target) {
     write("Use what?\n");
     return 1;
   }
-  item = jvmud_find_entity(target, jvmud_current_lpc_object());
+  actor = jvmud_current_lpc_object();
+  item = jvmud_find_entity(target, actor);
   if (!item || !is_item(item)) {
     write("You are not carrying that item.\n");
     return 1;
   }
-  amount = jvmud_invoke_lpc_object(item, "query_restore_amount");
-  if (amount <= 0) {
-    write("That item is not consumable.\n");
+  outcome = jvmud_invoke_lpc_object(item, "use_by", actor);
+  if (!outcome) {
+    write("You find no way to use that item here.\n");
     return 1;
   }
-  health += amount;
-  if (health > max_health) {
-    health = max_health;
-  }
-  write("You use " + jvmud_invoke_lpc_object(item, "short"));
-  write(" and recover " + amount + " health.\n");
-  jvmud_destroy_lpc_object(item);
+  if (outcome == 2) { jvmud_destroy_lpc_object(item); }
   save_character();
   send_gmcp_character();
   return 1;
@@ -777,6 +1177,7 @@ int attack(mixed target) {
     return 1;
   }
   combat_target = opponent;
+  jvmud_invoke_lpc_object("system/travel", "clear", jvmud_current_lpc_object());
   write("You engage " + jvmud_invoke_lpc_object(opponent, "query_name")
       + " in combat.\n");
   perform_combat_round();
@@ -784,8 +1185,34 @@ int attack(mixed target) {
 }
 
 void scheduled_update() {
+  object actor;
+  int commands;
+  int movement;
+  int arrived;
+
+  if (!entered_world) {
+    return;
+  }
+  actor = jvmud_current_lpc_object();
+  jvmud_schedule_deferred_callback("scheduled_update", 1);
+  combat_acted = 0;
+  if (guard_ticks > 0) { guard_ticks -= 1; }
+  arrived = jvmud_invoke_lpc_object("system/transit", "tick", actor);
+  commands = jvmud_invoke_lpc_object("system/input", "drain", actor);
+  movement = jvmud_invoke_lpc_object("system/travel", "drain", actor);
   if (combat_target) {
     perform_combat_round();
+  }
+  ticks_since_save += 1;
+  if (travel_dirty && ticks_since_save >= 30) {
+    save_character();
+  }
+  if (vitals_changed) {
+    vitals_changed = 0;
+    send_gmcp_character();
+  }
+  if (commands || movement || arrived) {
+    jvmud_invoke_lpc_object("system/input", "prompt", actor);
   }
 }
 
@@ -794,7 +1221,7 @@ void perform_combat_round() {
   object opponent;
 
   opponent = combat_target;
-  if (!opponent) {
+  if (!opponent || combat_acted) {
     return;
   }
   place = jvmud_entity_location(jvmud_current_lpc_object());
@@ -806,6 +1233,7 @@ void perform_combat_round() {
     write("Your opponent is no longer within reach.\n");
     return;
   }
+  combat_acted = 1;
   jvmud_invoke_lpc_object(
       opponent,
       "receive_attack",
@@ -856,68 +1284,221 @@ int consider(mixed target) {
   return 1;
 }
 
-int class_ability(mixed target) {
-  object place;
-  object opponent;
-  int cost;
-  int damage;
-  string technique;
+mapping active_style() {
+  mixed *names;
+  mapping selected;
 
-  if (!target) {
-    write("Use your technique against what?\n");
+  selected = jvmud_invoke_lpc_object("system/combat_rules", "style", character_class, combat_style);
+  if (selected) { return selected; }
+  names = jvmud_invoke_lpc_object("system/combat_rules", "styles", character_class);
+  return jvmud_invoke_lpc_object("system/combat_rules", "style", character_class, names[0]);
+}
+
+int select_style(mixed requested) {
+  mixed *names;
+  mapping profile;
+  string id;
+  int index;
+
+  if (!requested) {
+    write("Current style is " + active_style()["name"] + ". Choose style <name>.\n");
+    names = jvmud_invoke_lpc_object("system/combat_rules", "styles", character_class);
+    for (index = 0; index < jvmud_size(names); index += 1) {
+      id = names[index];
+      profile = jvmud_invoke_lpc_object("system/combat_rules", "style", character_class, id);
+      write("  " + id + " — " + profile["description"] + "\n");
+    }
     return 1;
   }
-  place = jvmud_entity_location(jvmud_current_lpc_object());
-  opponent = jvmud_find_entity(target, place);
-  if (!opponent || !jvmud_method_exists("query_hostile", opponent)
-      || !jvmud_invoke_lpc_object(opponent, "query_hostile")) {
-    write("That is not a hostile combatant.\n");
+  if (combat_target) {
+    write("Choose a style after breaking away from combat.\n");
     return 1;
   }
-  if (character_class == "fighter") {
-    technique = "a disciplined mighty blow";
-    cost = 8;
-    damage = attack_damage() + level + strength / 2;
-  } else if (character_class == "ranger") {
-    technique = "a carefully aimed shot";
-    cost = 8;
-    damage = attack_damage() + level + dexterity / 2;
-  } else if (character_class == "mage") {
-    technique = "a bolt of blue-white arcane fire";
-    cost = 10;
-    damage = attack_damage() + level + intelligence / 2;
+  id = jvmud_lowercase_text(requested);
+  profile = jvmud_invoke_lpc_object("system/combat_rules", "style", character_class, id);
+  if (!profile) {
+    write("Use style to list your combat styles.\n");
+    return 1;
+  }
+  combat_style = id;
+  save_character();
+  write("You adopt the " + profile["name"] + " style.\n");
+  return 1;
+}
+
+int list_techniques(mixed ignored) {
+  mixed *names;
+  mapping technique;
+  int index;
+
+  names = jvmud_invoke_lpc_object("system/combat_rules", "techniques", character_class);
+  write("Use ability <technique> [target]. Techniques:\n");
+  for (index = 0; index < jvmud_size(names); index += 1) {
+    technique = jvmud_invoke_lpc_object("system/combat_rules", "technique", character_class, names[index]);
+    write("  " + names[index] + " (level " + technique["level"] + ", "
+        + technique["cost"] + " " + resource_name() + ") — " + technique["description"] + "\n");
+  }
+  return 1;
+}
+
+int class_ability(mixed argument) {
+  mapping technique;
+  mapping style;
+  mixed *names;
+  object target;
+  object actor;
+  string name;
+  string requested;
+  string effect;
+  int separator;
+  int cost;
+  int power;
+
+  if (!argument) { return list_techniques(0); }
+  if (combat_acted || jvmud_size(transit_id)) {
+    write("You cannot use a technique right now.\n");
+    return 1;
+  }
+  requested = jvmud_lowercase_text(argument);
+  separator = jvmud_member(requested, ' ');
+  name = separator < 0 ? requested : jvmud_extract_text(requested, 0, separator - 1);
+  technique = jvmud_invoke_lpc_object("system/combat_rules", "technique", character_class, name);
+  if (!technique) {
+    names = jvmud_invoke_lpc_object("system/combat_rules", "techniques", character_class);
+    technique = jvmud_invoke_lpc_object("system/combat_rules", "technique", character_class, names[0]);
   } else {
-    technique = "a radiant smite";
-    cost = 10;
-    damage = attack_damage() + level + wisdom / 2;
+    requested = separator < 0 ? "" : jvmud_extract_text(requested, separator + 1);
   }
-  if (resource < cost) {
-    write("You need " + cost + " " + jvmud_lowercase_text(resource_name()));
-    write(" for that technique. Rest to recover.\n");
+  if (level < technique["level"]) {
+    write(technique["name"] + " becomes available at level " + technique["level"] + ".\n");
     return 1;
   }
+  style = active_style();
+  cost = technique["cost"] + style["cost"];
+  if (resource < cost) {
+    write("You need " + cost + " " + jvmud_lowercase_text(resource_name()) + ". Rest to recover.\n");
+    return 1;
+  }
+  actor = jvmud_current_lpc_object();
+  effect = technique["effect"];
+  if (jvmud_size(technique["handler"])) {
+    power = technique["power"] + style["support"];
+    if (!jvmud_invoke_lpc_object(technique["handler"], "perform", actor, requested, power)) {
+      return 1;
+    }
+  } else if (effect == "heal" || effect == "guard") {
+    target = support_target(requested);
+    if (!target) { return 1; }
+    power = technique["power"] + style["support"];
+    apply_support(target, effect, power);
+  } else {
+    target = jvmud_size(requested)
+        ? jvmud_find_entity(requested, jvmud_entity_location(actor)) : combat_target;
+    if (!target || !jvmud_method_exists("query_hostile", target)
+        || !jvmud_invoke_lpc_object(target, "query_hostile")) {
+      write("Choose a hostile combatant or use abilities for technique help.\n");
+      return 1;
+    }
+    combat_target = target;
+    jvmud_invoke_lpc_object("system/travel", "clear", actor);
+    if (effect == "stagger") {
+      jvmud_invoke_lpc_object(target, "interrupt_attack");
+    }
+    jvmud_invoke_lpc_object(target, "receive_attack", actor,
+        attack_damage() + technique["power"] + level);
+  }
+  combat_acted = 1;
   resource -= cost;
-  combat_target = opponent;
-  write("You unleash " + technique + ".\n");
-  send_gmcp_character();
-  return jvmud_invoke_lpc_object(
-      opponent,
-      "receive_attack",
-      jvmud_current_lpc_object(),
-      damage);
+  vitals_changed = 1;
+  travel_dirty = 1;
+  write("You use " + technique["name"] + ".\n");
+  return 1;
+}
+
+object support_target(string requested) {
+  object actor;
+  object target;
+
+  actor = jvmud_current_lpc_object();
+  if (!jvmud_size(requested) || requested == "self") { return actor; }
+  target = jvmud_invoke_lpc_object("system/party", "nearby_member", actor, requested);
+  if (!target) {
+    write("Choose yourself or a nearby member of your party.\n");
+    return 0;
+  }
+  return target;
+}
+
+void apply_support(object target, string effect, int power) {
+  object opponent;
+  int helped;
+
+  if (effect == "guard") {
+    helped = jvmud_invoke_lpc_object(target, "receive_guard", power);
+  } else {
+    helped = jvmud_invoke_lpc_object(target, "receive_healing", power);
+  }
+  opponent = jvmud_invoke_lpc_object(target, "query_combat_target");
+  if (helped && opponent) {
+    jvmud_invoke_lpc_object(opponent, "remember_contributor", jvmud_current_lpc_object());
+  }
+}
+
+object query_combat_target() { return combat_target; }
+
+int receive_guard(int power) {
+  if (guard_ticks > 0 && guard_power >= power) { return 0; }
+  guard_power = power;
+  guard_ticks = 3;
+  avelorn_write_to(jvmud_current_lpc_object(), "You are braced for the next strike.\n");
+  return 1;
+}
+
+int receive_healing(int power) {
+  int restored;
+
+  restored = max_health - health;
+  if (restored > power) { restored = power; }
+  if (restored <= 0) { return 0; }
+  health += restored;
+  vitals_changed = 1;
+  travel_dirty = 1;
+  avelorn_write_to(jvmud_current_lpc_object(), "You recover " + restored + " health.\n");
+  return restored;
+}
+
+int brace(mixed ignored) {
+  if (!combat_target || combat_acted) {
+    write("Brace during combat when you have time to react.\n");
+    return 1;
+  }
+  combat_acted = 1;
+  receive_guard(3 + level / 2);
+  return 1;
 }
 
 int receive_damage(int amount, string attacker_name) {
+  object actor;
+  int protection;
   int lost_copper;
 
+  actor = jvmud_current_lpc_object();
+  protection = armor_protection();
+  if (protection > amount / 2) { protection = amount / 2; }
+  amount -= protection;
+  if (guard_ticks > 0) {
+    amount -= guard_power;
+    guard_ticks = 0;
+  }
   if (amount < 1) {
     amount = 1;
   }
   health -= amount;
-  write(attacker_name + " strikes you for " + amount + " damage.\n");
+  vitals_changed = 1;
+  travel_dirty = 1;
+  avelorn_write_to(actor, attacker_name + " strikes you for " + amount + " damage.\n");
   if (health > 0) {
-    write("You have " + health + "/" + max_health + " health remaining.\n");
-    send_gmcp_character();
+    avelorn_write_to(actor, "You have " + health + "/" + max_health + " health remaining.\n");
     return health;
   }
 
@@ -926,25 +1507,29 @@ int receive_damage(int amount, string attacker_name) {
       character_name + " is overcome and carried to safety.\n",
       jvmud_current_lpc_object());
   combat_target = 0;
+  jvmud_invoke_lpc_object("system/input", "clear", actor);
+  jvmud_invoke_lpc_object("system/travel", "clear", actor);
+  jvmud_invoke_lpc_object("system/party", "stop_following", actor, "");
+  jvmud_invoke_lpc_object("system/party", "stop_followers", actor);
   lost_copper = copper / 10;
   copper -= lost_copper;
   recalculate_resources(1);
-  saved_place = atlas_start_path();
-  jvmud_move_entity(jvmud_current_lpc_object(), saved_place);
-  write("You are overcome and returned safely to your starting wilderness square.\n");
+  saved_place = jvmud_invoke_lpc_object("system/world", "valid_place", sanctuary)
+      ? sanctuary : starting_place();
+  jvmud_invoke_lpc_object("system/world", "relocate", actor, saved_place);
+  avelorn_write_to(actor, "You are overcome and carried to shelter.\n");
   if (lost_copper > 0) {
-    write("You lost "
+    avelorn_write_to(actor, "You lost "
         + jvmud_invoke_lpc_object("system/economy", "format_money", lost_copper)
         + " in the retreat.\n");
   }
   save_character();
-  look(0);
-  send_gmcp_character();
+  jvmud_dispatch_entity_command(actor, "look");
   return 0;
 }
 
-string atlas_start_path() {
-  return "place/atlas/x0113/y3336";
+string starting_place() {
+  return jvmud_invoke_lpc_object("system/world", "starting_place");
 }
 
 void award_victory(int xp, int coins, string opponent_name, object opponent) {
@@ -968,12 +1553,29 @@ void award_victory(int xp, int coins, string opponent_name, object opponent) {
 int offer_quest(string quest_id) {
   int stage;
   int recommended_level;
+  string prerequisite;
+  mapping flags;
 
   materialize_quests();
+  if (!jvmud_invoke_lpc_object("system/quests", "known", quest_id)) {
+    write("There is no assignment available here.\n");
+    return 1;
+  }
+  prerequisite = jvmud_invoke_lpc_object("system/quests", "prerequisite", quest_id);
+  if (jvmud_size(prerequisite) && quest_stage(prerequisite) != 3) {
+    write("Complete " + quest_title(prerequisite) + " first.\n");
+    return 1;
+  }
   stage = quest_stage(quest_id);
   if (stage == 3) {
-    write("You have already completed " + quest_title(quest_id) + ".\n");
-    return 1;
+    flags = quest_flags[quest_id];
+    if (!jvmud_invoke_lpc_object("system/quests", "repeatable", quest_id)
+        || (flags && flags["claimed_rotation"] == jvmud_invoke_lpc_object("system/quests", "current_rotation"))) {
+      write("You have already completed " + quest_title(quest_id) + ".\n");
+      return 1;
+    }
+    quest_flags[quest_id] = ([ ]);
+    stage = 0;
   }
   if (stage > 0) {
     write("That assignment is already recorded in your journal.\n");
@@ -1076,6 +1678,12 @@ int record_quest_action(string action_tag) {
 
 int turn_in_quest(string quest_id) {
   object reward_item;
+  mapping previous_flags;
+  mapping flags;
+  string blueprint;
+  int *progress;
+  int previous_rotation;
+  int had_rotation;
   int stage;
   int xp;
   int coins;
@@ -1095,25 +1703,58 @@ int turn_in_quest(string quest_id) {
     return 1;
   }
 
+  blueprint = jvmud_invoke_lpc_object(
+      "system/quests", "reward_for_class", quest_id, character_class);
+  if (jvmud_size(blueprint)) {
+    reward_item = jvmud_invoke_lpc_object("system/items", "create", blueprint);
+    if (!reward_item) {
+      write("The assignment reward is unavailable. Try reporting later.\n");
+      return 1;
+    }
+    jvmud_move_entity(reward_item, jvmud_current_lpc_object());
+  }
+  progress = ({ level, experience, attribute_points, health, max_health, resource, max_resource });
   quest_stages[quest_id] = 3;
+  if (jvmud_invoke_lpc_object("system/quests", "repeatable", quest_id)) {
+    previous_flags = quest_flags[quest_id];
+    flags = previous_flags ? previous_flags : ([ ]);
+    had_rotation = jvmud_member(flags, "claimed_rotation");
+    previous_rotation = flags["claimed_rotation"];
+    flags["claimed_rotation"] = jvmud_invoke_lpc_object("system/quests", "current_rotation");
+    quest_flags[quest_id] = flags;
+  }
   xp = jvmud_invoke_lpc_object("system/quests", "experience_reward", quest_id);
   coins = jvmud_invoke_lpc_object("system/quests", "copper_reward", quest_id);
   copper += coins;
+  apply_experience(xp);
+  if (!save_character()) {
+    if (reward_item) { jvmud_destroy_lpc_object(reward_item); }
+    copper -= coins;
+    level = progress[0];
+    experience = progress[1];
+    attribute_points = progress[2];
+    health = progress[3];
+    max_health = progress[4];
+    resource = progress[5];
+    max_resource = progress[6];
+    quest_stages[quest_id] = 2;
+    if (flags && had_rotation) {
+      flags["claimed_rotation"] = previous_rotation;
+    } else if (flags && previous_flags) {
+      jvmud_mapping_delete(flags, "claimed_rotation");
+    } else if (flags) {
+      jvmud_mapping_delete(quest_flags, quest_id);
+    }
+    write("Your journal is still ready to report this assignment.\n");
+    return 1;
+  }
   write("You complete " + quest_title(quest_id) + ".\n");
   write("You receive "
       + jvmud_invoke_lpc_object("system/economy", "format_money", coins) + ".\n");
-  gain_experience(xp);
-  if (jvmud_size(jvmud_invoke_lpc_object("system/quests", "item_reward", quest_id)) > 0) {
-    reward_item = jvmud_invoke_lpc_object(
-        "system/items",
-        "create",
-        jvmud_invoke_lpc_object("system/quests", "item_reward", quest_id));
-    if (reward_item) {
-      jvmud_move_entity(reward_item, jvmud_current_lpc_object());
-      write("You receive " + jvmud_invoke_lpc_object(reward_item, "short") + ".\n");
-    }
+  announce_experience(xp, progress[0]);
+  if (reward_item) {
+    write("You receive " + jvmud_invoke_lpc_object(reward_item, "short") + ".\n");
   }
-  save_character();
   return 1;
 }
 
@@ -1248,8 +1889,14 @@ int complete_introductory_drill() {
 }
 
 int rest_at_shrine() {
+  if (combat_target) {
+    write("You cannot rest during combat.\n");
+    return 1;
+  }
+  sanctuary = jvmud_lpc_object_id(jvmud_entity_location(jvmud_current_lpc_object()));
+  adjust_travel_reserve(100);
   recalculate_resources(1);
-  write("You rest and recover your health and "
+  write("You rest and recover your health, travel reserve, and "
       + jvmud_lowercase_text(resource_name()) + ".\n");
   save_character();
   send_gmcp_character();
@@ -1406,21 +2053,25 @@ int help(mixed ignored) {
   write("  attack <target> begins timed combat; ability uses a technique\n");
   write("  consider, quests, money, list, buy, sell\n");
   write("  train, improve, emotes, save, quit, help\n");
+  write("  walk <exits>, flee <exit>, camp, rest, queue, stop\n");
+  write("  routes lists departures; board <destination> takes a passage\n");
+  write("  trails shows marked walks; notices lists local assignments\n");
+  write("  details lists scenery; hints on marks it in room prose\n");
+  write("  work to take an assignment, report to claim its reward\n");
   return 1;
 }
 
 int quit(mixed ignored) {
-  combat_target = 0;
-  save_character();
+  end_session();
   write("Farewell.\n");
-  clear_materialized_inventory();
   jvmud_destroy_lpc_object(jvmud_current_lpc_object());
   return 1;
 }
 
 int save_command(mixed ignored) {
-  save_character();
-  write("Your character has been saved.\n");
+  if (save_character()) {
+    write("Your character has been saved.\n");
+  }
   return 1;
 }
 
@@ -1436,6 +2087,39 @@ string query_gender() {
   return gender;
 }
 
+string query_race() {
+  return character_race;
+}
+
+string query_guild() {
+  return jvmud_size(guild_id) ? guild_id : "";
+}
+
+int join_guild(string id) {
+  string previous;
+
+  if (!entered_world || combat_target || jvmud_size(guild_id)
+      || !jvmud_invoke_lpc_object("system/guilds", "eligible", id, jvmud_current_lpc_object())) {
+    return 0;
+  }
+  previous = guild_id;
+  guild_id = id;
+  if (save_character()) { return 1; }
+  guild_id = previous;
+  return 0;
+}
+
+int leave_guild() {
+  string previous;
+
+  if (!entered_world || combat_target || !jvmud_size(guild_id)) { return 0; }
+  previous = guild_id;
+  guild_id = "";
+  if (save_character()) { return 1; }
+  guild_id = previous;
+  return 0;
+}
+
 string query_class() {
   return character_class;
 }
@@ -1448,15 +2132,7 @@ void grant_starter_kit() {
   object item;
   string weapon;
 
-  if (character_class == "fighter") {
-    weapon = "weapon/arming-sword";
-  } else if (character_class == "ranger") {
-    weapon = "weapon/ashwood-shortbow";
-  } else if (character_class == "mage") {
-    weapon = "weapon/oak-focus-staff";
-  } else {
-    weapon = "weapon/steel-mace";
-  }
+  weapon = class_profile()["starter_weapon"];
   item = jvmud_invoke_lpc_object("system/items", "create", weapon);
   jvmud_invoke_lpc_object(item, "set_equipped", 1);
   jvmud_move_entity(item, jvmud_current_lpc_object());
@@ -1625,25 +2301,20 @@ int carried_weight() {
 
 int attack_damage() {
   object item;
+  mapping style;
   int base;
+  int weapon_power;
   int penalty;
   int recommended;
   int minimum;
   string stat;
 
-  if (character_class == "fighter") {
-    base = strength;
-  } else if (character_class == "ranger") {
-    base = dexterity;
-  } else if (character_class == "mage") {
-    base = intelligence;
-  } else {
-    base = wisdom;
-  }
+  base = stat_value(class_profile()["primary_stat"]);
   item = equipped_weapon();
   if (!item) {
     penalty = 3;
   } else {
+    weapon_power = jvmud_invoke_lpc_object(item, "query_power");
     recommended = jvmud_invoke_lpc_object(item, "query_recommended_level");
     if (recommended > level) {
       penalty += recommended - level;
@@ -1654,11 +2325,34 @@ int attack_damage() {
       penalty += minimum - stat_value(stat);
     }
   }
-  base = 3 + level + base / 3 + jvmud_random(4) - penalty;
+  style = active_style();
+  base = 3 + level + base / 3 + jvmud_random(4) + weapon_power + style["attack"] - penalty;
   if (base < 1) {
     return 1;
   }
   return base;
+}
+
+int query_concord_weapon() {
+  object weapon;
+
+  weapon = equipped_weapon();
+  return weapon && jvmud_invoke_lpc_object(weapon, "query_concord");
+}
+
+int armor_protection() {
+  object item;
+  int protection;
+
+  protection = active_style()["defense"];
+  item = jvmud_first_entity_at(jvmud_current_lpc_object());
+  while (item) {
+    if (is_item(item) && jvmud_invoke_lpc_object(item, "query_equipped")) {
+      protection += jvmud_invoke_lpc_object(item, "query_protection");
+    }
+    item = jvmud_next_entity_at(item);
+  }
+  return protection;
 }
 
 object equipped_weapon() {
@@ -1685,67 +2379,94 @@ string money_text() {
 }
 
 void gain_experience(int amount) {
-  if (amount <= 0 || level >= 10) {
+  int previous_level;
+
+  previous_level = level;
+  apply_experience(amount);
+  announce_experience(amount, previous_level);
+}
+
+void apply_experience(int amount) {
+  int cap;
+
+  cap = level_cap();
+  if (amount <= 0 || level >= cap) {
     return;
   }
   experience += amount;
-  avelorn_write_to(
-      jvmud_current_lpc_object(),
-      "You gain " + amount + " experience.\n");
-  while (level < 10 && experience >= experience_for_next_level()) {
+  while (level < cap && experience >= experience_for_next_level()) {
     experience -= experience_for_next_level();
     level += 1;
-    if (level % 2 == 0) {
-      attribute_points += 1;
-    }
+    attribute_points += training_points_for(level);
     recalculate_resources(1);
+  }
+  if (level == cap) { experience = 0; }
+}
+
+void announce_experience(int amount, int previous_level) {
+  int gained;
+
+  if (amount <= 0 || previous_level >= level_cap()) { return; }
+  avelorn_write_to(jvmud_current_lpc_object(), "You gain " + amount + " experience.\n");
+  for (gained = previous_level + 1; gained <= level; gained += 1) {
     avelorn_write_to(
         jvmud_current_lpc_object(),
-        "You advance to level " + level + "!\n");
-    if (level % 2 == 0) {
+        "You advance to level " + gained + "!\n");
+    if (training_points_for(gained)) {
       avelorn_write_to(
           jvmud_current_lpc_object(),
           "You earn an attribute point. Use improve <attribute>.\n");
     }
   }
-  send_gmcp_character();
+  vitals_changed = 1;
 }
 
 int experience_for_next_level() {
-  return level * 100;
+  return jvmud_invoke_lpc_object("system/progression", "experience_to_advance", level);
+}
+
+int level_cap() {
+  return jvmud_invoke_lpc_object("system/progression", "cap");
+}
+
+int training_points_for(int attained_level) {
+  return jvmud_invoke_lpc_object("system/progression", "training_points_for", attained_level);
+}
+
+mapping class_profile() {
+  return jvmud_invoke_lpc_object("system/combat_rules", "profile", character_class);
 }
 
 void recalculate_resources(int fill) {
+  mapping profile;
+  mapping weights;
+  mixed *stats;
+  int index;
+
   max_health = 30 + constitution * 4 + level * 6;
-  if (character_class == "fighter") {
-    max_resource = 20 + constitution * 2 + level * 3;
-  } else if (character_class == "ranger") {
-    max_resource = 25 + dexterity + constitution + level * 3;
-  } else if (character_class == "mage") {
-    max_resource = 20 + intelligence * 3 + level * 4;
-  } else {
-    max_resource = 20 + wisdom * 3 + level * 4;
+  profile = class_profile()["resource"];
+  weights = profile["per_stat"];
+  stats = jvmud_mapping_keys(weights);
+  max_resource = profile["base"] + level * profile["per_level"];
+  for (index = 0; index < jvmud_size(stats); index += 1) {
+    max_resource += stat_value(stats[index]) * weights[stats[index]];
   }
   if (fill || health <= 0) {
     health = max_health;
   } else if (health > max_health) {
     health = max_health;
   }
-  if (fill || resource <= 0) {
+  if (fill) {
     resource = max_resource;
+  } else if (resource < 0) {
+    resource = 0;
   } else if (resource > max_resource) {
     resource = max_resource;
   }
 }
 
 string resource_name() {
-  if (character_class == "mage") {
-    return "Mana";
-  }
-  if (character_class == "cleric") {
-    return "Faith";
-  }
-  return "Stamina";
+  return class_profile()["resource"]["name"];
 }
 
 int stat_value(string stat) {
@@ -1771,30 +2492,19 @@ int stat_value(string stat) {
 }
 
 void configure_starting_attributes() {
-  strength = 10;
-  dexterity = 10;
-  constitution = 10;
-  intelligence = 10;
-  wisdom = 10;
-  charisma = 10;
+  mapping values;
 
-  if (character_class == "fighter") {
-    strength = 14;
-    constitution = 13;
-    dexterity = 11;
-  } else if (character_class == "ranger") {
-    dexterity = 14;
-    constitution = 12;
-    wisdom = 12;
-  } else if (character_class == "mage") {
-    intelligence = 14;
-    wisdom = 12;
-    dexterity = 11;
-  } else {
-    wisdom = 14;
-    constitution = 12;
-    charisma = 12;
-  }
+  values = class_profile()["starting_attributes"];
+  strength = starting_attribute(values, "strength");
+  dexterity = starting_attribute(values, "dexterity");
+  constitution = starting_attribute(values, "constitution");
+  intelligence = starting_attribute(values, "intelligence");
+  wisdom = starting_attribute(values, "wisdom");
+  charisma = starting_attribute(values, "charisma");
+}
+
+int starting_attribute(mapping values, string attribute) {
+  return jvmud_member(values, attribute) ? values[attribute] : 10;
 }
 
 string normalize_account_id(mixed value) {
@@ -1845,12 +2555,11 @@ int valid_character_name(mixed value) {
 }
 
 int valid_gender(string value) {
-  return value == "male" || value == "female" || value == "non-binary";
+  return value == "male" || value == "female";
 }
 
 int valid_class(string value) {
-  return value == "fighter" || value == "ranger"
-      || value == "mage" || value == "cleric";
+  return jvmud_invoke_lpc_object("system/combat_rules", "known", value);
 }
 
 mixed password_problem(mixed value) {

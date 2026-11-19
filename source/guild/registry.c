@@ -1,0 +1,3 @@
+mapping registrations() {
+  return ([ ]);
+}

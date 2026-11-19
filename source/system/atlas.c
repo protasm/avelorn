@@ -1,4 +1,5 @@
 mapping region_cache;
+string *cached_region_order;
 mapping terrain_names;
 
 void initialize(mixed first_load) {
@@ -8,6 +9,7 @@ void initialize(mixed first_load) {
   int index;
 
   region_cache = ([ ]);
+  cached_region_order = ({ });
   terrain_names = ([ ]);
   dictionary = jvmud_read_mudlib_json(
       "/atlas/qgis/unnamed_new_zealand/export/edition1_256m_atlas/terrain_types.json");
@@ -67,6 +69,11 @@ mapping load_region(int region_x, int region_y) {
     }
   }
   region_cache[cache_key] = region;
+  cached_region_order += ({ cache_key });
+  if (jvmud_size(cached_region_order) > 32) {
+    jvmud_mapping_delete(region_cache, cached_region_order[0]);
+    cached_region_order = cached_region_order[1..];
+  }
   return region;
 }
 

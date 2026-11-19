@@ -2,6 +2,7 @@ string display_name;
 string gender;
 string office;
 string quest_id;
+string details;
 string *identities;
 
 void initialize(mixed first_load) {
@@ -39,6 +40,10 @@ void add_identity(string identity) {
   jvmud_bind_entity_alias(jvmud_current_lpc_object(), "entity", identity);
 }
 
+void set_details(string description) {
+  details = description;
+}
+
 int id(mixed value) {
   int index;
   string normalized;
@@ -65,11 +70,17 @@ void offer_interactions() {
   jvmud_add_action("report_work", "report");
 }
 
-int request_work(mixed ignored) {
+int request_work(mixed requested) {
+  if (requested && requested != quest_id) {
+    return 0;
+  }
   return jvmud_invoke_lpc_object(jvmud_current_actor(), "offer_quest", quest_id);
 }
 
-int report_work(mixed ignored) {
+int report_work(mixed requested) {
+  if (requested && requested != quest_id) {
+    return 0;
+  }
   return jvmud_invoke_lpc_object(jvmud_current_actor(), "turn_in_quest", quest_id);
 }
 
@@ -94,5 +105,8 @@ void describe(object viewer) {
   write(display_name + " is the " + office + ". ");
   write(jvmud_capitalize_text(subject_word) + " " + have_word);
   write(" posted a request for assistance.\n");
+  if (jvmud_size(details)) {
+    write(details + "\n");
+  }
   write("Type work to accept the assignment or report when it is complete.\n");
 }

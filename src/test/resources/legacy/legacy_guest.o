@@ -1,0 +1,126 @@
+{
+  "format" : "jvmud.lpc-object-state",
+  "version" : 1,
+  "fields" : {
+    "persona.adventurer.account_id" : {
+      "type" : "string",
+      "value" : "legacy_guest"
+    },
+    "persona.adventurer.password_hash" : {
+      "type" : "string",
+      "value" : "pbkdf2-sha256$210000$3rAx8cCwfjfbksAao2bRyQ$KUZiOcUODEdkCYEAIpYL2iu729AZykWa-McX3dOAG34"
+    },
+    "persona.adventurer.pending_password" : {
+      "type" : "string",
+      "value" : ""
+    },
+    "persona.adventurer.character_name" : {
+      "type" : "string",
+      "value" : "First guest"
+    },
+    "persona.adventurer.gender" : {
+      "type" : "string",
+      "value" : "non-binary"
+    },
+    "persona.adventurer.character_class" : {
+      "type" : "string",
+      "value" : "ranger"
+    },
+    "persona.adventurer.account_created" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.save_version" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.level" : {
+      "type" : "int",
+      "value" : 3
+    },
+    "persona.adventurer.experience" : {
+      "type" : "int",
+      "value" : 15
+    },
+    "persona.adventurer.strength" : {
+      "type" : "int",
+      "value" : 10
+    },
+    "persona.adventurer.dexterity" : {
+      "type" : "int",
+      "value" : 15
+    },
+    "persona.adventurer.constitution" : {
+      "type" : "int",
+      "value" : 12
+    },
+    "persona.adventurer.intelligence" : {
+      "type" : "int",
+      "value" : 10
+    },
+    "persona.adventurer.wisdom" : {
+      "type" : "int",
+      "value" : 12
+    },
+    "persona.adventurer.charisma" : {
+      "type" : "int",
+      "value" : 10
+    },
+    "persona.adventurer.max_health" : {
+      "type" : "int",
+      "value" : 96
+    },
+    "persona.adventurer.health" : {
+      "type" : "int",
+      "value" : 96
+    },
+    "persona.adventurer.max_resource" : {
+      "type" : "int",
+      "value" : 61
+    },
+    "persona.adventurer.resource" : {
+      "type" : "int",
+      "value" : 60
+    },
+    "persona.adventurer.copper" : {
+      "type" : "int",
+      "value" : 120
+    },
+    "persona.adventurer.attribute_points" : {
+      "type" : "int",
+      "value" : 0
+    },
+    "persona.adventurer.introductory_drill_completed" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.inventory_state" : {
+      "type" : "string",
+      "value" : "{\"type\":\"array\",\"values\":[{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"blueprint\"},\"value\":{\"type\":\"string\",\"value\":\"weapon/ashwood-shortbow\"}},{\"key\":{\"type\":\"string\",\"value\":\"equipped\"},\"value\":{\"type\":\"int\",\"value\":1}}]},{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"blueprint\"},\"value\":{\"type\":\"string\",\"value\":\"armor/travel-cloak\"}},{\"key\":{\"type\":\"string\",\"value\":\"equipped\"},\"value\":{\"type\":\"int\",\"value\":1}}]},{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"blueprint\"},\"value\":{\"type\":\"string\",\"value\":\"consumable/healing-draught\"}},{\"key\":{\"type\":\"string\",\"value\":\"equipped\"},\"value\":{\"type\":\"int\",\"value\":0}}]}]}"
+    },
+    "persona.adventurer.inventory_materialized" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.quest_state" : {
+      "type" : "string",
+      "value" : "{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"counts\"},\"value\":{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"discontinued-task\"},\"value\":{\"type\":\"int\",\"value\":0}}]}},{\"key\":{\"type\":\"string\",\"value\":\"stages\"},\"value\":{\"type\":\"mapping\",\"entries\":[{\"key\":{\"type\":\"string\",\"value\":\"discontinued-task\"},\"value\":{\"type\":\"int\",\"value\":1}}]}},{\"key\":{\"type\":\"string\",\"value\":\"flags\"},\"value\":{\"type\":\"mapping\",\"entries\":[]}}]}"
+    },
+    "persona.adventurer.quests_materialized" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.combat_target" : {
+      "type" : "null",
+      "value" : null
+    },
+    "persona.adventurer.brief_mode" : {
+      "type" : "int",
+      "value" : 1
+    },
+    "persona.adventurer.saved_place" : {
+      "type" : "string",
+      "value" : "place/atlas/x0113/y3337"
+    }
+  }
+}

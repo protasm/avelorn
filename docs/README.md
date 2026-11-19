@@ -6,6 +6,8 @@ the accepted setting rather than reconstructing it from conversation history.
 
 ## Current references
 
+- [Area authoring guide](AUTHORING.md) walks through adding an LPC locality, its travel links, and a quest.
+- [Avelorn 1.0 build plan](BUILD.md) records the playable scope, LPC authoring rules, and release gates.
 - [North Island lore](LORE.md): the five named nations (Arvenna, Ordel, Talvaren,
   Caereth, and Durnath), their cultural foundations, the Durnathi Dominion,
   the Conquest, the corrupting resource, and the emerging resistance. Records
@@ -19,7 +21,7 @@ the accepted setting rather than reconstructing it from conversation history.
   the authoritative pointer to the adopted territorial dataset.
 - [Political atlas documentation](../atlas/political/README.md): ownership data,
   coordinate conventions, and versioning.
-- [Reference maps](../output/maps/README.md): saved island grids and border views.
+- [Tiled atlas](../atlas/tiled/README.md) describes the map view and the frozen physical terrain.
 
 These datasets and images remain in their existing project locations; this
 index links to them rather than creating competing copies.

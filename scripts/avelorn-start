@@ -3,13 +3,16 @@ set -eu
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 AVELORN_ROOT=$(dirname -- "$SCRIPT_DIR")
-JVMUD_ROOT=${JVMUD_ROOT:-"$(dirname -- "$AVELORN_ROOT")/jvmud"}
+RUN_DIR=${AVELORN_RUN_DIR:-"$HOME/.jvmud/avelorn"}
+CLASSPATH_FILE="$AVELORN_ROOT/target/jvmud-runtime-classpath.txt"
 
-if [ ! -x "$JVMUD_ROOT/scripts/jvmud-start" ]; then
-  echo "JVMud was not found at $JVMUD_ROOT" >&2
-  echo "Set JVMUD_ROOT to the JVMud checkout." >&2
+cd "$AVELORN_ROOT"
+if ! mvn -q dependency:build-classpath -DincludeScope=runtime -Dmdep.outputFile="$CLASSPATH_FILE"; then
+  printf '%s\n' "Run scripts/avelorn-install-jvmud to install the pinned JVMud build." >&2
   exit 1
 fi
 
-cd "$AVELORN_ROOT"
-exec "$JVMUD_ROOT/scripts/jvmud-start" "$AVELORN_ROOT/jvmud/avelorn.config" "$@"
+mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"
+exec java -cp "$(cat "$CLASSPATH_FILE")" io.github.protasm.jvmud.engine.application.JVMud \
+  "$AVELORN_ROOT/jvmud/avelorn.config" "$@"

@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  printf '%s\n' "Usage: scripts/avelorn-package NEW_BUNDLE_DIRECTORY [GIT_REVISION]" >&2
+  exit 2
+fi
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT=$(dirname -- "$SCRIPT_DIR")
+DESTINATION=$1
+REVISION=$(git -C "$PROJECT" rev-parse --verify --end-of-options "${2:-HEAD}^{commit}")
+PHYSICAL_ATLAS=atlas/qgis/unnamed_new_zealand/export/edition1_256m_atlas
+
+if [ -e "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
+  printf '%s\n' "Choose a new directory for the bundle." >&2
+  exit 2
+fi
+
+umask 022
+BUILD_DIR=$(mktemp -d "${DESTINATION}.tmp.XXXXXX")
+trap 'rm -rf -- "$BUILD_DIR"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+BUILD_DIR=$(CDPATH= cd -- "$BUILD_DIR" && pwd)
+
+git -C "$PROJECT" archive --format=tar --output="$BUILD_DIR/source.tar" "$REVISION" \
+  pom.xml jvmud source "$PHYSICAL_ATLAS" atlas/political \
+  docs/OPERATIONS.md docs/PLAY.md docs/AUTHORING.md +  scripts/avelorn-stage ops/AvelornStage.java
+mkdir -p "$BUILD_DIR/mudlib" "$BUILD_DIR/bin" "$BUILD_DIR/tools" "$BUILD_DIR/lib"
+tar -xf "$BUILD_DIR/source.tar" -C "$BUILD_DIR/mudlib"
+rm "$BUILD_DIR/source.tar"
+
+mv "$BUILD_DIR/mudlib/scripts/avelorn-stage" "$BUILD_DIR/bin/avelorn-stage"
+mv "$BUILD_DIR/mudlib/ops/AvelornStage.java" "$BUILD_DIR/tools/"
+mv "$BUILD_DIR/mudlib/docs/OPERATIONS.md" "$BUILD_DIR/"
+mv "$BUILD_DIR/mudlib/docs/PLAY.md" "$BUILD_DIR/mudlib/docs/AUTHORING.md" "$BUILD_DIR/"
+rmdir "$BUILD_DIR/mudlib/scripts" "$BUILD_DIR/mudlib/ops" "$BUILD_DIR/mudlib/docs"
+mvn -q -f "$BUILD_DIR/mudlib/pom.xml" dependency:copy-dependencies \
+  -DincludeScope=runtime -DoutputDirectory="$BUILD_DIR/lib"
+rm "$BUILD_DIR/mudlib/pom.xml"
+printf '%s\n' "$REVISION" > "$BUILD_DIR/RELEASE"
+if [ -e "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
+  printf '%s\n' "A directory or file now exists at the bundle path." >&2
+  exit 2
+fi
+mv "$BUILD_DIR" "$DESTINATION"
+printf '%s\n' "Packaged Avelorn $REVISION at $DESTINATION."

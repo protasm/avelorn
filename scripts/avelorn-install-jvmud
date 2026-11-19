@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+AVELORN_ROOT=$(dirname -- "$SCRIPT_DIR")
+PARENT_DIR=$(dirname -- "$AVELORN_ROOT")
+JVMUD_REVISION=ed4dfc43b8be61369b47735ead2a96e578909b91
+JVMUD_UPSTREAM_VERSION=0.1.0-preview.9
+JVMUD_PINNED_VERSION=0.1.0-preview.9-ed4dfc43b
+
+if [ -z "${JVMUD_ROOT:-}" ]; then
+  JVMUD_ROOT="$PARENT_DIR/io.github.protasm.jvmud"
+  if [ ! -d "$JVMUD_ROOT" ]; then
+    JVMUD_ROOT="$PARENT_DIR/jvmud"
+  fi
+fi
+
+if ! git -C "$JVMUD_ROOT" cat-file -e "$JVMUD_REVISION^{commit}" 2>/dev/null; then
+  printf '%s\n' "Set JVMUD_ROOT to a JVMud checkout containing $JVMUD_REVISION." >&2
+  exit 1
+fi
+
+BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/avelorn-jvmud.XXXXXX")
+trap 'rm -rf -- "$BUILD_DIR"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+git -C "$JVMUD_ROOT" archive --format=tar --output="$BUILD_DIR/source.tar" "$JVMUD_REVISION"
+tar -xf "$BUILD_DIR/source.tar" -C "$BUILD_DIR"
+# Use a distinct Maven coordinate so a preview release cannot replace the pinned build.
+sed "s|^  <version>$JVMUD_UPSTREAM_VERSION</version>|  <version>$JVMUD_PINNED_VERSION</version>|" \
+  "$BUILD_DIR/pom.xml" > "$BUILD_DIR/pinned-pom.xml"
+mv "$BUILD_DIR/pinned-pom.xml" "$BUILD_DIR/pom.xml"
+mvn -f "$BUILD_DIR/pom.xml" -Dmaven.test.skip=true install "$@"

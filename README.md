@@ -1,71 +1,24 @@
 # Avelorn
 
-Avelorn is a persistent multiplayer game authored for the JVMud engine.
+Avelorn is a persistent multiplayer LPMud built on JVMud. It opens at Westwatch, a guest-house governed by Arvenni rules of shelter and obligation. A failed signal lamp leads from a short job on the dunes into the struggle over the occupied island.
 
-The geographical world and its story have been intentionally reset. All former
-regions, rooms, routes, maps, placed inhabitants, shops, quests, and generated
-world logic are gone. Players now enter the anonymous Edition 1 physical atlas.
-Wilderness rooms are materialized on demand from its compressed JSON region
-files and expose terrain, elevation, upstream catchment area, and derived exits.
+The same world serves solo adventurers and groups of up to four. Fighters, Rangers, Mages, and Clerics can all complete the campaign. Each nation has its own settlements, institutions, markets, and adventures. At level 10, players can return for weekly contracts, rotating encounters, and distinctive equipment and keepsakes.
 
-## Preserved game systems
+## Play and operate
 
-- account creation, authentication, and character persistence;
-- Fighters, Rangers, Mages, and Clerics, including attributes and techniques;
-- health, combat, recovery, experience, levels, training, and advancement;
-- inventory, equipment, item blueprints, carrying capacity, and consumables;
-- currency and economy functions;
-- room speech, private tells, online presence, pronouns, and 100 social emotes;
-- brief/full presentation and GMCP character and room support;
-- reusable citizen, hostile, and quest-giver NPC templates; and
-- an empty quest-catalog boundary ready for future story content.
+- [Player quickstart](docs/PLAY.md)
+- [Private staging, backup, and deployment](docs/OPERATIONS.md)
 
-The previous world-specific acceptance coverage was replaced with focused
-system-preservation and Edition 1 wilderness-movement coverage.
+Install the pinned JVMud engine from a sibling checkout. Set `JVMUD_ROOT` if the sibling is elsewhere. Use JDK 21 or newer and Maven.
 
-## Worldbuilding references
-
-- [Design documentation](docs/README.md) indexes the project's saved design
-  decisions, lore, technical foundations, and related reference assets.
-- [Lore foundation](docs/LORE.md) records the five nations, the Conquest, and the
-  emerging resistance.
-- [Working pre-Conquest borders](atlas/political/pre-conquest/working-borders.json)
-  is the authoritative descriptor for the adopted cell-level territory data.
-- [Political atlas documentation](atlas/political/README.md) describes its
-  coordinates, file format, and versioning.
-- [Reference maps](output/maps/README.md) contains the island grid and border
-  views used during design.
-
-Political ownership is stored separately from the physical atlas and is not yet
-connected to live gameplay.
-
-## Native shape
-
-- `jvmud/avelorn.config` declares the JVMud boundary and lifecycle vocabulary.
-- `source/persona/` owns character policy and player-facing interaction.
-- `source/system/atlas.c` reads and caches Edition 1 physical atlas regions.
-- `source/system/atlas_room.c` is the generic on-demand wilderness Place.
-- `source/system/` contains reusable mudlib services.
-- `source/npc/` contains reusable NPC templates.
-- `source/item/` contains the reusable item entity implementation.
-- `accounts/` contains ignored runtime character snapshots.
-- `docs/FOUNDATION.md` records the preserved technical contract.
-
-## Development
-
-Avelorn and JVMud are independent sibling projects. Clone JVMud beside this
-repository, or set `JVMUD_ROOT` to its checkout. Install the current JVMud
-snapshot before running Avelorn's acceptance suite:
-
-```text
-cd ../jvmud
-mvn install
-cd ../avelorn
+```sh
+scripts/avelorn-install-jvmud
 mvn test
-```
-
-Run the game from the Avelorn repository root with:
-
-```text
 scripts/avelorn-start
 ```
+
+Connect a Telnet or GMCP-capable client to the Avelorn player port reported at startup. The staging guide covers an encrypted connection for persistent accounts.
+
+## Build more of the world
+
+[Area authoring](docs/AUTHORING.md) walks through adding a locality. Individual LPC files define authored rooms, inhabitants, equipment, and quests. The area registry attaches them to the [Edition 1 atlas](atlas/tiled/README.md), which supplies terrain between destinations. The [design index](docs/README.md) links the build plan, lore, and historical borders.

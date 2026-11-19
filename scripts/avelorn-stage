@@ -1,0 +1,159 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ "$#" -lt 2 ]; then
+  printf '%s\n' "Usage: avelorn-stage start STATE_DIR BASE_PORT" \
+    "       avelorn-stage admin STATE_DIR" \
+    "       avelorn-stage soak STATE_DIR SECONDS CLIENTS" >&2
+  exit 2
+fi
+
+ACTION=$1
+STATE=$2
+shift 2
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+BUNDLE=$(dirname -- "$SCRIPT_DIR")
+umask 077
+
+if [ ! -f "$BUNDLE/RELEASE" ] || [ ! -d "$BUNDLE/lib" ]; then
+  printf '%s\n' "Run this script from a packaged Avelorn bundle." >&2
+  exit 2
+fi
+
+if [ "$ACTION" = start ]; then
+  mkdir -p "$STATE"
+fi
+STATE=$(CDPATH= cd -- "$STATE" && pwd)
+CLASSPATH="$BUNDLE/lib/*"
+WORLD="$STATE/mudlibs/avelorn"
+ENGINE_SOCKET="$STATE/engine/engine.sock"
+
+admin() {
+  java -cp "$CLASSPATH" io.github.protasm.jvmud.communication.console.AdminConsole \
+    --socket "$ENGINE_SOCKET"
+}
+
+start() {
+  if [ "$#" -ne 1 ]; then
+    printf '%s\n' "Supply the base port for the five loopback listeners." >&2
+    exit 2
+  fi
+  case "$1" in
+    ''|*[!0-9]*|0*)
+      printf '%s\n' "Use a base port from 1024 through 65531." >&2
+      exit 2
+      ;;
+  esac
+  if [ "$1" -lt 1024 ] || [ "$1" -gt 65531 ]; then
+    printf '%s\n' "Use a base port from 1024 through 65531." >&2
+    exit 2
+  fi
+
+  DIRECTORY_PORT=$1
+  ADMIN_PORT=$((DIRECTORY_PORT + 1))
+  PLAYER_PORT=$((DIRECTORY_PORT + 2))
+  WORKER_ADMIN_PORT=$((DIRECTORY_PORT + 3))
+  TLS_PORT=$((DIRECTORY_PORT + 4))
+  REVISION=$(cat "$BUNDLE/RELEASE")
+  if [ -f "$STATE/RELEASE" ]; then
+    if [ "$(cat "$STATE/RELEASE")" != "$REVISION" ]; then
+      printf '%s\n' "Use a separate state directory for a different bundle revision." >&2
+      exit 2
+    fi
+  else
+    mkdir -p "$STATE/mudlibs"
+    if [ -e "$WORLD" ]; then
+      printf '%s\n' "The game directory already exists without a release marker." >&2
+      exit 2
+    fi
+    cp -R "$BUNDLE/mudlib" "$WORLD"
+    printf '%s\n' "$REVISION" > "$STATE/RELEASE"
+  fi
+
+  if [ ! -f "$STATE/tls.p12" ]; then
+    openssl rand -hex 32 > "$STATE/tls.pass"
+    keytool -genkeypair -alias avelorn -keyalg EC -validity 365 -dname "CN=localhost" \
+      -ext "SAN=ip:127.0.0.1,dns:localhost" -storetype PKCS12 \
+      -keystore "$STATE/tls.p12" -storepass:file "$STATE/tls.pass" >/dev/null
+  fi
+  if [ ! -f "$STATE/tls.crt" ]; then
+    keytool -exportcert -rfc -alias avelorn -keystore "$STATE/tls.p12" \
+      -storepass:file "$STATE/tls.pass" -file "$STATE/tls.crt" >/dev/null
+  fi
+  if [ ! -f "$STATE/soak.pass" ]; then
+    printf 'Avelorn!%s\n' "$(openssl rand -hex 16)" > "$STATE/soak.pass"
+  fi
+
+  cd "$STATE"
+  ENGINE_PID=
+  PROXY_PID=
+  READY=0
+  cleanup() {
+    if [ "$READY" -eq 1 ]; then rm -f -- "$STATE/tls.port"; fi
+    if [ -n "$PROXY_PID" ]; then kill -TERM "$PROXY_PID" 2>/dev/null || true; fi
+    if [ -n "$ENGINE_PID" ]; then kill -TERM "$ENGINE_PID" 2>/dev/null || true; fi
+    if [ -n "$PROXY_PID" ]; then wait "$PROXY_PID" 2>/dev/null || true; fi
+    if [ -n "$ENGINE_PID" ]; then wait "$ENGINE_PID" 2>/dev/null || true; fi
+  }
+  trap cleanup EXIT
+  trap 'exit 130' INT
+  trap 'exit 143' TERM
+
+  java -cp "$CLASSPATH" io.github.protasm.jvmud.engine.application.JVMud \
+    --bind 127.0.0.1 --port "$DIRECTORY_PORT" --admin-port "$ADMIN_PORT" \
+    --state-dir "$STATE/engine" --mudlib-dir "$STATE/mudlibs" >> "$STATE/engine.log" 2>&1 &
+  ENGINE_PID=$!
+  attempts=0
+  until [ -S "$ENGINE_SOCKET" ] && printf 'quit\n' | admin >/dev/null 2>&1; do
+    if [ "$attempts" -ge 20 ] || ! kill -0 "$ENGINE_PID" 2>/dev/null; then
+      printf '%s\n' "The local engine did not start. See $STATE/engine.log." >&2
+      exit 1
+    fi
+    attempts=$((attempts + 1))
+    sleep 1
+  done
+
+  printf 'start avelorn %s %s\nquit\n' "$PLAYER_PORT" "$WORKER_ADMIN_PORT" \
+    | admin > "$STATE/worker-start.log" 2>&1
+  if ! grep -q 'state=RUNNING' "$STATE/worker-start.log"; then
+    printf '%s\n' "Avelorn did not start. See $STATE/worker-start.log." >&2
+    exit 1
+  fi
+
+  java "$BUNDLE/tools/AvelornStage.java" proxy "$TLS_PORT" "$PLAYER_PORT" \
+    "$STATE/tls.p12" "$STATE/tls.pass" > "$STATE/proxy.log" 2>&1 &
+  PROXY_PID=$!
+  attempts=0
+  while ! grep -q 'Listening on' "$STATE/proxy.log"; do
+    if [ "$attempts" -ge 15 ] || ! kill -0 "$PROXY_PID" 2>/dev/null; then
+      printf '%s\n' "The TLS listener did not start. See $STATE/proxy.log." >&2
+      exit 1
+    fi
+    attempts=$((attempts + 1))
+    sleep 1
+  done
+  printf '%s\n' "$TLS_PORT" > "$STATE/tls.port"
+  READY=1
+  printf '%s\n' "Avelorn $REVISION is available over TLS on 127.0.0.1:$TLS_PORT." \
+    "Trust the local certificate at $STATE/tls.crt."
+
+  while kill -0 "$ENGINE_PID" 2>/dev/null && kill -0 "$PROXY_PID" 2>/dev/null; do
+    sleep 2
+  done
+  printf '%s\n' "A staging process exited. See $STATE/engine.log and $STATE/proxy.log." >&2
+  exit 1
+}
+
+case "$ACTION" in
+  start) start "$@" ;;
+  admin)
+    if [ "$#" -ne 0 ]; then exit 2; fi
+    admin
+    ;;
+  soak)
+    if [ "$#" -ne 2 ]; then exit 2; fi
+    exec java "$BUNDLE/tools/AvelornStage.java" soak "$(cat "$STATE/tls.port")" \
+      "$STATE/tls.crt" "$STATE/soak.pass" "$1" "$2"
+    ;;
+  *) exit 2 ;;
+esac
