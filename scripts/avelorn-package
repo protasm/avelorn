@@ -26,7 +26,7 @@ BUILD_DIR=$(CDPATH= cd -- "$BUILD_DIR" && pwd)
 
 git -C "$PROJECT" archive --format=tar --output="$BUILD_DIR/source.tar" "$REVISION" \
   pom.xml jvmud source "$PHYSICAL_ATLAS" atlas/political \
-  docs/OPERATIONS.md docs/PLAY.md docs/AUTHORING.md \
+  docs/OPERATIONS.md docs/PLAY.md docs/AUTHORING.md docs/BUILD.md docs/LORE.md \
   scripts/avelorn-stage ops/AvelornStage.java
 mkdir -p "$BUILD_DIR/mudlib" "$BUILD_DIR/bin" "$BUILD_DIR/tools" "$BUILD_DIR/lib"
 tar -xf "$BUILD_DIR/source.tar" -C "$BUILD_DIR/mudlib"
@@ -34,9 +34,7 @@ rm "$BUILD_DIR/source.tar"
 
 mv "$BUILD_DIR/mudlib/scripts/avelorn-stage" "$BUILD_DIR/bin/avelorn-stage"
 mv "$BUILD_DIR/mudlib/ops/AvelornStage.java" "$BUILD_DIR/tools/"
-mv "$BUILD_DIR/mudlib/docs/OPERATIONS.md" "$BUILD_DIR/"
-mv "$BUILD_DIR/mudlib/docs/PLAY.md" "$BUILD_DIR/mudlib/docs/AUTHORING.md" "$BUILD_DIR/"
-rmdir "$BUILD_DIR/mudlib/scripts" "$BUILD_DIR/mudlib/ops" "$BUILD_DIR/mudlib/docs"
+rmdir "$BUILD_DIR/mudlib/scripts" "$BUILD_DIR/mudlib/ops"
 mvn -q -f "$BUILD_DIR/mudlib/pom.xml" dependency:copy-dependencies \
   -DincludeScope=runtime -DoutputDirectory="$BUILD_DIR/lib"
 rm "$BUILD_DIR/mudlib/pom.xml"
