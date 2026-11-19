@@ -944,7 +944,7 @@ int receive_damage(int amount, string attacker_name) {
 }
 
 string atlas_start_path() {
-  return "place/atlas/x2080/y3936";
+  return "place/atlas/x0113/y3336";
 }
 
 void award_victory(int xp, int coins, string opponent_name, object opponent) {

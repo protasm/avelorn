@@ -7,21 +7,24 @@ in the source JSON rather than being duplicated as millions of Tiled objects.
 
 `avelorn.world` arranges separate 64 by 64 region maps into a continuous world.
 It contains all 542 atlas regions intersecting the connected North Island
-landmass that contains the starting square at `x=2080`, `y=3936`. This covers
+landmass. The starting square at `x=113`, `y=3336` is the southern one of the
+two westernmost Edition 1 squares at the island's western tip. This covers
 1,740,269 connected North Island squares. The generated region files contain
 1,740,951 populated squares in total because boundary maps retain small offshore
 islands that share those regions.
 
-The earlier shortest corridor from the starting region to the northwestern
-ocean remains useful as a reference route through the complete World:
+`maps/r01_52.tmj` contains the starting square. Its western and southern
+neighbors are omitted Edition 1 ocean squares, leaving north and east as the
+two exits from the tip.
+
+A reference corridor through the complete World runs:
 
 ```text
 32,61 -> 31,61 -> 31,62 -> 30,62 -> 30,63 -> 29,63 -> 29,64 -> 28,64
 ```
 
-`maps/r32_61.tmj` contains the starting square at atlas coordinates
-`x=2080`, `y=3936`. `maps/r28_64.tmj` is the coastal map; its 1,043 omitted
-Edition 1 ocean squares appear as empty tiles.
+`maps/r28_64.tmj` is the coastal map at the end of that corridor; its 1,043
+omitted Edition 1 ocean squares appear as empty tiles.
 
 From Region 28,64, ten additional maps trace the connected coastline north:
 
@@ -37,10 +40,10 @@ The next ten maps continue along that coastline from Region 32,70:
 30,74 -> 30,75 -> 31,75 -> 31,76 -> 32,76
 ```
 
-The large inland lake beyond the starting region occupies parts of Regions
+The large inland lake occupies parts of Regions
 34-35 by 59-61. The World includes a one-region collar around the complete
 lake: every region in the 4 by 5 block from `33,58` through `36,62`. Region
-`33,61` joins that block directly to the starting Region `32,61`.
+`33,61` joins that block to Region `32,61`.
 
 The large stratovolcano beyond the lake has its 2,651 m summit in Region
 `37,58`. Its connected terrain above 1,200 m lies within Regions 36-38 by

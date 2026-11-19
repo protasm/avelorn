@@ -22,7 +22,7 @@ CELLS_PER_REGION_AXIS = 64
 TILE_SIZE = 16
 TILESET_COLUMNS = 8
 TERRAIN_CODE_COUNT = 64
-NORTH_ISLAND_SEED = (2080, 3936)
+NORTH_ISLAND_SEED = (113, 3336)
 
 TILED_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = Path(__file__).resolve().parents[3]
