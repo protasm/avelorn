@@ -25,6 +25,8 @@ system-preservation and Edition 1 wilderness-movement coverage.
 
 ## Worldbuilding references
 
+- [Design documentation](docs/README.md) indexes the project's saved design
+  decisions, lore, technical foundations, and related reference assets.
 - [Lore foundation](docs/LORE.md) records the five nations, the Conquest, and the
   emerging resistance.
 - [Working pre-Conquest borders](atlas/political/pre-conquest/working-borders.json)

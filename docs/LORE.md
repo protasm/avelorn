@@ -1,11 +1,13 @@
 # Avelorn: North Island lore foundation
 
-Recorded September 6, 2026, from the day's worldbuilding discussion.
+Foundation recorded September 6, 2026. Expanded September 9, 2026, to preserve
+the approved national identities, working proper names, and Dominion distinction.
 
 This document memorializes the current narrative foundation. It supersedes the
 earlier Edrath setting, named kindreds, Royal Measure, and Unwritten player
-origin. Names for the new nations, their rulers, and the mountain resource
-remain open. This is a lore record, not an implementation specification.
+origin. The five nations now have approved working names and cultural foundations;
+their rulers and the mountain resource remain unnamed. This is a lore record,
+not an implementation specification.
 
 ## The five nations before the conquest
 
@@ -28,6 +30,200 @@ poorer mountain people. Mountain communities could take pride in their work
 while resenting their dependent status. The old order need not have been
 secretly tyrannical for its inequalities and slights to become powerful
 grievances later.
+
+## National identities and names
+
+The four-coastal-plus-one-central geographic arrangement is accepted. The
+following names and cultural foundations are the working basis for further
+development, not merely an unselected list of alternatives. Names remain
+revisable as the histories take shape.
+
+Each nation should have a recognizable character that predates the Conquest.
+Occupation preserves, distorts, or drives existing traditions underground; it
+does not supply the peoples with their entire identities. Their central values
+also produce weaknesses and internal disagreements. These are social traditions,
+not compulsory personalities or innate abilities possessed by every individual.
+
+### Names and correspondence to the accepted map
+
+| Nation | People / adjective | Atlas code | Existing atlas ID | Defining tradition |
+| --- | --- | --- | --- | --- |
+| Arvenna | Arvenni | 1 | `western-coast` | Hospitality, adoption, and the obligations of belonging |
+| Ordel | Ordeli | 2 | `northern-coast` | Public witness, binding promises, and remembered testimony |
+| Talvaren | Talvareni | 3 | `eastern-coast` | Stewardship, communal provision, and duties to future generations |
+| Caereth | Caerethi | 4 | `southern-coast` | Negotiated allegiance and the honored right to refuse |
+| Durnath | Durnathi | 5 | `central-highlands` | Mutual endurance, shared danger, and responsibility for one another |
+
+Directions in this table are Avelorn's native directions. The table supplies a
+lore-to-map correspondence without changing any borders, atlas IDs, or numerical
+ownership codes. The adopted version 1 package retains its original descriptive
+labels and remains the authority for geography.
+
+### Arvenna: belonging through hospitality
+
+Arvenni households grow by taking people in: travelers, spouses, apprentices,
+refugees, and even former enemies. Adoption carries the same obligations as
+blood kinship. A great family is measured partly by how many people it can
+shelter and feed.
+
+The characteristic institution proposed for Arvenna is the **guest-house**:
+a communal hall where strangers receive protection, disputes are heard, and
+news arrives with the evening meal. Its precise organization and relationship
+to household and national government remain to be developed.
+
+Hospitality is both a virtue and a source of power. It creates obligations;
+powerful households can turn generosity into lifelong dependence. A society
+that values belonging so deeply can struggle to accept that someone might
+legitimately wish to leave.
+
+Under occupation, the question **"Whose guest are you?"** becomes both a means
+of protecting fugitives and a dangerous test of identity. The old structures of
+shelter and obligation give resistance something to work through, but they are
+not automatically safe or free of coercion.
+
+The characteristic expression is **"Under an Arvenni roof."** It means that
+you are protected, but your host has accepted a responsibility you must respect.
+
+### Ordel: legitimacy through public witness
+
+Among the Ordeli, promises matter because someone stood and heard them.
+Treaties, marriages, inheritances, and judgments are witnessed publicly.
+Prestigious families maintain trained witnesses whose reputations depend on
+faithful recollection.
+
+The characteristic institution proposed for Ordel is the **witness court**,
+where even a ruler must answer for words spoken before others. Its detailed
+procedures and constitutional powers remain open.
+
+This devotion to witnessed commitments can become rigid. An unjust agreement
+may acquire immense authority simply because it was properly made. Celebrated
+honesty also produces masters of carefully worded deception: remembering the
+exact words does not settle whether those words were fair or candid.
+
+Under occupation, official witnesses certify the conquerors' claims while
+clandestine gatherings preserve testimony about dispossession. Some families
+have spent generations maintaining two incompatible accounts of their own
+history.
+
+The characteristic expression is **"Before Ordeli ears."** Speak carefully:
+someone will remember what you promised.
+
+### Talvaren: prosperity through stewardship
+
+The Talvareni regard civilization as something continually maintained: fields,
+roads, embankments, storehouses, orchards, and the agreements that keep them
+functioning. Their finest rulers were remembered less for victories than for
+leaving their successors a country in good repair.
+
+The characteristic institution proposed for Talvaren is the **keeping-house**,
+responsible for communal reserves, practical instruction, and obligations
+extending across generations. Its exact administrative structure remains open.
+
+Stewardship can become paternalism. Those who administer food and infrastructure
+can come to believe they should administer everyone's lives. Before the
+Conquest, Talvareni benevolence toward Durnath may have been sincere and
+particularly condescending. That is a proposed emphasis within the already
+established unequal coastal-mountain relationship, not a decision that Talvaren
+was secretly tyrannical or solely responsible for Durnathi resentment.
+
+Under occupation, Talvareni competence keeps the island fed. Resistance faces
+a painful constraint: destroying the machinery of exploitation can also starve
+neighbors. Maintaining essential services and serving the Dominion can be
+difficult to separate.
+
+The characteristic expression is **"A Talvareni inheritance."** It describes
+something received in trust, with work still owed upon it.
+
+### Caereth: freedom through the right to refuse
+
+The Caerethi are suspicious of permanent authority. Rulers govern through
+negotiated allegiance, and households retain an honored right to withdraw
+service under certain conditions. Assemblies are argumentative, political
+loyalty is personal, and a refusal made openly can command more respect than
+reluctant obedience.
+
+The characteristic institution proposed for Caereth is the **renewal assembly**,
+where obligations must periodically be affirmed rather than inherited forever.
+The interval, eligibility rules, and grounds for withdrawing service have not
+yet been defined.
+
+Their weakness is fragmentation. They can unite brilliantly against an
+immediate threat and struggle to sustain cooperation afterward. The right to
+refuse is also unequal in practice: wealthy families possess much more freedom
+to exercise it than poor ones do.
+
+Under occupation, outward obedience conceals a stubborn distinction:
+**"You may compel my labor, but you cannot make it an oath."** Submission to
+force need not mean that the Dominion has acquired legitimate allegiance.
+
+The characteristic expression is **"A Caerethi yes."** Agreement freely given
+is worth having precisely because it could have been refused.
+
+### Durnath: dignity through mutual endurance
+
+Before the discovery, the Durnathi valued those who could be relied upon when
+conditions turned dangerous. Mining, quarrying, mountain travel, and winter
+provisioning made trust a practical necessity. Leaders were expected to share
+risks. Abandoning someone under one's protection was among the gravest disgraces.
+
+The characteristic institution proposed for Durnath is the **bound company**:
+a working fellowship whose members undertake responsibility for one another
+and for the families of those who die. This is an older social commitment,
+distinct from the later psychic bonding of the mountain resource. Its precise
+rules and relationship to political authority remain open.
+
+Their weakness was an increasingly bitter conviction that outsiders enjoyed
+the fruits of hardships they neither understood nor respected. The corrupting
+resource exploits that grievance and their existing solidarity; it does not
+create an evil people from nothing.
+
+Under its influence, solidarity becomes compulsory unity. Shared endurance
+becomes a demand for unquestioning sacrifice. The old promise,
+**"None of us will be abandoned,"** becomes the imperial threat,
+**"None of you may leave."** Some central families still remember what the
+promise originally meant.
+
+The characteristic expression is **"On a Durnathi rope."** One's survival is
+entrusted to others, and theirs to oneself. Originally a miners' expression,
+it became a saying about fellowship.
+
+Durnath's original virtues should remain recognizable beneath the regime's
+corruption. This preserves room for mountain dissidents, honorable ancestors,
+compromised families, and leaders who believe they are protecting their people
+even as they deliver them to the buried intelligence. Durnathi identity alone
+does not establish exposure, corruption, or allegiance.
+
+### Durnath and the Durnathi Dominion
+
+**Durnath** names the old central nation and its homeland; **Durnathi** names its
+people and serves as the adjective. **The Durnathi Dominion** names the
+conquering regime that now claims the entire island. The homeland, people, and
+imperial state must not be treated as interchangeable.
+
+The distinction can be expressed by a character saying:
+**"I am Durnathi, not the Dominion's."**
+
+Arvenna, Ordel, Talvaren, Caereth, and Durnath belong to the pre-Conquest map.
+A possibility retained for later development is that the Dominion continues
+to use the four conquered nations' names administratively while denying their
+right to nationhood. This administrative arrangement has not yet been fixed.
+
+### Boundaries of this cultural foundation
+
+The five cultures are fictional creations, not assignments of real-world iwi
+identities to the New Zealand-derived physical geography. The earlier
+geographic comparison did not establish cultural counterparts or adopt Māori
+history, institutions, or traditions as in-world lore.
+
+The national profiles establish values, tensions, occupation-era continuities,
+and characteristic expressions. The proposed institutions provide development
+anchors rather than complete legal or governmental systems. No capitals,
+settlements, ruling families, religions, languages, heraldry, or gameplay
+bonuses are established by these profiles.
+
+The four coastal traditions have not yet been assigned their individual parts
+of the Concordance. Hospitality, witness, stewardship, and voluntary allegiance
+should not be mistaken for a finalized mapping to its four technical practices.
 
 ## Discovery, corruption, and conquest
 
@@ -184,13 +380,19 @@ September 6, 2026. The authoritative descriptor is
 [`working-borders.json`](../atlas/political/pre-conquest/working-borders.json),
 with a versioned snapshot assigning every included North Island atlas square
 to one nation. It preserves four coastal countries and a landlocked central
-country containing the Great Lake and volcanic summit. The western, northern,
-eastern, southern, and central labels remain descriptive placeholders.
+country containing the Great Lake and volcanic summit. The original western,
+northern, eastern, southern, and central descriptor labels correspond to
+Arvenna, Ordel, Talvaren, Caereth, and Durnath respectively, as recorded above.
+This naming and cultural expansion does not revise the adopted border package.
 
-Further development is needed for names, national cultures, the
-resource's specific properties, the buried intelligence's nature, the fate of
-bonds after death, and the countermeasure's precise operation. The physical
-atlas has not been changed by this discussion.
+Further development is needed for rulers and other personal names, settlements,
+the detailed operation of national institutions, religion, language, the
+resource's name and specific properties, the buried intelligence's nature,
+the fate of bonds after death, and the countermeasure's precise operation.
+The physical atlas has not been changed by this discussion. A suggested next
+focus is Durnath before the discovery, especially how its original virtues
+survive within and in opposition to the Dominion; that deeper history has not
+yet been written.
 
 The previously discussed possibility of several arriving civilizations, player
 association with one of them, and earned affiliation with indigenous peoples
