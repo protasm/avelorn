@@ -17,6 +17,8 @@ import org.junit.jupiter.api.io.TempDir;
 
 /** Player-visible Avelorn coverage over JVMud's Telnet transport. */
 class AvelornTelnetTest {
+    private static final int DEFAULT_WIDTH = 60;
+
     @TempDir
     Path tempDir;
 
@@ -60,13 +62,14 @@ class AvelornTelnetTest {
                 String firstLook = readUntilQuietAfterContains(socket, "Exits:");
                 assertTrue(firstLook.contains("Westwatch Guest-House"), printable(firstLook));
                 assertNoTerrainStats(firstLook);
-                assertTrue(firstLook.contains("Westwatch Guest-House\r\n" + "+=========".repeat(8) + "\r\n"),
+                assertTrue(firstLook.contains("Westwatch Guest-House\r\n" + "+=========".repeat(6) + "\r\n"),
                         printable(firstLook));
-                assertTrue(firstLook.contains("find the door.\r\n\r\nThe landing"), printable(firstLook));
+                assertTrue(firstLook.matches("(?s).*find\\s+the\\s+door\\.\r\n\r\nThe landing.*"),
+                        printable(firstLook));
 
                 writeLine(socket, "examine iona");
                 String iona = readUntilQuietAfterContains(socket, "\r\n> ");
-                assertWrappedTelnetText(iona);
+                assertWrappedTelnetText(iona, DEFAULT_WIDTH);
                 assertFalse(iona.contains("\r\n\r\n"), printable(iona));
                 assertTrue(iona.endsWith("\r\n> "), printable(iona));
                 String prose = iona.substring(0, iona.length() - 2);
@@ -79,7 +82,7 @@ class AvelornTelnetTest {
                 writeLine(socket, "inventory");
                 String inventory = readUntilQuietAfterContains(socket, "\r\n> ");
                 assertTrue(inventory.contains("\r\n  oak focus staff (equipped)\r\n"), printable(inventory));
-                assertWrappedTelnetText(inventory);
+                assertWrappedTelnetText(inventory, DEFAULT_WIDTH);
 
                 writeLine(socket, "south");
                 String landing = readUntilQuietAfterContains(socket, "Exits:");
@@ -178,21 +181,109 @@ class AvelornTelnetTest {
                 createRanger(speaker, "wrap_speaker", "Arden Vale");
                 createRanger(listener, "wrap_listener", "Celyn Ward");
 
-                String fitting = "a".repeat(65) + " bbbb";
+                String fitting = "a".repeat(45) + " bbbb";
                 writeLine(speaker, "say " + fitting + " tail");
                 String greedy = readUntilQuietAfterContains(speaker, "\r\n> ");
                 assertTrue(greedy.contains("You say, \"" + fitting + "\r\ntail\"\r\n"), printable(greedy));
-                assertWrappedTelnetText(greedy);
-                assertWrappedTelnetText(readUntilQuietAfterContains(listener, "tail\"\r\n"));
+                assertWrappedTelnetText(greedy, DEFAULT_WIDTH);
+                assertWrappedTelnetText(readUntilQuietAfterContains(listener, "tail\"\r\n"), DEFAULT_WIDTH);
 
-                String hyphenated = "x".repeat(79) + "-\r\nxx\"\r\n";
-                writeLine(speaker, "say ready " + "x".repeat(81));
+                String hyphenated = "x".repeat(59) + "-\r\nxx\"\r\n";
+                writeLine(speaker, "say ready " + "x".repeat(61));
                 String self = readUntilQuietAfterContains(speaker, "\r\n> ");
                 String broadcast = readUntilQuietAfterContains(listener, "xx\"\r\n");
                 assertTrue(self.contains("You say, \"ready\r\n" + hyphenated), printable(self));
                 assertTrue(broadcast.contains("Arden vale says, \"ready\r\n" + hyphenated), printable(broadcast));
-                assertWrappedTelnetText(self);
-                assertWrappedTelnetText(broadcast);
+                assertWrappedTelnetText(self, DEFAULT_WIDTH);
+                assertWrappedTelnetText(broadcast, DEFAULT_WIDTH);
+            }
+        } finally {
+            world.shutdown("Test finished.");
+        }
+    }
+
+    @Test
+    void displayWidthAppliesToEachPlayerAndPersistsAcrossLogin() throws Exception {
+        Path avelorn = AvelornFixture.copyTo(tempDir.resolve("avelorn"));
+        MudInstance world = MudInstance.boot(avelorn, AvelornFixture.CONFIG_PATH);
+        String relaySecret = "avelorn-width-fixture";
+        int narrowWidth = 37;
+        int wideWidth = 120;
+        String narrowRuler = "Westwatch Guest-House\r\n" + "+=========".repeat(3) + "+======\r\n";
+        try (TelnetServer worker = new TelnetServer(world, relaySecret)) {
+            world.startExecution();
+            worker.start();
+            try (Socket speaker = connect(worker, relaySecret);
+                    Socket listener = connect(worker, relaySecret)) {
+                createRanger(speaker, "width_speaker", "Arden Vale");
+                createRanger(listener, "width_listener", "Celyn Ward");
+
+                writeLine(speaker, "width " + wideWidth);
+                String wide = readUntilQuietAfterContains(speaker, "\r\n> ");
+                assertTrue(wide.contains("Display width: 120 columns."), printable(wide));
+
+                writeLine(listener, "width " + narrowWidth);
+                String changed = readUntilQuietAfterContains(listener, "\r\n> ");
+                assertTrue(changed.contains("Display width: 37 columns."), printable(changed));
+
+                writeLine(listener, "width 19");
+                readUntilQuietAfterContains(listener, "\r\n> ");
+                writeLine(listener, "width 121");
+                readUntilQuietAfterContains(listener, "\r\n> ");
+                writeLine(listener, "width");
+                String reported = readUntilQuietAfterContains(listener, "\r\n> ");
+                assertTrue(reported.contains("Display width: 37 columns."), printable(reported));
+
+                writeLine(speaker, "help");
+                String help = readUntilQuietAfterContains(speaker, "\r\n> ");
+                assertTrue(help.contains("help settings shows display options"), printable(help));
+                writeLine(listener, "help settings");
+                String settings = readUntilQuietAfterContains(listener, "\r\n> ");
+                assertTrue(settings.contains("Display settings:"), printable(settings));
+                assertTrue(settings.replaceAll("\\s+", " ")
+                        .contains("width <columns> sets the ruler and wrapping width from 20 to 120."),
+                        printable(settings));
+                assertWrappedTelnetText(settings, narrowWidth);
+
+                writeLine(listener, "look");
+                String look = readUntilQuietAfterContains(listener, "\r\n> ");
+                assertTrue(look.contains(narrowRuler), printable(look));
+                assertWrappedTelnetText(look, narrowWidth);
+
+                String fitting = "word ".repeat(21) + "words";
+                writeLine(speaker, "say " + fitting + " tail");
+                String self = readUntilQuietAfterContains(speaker, "\r\n> ");
+                String broadcast = readUntilQuietAfterContains(listener, "tail\"\r\n");
+                assertTrue(self.contains("You say, \"" + fitting + "\r\ntail\"\r\n"), printable(self));
+                assertTrue(broadcast.contains("Arden vale says,"), printable(broadcast));
+                assertWrappedTelnetText(self, wideWidth);
+                assertWrappedTelnetText(broadcast, narrowWidth);
+
+                String privateMessage = "word ".repeat(17) + "notes";
+                writeLine(speaker, "tell Celyn Ward " + privateMessage);
+                String confirmation = readUntilQuietAfterContains(speaker, "\r\n> ");
+                String delivery = readUntilQuietAfterContains(listener, "notes\"\r\n");
+                assertTrue(confirmation.contains("You tell Celyn ward, \"" + privateMessage + "\"\r\n"),
+                        printable(confirmation));
+                assertTrue(delivery.replaceAll("\\s+", " ")
+                        .contains("Arden vale tells you, \"" + privateMessage + "\""), printable(delivery));
+                assertWrappedTelnetText(confirmation, wideWidth);
+                assertWrappedTelnetText(delivery, narrowWidth);
+
+                writeLine(listener, "quit");
+                readUntilSocketClosed(listener);
+            }
+
+            try (Socket listener = connect(worker, relaySecret)) {
+                listener.setSoTimeout(5000);
+                readUntilQuietAfterContains(listener, "Account ID: ");
+                writeLine(listener, "width_listener");
+                readUntilQuietAfterContains(listener, "Password: ");
+                writeLine(listener, "Avelorn1!");
+                String returningLook = readUntilQuietAfterContains(listener, "\r\n> ");
+                assertTrue(returningLook.contains("Welcome back, Celyn ward."), printable(returningLook));
+                assertTrue(returningLook.contains(narrowRuler), printable(returningLook));
+                assertWrappedTelnetText(returningLook, narrowWidth);
             }
         } finally {
             world.shutdown("Test finished.");
@@ -277,10 +368,10 @@ class AvelornTelnetTest {
         assertTelnetText(text);
     }
 
-    private void assertWrappedTelnetText(String text) {
+    private void assertWrappedTelnetText(String text, int width) {
         assertTelnetText(text);
         for (String line : text.split("\r\n", -1)) {
-            assertTrue(line.length() <= 80, printable(text));
+            assertTrue(line.length() <= width, printable(text));
         }
     }
 

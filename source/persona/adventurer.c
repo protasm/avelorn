@@ -42,6 +42,7 @@ nosave int quests_materialized;
 nosave object combat_target;
 int brief_mode;
 int inspect_hints;
+int display_width;
 string saved_place;
 string sanctuary;
 int travel_reserve = 100;
@@ -156,6 +157,7 @@ int restore_account(string requested) {
   password_hash = "";
   character_race = jvmud_invoke_lpc_object("system/races", "default_race");
   snapshot_generation = 0;
+  display_width = 0;
   if (jvmud_restore_lpc_object_state(candidate) && account_created
       && account_id == requested && jvmud_size(password_hash) && valid_class(character_class)) {
     if (!jvmud_size(character_race)) {
@@ -363,6 +365,7 @@ void receive_class(mixed value) {
   introductory_drill_completed = 0;
   brief_mode = 0;
   inspect_hints = 0;
+  display_width = 0;
   saved_place = "";
   sanctuary = "";
   travel_reserve = 100;
@@ -545,6 +548,7 @@ void offer_interactions() {
   jvmud_add_action("look", "exa");
   jvmud_add_action("brief", "brief");
   jvmud_add_action("inspection_hints", "hints");
+  jvmud_add_action("display_width_command", "width");
   jvmud_add_action("score", "score");
   jvmud_add_action("inventory", "inventory");
   jvmud_add_action("inventory", "i");
@@ -622,6 +626,29 @@ int look(mixed target) {
 }
 
 int query_inspect_hints() { return inspect_hints; }
+
+int query_display_width() { return entered_world ? display_width : 0; }
+
+int display_width_command(mixed requested) {
+  int columns;
+  int previous;
+
+  if (requested) {
+    columns = jvmud_to_int(requested);
+    if (!valid_display_width(columns)) {
+      write("Use width <columns> with a number from 20 to 120.\n");
+      return 1;
+    }
+    previous = display_width;
+    display_width = columns;
+    if (!save_character()) {
+      display_width = previous;
+      return 1;
+    }
+  }
+  write("Display width: " + display_width_for(jvmud_current_lpc_object()) + " columns.\n");
+  return 1;
+}
 
 int inspection_hints(mixed requested) {
   string choice;
@@ -2045,9 +2072,17 @@ int is_online_adventurer(object persona) {
       && jvmud_size(jvmud_invoke_lpc_object(persona, "query_class")) > 0;
 }
 
-int help(mixed ignored) {
+int help(mixed topic) {
+  if (topic && jvmud_lowercase_text(topic) == "settings") {
+    write("Display settings:\n");
+    write("  width shows your current display width (default 60).\n");
+    write("  width <columns> sets the ruler and wrapping width from 20 to 120.\n");
+    write("  brief toggles shorter room descriptions on movement.\n");
+    write("  hints on or hints off controls inspectable scenery markers.\n");
+    return 1;
+  }
   write("Avelorn commands:\n");
-  write("  look/examine, north/east/south/west, brief, score, pronouns, who\n");
+  write("  look/examine, north/east/south/west, score, pronouns, who\n");
   write("  say <message>, tell <character> <message>\n");
   write("  inventory, equipment, get, drop, equip, unequip, use\n");
   write("  attack <target> begins timed combat; ability uses a technique\n");
@@ -2056,8 +2091,9 @@ int help(mixed ignored) {
   write("  walk <exits>, flee <exit>, camp, rest, queue, stop\n");
   write("  routes lists departures; board <destination> takes a passage\n");
   write("  trails shows marked walks; notices lists local assignments\n");
-  write("  details lists scenery; hints on marks it in room prose\n");
+  write("  details lists scenery you can examine\n");
   write("  work to take an assignment, report to claim its reward\n");
+  write("  help settings shows display options: width, brief, hints\n");
   return 1;
 }
 

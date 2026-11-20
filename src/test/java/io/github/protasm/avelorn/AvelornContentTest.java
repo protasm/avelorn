@@ -53,7 +53,7 @@ final class AvelornContentTest {
             out.getBuffer().setLength(0);
             send(world, player, writer, "details", "exa lamp", "exa kettle");
             assertTrue(out.toString().contains("Details: lamp, noticeboard."), out.toString());
-            assertTrue(out.toString().contains("scratched initials"), out.toString());
+            assertTrue(out.toString().replaceAll("\\s+", " ").contains("scratched initials"), out.toString());
             assertTrue(out.toString().contains("You do not see that here."), out.toString());
 
             out.getBuffer().setLength(0);

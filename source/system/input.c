@@ -78,7 +78,7 @@ void receive_line(mixed value) {
   if (jvmud_size(line) > 512) {
     if (!client["overflow"]) {
       client["overflow"] = 1;
-      jvmud_write_to_lpc_object(actor, "Commands can contain up to 512 characters.\n");
+      avelorn_write_to(actor, "Commands can contain up to 512 characters.\n");
     }
     return;
   }
@@ -89,7 +89,7 @@ void receive_line(mixed value) {
     jvmud_invoke_lpc_object("system/party", "stop_following", actor, "");
     clear(actor);
     jvmud_invoke_lpc_object("system/travel", "clear", actor);
-    jvmud_write_to_lpc_object(actor, "You stop and clear your queued commands.\n");
+    avelorn_write_to(actor, "You stop and clear your queued commands.\n");
     prompt(actor);
     return;
   }
@@ -106,7 +106,7 @@ void receive_line(mixed value) {
   if (jvmud_size(client["lines"]) >= 16) {
     if (!client["overflow"]) {
       client["overflow"] = 1;
-      jvmud_write_to_lpc_object(actor, "Command queue full. Type stop to clear it.\n");
+      avelorn_write_to(actor, "Command queue full. Type stop to clear it.\n");
     }
     return;
   }
@@ -136,7 +136,7 @@ int drain(object actor) {
       client["lines"] = ({ });
     }
     if (catch(jvmud_dispatch_entity_command(actor, line))) {
-      jvmud_write_to_lpc_object(actor, "That command could not be completed.\n");
+      avelorn_write_to(actor, "That command could not be completed.\n");
     }
   }
   return index > 0;

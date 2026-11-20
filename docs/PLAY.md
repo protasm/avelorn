@@ -10,6 +10,8 @@ You start at the Westwatch Guest-House. Try `look`, `details`, and `exa lamp`. I
 
 `hints on` marks words you can examine. `hints off` returns to plain prose. `brief` makes movement descriptions shorter and still lists inspectable scenery.
 
+`help settings` lists display options. Type `width` to see your current width or `width 70` to set the room ruler and text wrapping to 70 columns. Avelorn starts at 60 columns, accepts widths from 20 to 120, and saves the choice with your character.
+
 ## Useful commands
 
 | Command | Use |
