@@ -97,7 +97,14 @@ string short() {
 }
 
 void describe(object viewer) {
-  write(display_name + " is the " + office + ".\n");
+  string subject_word;
+  string have_word;
+
+  subject_word = jvmud_invoke_lpc_object("system/pronouns", "subject", gender);
+  have_word = jvmud_invoke_lpc_object("system/pronouns", "have_present", gender);
+  write(display_name + " is the " + office + ". ");
+  write(jvmud_capitalize_text(subject_word) + " " + have_word);
+  write(" posted a request for assistance.\n");
   if (jvmud_size(details)) {
     write(details + "\n");
   }

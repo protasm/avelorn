@@ -64,8 +64,11 @@ class AvelornTelnetTest {
                 writeLine(socket, "examine iona");
                 String iona = readUntilQuietAfterContains(socket, "\r\n> ");
                 assertTrue(iona.contains("Iona Venn is the Westwatch guest-house keeper.\r\n"
-                        + "Her second register lists guests who left without naming a destination.\r\n"
-                        + "Type work to accept the assignment or report when it is complete.\r\n"), printable(iona));
+                        + "She has posted a request for assistance.\r\n"
+                        + "Iona keeps a second register of guests who\r\n"
+                        + "leave without saying where they are going.\r\n"
+                        + "Type work to accept the assignment or report when it is complete.\r\n"),
+                        printable(iona));
                 assertTelnetText(iona);
 
                 writeLine(socket, "south");

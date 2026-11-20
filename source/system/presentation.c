@@ -56,12 +56,11 @@ void flush_pending_text() {
 }
 
 void write_complete_line(string line) {
-  string content;
   string prefix;
-  string segment;
-  string wrapped;
+  string *lines;
+  string output;
   int index;
-  int start;
+  int width;
 
   prefix = "";
   index = 0;
@@ -72,25 +71,46 @@ void write_complete_line(string line) {
   if (index == jvmud_size(line)) {
     jvmud_write("\n");
   } else {
-    content = jvmud_extract_text(line, index);
-    wrapped = jvmud_wrap_text(content, 80 - jvmud_size(prefix));
-    start = 0;
+    width = 80 - index;
+    lines = jvmud_split_text(jvmud_wrap_text(jvmud_extract_text(line, index), width), "\n");
+    balance_last_line(lines, width);
+    output = "";
     index = 0;
-    while (index < jvmud_size(wrapped)) {
-      if (wrapped[index] == '\n') {
-        if (index > start) {
-          segment = jvmud_extract_text(wrapped, start, index - 1);
-          jvmud_write(prefix + segment + "\n");
-        } else {
-          jvmud_write("\n");
-        }
-        start = index + 1;
+    // The wrapped text ends with a newline, so the final split field is empty.
+    while (index < jvmud_size(lines) - 1) {
+      if (jvmud_size(lines[index])) {
+        output += prefix + lines[index];
       }
+      output += "\n";
       index += 1;
+    }
+    if (jvmud_size(output)) {
+      jvmud_write(output);
     }
   }
   if (is_room_heading(line)) {
     jvmud_write(room_ruler() + "\n");
+  }
+}
+
+void balance_last_line(string *lines, int width) {
+  string previous;
+  int last;
+  int split;
+
+  last = jvmud_size(lines) - 2;
+  if (last < 1 || jvmud_size(lines[last]) >= width / 4) {
+    return;
+  }
+  // Give a short continuation a fuller line by breaking the last pair near its midpoint.
+  previous = lines[last - 1];
+  split = (jvmud_size(previous) + 1 + jvmud_size(lines[last])) / 2;
+  while (split < jvmud_size(previous) && previous[split] != ' ') {
+    split += 1;
+  }
+  if (split < jvmud_size(previous)) {
+    lines[last] = jvmud_extract_text(previous, split + 1) + " " + lines[last];
+    lines[last - 1] = jvmud_extract_text(previous, 0, split - 1);
   }
 }
 
