@@ -1,5 +1,6 @@
 package io.github.protasm.avelorn;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -59,17 +60,26 @@ class AvelornTelnetTest {
                 String firstLook = readUntilQuietAfterContains(socket, "Exits:");
                 assertTrue(firstLook.contains("Westwatch Guest-House"), printable(firstLook));
                 assertNoTerrainStats(firstLook);
+                assertTrue(firstLook.contains("Westwatch Guest-House\r\n" + "+=========".repeat(8) + "\r\n"),
+                        printable(firstLook));
                 assertTrue(firstLook.contains("find the door.\r\n\r\nThe landing"), printable(firstLook));
 
                 writeLine(socket, "examine iona");
                 String iona = readUntilQuietAfterContains(socket, "\r\n> ");
-                assertTrue(iona.contains("Iona Venn is the Westwatch guest-house keeper.\r\n"
-                        + "She has posted a request for assistance.\r\n"
-                        + "Iona keeps a second register of guests who\r\n"
-                        + "leave without saying where they are going.\r\n"
-                        + "Type work to accept the assignment or report when it is complete.\r\n"),
-                        printable(iona));
-                assertTelnetText(iona);
+                assertWrappedTelnetText(iona);
+                assertFalse(iona.contains("\r\n\r\n"), printable(iona));
+                assertTrue(iona.endsWith("\r\n> "), printable(iona));
+                String prose = iona.substring(0, iona.length() - 2);
+                assertEquals("Iona Venn is the Westwatch guest-house keeper. "
+                                + "She has posted a request for assistance. "
+                                + "Iona keeps a second register of guests who leave without saying where they are going. "
+                                + "Type work to accept the assignment or report when it is complete.",
+                        prose.replaceAll("\\s+", " ").strip(), printable(iona));
+
+                writeLine(socket, "inventory");
+                String inventory = readUntilQuietAfterContains(socket, "\r\n> ");
+                assertTrue(inventory.contains("\r\n  oak focus staff (equipped)\r\n"), printable(inventory));
+                assertWrappedTelnetText(inventory);
 
                 writeLine(socket, "south");
                 String landing = readUntilQuietAfterContains(socket, "Exits:");
@@ -155,6 +165,40 @@ class AvelornTelnetTest {
         }
     }
 
+    @Test
+    void speechWrapsAtTheLastFittingSpaceAndHyphenatesAnUnbrokenWord() throws Exception {
+        Path avelorn = AvelornFixture.copyTo(tempDir.resolve("avelorn"));
+        MudInstance world = MudInstance.boot(avelorn, AvelornFixture.CONFIG_PATH);
+        String relaySecret = "avelorn-wrap-fixture";
+        try (TelnetServer worker = new TelnetServer(world, relaySecret)) {
+            world.startExecution();
+            worker.start();
+            try (Socket speaker = connect(worker, relaySecret);
+                    Socket listener = connect(worker, relaySecret)) {
+                createRanger(speaker, "wrap_speaker", "Arden Vale");
+                createRanger(listener, "wrap_listener", "Celyn Ward");
+
+                String fitting = "a".repeat(65) + " bbbb";
+                writeLine(speaker, "say " + fitting + " tail");
+                String greedy = readUntilQuietAfterContains(speaker, "\r\n> ");
+                assertTrue(greedy.contains("You say, \"" + fitting + "\r\ntail\"\r\n"), printable(greedy));
+                assertWrappedTelnetText(greedy);
+                assertWrappedTelnetText(readUntilQuietAfterContains(listener, "tail\"\r\n"));
+
+                String hyphenated = "x".repeat(79) + "-\r\nxx\"\r\n";
+                writeLine(speaker, "say ready " + "x".repeat(81));
+                String self = readUntilQuietAfterContains(speaker, "\r\n> ");
+                String broadcast = readUntilQuietAfterContains(listener, "xx\"\r\n");
+                assertTrue(self.contains("You say, \"ready\r\n" + hyphenated), printable(self));
+                assertTrue(broadcast.contains("Arden vale says, \"ready\r\n" + hyphenated), printable(broadcast));
+                assertWrappedTelnetText(self);
+                assertWrappedTelnetText(broadcast);
+            }
+        } finally {
+            world.shutdown("Test finished.");
+        }
+    }
+
     private void createRanger(Socket socket, String account, String name) throws Exception {
         socket.setSoTimeout(10_000);
         readUntilQuietAfterContains(socket, "Account ID: ");
@@ -231,6 +275,13 @@ class AvelornTelnetTest {
         assertFalse(text.contains("Terrain:"), printable(text));
         assertFalse(text.contains("Elevation:"), printable(text));
         assertTelnetText(text);
+    }
+
+    private void assertWrappedTelnetText(String text) {
+        assertTelnetText(text);
+        for (String line : text.split("\r\n", -1)) {
+            assertTrue(line.length() <= 80, printable(text));
+        }
     }
 
     private void assertTelnetText(String text) {

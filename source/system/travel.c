@@ -106,11 +106,11 @@ int enqueue(object actor, string direction, int requested) {
     return 0;
   }
   if (jvmud_invoke_lpc_object(actor, "query_travel_blocked")) {
-    jvmud_write_to_lpc_object(actor, "You cannot walk right now.\n");
+    avelorn_write_to(actor, "You cannot walk right now.\n");
     return 0;
   }
   if (!jvmud_size(direction) || requested < 1 || requested > 8) {
-    jvmud_write_to_lpc_object(actor, "Choose a direction and up to eight steps.\n");
+    avelorn_write_to(actor, "Choose a direction and up to eight steps.\n");
     return 0;
   }
   jvmud_invoke_lpc_object("system/party", "stop_following", actor, "");
@@ -118,13 +118,13 @@ int enqueue(object actor, string direction, int requested) {
   if (jvmud_size(state["steps"]) + requested > 8) {
     if (!state["overflow"]) {
       state["overflow"] = 1;
-      jvmud_write_to_lpc_object(actor, "Movement queue full. Type stop to clear it.\n");
+      avelorn_write_to(actor, "Movement queue full. Type stop to clear it.\n");
     }
     return 0;
   }
   if (state["camp_ticks"]) {
     clear(actor);
-    jvmud_write_to_lpc_object(actor, "You break camp and prepare to move.\n");
+    avelorn_write_to(actor, "You break camp and prepare to move.\n");
   }
   for (index = 0; index < requested; index++) {
     state["steps"] = state["steps"] + ({ direction });
@@ -141,26 +141,26 @@ int camp(object actor) {
   }
   place = jvmud_entity_location(actor);
   if (jvmud_invoke_lpc_object(actor, "query_travel_blocked")) {
-    jvmud_write_to_lpc_object(actor, "You cannot make camp right now.\n");
+    avelorn_write_to(actor, "You cannot make camp right now.\n");
     return 0;
   }
   if (!place || !jvmud_method_exists("query_wilderness", place)
       || !jvmud_invoke_lpc_object(place, "query_wilderness")) {
-    jvmud_write_to_lpc_object(actor, "Make camp in the wilderness. Seek shelter here.\n");
+    avelorn_write_to(actor, "Make camp in the wilderness. Seek shelter here.\n");
     return 0;
   }
   if (jvmud_invoke_lpc_object(actor, "query_travel_reserve") >= 100) {
-    jvmud_write_to_lpc_object(actor, "Your travel reserve is already full.\n");
+    avelorn_write_to(actor, "Your travel reserve is already full.\n");
     return 0;
   }
   if (jvmud_method_exists("query_has_travel_ration", actor)
       && !jvmud_invoke_lpc_object(actor, "query_has_travel_ration")) {
-    jvmud_write_to_lpc_object(actor, "You need a ration to make camp.\n");
+    avelorn_write_to(actor, "You need a ration to make camp.\n");
     return 0;
   }
   state = travel_state(actor);
   if (state["camp_ticks"]) {
-    jvmud_write_to_lpc_object(actor, "You are already making camp.\n");
+    avelorn_write_to(actor, "You are already making camp.\n");
     return 0;
   }
   jvmud_invoke_lpc_object("system/party", "stop_following", actor, "");
@@ -168,7 +168,7 @@ int camp(object actor) {
   state["camp_place"] = place;
   // The travel tick runs after the command tick that starts camp.
   state["camp_ticks"] = 16;
-  jvmud_write_to_lpc_object(actor, "You make camp. Rest here for fifteen seconds.\n");
+  avelorn_write_to(actor, "You make camp. Rest here for fifteen seconds.\n");
   return 1;
 }
 
@@ -239,9 +239,9 @@ int drain(object actor) {
     if (!jvmud_is_mapping(edge)) {
       clear(actor);
       if (jvmud_is_string(edge)) {
-        jvmud_write_to_lpc_object(actor, edge + "\n");
+        avelorn_write_to(actor, edge + "\n");
       } else {
-        jvmud_write_to_lpc_object(actor, "You cannot go " + direction + " from here.\n");
+        avelorn_write_to(actor, "You cannot go " + direction + " from here.\n");
       }
       return 1;
     }
@@ -263,7 +263,7 @@ int drain(object actor) {
         || !success) {
       if (jvmud_is_mapping(intent)) { return lose_trail(actor); }
       clear(actor);
-      jvmud_write_to_lpc_object(actor, "You cannot complete that move.\n");
+      avelorn_write_to(actor, "You cannot complete that move.\n");
       return 1;
     }
     if (cost > 0) {
@@ -271,9 +271,9 @@ int drain(object actor) {
       if (reserve > 0) {
         remaining = jvmud_invoke_lpc_object(actor, "adjust_travel_reserve", -cost);
         if (remaining <= 0) {
-          jvmud_write_to_lpc_object(actor, "You are exhausted. Wilderness travel will be slower.\n");
+          avelorn_write_to(actor, "You are exhausted. Wilderness travel will be slower.\n");
         } else if (reserve > 25 && remaining <= 25) {
-          jvmud_write_to_lpc_object(actor, "Your travel reserve is low. Consider making camp.\n");
+          avelorn_write_to(actor, "Your travel reserve is low. Consider making camp.\n");
         }
         reserve = remaining;
       }
@@ -300,7 +300,7 @@ int advance_camp(object actor, mapping state) {
   if (jvmud_entity_location(actor) != state["camp_place"]
       || jvmud_invoke_lpc_object(actor, "query_travel_blocked")) {
     clear(actor);
-    jvmud_write_to_lpc_object(actor, "Your rest is interrupted.\n");
+    avelorn_write_to(actor, "Your rest is interrupted.\n");
     return 1;
   }
   state["camp_ticks"] -= 1;
@@ -309,7 +309,7 @@ int advance_camp(object actor, mapping state) {
   }
   state["camp_place"] = 0;
   if (catch(jvmud_invoke_lpc_object(actor, "complete_travel_camp"))) {
-    jvmud_write_to_lpc_object(actor, "You could not finish making camp.\n");
+    avelorn_write_to(actor, "You could not finish making camp.\n");
   }
   return 1;
 }

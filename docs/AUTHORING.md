@@ -44,7 +44,7 @@ mapping definition() {
 
 ## Write the room and its scenery
 
-Give the room one or two short paragraphs. Weave an inspectable label such as `[cleat]` into the sentence, and supply a corresponding key in `details`. Use concise lowercase labels, one occurrence per label, and match every marker with exactly one examination response. Give readers a fresh observation or a clue to a local action. Players see plain prose by default. They can type `details`, `look cleat`, or `exa cleat` in either hint mode. `hints on` shows brackets and `hints off` hides them. The setting persists, and brief mode keeps a compact list of details.
+Give the room one or two short paragraphs. Write the prose continuously and use `\n\n` between paragraphs. Avelorn wraps the text to the 80-column ruler at display time. Weave an inspectable label such as `[cleat]` into the sentence, and supply a corresponding key in `details`. Use concise lowercase labels, one occurrence per label, and match every marker with exactly one examination response. Give readers a fresh observation or a clue to a local action. Players see plain prose by default. They can type `details`, `look cleat`, or `exa cleat` in either hint mode. `hints on` shows brackets and `hints off` hides them. The setting persists, and brief mode keeps a compact list of details.
 
 Use the same `environment` as the area index. `wilderness` applies the travel governor and reserve cost where applicable. Use the room's `services` list for existing features such as `rest`, `market`, `training`, `noticeboard`, and `transit`. Set `safe` to `1` for a recovery room with `rest`. For a locality's entrance, use an `out` exit to its anchor. The atlas square automatically offers `enter`.
 

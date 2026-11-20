@@ -30,7 +30,7 @@ string name(object actor) {
 }
 
 void tell(object actor, string message) {
-  jvmud_write_to_lpc_object(actor, message + "\n");
+  avelorn_write_to(actor, message + "\n");
 }
 
 void announce(mixed *members, string message) {

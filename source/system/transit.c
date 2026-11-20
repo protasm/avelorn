@@ -66,7 +66,7 @@ int list_routes(object actor) {
 
   travel_status = status(actor);
   if (jvmud_size(travel_status)) {
-    jvmud_write_to_lpc_object(actor, travel_status + "\n");
+    avelorn_write_to(actor, travel_status + "\n");
     return 1;
   }
   current_terminal = terminal(actor);
@@ -83,10 +83,10 @@ int list_routes(object actor) {
     }
   }
   if (jvmud_size(listing)) {
-    jvmud_write_to_lpc_object(actor, "Departures:\n" + listing
+    avelorn_write_to(actor, "Departures:\n" + listing
         + "Use board <destination> or board <route id>.\n");
   } else {
-    jvmud_write_to_lpc_object(actor, "There are no departures from here.\n");
+    avelorn_write_to(actor, "There are no departures from here.\n");
   }
   return 1;
 }
@@ -128,20 +128,20 @@ int board(object actor, mixed request) {
     return list_routes(actor);
   }
   if (jvmud_invoke_lpc_object(actor, "query_travel_blocked")) {
-    jvmud_write_to_lpc_object(actor, "You cannot board right now.\n");
+    avelorn_write_to(actor, "You cannot board right now.\n");
     return 1;
   }
 
   routes = jvmud_invoke_lpc_object("system/world", "section", "routes");
   id = route_from(routes, terminal(actor), name);
   if (!jvmud_size(id)) {
-    jvmud_write_to_lpc_object(actor, "No single departure matches. Use routes to see your options.\n");
+    avelorn_write_to(actor, "No single departure matches. Use routes to see your options.\n");
     return 1;
   }
   route = routes[id];
   if (route["duration"] <= 0 || route["fare"] < 0
       || !jvmud_invoke_lpc_object("system/world", "valid_place", route["to"])) {
-    jvmud_write_to_lpc_object(actor, "That passage is temporarily unavailable.\n");
+    avelorn_write_to(actor, "That passage is temporarily unavailable.\n");
     return 1;
   }
   if (!jvmud_invoke_lpc_object(actor, "begin_transit", id, route["to"],
@@ -153,11 +153,11 @@ int board(object actor, mixed request) {
   jvmud_invoke_lpc_object("system/party", "stop_following", actor, "");
   jvmud_invoke_lpc_object("system/input", "clear", actor);
   jvmud_invoke_lpc_object("system/travel", "clear", actor);
-  jvmud_write_to_lpc_object(actor, "You board " + route["name"] + " for "
+  avelorn_write_to(actor, "You board " + route["name"] + " for "
       + destination_name(route["to"]) + ".\n");
   description = route["description"];
   if (jvmud_size(description)) {
-    jvmud_write_to_lpc_object(actor, description + "\n");
+    avelorn_write_to(actor, description + "\n");
   }
   jvmud_dispatch_entity_command(actor, "look");
   return 1;
@@ -180,7 +180,7 @@ int tick(object actor) {
   }
   jvmud_invoke_lpc_object("system/input", "clear", actor);
   jvmud_invoke_lpc_object("system/travel", "clear", actor);
-  jvmud_write_to_lpc_object(actor, "You arrive at " + destination_name(destination) + ".\n");
+  avelorn_write_to(actor, "You arrive at " + destination_name(destination) + ".\n");
   jvmud_dispatch_entity_command(actor, "look");
   return 1;
 }
