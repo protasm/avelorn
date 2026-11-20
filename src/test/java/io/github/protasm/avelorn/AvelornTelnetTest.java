@@ -59,6 +59,14 @@ class AvelornTelnetTest {
                 String firstLook = readUntilQuietAfterContains(socket, "Exits:");
                 assertTrue(firstLook.contains("Westwatch Guest-House"), printable(firstLook));
                 assertNoTerrainStats(firstLook);
+                assertTrue(firstLook.contains("find the door.\r\n\r\nThe landing"), printable(firstLook));
+
+                writeLine(socket, "examine iona");
+                String iona = readUntilQuietAfterContains(socket, "\r\n> ");
+                assertTrue(iona.contains("Iona Venn is the Westwatch guest-house keeper.\r\n"
+                        + "Her second register lists guests who left without naming a destination.\r\n"
+                        + "Type work to accept the assignment or report when it is complete.\r\n"), printable(iona));
+                assertTelnetText(iona);
 
                 writeLine(socket, "south");
                 String landing = readUntilQuietAfterContains(socket, "Exits:");
