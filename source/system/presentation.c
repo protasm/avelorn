@@ -59,7 +59,7 @@ void avelorn_prompt(mixed value) {
     jvmud_write(complete_text(pending_text, columns));
     pending_text = "";
   }
-  jvmud_write(format_text(value, columns));
+  jvmud_write(format_output(value, columns));
 }
 
 void avelorn_write_to(object target, mixed value) {
@@ -91,7 +91,7 @@ void emit_to_room(object place, mixed value, object source, object excluded) {
 }
 
 void write_complete_line(string line, object viewer, int columns) {
-  jvmud_write(format_line(line, columns) + "\n");
+  jvmud_write(format_output(line, columns) + "\n");
   if (is_room_heading(line, viewer)) {
     jvmud_write(room_ruler(columns) + "\n");
   }
@@ -101,7 +101,7 @@ string complete_text(mixed value, int columns) {
   string output;
   int length;
 
-  output = format_text(value, columns);
+  output = format_output(value, columns);
   length = jvmud_size(output);
   if (length && output[length - 1] != '\n') {
     output += "\n";
@@ -109,88 +109,22 @@ string complete_text(mixed value, int columns) {
   return output;
 }
 
+string format_output(mixed value, int columns) {
+  string text;
+
+  text = jvmud_to_string(value);
+  // Expand escaped tabs before the driver measures the text.
+  if (jvmud_member(text, "\\t") >= 0) {
+    text = jvmud_regex_replace(text, "\\\\t", "    ", 1);
+  }
+  return jvmud_wrap_text(text, columns, 1);
+}
+
 string normalize_newlines(string text) {
   if (jvmud_member(text, '\r') >= 0) {
     return jvmud_regex_replace(text, "\r\n?", "\n", 1);
   }
   return text;
-}
-
-string format_text(mixed value, int columns) {
-  string *lines;
-  string output;
-  int index;
-
-  lines = jvmud_split_text(normalize_newlines(jvmud_to_string(value)), "\n");
-  output = format_line(lines[0], columns);
-  for (index = 1; index < jvmud_size(lines); index += 1) {
-    output += "\n" + format_line(lines[index], columns);
-  }
-  return output;
-}
-
-string format_line(string line, int columns) {
-  string indent;
-  string output;
-  string hyphen;
-  int length;
-  int indent_width;
-  int width;
-  int start;
-  int split;
-  int next;
-
-  if (jvmud_member(line, '\t') >= 0 || jvmud_member(line, "\\t") >= 0) {
-    line = jvmud_regex_replace(line, "\\\\t|\t", "    ", 1);
-  }
-  length = jvmud_size(line);
-  if (length <= columns) {
-    return line;
-  }
-
-  start = 0;
-  while (start < length && line[start] == ' ') {
-    start += 1;
-  }
-  // Leave room for a character pair and a hyphen even with extreme indentation.
-  indent_width = start < columns - 3 ? start : columns - 3;
-  indent = indent_width ? jvmud_extract_text(line, 0, indent_width - 1) : "";
-  width = columns - indent_width;
-  output = "";
-  while (length - start > width) {
-    split = start + width;
-    while (split > start && line[split] != ' '
-        && (split <= start + 1 || (line[split - 1] != '-' && line[split - 1] != '/'))) {
-      split -= 1;
-    }
-    hyphen = "";
-    if (split == start) {
-      split = start + width - 1;
-      // A forced split must not bisect a UTF-16 surrogate pair.
-      if (line[split] >= 56320 && line[split] <= 57343) {
-        split -= 1;
-      }
-      next = split;
-      hyphen = "-";
-    } else {
-      next = split;
-      while (next < length && line[next] == ' ') {
-        next += 1;
-      }
-      while (line[split - 1] == ' ') {
-        split -= 1;
-      }
-    }
-    output += indent + jvmud_extract_text(line, start, split - 1) + hyphen;
-    start = next;
-    if (start < length) {
-      output += "\n";
-    }
-  }
-  if (start < length) {
-    output += indent + jvmud_extract_text(line, start);
-  }
-  return output;
 }
 
 string room_ruler(int columns) {

@@ -9,7 +9,7 @@ The same world serves solo adventurers and groups of up to four. Fighters, Range
 - [Player quickstart](docs/PLAY.md)
 - [Private staging, backup, and deployment](docs/OPERATIONS.md)
 
-Install the pinned JVMud engine from a sibling checkout. Set `JVMUD_ROOT` if the sibling is elsewhere. Use JDK 21 or newer and Maven.
+Install the pinned JVMud engine from a sibling checkout. Set `JVMUD_ROOT` if the sibling is elsewhere. Use JDK 25 or newer and Maven.
 
 ```sh
 scripts/avelorn-install-jvmud

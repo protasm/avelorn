@@ -2,14 +2,14 @@
 
 ## Build a release bundle
 
-Use JDK 21 or newer, Maven, Git, and a JVMud checkout containing the pinned revision. From the Avelorn checkout, install the pinned runtime and package a committed candidate into a new directory.
+Use JDK 25 or newer, Maven, Git, and a JVMud checkout containing the pinned revision. From the Avelorn checkout, install the pinned runtime and package a committed candidate into a new directory.
 
 ```sh
 scripts/avelorn-install-jvmud
 scripts/avelorn-package /tmp/avelorn-candidate <git-revision>
 ```
 
-The bundle contains its commit ID in `RELEASE`, the mudlib, frozen runtime atlas data, JVMud and its runtime dependencies, and the staging tools. The packager reads the commit directly. The bundle can run on a host with a JDK and OpenSSL. Keep the bundle and the writable stage directory separate.
+The bundle contains its commit ID in `RELEASE`, the mudlib, frozen runtime atlas data, JVMud and its runtime dependencies, and the staging tools. The packager reads the commit directly. The bundle can run on a host with JDK 25 or newer and OpenSSL. Keep the bundle and the writable stage directory separate.
 
 ## Run the staged worker
 
