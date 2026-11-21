@@ -1,3 +1,5 @@
+#include "command_messages.h"
+
 nosave mapping data;
 nosave string area_name;
 nosave string area_id;
@@ -128,9 +130,10 @@ int has_service(string name) {
 }
 
 int queue_exit(mixed ignored) {
-  return jvmud_invoke_lpc_object("system/travel", "enqueue",
+  jvmud_invoke_lpc_object("system/travel", "enqueue",
       jvmud_current_actor(),
       jvmud_invoke_lpc_object("system/world", "direction_name", jvmud_current_verb()), 1);
+  return 1;
 }
 
 mixed query_travel_step(string direction) {
@@ -140,7 +143,7 @@ mixed query_travel_step(string direction) {
 
   destination = data["exits"][direction];
   if (!destination) {
-    return "There is no exit that way.";
+    return INVALID_MOVEMENT_MESSAGE;
   }
   destination_wilderness = jvmud_invoke_lpc_object("system/world", "wilderness", destination);
   wilderness = query_wilderness() || destination_wilderness;

@@ -12,7 +12,7 @@
   <properties>
     <maven.compiler.release>25</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jvmud.version>0.1.0-preview.10-736ba83c</jvmud.version>
+    <jvmud.version>0.1.0-preview.10-f935e378</jvmud.version>
     <junit.version>5.11.4</junit.version>
   </properties>
 

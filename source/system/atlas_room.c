@@ -1,3 +1,5 @@
+#include "command_messages.h"
+
 int atlas_x;
 int atlas_y;
 int elevation_m;
@@ -606,7 +608,7 @@ mixed query_travel_step(string direction) {
   if (direction == "enter") {
     destination = atlas_entrance();
     if (!destination) {
-      return "There is nothing to enter here.";
+      return INVALID_MOVEMENT_MESSAGE;
     }
     return ([
       "destination": destination,
@@ -620,7 +622,7 @@ mixed query_travel_step(string direction) {
   else if (direction == "east") { destination_x += 1; }
   else if (direction == "south") { destination_y -= 1; }
   else if (direction == "west") { destination_x -= 1; }
-  else { return "There is no exit that way."; }
+  else { return INVALID_MOVEMENT_MESSAGE; }
   result = jvmud_invoke_lpc_object(
       "system/atlas",
       "walking_result",

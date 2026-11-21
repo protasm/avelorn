@@ -42,6 +42,49 @@ class AvelornTravelTest {
     }
 
     @Test
+    void reportsUnknownCommandsAndUnavailableMovementAtThePrompt() throws Exception {
+        startWorld(AvelornFixture.copyTo(tempDir.resolve("avelorn")));
+        Client traveler = create("travel_feedback", "Arden Vale");
+
+        send(traveler, "   ");
+        assertEquals("> ", traveler.read());
+
+        send(traveler, "unrecognized north", "n", "out", "walk north");
+        world.advanceWorldTick();
+        String feedback = traveler.read();
+        assertEquals("What?\nYou can't go that way.\nYou can't go that way.\n"
+                + "You can't go that way.\n> ", feedback);
+        assertEquals(GUEST_HOUSE, room(traveler));
+
+        world.administer(runtime -> {
+            Object persona = traveler.session().personaObject();
+            assertEquals(0, runtime.dispatchCommand(persona, "unrecognized north"));
+            assertEquals(0, runtime.dispatchCommand(persona, "n"));
+            return null;
+        });
+        assertEquals("", traveler.read());
+
+        send(traveler, "s");
+        world.advanceWorldTick();
+        assertTrue(traveler.read().contains("Westwatch Landing"));
+        assertEquals(LANDING, room(traveler));
+    }
+
+    @Test
+    void queuedCommandsUseTheConfiguredDriverDefaultUnlessMovementOverridesIt() throws Exception {
+        Path fixture = AvelornFixture.copyTo(tempDir.resolve("avelorn"));
+        Path config = fixture.resolve(AvelornFixture.CONFIG_PATH);
+        Files.writeString(config, Files.readString(config)
+                + "\ncommand_actions.failure_message = Try another command.\n");
+        startWorld(fixture);
+        Client traveler = create("travel_feedback", "Arden Vale");
+
+        send(traveler, "unrecognized north", "n");
+        world.advanceWorldTick();
+        assertEquals("Try another command.\nYou can't go that way.\n> ", traveler.read());
+    }
+
+    @Test
     void batchesSettledMovementAndChargesOnlySuccessfulWildernessSteps() throws Exception {
         startWorld(AvelornFixture.copyTo(tempDir.resolve("avelorn")));
         Client traveler = create("travel_walk", "Arden Vale");

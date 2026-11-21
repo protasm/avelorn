@@ -4,9 +4,9 @@ set -eu
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 AVELORN_ROOT=$(dirname -- "$SCRIPT_DIR")
 PARENT_DIR=$(dirname -- "$AVELORN_ROOT")
-JVMUD_REVISION=736ba83c2365cf64095e2b7377a7e2f0570c01b6
+JVMUD_REVISION=f935e378f9da0543cfb2feb18700790dd1a3f2df
 JVMUD_UPSTREAM_VERSION=0.1.0-preview.10
-JVMUD_PINNED_VERSION=0.1.0-preview.10-736ba83c
+JVMUD_PINNED_VERSION=0.1.0-preview.10-f935e378
 
 if [ -z "${JVMUD_ROOT:-}" ]; then
   JVMUD_ROOT="$PARENT_DIR/io.github.protasm.jvmud"

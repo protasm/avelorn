@@ -1,3 +1,5 @@
+#include "command_messages.h"
+
 // Capturing in a shared service keeps authenticated Personas visible to JVMud's users().
 nosave mapping clients;
 
@@ -96,7 +98,7 @@ void receive_line(mixed value) {
   if (control == "quit") {
     clear(actor);
     jvmud_invoke_lpc_object("system/travel", "clear", actor);
-    jvmud_dispatch_entity_command(actor, "quit");
+    jvmud_dispatch_player_command(actor, "quit");
     return;
   }
   if (!jvmud_size(line)) {
@@ -111,6 +113,18 @@ void receive_line(mixed value) {
     return;
   }
   client["lines"] = client["lines"] + ({ line });
+}
+
+int notify_unhandled_movement() {
+  if (jvmud_member(({
+      "north", "n", "east", "e", "south", "s", "west", "w",
+      "northeast", "ne", "southeast", "se", "southwest", "sw", "northwest", "nw",
+      "up", "u", "down", "d", "in", "enter", "out"
+  }), jvmud_current_verb()) >= 0) {
+    return jvmud_notify_fail(complete_text(
+        INVALID_MOVEMENT_MESSAGE, display_width_for(jvmud_current_actor())));
+  }
+  return 0;
 }
 
 int drain(object actor) {
@@ -135,7 +149,7 @@ int drain(object actor) {
     } else {
       client["lines"] = ({ });
     }
-    if (catch(jvmud_dispatch_entity_command(actor, line))) {
+    if (catch(jvmud_dispatch_player_command(actor, line, #'notify_unhandled_movement))) {
       avelorn_write_to(actor, "That command could not be completed.\n");
     }
   }

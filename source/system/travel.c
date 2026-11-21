@@ -1,3 +1,5 @@
+#include "command_messages.h"
+
 // Both movement and camping use world ticks, so neither can bank time while idle.
 nosave mapping travelers;
 
@@ -241,7 +243,7 @@ int drain(object actor) {
       if (jvmud_is_string(edge)) {
         avelorn_write_to(actor, edge + "\n");
       } else {
-        avelorn_write_to(actor, "You cannot go " + direction + " from here.\n");
+        avelorn_write_to(actor, INVALID_MOVEMENT_MESSAGE + "\n");
       }
       return 1;
     }
